@@ -2,8 +2,6 @@
 The official website of Holy Child Montessori School of Excellence.
 
 ## Notes
-- This is GitHub Repository is made for the future development of the frontend school website.
+- This is GitHub Repository is made for the future development of the frontend and backend school webapp.
 
-## For developer
-- This is hosted with Firebase
-- Deploy with ```$ firebase deploy```. Make sure you are logged in to your developer account.
+- Do not store any personal data on this repository.
