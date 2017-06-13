@@ -21,14 +21,9 @@ if(empty($_GET['from'])){
 		<?php
 			include("../../_system/styles.php");
 		?>
-		<style>
-			nav{
-				background-color: seagreen;
-			}
-		</style>
 	</head>
 	<body>
-		<nav class="navbar">
+		<nav class="navbar <?=$primary_color?>">
 			<a class="title"><?=$activity_title?></a>
 			<a href="<?=$from?>" class="button-collapse show-on-large"><i class="material-icons">arrow_back</i></a>
 		</nav>

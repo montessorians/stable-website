@@ -17,6 +17,6 @@ $site_title = "Holy Child Montessori";
 // Site Versioning Settings
 $hcm_version_no = "1.00";
 $hcm_version_release = "Public";
-$hcm_version_date = "June 2017 (Week 2)";
+$hcm_version_date = "June 2017 (Week 3)";
 
 ?>
