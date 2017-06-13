@@ -45,7 +45,7 @@ foreach($admin_array as $admin){
                          </div>
                          </a>
                          </div>
-                         <div class='modal' id='card$admin_id'>
+                         <div class='modal modal-fixed-footer' id='card$admin_id'>
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>

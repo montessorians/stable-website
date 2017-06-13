@@ -20,7 +20,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
     <div class="nav-content">
 					<ul class="tabs tabs-transparent">
 						<li class="tab"><a href="#home"><i class="material-icons">home</i></a></li>
-						<li class="tab"><a href="#children"><i class="material-icons">group</i></a></li>
+						<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
 						<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
 						<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
 					</ul>
@@ -31,7 +31,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
      	<div class="indeterminate green"></div>
   		</div>
   </div>
-  <div class="col s12" id="children">
+  <div class="col s12" id="people">
   		<div class="progress green lighten-4">
      	<div class="indeterminate green"></div>
   		</div>
@@ -58,7 +58,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <script type="text/javascript">
 	$(document).ready(function(){
 		setTitle();
-		home(); children(); assessment(); me(); notif();
+		home(); people(); assessment(); me(); notif();
 		$('.modal').modal();
 		$('ul.tabs').tabs({swipeable:false});
 		$(document).ready(function(){ $('.tooltipped').tooltip({delay: 50}); });
@@ -88,14 +88,14 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 		}).fail(function(){$("#home").html(error);});
 	}
 
-	function children(){
+	function people(){
 		$.ajax({
 			type: 'GET',
-			url: '_contents/parent/children.php',
+			url: '_contents/parent/people.php',
 			success: function(result){
-				$("#children").html(result);
+				$("#people").html(result);
 			}
-		}).fail(function(){$("#children").html(error);});
+		}).fail(function(){$("#people").html(error);});
 	}
 
 	function assessment(){

@@ -59,7 +59,7 @@ $teacher_array = array();
                          </div>
                          </a>
                          </div>
-                         <div class='modal' id='card$teacher_id'>
+                         <div class='modal modal-fixed-footer' id='card$teacher_id'>
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>
@@ -141,7 +141,7 @@ $noclass_card = "
                          </div>
                          </a>
                          </div>
-                         <div class='modal' id='card$parent_id'>
+                         <div class='modal modal-fixed-footer' id='card$parent_id'>
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>
@@ -227,7 +227,7 @@ if(empty($admin_array)){
                          </div>
                          </a>
                          </div>
-                         <div class='modal' id='card$admin_id'>
+                         <div class='modal modal-fixed-footer' id='card$admin_id'>
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>
