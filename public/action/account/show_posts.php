@@ -114,12 +114,12 @@ if(empty($array)){
 					echo "
 				</div>
 				";
-			
+		echo "<div class='card-action'>
+			<a href='#comment$post_id' id='button$post_id' class='grey-text'><i class='material-icons'>comment</i></a>
+		";
 		$sh = "
-			<div class='card-action'>
-				<a href='action/account/delete_post.php?post_id=$post_id' class='red-text'>Delete</a>
-			</div>
-		";	
+			<a href='action/account/delete_post.php?post_id=$post_id' class='red-text'><i class='material-icons'>delete</i></a>
+		"; 
 			
 		if($_SESSION['account_type'] == "admin"){
 			echo $sh;
@@ -130,15 +130,95 @@ if(empty($array)){
 				
 			}
 		}
-			
+		echo "</div>";// Card Action
 			echo "</div></div>";
 		}
 	}
-	
-	echo "</div>";
+
+	echo "</div>
+	<div class='modal modal-fixed-footer grey-lighten-4' id='comment$post_id'>
+	<div class='modal-content'>
+	<div class='card'>
+	<div class='card-content'>
+		<p><strong><font size='4pt'>$post_title</font></strong></p><br>
+		<p>$post_content</p><br>
+		<p><font class='grey-text' size='-1'>$first_name $last_name $suffix_name - $create_month $create_day $create_year $create_time</font></p>
+	</div></div>
+	<br>
+	<h5 class='grey-text'>Comments</h5>
+	<div class='row'>
+	<div class='input-field col s8'>
+		<input type='text' id='commentfield$post_id'>
+		<label for='commentfield$post_id'>Add a Comment</label>
+	</div>
+	<div class='input-field col s4'>
+		<button class='btn btn-large seagreen' id='commentbutton$post_id'>Comment</button>
+	</div>
+	</div>
+	<div id='commentbox$post_id'></div>
+	";
+
+	echo "</div>
+	<div class='modal-footer'>
+		<a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
+	</div>
+	</div>
+	<script type='text/javascript'>
+		$('#button$post_id').click(function(){
+			fetchComment$post_id();
+		});
+
+		$('#commentbutton$post_id').click(function(){
+			sendComment$post_id();
+		});
+
+		function fetchComment$post_id(){
+			$.ajax({
+				type:'POST',
+				url:'action/feed/show_comments.php',
+				data: {
+					post_id: '$post_id'
+				},
+				cache: 'false',
+				success: function(result){
+					$('#commentbox$post_id').html(result);
+				}
+			}).fail(function(){
+				$('#commentbox$post_id').html('Error');
+			});
+		}
+
+		function sendComment$post_id(){
+			var cb = $('#commentfield$post_id').val();
+			if(!cb){
+				Materialize.toast('Comment cannot be empty',3000);
+			} else {
+				$.ajax({
+					type:'POST',
+					url: 'action/feed/addcomment.php',
+					cache: 'false',
+					data: {
+						post_id: '$post_id',
+						comment_body: cb
+					},
+					success: function(result){
+						Materialize.toast(result,3000);
+						fetchComment$post_id();
+					}
+				}).fail(function(){
+					Materialize.toast('Error posting comment. Try again.',3000);
+				});
+			}
+		}
+	</script>
+	";//footer
 }
 ?>
 <script type="text/javascript">
 window.sr = ScrollReveal();
 sr.reveal('.reveal', {reset: false});
+
+$(document).ready(function(){
+    $('.modal').modal();
+});
 </script>
