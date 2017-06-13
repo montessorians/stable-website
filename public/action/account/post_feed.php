@@ -7,7 +7,7 @@ include("../../_system/database/db.php");
 
 $db_post = new DBase("post", "../../_store");
 
-$post_id = rand(1000000000,9999999999);
+$post_id = uniqid();
 $user_id = $_SESSION['user_id'];
 $post_title = $_POST['post_title'];
 $post_content = $_POST['post_content'];

@@ -1,7 +1,11 @@
 <?php
+	// Start Session
 	session_start();
+	// Include Secure File & Database
 	include("../../_system/secure.php");
 	include("../../_system/database/db.php");
+
+	// Check for from attribs
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -10,12 +14,15 @@
 		}} else {
 		$from = $_GET['from'];
 	}
+
+	// Recheck auth to prevent unauth actions
 	if($_SESSION['account_type'] == "admin"){} else {
 		if($_SESSION['account_type'] == "developer"){} else {
 				header("Location: $from");
 		}
 	}
-	
+
+	// Handle all data sent (POST)
 	$account_type = $_POST['account_type'];
 	$first_name = $_POST['first_name'];
 	$middle_name = $_POST['middle_name'];
@@ -34,6 +41,8 @@
 	$email = $_POST['email'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+
+	// Password Check
 	if(strlen($password) < 8){
 		echo "Password too short";
 	} else {
@@ -46,6 +55,7 @@
 	$create_hour = date("H");
 	$create_minute = date("i");
 
+	// Create object for all database
 	$db_account = new DBase("account","../../_store");
 	$db_ecash = new DBase("ecash","../../_store");
 	$db_student = new DBase("student","../../_store");
@@ -55,6 +65,7 @@
 	$db_staff = new DBase("staff","../../_store");
 	$db_developer = new DBase("developer","../../_store");
 	
+	// Check for username
 	$username_check = $db_account->get("username", "username", "$username");
 	if(empty($username_check)){
 		if(empty($account_type)){

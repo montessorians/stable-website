@@ -18,7 +18,7 @@ if(empty($_SESSION['logged_in'])){
 
 // Handle Post Data
 $post_id = $_REQUEST['post_id'];
-$comment_body = $_REQUEST['comment_body'];
+$comment_body = strip_tags($_REQUEST['comment_body']);
 
 // Check if Post ID is null
 if(empty(post_id)){
@@ -49,8 +49,8 @@ if($do == True){
 $comment_id = uniqid();
 
 // Get Time
-$date = date("M-d-Y");
-$time = date("H:i:s");
+$date = date("M d, Y");
+$time = date("h:i a");
 
 // Create Array
 $array = array(

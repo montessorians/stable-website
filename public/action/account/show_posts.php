@@ -131,10 +131,7 @@ if(empty($array)){
 			}
 		}
 		echo "</div>";// Card Action
-			echo "</div></div>";
-		}
-	}
-
+	echo "</div></div>";
 	echo "</div>
 	<div class='modal modal-fixed-footer grey-lighten-4' id='comment$post_id'>
 	<div class='modal-content'>
@@ -152,7 +149,7 @@ if(empty($array)){
 		<label for='commentfield$post_id'>Add a Comment</label>
 	</div>
 	<div class='input-field col s4'>
-		<button class='btn btn-large seagreen' id='commentbutton$post_id'>Comment</button>
+		<button class='btn btn-medium btn-block seagreen' id='commentbutton$post_id'><i class='material-icons'>comment</i></button>
 	</div>
 	</div>
 	<div id='commentbox$post_id'></div>
@@ -212,6 +209,10 @@ if(empty($array)){
 		}
 	</script>
 	";//footer
+		}
+	}
+
+	
 }
 ?>
 <script type="text/javascript">
