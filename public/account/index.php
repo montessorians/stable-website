@@ -131,7 +131,7 @@
 		success: function(result){
 			if(result == "Ok"){
 				$("#response").hide();
-				window.location.replace("../");
+				window.location.replace("<?=$from?>");
 			} else {
 				$("#response").html("<div class='chip'>"+ result + "</div><br>");
 				$("#usernameh").show();

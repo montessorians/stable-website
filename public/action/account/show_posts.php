@@ -138,7 +138,6 @@ if(empty($array)){
 	echo "</div>";
 }
 ?>
-<script src="_system/scrollreveal.min.js"></script>
 <script type="text/javascript">
 window.sr = ScrollReveal();
 sr.reveal('.reveal', {reset: false});

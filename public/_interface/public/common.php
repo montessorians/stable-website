@@ -61,7 +61,7 @@
             <br>
             <h4 class="seagreen-text"><b>Why Choose Montessori?</b></h4><br><br>
             <div class="row">
-                <div class="col s4">
+                <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">public</i>
@@ -74,7 +74,7 @@
                     <p class="grey-text text-darken-2">Our world-class curriculum helps your child to be ready for life wherever they maybe.</p>
                     </center>
                 </div>
-                <div class="col s4">
+                <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">school</i>
@@ -87,7 +87,7 @@
                    <p class="grey-text text-darken-2">We have mastered the best approach for your child's education.</p>
                     </center>
                 </div>
-                 <div class="col s4">
+                 <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">local_atm</i>
@@ -102,7 +102,7 @@
                 </div>               
             </div>
             <div class="row">
-                 <div class="col s4">
+                 <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">cloud</i>
@@ -116,7 +116,7 @@
                     </center>
                 </div>
                
-                <div class="col s4">
+                <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">group</i>
@@ -129,7 +129,7 @@
                     <p class="grey-text text-darken-2">Your child is treated like family in a community that cares for one another.</p>
                     </center>
                 </div>
-                <div class="col s4">
+                <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">thumb_up</i>
@@ -150,7 +150,7 @@
             <h4 class="white-text"><b>Courses Offered</b></h4><br>
             <div class="row">
                 
-                <div class="col s6">
+                <div class="col s6 reveal">
                     <div class="card">
                         <div class="card-img">
                             <img src="assets/thumb2.png" width="100%">
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s6 reveal">
                     <div class="card">
                         <div class="card-img">
                             <img src="assets/thumb1.png" width="100%">
@@ -179,15 +179,15 @@
         <br>
         <h4 class="seagreen-text"><b>Contact Us</b></h4><br>
         <div class="row">
-            <div class="col s6">
+            <div class="col s6 reveal">
                 <a class="btn btn-large btn-block blue waves-effect waves-light" href="https://fb.com/montessorians">Facebook</a>
             </div>
-            <div class="col s6">
+            <div class="col s6 reveal">
                 <a class="btn btn-large btn-block light-blue waves-effect waves-light" href="https://twitter.com/hcmofgasak">Twitter</a>
             </div>
         </div>
         <div class="row">
-            <div class="col s6">
+            <div class="col s6 reveal">
                 <a class="btn btn-large btn-block red waves-effect waves-light" href="mailto:hcmontessori@gmail.com">GMail</a>
             </div>
             <div class="col s6">
@@ -242,6 +242,8 @@
         initSplashScreen();
         $("#hcm-logo").hide();
         $("#hcm-logo").slideDown(2000);
+        window.sr = ScrollReveal();
+        sr.reveal('.reveal', {reset: false});
     }).keypress(function(e){
 		var key = e.which;
 		if(key == 13){
