@@ -131,7 +131,7 @@ if(empty($array)){
 			}
 		}
 		echo "</div>";// Card Action
-	echo "</div></div>";
+	echo "</div>";
 	echo "</div>
 	<div class='modal modal-fixed-footer grey-lighten-4' id='comment$post_id'>
 	<div class='modal-content'>
