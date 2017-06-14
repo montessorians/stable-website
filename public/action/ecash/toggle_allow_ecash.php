@@ -1,19 +1,28 @@
 <?php
 session_start();
 include("../../_system/database/db.php");
-
 $db_ecash = new DBase("ecash", "../../_store");
-$db_account = new DBase("account", "../../_store");
 $db_notification = new DBase("notification", "../../_store");
 
-$student_id = $_POST['student_id'];
-$allow_ecash = $_POST['allow_ecash'];
+if(empty($_REQUEST['user_id'])){
+    echo "Unknown User";
+} else {
+    $user_id = $_REQUEST['user_id'];
+    $allow_ecash = $db_ecash->get("allow_ecash","user_id", "$user_id");
+    switch($allow_ecash){
+        case("yes"):
+            $change_to = "no";
+            $db_ecash->to("allow_ecash", "$change_to", "user_id", "$user_id");
+            break;
+        case("no"):
+            $change_to = "yes";
+            $db_ecash->to("allow_ecash", "$change_to", "user_id", "$user_id");
+            break;
+    }
 
-$user_id = $db_account->get("user_id", "student_id", "$student_id");
+    echo "Successfully Changed to " . $change_to;
 
-$db_ecash->to("allow_ecash", "$allow_ecash", "user_id", "$user_id");
-
-switch($allow_ecash){
+switch($change_to){
 	case("yes"):
 		$notification_title = "Your E-Cash has been activated";
 		$notification_content = "You may now use your ID or your phone to purchase at the canteen and more as long as you have money in your e-cash account.";
@@ -47,6 +56,5 @@ $notif_id = uniqid();
 				);
 				$db_notification->add($n_a);
 
-echo "Allow E-Cash has been changed successfully to $allow_ecash";
-
+}
 ?>

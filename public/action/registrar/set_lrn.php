@@ -20,7 +20,7 @@ session_start();
 	$db_notification = new DBase("notification", "../../_store");
 	$db_student = new DBase("student", "../../_store");
 	
-					$notif_id = rand(1000000000,9999999999);
+				$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");

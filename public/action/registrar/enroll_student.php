@@ -22,7 +22,7 @@ session_start();
 	$db_hold = new DBase("student_hold","../../_store");
 	$db_attendance = new DBase("student_attendance","../../_store");
 	
-		$notif_id = rand(1000000000,9999999999);
+				$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");
@@ -54,7 +54,7 @@ session_start();
 			
 			$user_id = $db_account->get("user_id", "student_id", "$student_id");
 			
-			$attendance_id = rand(1000000000,9999999999);
+			$attendance_id = uniqid();
 			$a_a = array(			
 				"attendance_id" => "$attendance_id",
 				"student_id" => "$student_id",

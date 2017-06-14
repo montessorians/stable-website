@@ -23,14 +23,14 @@ session_start();
 	$db_enroll = new DBase("student_class", "../../_store");
 	$db_hold = new DBase("student_hold","../../_store");
 	
-					$notif_id = rand(1000000000,9999999999);
+				$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");
 				$create_time = date("h:i a");
 
 	
-	$enroll_id = rand(1000000000,9999999999);
+	$enroll_id = uniqid();
 	$student_id = $_POST['student_id'];
 	$class_id = $_POST['class_id'];
 	$enroll_month = date("M");

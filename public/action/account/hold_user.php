@@ -6,7 +6,7 @@ if(empty($_SESSION['logged_in'])){
 
 include("../../_system/database/db.php");
 
-$hold_id = rand(1000000000,9999999999);
+$hold_id = uniqid();
 $student_id = $_POST['student_id'];
 $department = $_POST['department'];
 $hold_content = $_POST['hold_content'];
@@ -41,7 +41,7 @@ if(empty($check_sid)){
 	$user_id = $db_account->get("user_id", "student_id", "$student_id");
 	
 	$db_notification = new DBase("notification", "../../_store");
-				$notif_id = rand(1000000000,9999999999);
+				$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");

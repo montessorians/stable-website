@@ -42,7 +42,7 @@ if(empty($_REQUEST['relation'])){
 
 if($continue == 1){
 
-$parentchild_id = rand(1000000000,9999999999);
+$parentchild_id = uniqid();
 $date = date("M-d-Y");
 $time = date("H:i:s");
 
@@ -65,7 +65,7 @@ $s_last_name = $db_student->get("last_name", "student_id", "$student_id");
 
 // Student Notif
 $user_id = $db_account->get("user_id", "student_id", "$student_id");
-$notif_id = rand(1000000000,9999999999);
+$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");
@@ -88,7 +88,7 @@ $n_a = array(
 				$db_notification->add($n_a);
 
 $user_id = $db_account->get("user_id", "parent_id", "$parent_id");
-$notif_id = rand(1000000000,9999999999);
+$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");

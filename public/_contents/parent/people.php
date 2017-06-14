@@ -39,7 +39,8 @@ $admin_array = $db_admin->select(array());
                 $email = $db_student->get("email","student_id", "$student_id");
 
                 $photo_url = $db_account->get("photo_url","student_id", "$student_id");
-                
+                $user_id = $db_account->get("user_id", "student_id", "$student_id");
+
                 if(empty($photo_url)){
                     $photo_url = "assets/noimg.bmp";
                 } 
@@ -66,6 +67,12 @@ $admin_array = $db_admin->select(array());
                                 Student ID No.: $student_id
                             </li>
                             <li class='collection-item'>
+                                E-Cash Enabled: <span id='allowecash$student_id'></span>
+                            </li>
+                            <li class='collection-item'>
+                                E-Cash Balance: <span id='ecashbalance$student_id'></span>
+                            </li>
+                            <li class='collection-item'>
                                 Address: $address
                             </li>
                             <li class='collection-item'>
@@ -87,8 +94,75 @@ $admin_array = $db_admin->select(array());
                     </div>
                     <div class='modal-footer'>
                         <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
+                        <a class='modal-action waves-effect waves-green btn-flat' onclick='checkEcashBalance$student_id();'>Refresh Balance</a>
+                        <a class='modal-action waves-effect waves-green btn-flat' onclick='toggleAllowEcash$student_id();' id='toggleAllowEcashButton$student_id()'>Allow/Disallow E-cash</a>
                     </div>
                 </div>
+                <script type='text/javascript'>
+                    checkEcashBalance$student_id();
+                    checkAllowEcash$student_id();
+
+                    function checkEcashBalance$student_id(){
+                        $('#ecashbalance$student_id').hide();
+                        $.ajax({
+                            type:'POST',
+                            url:'action/ecash/ecash_inquire.php',
+                            data: {
+                                user_id: '$user_id'
+                            },
+                            cache: 'false',
+                            success: function(result){
+                                var balance = 'PHP ' + result;
+                                $('#ecashbalance$student_id').html(balance);
+                                $('#ecashbalance$student_id').fadeIn();
+                            }
+                        }).fail(function(){
+                            $('#ecashbalance$student_id').html('Unavailable');
+                            $('#ecashbalance$student_id').fadeIn();
+                        });
+                    }
+
+                    function checkAllowEcash$student_id(){
+                        $('#allowecash$student_id').hide();
+                        $.ajax({
+                            type:'POST',
+                            url:'action/ecash/check_ecash_status.php',
+                            data: {
+                                user_id: '$user_id'
+                            },
+                            cache: 'false',
+                            success: function(result){
+                                $('#allowecash$student_id').html(result);
+                                $('#allowecash$student_id').fadeIn();
+                            }
+                        }).fail(function(){
+                            $('#allowecash$student_id').html('Unavailable');
+                            $('#allowecash$student_id').fadeIn();
+                        });
+                    }
+
+                    $('#toggleAllowEcashButton$student_id').click(function(){
+                        toggleAllowEcash();
+                    });
+
+                    function toggleAllowEcash$student_id(){
+                        $.ajax({
+                            type:'POST',
+                            url: 'action/ecash/toggle_allow_ecash.php',
+                            data: {
+                                user_id: '$user_id'
+                            },
+                            cache: 'false',
+                            success: function(result){
+                                Materialize.toast(result, 3000);
+                                checkAllowEcash$student_id();  
+                            }
+                        }).fail(function(){
+                            Materialize.toast('Error Changing E-Cash Setting', 3000);
+                            checkAllowEcash$student_id();
+                        });
+                    }
+                </script>
                 ";
 
             }

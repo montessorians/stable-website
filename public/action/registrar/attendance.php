@@ -30,7 +30,7 @@ $grade = $db_student->get("grade", "student_id", "$student_id");
 $section = $db_student->get("section", "student_id", "$student_id");
 $time = date("H:i:s");
 $date = date("M-d-Y");
-$dump_id = rand(1000000000,9999999999);
+$dump_id = uniqid();
 
 $check = $db_dump->get("student_id", "date", "$date");
 if(empty($check)){

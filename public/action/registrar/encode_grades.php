@@ -21,7 +21,7 @@ session_start();
 	$db_enroll = new DBase("student_class", "../../_store");
 	$db_class = new DBase("class", "../../_store");
 	$db_notification = new DBase("notification", "../../_store");
-				$notif_id = rand(1000000000,9999999999);
+				$notif_id = uniqid();
 				$create_month = date("M");
 				$create_day = date("d");
 				$create_year = date("Y");
