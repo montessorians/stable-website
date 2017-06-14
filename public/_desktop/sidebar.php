@@ -18,10 +18,19 @@ if($logged_in == False){
       const {dialog} = require('electron').remote;
       const {BrowserWindow} = require('electron').remote;
       $('#loginbutton').click(function(){
-        let loginWindow = new BrowserWindow({width: 400, height: 500, webPreferences:{nodeIntegration:false}});
-        loginWindow.loadURL('http://localhost/account');''
-        dialog.showMessageBox(loginWindow,{title: 'Sign-In'});});
+        let loginWindow = new BrowserWindow({width: 400, height: 500, modal:true, icon: false, webPreferences:{nodeIntegration:false, contextIsolation:true, sandbox:true, webSecurity:false}});
+        loginWindow.loadURL('http://hcmontessori.likesyou.org/account');
+        loginWindow.setMenu(null);
+        loginWindow.show();});
     </script>
   ";
 }
+
+echo "
+<h5 class='nav-group-title'>Application</h5>  
+    <a class='nav-group-item' id='loginbutton'>
+      <span class='icon icon-info'></span>
+      About Program
+    </a>
+";
 ?>
