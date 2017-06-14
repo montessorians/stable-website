@@ -70,7 +70,7 @@ $admin_array = $db_admin->select(array());
                                 E-Cash Enabled: <span id='allowecash$student_id'></span>
                             </li>
                             <li class='collection-item'>
-                                E-Cash Balance: <span id='ecashbalance$student_id'></span>
+                                E-Cash Balance: <span id='ecashbalance$student_id'></span> <a onclick='checkEcashBalance$student_id();' class='seagreen-text'>(Refresh)</a>
                             </li>
                             <li class='collection-item'>
                                 Address: $address
@@ -94,7 +94,6 @@ $admin_array = $db_admin->select(array());
                     </div>
                     <div class='modal-footer'>
                         <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
-                        <a class='modal-action waves-effect waves-green btn-flat' onclick='checkEcashBalance$student_id();'>Refresh Balance</a>
                         <a class='modal-action waves-effect waves-green btn-flat' onclick='toggleAllowEcash$student_id();' id='toggleAllowEcashButton$student_id()'>Allow/Disallow E-cash</a>
                     </div>
                 </div>

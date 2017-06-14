@@ -199,8 +199,9 @@ if(empty($array)){
 						comment_body: cb
 					},
 					success: function(result){
-						Materialize.toast(result,3000);
+						Materialize.toast(result,3000);						
 						fetchComment$post_id();
+						$('#commentfield$post_id').val('');
 					}
 				}).fail(function(){
 					Materialize.toast('Error posting comment. Try again.',3000);
