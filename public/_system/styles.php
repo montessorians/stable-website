@@ -1,3 +1,4 @@
+ <meta charset="UTF-8">
 <script type="text/javascript">
 	console.error("%c\n\nHoly Child Montessori\n\n This is meant for developer's use only. If someone told you to acccess this tool, they might be able to gain access to your account and steal personal information.\n\nVisit http://hcmontessori.likesyou.org/support for information.\n\n\n", "color: red; padding-left:2%; font-size: x-large; text-align:center");
 </script>
@@ -5,7 +6,7 @@
 <meta name="theme-color" content="<?=$theme_color?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
 <script
-  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>

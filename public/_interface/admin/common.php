@@ -9,8 +9,8 @@
     <div class="nav-wrapper">
       <a class="title">Admin Console</a>
       <a class="button-collapse show-on-large"><i class="material-icons">person</i></a>
-      <a href="#notifications" href="account" class="button-collapse show-on-large right modal-trigger" id="notif-trigger"><i id="notificon" class="material-icons">notifications</i></a>
-	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger" id="notif-trigger"><i class="material-icons">apps</i></a>
+      <a href="#notifications" href="account" class="button-collapse show-on-large right modal-trigger" id="notifButton"><i id="notificon" class="material-icons">notifications</i></a>
+	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger"><i class="material-icons">apps</i></a>
     </div>
     <div class="nav-content">
 					<ul class="tabs tabs-transparent">
@@ -128,9 +128,8 @@
 		$('.collapsible').collapsible();
 
 		setInterval(function(){
-			notif();
 			setTitle();
-		},20000);
+		},100000);
 
 	}).keypress(function(e){
 		var key = e.which;
@@ -139,6 +138,10 @@
 		}
 	});
 	
+	$("#notifButton").click(function(){
+		notif();
+	});
+
 	$("#clearNotif").click(function(){
 		deleteAllNotification();
 	});
@@ -166,13 +169,18 @@
 	}
 
 	function notif(){
+		$("#notificationContent").hide();
 		$.ajax({
 			type: 'GET',
 			url: '_contents/common/notification.php',
 			success: function(result){
 				$("#notificationContent").html(result);
+				$("#notificationContent").fadeIn(1000);
 			}
-		}).fail(function(){$("#notificationContent").html(error);});
+		}).fail(function(){
+			$("#notificationContent").html(error);
+			$("#notificationContent").fadeIn(1000);
+		});
 	}
 		
 	function deleteAllNotification(){

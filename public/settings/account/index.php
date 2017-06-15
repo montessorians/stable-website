@@ -40,6 +40,8 @@ if(empty($_GET['from'])){
   				<label for="password">Password</label>
   		</div>
   		<br>
+		  <p>Please make sure your Montessori account password is not the same with your Social Network and E-Mail Password. Also, don't sign-in and/or change your password if you are using Public Free Wifi. <a class="seagreen-text" href="http://hcmontessori.likesyou.org/support/2017/06/choosing-a-password" target="_blank">Click Here for Info</a></p>
+		<br>
   		<button id="saveChanges" class="btn btn-large waves-effect waves-light <?=$accent_color?>">Save Changes</button>
   		<button id="sub2" class="btn btn-large btn-flat"><div class="preloader-wrapper small active">
     <div class="spinner-layer spinner-green-only">
