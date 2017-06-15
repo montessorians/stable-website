@@ -14,12 +14,12 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <nav class="nav-extended <?=$primary_color?>">
     <div class="nav-wrapper">
       <a class="title"><?=$site_title?></a>
-      <a href="#notifications" class="button-collapse show-on-large right modal-trigger" id="notif-trigger"><i id="notificon" class="material-icons">notifications</i></a>
-	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger" id="notif-trigger"><i class="material-icons">apps</i></a>
+      <a href="#notifications" class="button-collapse show-on-large right modal-trigger" id="notifButton"><i id="notificon" class="material-icons">notifications</i></a>
+	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger"><i class="material-icons">apps</i></a>
     </div>
     <div class="nav-content">
 					<ul class="tabs tabs-transparent">
-						<li class="tab"><a href="#home"><i class="material-icons">home</i></a></li>
+						<li class="tab"><a href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
 						<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
 						<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
 						<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
@@ -64,13 +64,16 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 		$('ul.tabs').tabs({swipeable:false});
 		$(document).ready(function(){ $('.tooltipped').tooltip({delay: 50}); });		
 		setInterval(function(){
-			home();
-		},90000);
-		setInterval(function(){
-			notif();
 			setTitle();
-		},20000);
+		},100000);
 		
+	});
+
+	$("#notifButton").click(function(){
+		notif();
+	});
+	$("#homeButton").click(function(){
+		home();
 	});
 	
 	$("#clearNotif").click(function(){
@@ -120,13 +123,18 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 	}
 
 	function notif(){
+		$("#notificationContent").hide();
 		$.ajax({
 			type: 'GET',
 			url: '_contents/common/notification.php',
 			success: function(result){
 				$("#notificationContent").html(result);
+				$("#notificationContent").fadeIn(1000);
 			}
-		}).fail(function(){$("#notificationContent").html(error);});
+		}).fail(function(){
+			$("#notificationContent").html(error);
+			$("#notificationContent").fadeIn(1000);
+		});
 	}
 	
 	function deleteAllNotification(){

@@ -14,7 +14,7 @@
     </div>
     <div class="nav-content">
 					<ul class="tabs tabs-transparent">
-						<li class="tab"><a href="#home">Home</a></li>
+						<li class="tab"><a href="#home" id="homeButton">Home</a></li>
 						<li class="tab"><a href="#calendar">Calendar</a></li>
 						<li class="tab"><a href="#ecash">E-Cash</a></li>
 						<li class="tab"><a href="#registrar">Registrar</a></li>
@@ -136,6 +136,10 @@
 		if(key == 13){
 			window.location.replace("query/account/students.php");
 		}
+	});
+
+	$("#homeButton").click(function(){
+		home();
 	});
 	
 	$("#notifButton").click(function(){
