@@ -13,7 +13,7 @@
 	<li class="collection-item avatar">
 		<a href="https://drive.google.com/folderview?id=0B3k_JJe8SSgmZXV0dzhTNk10RFk" class="black-text">
 			<i class="material-icons circle yellow darken-2">folder</i>
-			<p class="collection-title grey-text text-darken-2">Resources and Forms <i class="material-icons tiny">launch</i></p>
+			<p class="collection-title grey-text text-darken-2">School Resources and Forms <i class="material-icons tiny">launch</i></p>
 		</a>
 	</li>
 	<li class="collection-item avatar">

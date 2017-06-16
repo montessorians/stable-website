@@ -51,6 +51,12 @@
 			<p class="collection-title grey-text text-darken-2">My Profile</p>
 		</a>
 	</li>
+	<li class="collection-item avatar">
+		<a href="https://drive.google.com/drive/folders/0B3k_JJe8SSgmMTQwTEI2STJTWEk?usp=sharing" class="black-text">
+			<i class="material-icons circle pink">folder</i>
+			<p class="collection-title grey-text text-darken-2">Resources for Teachers <i class="material-icons tiny">launch</i></p>
+		</a>
+	</li>
 	<?php
 		include("../common/me_public.php");
 	?>

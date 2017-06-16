@@ -105,6 +105,9 @@ if(empty($r)){
 											<a href='../../query/account/student_hold.php?student_id=$student_id' class='black-text'>
 												See Hold
 											</a>
+											<a href='../../query/registrar/view_all_grades.php?student_id=$student_id' class='black-text'>
+												View Grades
+											</a>
 											<a href='../../forms/registrar/set_lrn.php?student_id=$student_id' class='black-text'>
 												Set LRN
 											</a>
