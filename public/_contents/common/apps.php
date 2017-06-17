@@ -38,19 +38,6 @@
 					</div>
 					</a>
 				</div>
-				<div class="col s4">
-					<a href="http://hcmontessori.likesyou.org/alumni" class="browser-default">
-					<div class="card blue">
-						<div class="card-content">
-						<center class="white-text">
-							<i class="medium material-icons">web</i><br>
-							Alumni Portal
-						</center>
-						</div>					
-					</div>
-					</a>
-				</div>
-
 			</div>
   		</div>
   		<div class="modal-footer">

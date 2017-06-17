@@ -23,7 +23,7 @@
 		</a>
 	</li>
 	<li class="collection-item avatar">
-		<a href="support" class="black-text">
+		<a href="http://hcm-help.likesyou.org/" class="black-text">
 			<i class="material-icons circle grey">info</i>
 			<p class="collection-title grey-text text-darken-2">Help Center</p>
 		</a>

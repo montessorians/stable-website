@@ -82,8 +82,8 @@
 			<br>
 			<br><br>
 			<center>
-					<a class="btn btn-flat grey-text" href="http://hcmontessori.likesyou.org/support/2017/05/forgot-password">Forgot Password</a> 
-					<a class="btn btn-flat grey-text" href="http://hcmontessori.likesyou.org/support/2017/05/privacy-policy">Privacy Information</a>
+					<a class="btn btn-flat grey-text" href="http://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=2">Forgot Password</a> 
+					<a class="btn btn-flat grey-text" href="http://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=3">Privacy Information</a>
 				<p class="grey-text">Copyright <?=date("Y")?><br>
 				<b><?=$site_title?></b> </p>
 			</center>
@@ -141,7 +141,7 @@
 			}
 		}
 	}).fail(function(){
-		$("#response").html("<div class='chip'>Cannot connect to server. <a href='http://hcmontessori.likesyou.org/support/2017/05/login-error-cannot-connect-to-server'>Click here for Info</a></div><br>");
+		$("#response").html("<div class='chip'>Cannot connect to server</div><br>");
 		$("#usernameh").show();
 		$("#passwordh").show();
 		$("#sub").show();

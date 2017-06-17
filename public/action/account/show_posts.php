@@ -115,7 +115,7 @@ if(empty($array)){
 				</div>
 				";
 		echo "<div class='card-action'>
-			<a href='#' id='likeButton$post_id' class='grey-text'><i class='material-icons' id='likedStatus$post_id'></i></a>
+			<a id='likeButton$post_id' class='grey-text'><i class='material-icons' id='likedStatus$post_id'></i></a>
 			<a href='#comment$post_id' id='button$post_id' class='grey-text'><i class='material-icons'>comment</i></a>
 		";
 		$sh = "
@@ -182,6 +182,7 @@ if(empty($array)){
 		});
 
 		function toggleLike$post_id(){
+			$('#likedStatus$post_id').hide();
 			$.ajax({
 				type:'POST',
 				url: 'action/feed/toggle_liked.php',
@@ -191,14 +192,16 @@ if(empty($array)){
 				},
 				success: function(result){
 					checkLiked$post_id();
+					$('#likedStatus$post_id').slideDown();
 				}				
 			}).fail(function(){
 				Materialize.toast('Cannot connect to server');
+				$('#likedStatus$post_id').slideDown();							
 			});
 		}
 
 		function checkLiked$post_id(){
-			var likedDom = 'favorite';
+			var likedDom = '<font class=\'red-text\'>favorite</font>';
 			var unlikedDom = 'favorite_border';
 
 			$.ajax({
