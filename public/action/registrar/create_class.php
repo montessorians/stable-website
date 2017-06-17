@@ -19,7 +19,7 @@ session_start();
 	
 	$db_class = new DBase("class","../../_store");
 	
-	$class_id = rand(10000,99999);
+	$class_id = mt_rand(10000,99999);
 	$class_title = $_POST['class_title'];
 	$class_description = $_POST['class_description'];
 	$school_year = $_POST['school_year'];

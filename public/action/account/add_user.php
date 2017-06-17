@@ -75,15 +75,15 @@
 			$user_id = uniqid();
 
 			
-			$staff_id = rand(1000000000,9999999999);
-			$developer_id = rand(1000000000,9999999999);
+			$staff_id = mt_rand(1000000000,9999999999);
+			$developer_id = mt_rand(1000000000,9999999999);
 			
 			switch($account_type){
 				case("student"):
-					$student_id = date("Y") . rand(100000,999999);
+					$student_id = date("Y") . mt_rand(100000,999999);
 					$stdid_check = $db_student->get("student_id", "student_id", "$student_id");
 					if(empty($stdid_check)){} else {
-						$student_id = date("Y") . rand(100000,999999);
+						$student_id = date("Y") . mt_rand(100000,999999);
 					}
 					$array1 = array(
 						"student_id" => "$student_id",
@@ -152,7 +152,7 @@
 				
 				case("admin"):
 
-					$admin_id = rand(1000000000,9999999999);
+					$admin_id = mt_rand(1000000000,9999999999);
 					$array1 = array(
 						"admin_id" => "$admin_id",
 						"admin_office" => "",
@@ -200,7 +200,7 @@
 					
 				case("parent"):
 				
-					$parent_id = rand(1000000000,9999999999);
+					$parent_id = mt_rand(1000000000,9999999999);
 					$array1 = array(
 						"parent_id" => "$parent_id",
 						"first_name" => "$first_name",
@@ -246,7 +246,7 @@
 					
 				case("teacher"):
 				
-					$teacher_id = rand(1000000000,9999999999);
+					$teacher_id = mt_rand(1000000000,9999999999);
 					$array1 = array(
 						"teacher_id" => "$teacher_id",
 						"first_name" => "$first_name",
@@ -291,7 +291,7 @@
 					break;	
 				
 				case("staff"):
-					$staff_id = rand(1000000000,9999999999);
+					$staff_id = mt_rand(1000000000,9999999999);
 					$array1 = array(
 						"staff_id" => "$staff_id",
 						"staff_office" => "",
@@ -338,7 +338,7 @@
 					break;
 			
 				case("developer"):
-					$developer_id = rand(1000000000,9999999999);
+					$developer_id = mt_rand(1000000000,9999999999);
 					$array1 = array(
 						"developer_id" => "$developer_id",
 						"first_name" => "$first_name",

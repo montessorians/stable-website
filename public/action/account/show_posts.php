@@ -115,6 +115,7 @@ if(empty($array)){
 				</div>
 				";
 		echo "<div class='card-action'>
+			<a href='#' id='likeButton$post_id' class='grey-text'><i class='material-icons' id='likedStatus$post_id'></i></a>
 			<a href='#comment$post_id' id='button$post_id' class='grey-text'><i class='material-icons'>comment</i></a>
 		";
 		$sh = "
@@ -155,12 +156,23 @@ if(empty($array)){
 	<div id='commentbox$post_id'></div>
 	";
 
+	$user_id = $_SESSION['user_id'];
+
 	echo "</div>
 	<div class='modal-footer'>
 		<a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
 	</div>
 	</div>
 	<script type='text/javascript'>
+
+		$(document).ready(function(){
+			checkLiked$post_id();
+		});
+
+		$('#likeButton$post_id').click(function(){
+			toggleLike$post_id();
+		});
+
 		$('#button$post_id').click(function(){
 			fetchComment$post_id();
 		});
@@ -169,7 +181,48 @@ if(empty($array)){
 			sendComment$post_id();
 		});
 
+		function toggleLike$post_id(){
+			$.ajax({
+				type:'POST',
+				url: 'action/feed/toggle_liked.php',
+				cache: 'false',
+				data: {
+					post_id: '$post_id'
+				},
+				success: function(result){
+					checkLiked$post_id();
+				}				
+			}).fail(function(){
+				Materialize.toast('Cannot connect to server');
+			});
+		}
+
+		function checkLiked$post_id(){
+			var likedDom = 'favorite';
+			var unlikedDom = 'favorite_border';
+
+			$.ajax({
+				type:'POST',
+				url:'action/feed/check_liked.php',
+				cache: 'false',
+				data: {
+					user_id : '$user_id',
+					post_id : '$post_id'
+				},
+				success: function(result){
+					if(result==='yes'){
+						$('#likedStatus$post_id').html(likedDom);
+					} else {
+						$('#likedStatus$post_id').html(unlikedDom);
+					}
+				}
+			}).fail(function(){
+				$('#likedStatus$post_id').html(unlikedDom);
+			});
+		}
+
 		function fetchComment$post_id(){
+			var error = '<div><center>Error Connecting to Server</center></div>';
 			$.ajax({
 				type:'POST',
 				url:'action/feed/show_comments.php',

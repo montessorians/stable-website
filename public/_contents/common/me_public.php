@@ -5,7 +5,7 @@
 		</a>
 	</li>
 	<li class="collection-item avatar">
-		<a href="http://hcmontessori.likesyou.org/library/opac" class="black-text">
+		<a href="http://hcm-library.likesyou.org/opac/" class="black-text">
 			<i class="material-icons circle blue">library_books</i>
 			<p class="collection-title grey-text text-darken-2">School Library <i class="material-icons tiny">launch</i></p>
 		</a>

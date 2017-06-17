@@ -21,6 +21,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 					<ul class="tabs tabs-transparent">
 						<li class="tab"><a href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
 						<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
+						<li class="tab"><a href="#calendar"><i class="material-icons">today</i></a></li>
 						<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
 						<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
 					</ul>
@@ -37,6 +38,11 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
   		</div>
   </div>
   <div class="col s12" id="people">
+  		<div class="progress green lighten-4">
+     	<div class="indeterminate green"></div>
+  		</div>
+  </div>
+  <div class="col s12" id="calendar">
   		<div class="progress green lighten-4">
      	<div class="indeterminate green"></div>
   		</div>
@@ -58,8 +64,8 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 </body>
 <script type="text/javascript">
 	$(document).ready(function(){
-		setTitle();
-		home(); assessment(); me(); people(); notif();
+		setTitle(); 
+		home(); assessment(); me(); people(); notif(); calendar();
 		$('.modal').modal();
 		$('ul.tabs').tabs({swipeable:false});
 		$(document).ready(function(){ $('.tooltipped').tooltip({delay: 50}); });		
@@ -110,6 +116,16 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 				$("#people").html(result);
 			}
 		}).fail(function(){$("#people").html(error);});
+	}
+
+	function calendar(){
+		$.ajax({
+			type: 'GET',
+			url: '_contents/teacher/calendar.php',
+			success: function(result){
+				$("#calendar").html(result);
+			}
+		}).fail(function(){$("#calendar").html(error);});
 	}
 
 	function me(){
