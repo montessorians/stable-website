@@ -44,6 +44,7 @@ $mobile_number = "";
 $telephone_number = "";
 $email = "";
 $user_id = "";
+$user_name = "";
 
 if(empty($_GET['user_id'])){
 		if(empty($_GET['student_id'])){
@@ -85,6 +86,8 @@ if(empty($_GET['user_id'])){
 	}
 
 $account_type = $db_account->get("account_type", "user_id", "$user_id");
+
+$username = $db_account->get("username", "user_id", "$user_id");
 
 switch($account_type){
 		case("student"):
@@ -425,7 +428,10 @@ switch($country){
   						</div>
   						
   						<br><br>
-  						
+  						<div class='input-field'>
+  							<input type='text' name='username' id='username' value='<?=$username?>'>
+  							<label for='username'>Username</label>
+  						</div>
   						<?php
   							if($edit == 1){
   								 
@@ -433,10 +439,7 @@ switch($country){
   								
   								echo "
   								
-  								<div class='input-field'>
-  							<input type='text' name='username' id='username'>
-  							<label for='username'>Username</label>
-  						</div>
+  								
   						  						
   						<div class='input-field'>
   							<input type='password' name='password' id='password' value=''>
@@ -510,10 +513,11 @@ function genpw(){
 		var mo_n = $("#mobile_number").val();
 		var te_n = $("#telephone_number").val();
 		var e = $("#email").val();
+		var u = $('#username').val();
 		<?php
 			if($edit == 1){
 			} else {
-				echo "var u = $('#username').val();
+				echo "
 				var p = $('#password').val();
 				";
 			}
@@ -559,12 +563,13 @@ function genpw(){
 					mobile_number: mo_n,
 					telephone_number: te_n,
 					email: e
+					username: u,
+
 					<?php
 					if($edit == 1){
 						
 					} else {
 						echo ",
-					username: u,
 					password: p	
 						";
 					}

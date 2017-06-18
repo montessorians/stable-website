@@ -2,6 +2,7 @@
 include("_setup.php");
 $children_array = $db_parentchild->where(array("parentchild_id"), "parent_id", "$parent_id");
 $current_sy = $db_schooldata->get("school_year", "school_id", "1");
+$print_grades = $db_schooldata->get("print_grades", "school_id", "1");
 
 $empty_child = "
             <div class='card'>
@@ -138,6 +139,9 @@ $empty_child = "
 			";
 
                 }
+
+				if($print_grades == "yes"){
+
                  echo "
                  <div class='card-action'>
                     <a class='grey-text' href='#print$student_id'><i class='material-icons'>print</i></a>
@@ -156,6 +160,8 @@ $empty_child = "
                     </div>
                  </div>
                  ";
+
+				}
 
                 } else {
                  echo "

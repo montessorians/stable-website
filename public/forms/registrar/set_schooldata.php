@@ -23,6 +23,7 @@ $quarter = $db_schooldata->get("quarter", "school_id", "1");
 $exam_week = $db_schooldata->get("exam_week", "school_id", "1");
 $grade_encode = $db_schooldata->get("grade_encode", "school_id", "1");
 $enrollment = $db_schooldata->get("enrollment", "school_id", "1");
+$print_grades = $db_schooldata->get("print_grades", "school_id", "1");
 
 $sy1 = (date("Y")-1)."-".date("Y"); 
 $sy2 = date("Y")."-".(date("Y")+1); 
@@ -136,7 +137,19 @@ if(empty($enrollment)){
 	}
 	
 }
-
+if(empty($print_grades)){
+	$pg_y = "";
+	$pg_n = "";
+} else {
+	switch($print_grades){
+		case("yes"):
+			$pg_y = "selected";
+			break;
+		case("no"):
+			$pg_n = "selected";
+			break;
+	}
+}
 ?>
 <!Doctype html>
 <html>
@@ -199,7 +212,15 @@ if(empty($enrollment)){
 				</select>
 			</div>
 			
-			
+			<div class="input-field col s6">
+				<p class="grey-text">Print Grades</p>
+				<select id="print_grades" class="browser-default">
+					<option value="yes" <?=$pg_y?>>Yes</option>
+					<option value="no" <?=$pg_n?>>No</option>
+				</select>
+			</div>
+
+
 			</div>
 			
 			
@@ -232,7 +253,8 @@ if(empty($enrollment)){
 		var e_w = $("#exam_week").val();
 		var g_e = $("#grade_encode").val();
 		var e = $("#enrollment").val();
-		
+		var pg = $("#print_grades").val();
+
 		if(!s_y){
 			$("#response").html("School Year is required");
 		} else{
@@ -248,7 +270,8 @@ if(empty($enrollment)){
 						quarter: q,
 						exam_week: e_w,
 						grade_encode: g_e,
-						enrollment: e
+						enrollment: e,
+						print_grades: pg
 					},
 					cache: false,
 					success: function(result){

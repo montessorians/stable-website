@@ -3,6 +3,7 @@ include("_setup.php");
 $classes_array = $db_enroll->where(array("enroll_id"), "student_id", "$student_id");
 $attendance_array = $db_attendance->where(array("attendance_id"), "student_id", "$student_id");
 $current_sy = $db_schooldata->get("school_year", "school_id", "1");
+$print_grades = $db_schooldata->get("print_grades", "school_id", "1");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 ?>
 
@@ -125,10 +126,17 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 	if(empty($check_hold)){
 		
 		echo "
-		<div class='card-action'>
+		<div class='card-action'>";
+
+		if($print_grades == "yes"){
+			echo "
 			<a class='grey-text' href='#modal2'>
 				<i class='material-icons'>print</i>
 			</a>
+			";
+		}
+
+		echo"
 			<a class='grey-text' href='#modal1'>
 				<i class='material-icons'>info</i>
 			</a>

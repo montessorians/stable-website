@@ -70,6 +70,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
                         <th>3rd</th>
                         <th>4th</th>
                         <th>Final</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,6 +79,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
 
                         } else {
                             foreach($enroll_array as $enroll){
+                                $enroll_id = $enroll['enroll_id'];
                                 $school_year = $enroll['school_year'];
                                 $class_id = $enroll['class_id'];
                                 $first_quarter = $enroll['first_quarter_grade'];
@@ -98,6 +100,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
                                     <td>$third_quarter</td>
                                     <td>$fourth_quarter</td>
                                     <td>$final_grade</td>
+                                    <td><a class='red-text' href='../../action/registrar/delete_enroll.php?enroll_id=$enroll_id&student_id=$student_id'><i class='material-icons'>delete</i></a></td>
                                 </tr>                                
                                 ";
 
@@ -105,6 +108,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
                         }
                     ?>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>

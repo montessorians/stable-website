@@ -298,10 +298,10 @@ include("../../_system/secure.php");
 			<div class="input-field col s6">
 				<select id="grade" class="browser-default">
 					<option disabled <?=$g_non?>>Grade/Class Type</option>
-					<option value="Nursery" <?=$g_n1?>>Nursery 1</option>
-					<option value="Nursery" <?=$g_n2?>>Nursery 2</option>
-					<option value="Kindergarten" <?=$g_k1?>>Kindergarten 1</option>
-					<option value="Kindergarten" <?=$g_k2?>>Kindergarten 2</option>
+					<option value="Nursery 1" <?=$g_n1?>>Nursery 1</option>
+					<option value="Nursery 2" <?=$g_n2?>>Nursery 2</option>
+					<option value="Kindergarten 1" <?=$g_k1?>>Kindergarten 1</option>
+					<option value="Kindergarten 2" <?=$g_k2?>>Kindergarten 2</option>
 					<option value="Preparatory" <?=$g_p?>>Preparatory</option>
 					<option value="Grade 1" <?=$g_g1?>>Grade 1</option>
 					<option value="Grade 2" <?=$g_g2?>>Grade 2</option>

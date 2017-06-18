@@ -33,6 +33,7 @@
 	$mobile_number = $_POST['mobile_number'];
 	$telephone_number = $_POST['telephone_number'];
 	$email = $_POST['email'];
+	$username = $_POST['username'];
 
 	$db_account = new DBase("account","../../_store");
 	$db_student = new DBase("student","../../_store");
@@ -66,6 +67,7 @@
 			$mobile_number = $db_student->to("mobile_number", "$mobile_number", "student_id", "$student_id");
 			$telephone_number = $db_student->to("telephone_number", "$telephone_number", "student_id", "$student_id");
 			$email = $db_student->to("email", "$email", "student_id", "$student_id");
+			$username = $db_account->to("username", "$username", "student_id", "$student_id");
 			break;
 			
 		case("parent"):
@@ -84,6 +86,7 @@
 			$mobile_number = $db_parent->to("mobile_number", "$mobile_number", "parent_id", "$parent_id");
 			$telephone_number = $db_parent->to("telephone_number", "$telephone_number", "parent_id", "$parent_id");
 			$email = $db_parent->to("email", "$email", "parent_id", "$parent_id");
+			$username = $db_account->to("username", "$username", "parent_id", "$parent_id");
 			break;
 		
 		case("teacher"):
@@ -102,6 +105,7 @@
 			$mobile_number = $db_teacher->to("mobile_number", "$mobile_number", "teacher_id", "$teacher_id");
 			$telephone_number = $db_teacher->to("telephone_number", "$telephone_number", "teacher_id", "$teacher_id");
 			$email = $db_teacher->to("email", "$email", "teacher_id", "$teacher_id");
+			$username = $db_account->to("username", "$username", "teacher_id", "$teacher_id");
 			break;
 			
 		case("admin"):
@@ -120,6 +124,7 @@
 			$mobile_number = $db_admin->to("mobile_number", "$mobile_number", "admin_id", "$admin_id");
 			$telephone_number = $db_admin->to("telephone_number", "$telephone_number", "admin_id", "$admin_id");
 			$email = $db_admin->to("email", "$email", "admin_id", "$admin_id");
+			$username = $db_account->to("username", "$username", "admin_id", "$admin_id");
 			break;
 			
 		case("staff"):
@@ -138,6 +143,7 @@
 			$mobile_number = $db_staff->to("mobile_number", "$mobile_number", "staff_id", "$staff_id");
 			$telephone_number = $db_staff->to("telephone_number", "$telephone_number", "staff_id", "$staff_id");
 			$email = $db_staff->to("email", "$email", "staff_id", "$staff_id");
+			$username = $db_account->to("username", "$username", "staff_id", "$staff_id");
 			break;	
 		
 		case("developer"):
@@ -156,6 +162,7 @@
 			$mobile_number = $db_developer->to("mobile_number", "$mobile_number", "developer_id", "$developer_id");
 			$telephone_number = $db_developer->to("telephone_number", "$telephone_number", "developer_id", "$developer_id");
 			$email = $db_developer->to("email", "$email", "developer_id", "$developer_id");
+			$username = $db_account->to("username", "$username", "developer_id", "$developer_id");
 			break;	
 		
 	}

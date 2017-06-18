@@ -49,6 +49,7 @@ if(empty($r)){
 				
 				foreach($r as $key){
 					foreach($key as $student_id){
+						$username = $db_account->get("username", "student_id", "$student_id");
 						$user_id = $db_account->get("user_id", "student_id", "$student_id");
 						$photo_url = $db_account->get("photo_url", "student_id", "$student_id");
 						$first_name = $db_student->get("first_name", "student_id", "$student_id");
@@ -74,7 +75,7 @@ if(empty($r)){
 								echo "
 									<strong>$first_name $last_name $suffix_name</strong>
 									<p class='grey-text'>
-										User ID: $user_id<br>
+										Username: $username<br>
 										Grade: $grade - $section<br>
 										LRN: $student_lrn
 									</p>
@@ -106,7 +107,7 @@ if(empty($r)){
 												See Hold
 											</a>
 											<a href='../../query/registrar/view_all_grades.php?student_id=$student_id' class='black-text'>
-												View Grades
+												View Classes
 											</a>
 											<a href='../../forms/registrar/set_lrn.php?student_id=$student_id' class='black-text'>
 												Set LRN
