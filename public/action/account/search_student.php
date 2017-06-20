@@ -124,6 +124,9 @@ if(empty($r)){
 											<a href='../../print/grades/?student_id=$student_id' target='_blank' class='black-text'>
 												Progress Report
 											</a>
+											<a href='../../forms/registrar/encode_attendance.php?student_id=$student_id' target='_blank' class='black-text'>
+												Encode Attendance
+											</a>
 											<a href='../../forms/account/reset_password.php?user_id=$user_id' class='black-text'>
 												Reset Password
 											</a>

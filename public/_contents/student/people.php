@@ -96,7 +96,7 @@ echo "</div>";
 <?php
 $noclass_card = "
 <div class='card'><div class='card-content'><center>
-<p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>Your Parent's aren't Connect Yet</p>
+<p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>Your Parents aren't Connect Yet</p>
 </center></div></div>";
 
     if(empty($parentchild_array)){

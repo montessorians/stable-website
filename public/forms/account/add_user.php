@@ -562,8 +562,8 @@ function genpw(){
 					country: co,
 					mobile_number: mo_n,
 					telephone_number: te_n,
-					email: e
-					username: u,
+					email: e,
+					username: u
 
 					<?php
 					if($edit == 1){
