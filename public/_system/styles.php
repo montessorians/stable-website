@@ -1,4 +1,4 @@
- <meta charset="UTF-8">
+<meta charset="UTF-8">
 <script type="text/javascript">
 	console.error("%c\n\nHoly Child Montessori\n\n This is meant for developer's use only. If someone told you to acccess this tool, they might be able to gain access to your account and steal personal information.\n\nVisit http://hcmontessori.likesyou.org/support for information.\n\n\n", "color: red; padding-left:2%; font-size: x-large; text-align:center");
 </script>

@@ -1,36 +1,35 @@
 <style>
-            .brand{
-                height:100px !important;
-                width: 100px !important;
-                margin-left: 3% !important;
-                position: absolute !important;
-            }
-            .right{
-                margin-right:20px !important;
-            }
-            .jumbotron{
-                background-color:silver !important;
-                height: auto !important;
-            }
-            .jumbo{
-                width:100% !important;
-                padding-left: 10% !important;
-                padding-right: 10% !important;
-            }
-            .jumbo-mobile {
-                width: 100% !important;
-            }
-            .coursesoffered{
-                background-color:seagreen !important;
-                width:100% !important;
-                padding-top: 5% !important;
-                padding-bottom: 2% !important;
-                padding-left: 10% !important;
-                padding-right:10% !important;
-            }
-        </style>
+    .brand {
+        height:100px !important;
+        width: 100px !important;
+        margin-left: 3% !important;
+        position: absolute !important;
+    }
+    .right {
+        margin-right:20px !important;
+    }
+    .jumbotron {
+        background-color:silver !important;
+        height: auto !important;
+    }
+    .jumbo {
+        width:100% !important;
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+    .jumbo-mobile {
+        width: 100% !important;
+    }
+    .coursesoffered {
+        background-color:seagreen !important;
+        width:100% !important;
+        padding-top: 5% !important;
+        padding-bottom: 2% !important;
+        padding-left: 10% !important;
+        padding-right:10% !important;
+    }
+</style>
 <body>
-
         <!-- SplashScreen Display -->
         <div class="splashscreen valign-wrapper" id="splashscreen">
             <h3 class="valign center-block white-text">
@@ -216,7 +215,6 @@
 		<h5 class="white-text">Quick Links</h5>
 		<a href="account" class="white-text">Sign-In</a><br>
 		<a href="https://holychildmontessori.edu20.org" class="white-text">Online School</a><br>
-        <a href="support" class="white-text">Help Center</a><br>
 		<a href="alumni" class="white-text">Alumni Portal</a>
 	</div>
     <div class="col s4">
@@ -236,6 +234,7 @@
 </footer>
 </body>
 <script>
+    // Initialization
     $(document).ready(function(){
         $("#splashscreen").hide(); 
         $("meta[name='theme-color']").attr("content", "seagreen");
