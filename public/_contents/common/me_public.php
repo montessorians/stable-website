@@ -23,6 +23,12 @@
 		</a>
 	</li>
 	<li class="collection-item avatar">
+		<a href="settings/personal" class="black-text">
+			<i class="material-icons circle blue-grey">settings</i>
+			<p class="collection-title grey-text text-darken-2">Edit Personal Information</p>
+		</a>
+	</li>
+	<li class="collection-item avatar">
 		<a href="http://hcm-help.likesyou.org/" class="black-text">
 			<i class="material-icons circle grey">info</i>
 			<p class="collection-title grey-text text-darken-2">Help Center</p>
