@@ -133,7 +133,7 @@
 						echo "
 						<div class='card'>
 							<div class='card-content'>
-								<p><strong>$first_name $last_name $suffix_name</strong></p>
+								<a href='../../profile/?student_id=$student_id' class='seagreen-text'><p><strong>$first_name $last_name $suffix_name</strong></p></a>
 								<p class='grey-text'>
 									$grade - $section ($school_year)
 									$student_id

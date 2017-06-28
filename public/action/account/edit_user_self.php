@@ -18,10 +18,14 @@
     $id_const = $account_type."_id";
     $id = $db_account->get("$id_const", "user_id", "$user_id");
 
+	if($account_type == "student"){
+	} else {
     $first_name = $_POST['first_name'];
 	$middle_name = $_POST['middle_name'];
 	$last_name = $_POST['last_name'];
 	$suffix_name = $_POST['suffix_name'];
+	}
+
 	$gender = $_POST['gender'];
 	$birth_month = $_POST['birth_month'];
 	$birth_day = $_POST['birth_day'];
@@ -34,11 +38,12 @@
 	$telephone_number = $_POST['telephone_number'];
 	$email = $_POST['email'];
 
-
+	if($account_type=="student"){} else {
     $db->to("first_name", "$first_name", "$id_const", "$id");
     $db->to("middle_name", "$middle_name", "$id_const", "$id");
     $db->to("last_name", "$last_name", "$id_const", "$id");
     $db->to("suffix_name", "$suffix_name", "$id_const", "$id");
+	}
 
     $db->to("gender", "gender", "$id_const", "$id");
     $db->to("birth_month", "$birth_month", "$id_const", "$id");

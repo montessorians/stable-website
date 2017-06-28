@@ -60,10 +60,11 @@ if($showContinue==True){
                         <label for="username">Username</label>
                     </div>
                     <br><br>
+                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up" id="usernameButton">Next</button>
                     <div class="row">
                         <div class="col s8"></div>
                         <div class="col s4">
-                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light" id="usernameButton">Next</button>
+                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only" id="usernameButton">Next</button>
                         </div>                    
                     </div><br><br>
                 </div>
@@ -82,10 +83,11 @@ if($showContinue==True){
                         <label for="password">Enter your Password</label>
                     </div>
                     <br><br>
+                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up" id="loginButton">Sign-In</button>                    
                     <div class="row">
                         <div class="col s8"></div>
                         <div class="col s4">
-                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light" id="loginButton">Sign-In</button>
+                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only" id="loginButton">Sign-In</button>
                         </div>                    
                     </div><br><br>
                 </div>
