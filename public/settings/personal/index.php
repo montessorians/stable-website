@@ -53,9 +53,7 @@ $email = $db->get("email","$id_const","$p_id");
 			<a href="<?=$from?>" class="button-collapse show-on-large"><i class="material-icons">arrow_back</i></a>
 		</nav>
 		<div class="container">
-			<br>    
-				<p class="red-text" id="response"></span>
-			<br>
+		<br>
             <?php
                 if($_SESSION['account_type'] === "student"){} else {
                     echo "

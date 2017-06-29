@@ -42,8 +42,14 @@ if($showContinue==True){
         <script>
             const from = "<?=$from?>";
         </script>
+        <style>
+            .splashscreen{
+                background-color: gainsboro !important;
+            }
+        </style>
     </head>
     <body class="grey lighten-4" id="body">
+        <div class="splashscreen"></div>
         <br><br><br>
         <div class="container"><div class="container">
 
@@ -60,11 +66,14 @@ if($showContinue==True){
                         <label for="username">Username</label>
                     </div>
                     <br><br>
-                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up" id="usernameButton">Next</button>
+                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up usernameButton">Next</button>
+                    <a href="#publicnetwork"><p class="grey-text hide-on-med-and-up"><br>On free wifi or public network?</p></a>
                     <div class="row">
-                        <div class="col s8"></div>
+                        <div class="col s8">
+                        <a href="#publicnetwork"><p class="grey-text hide-on-small-only">On free wifi or public network?</p></a>
+                        </div>
                         <div class="col s4">
-                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only" id="usernameButton">Next</button>
+                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only usernameButton">Next</button>
                         </div>                    
                     </div><br><br>
                 </div>
@@ -79,15 +88,15 @@ if($showContinue==True){
                     <p id="userID">@username</p>
                     <br><br>
                     <div class="input-field">
-                        <input type="password" name="password" id="password">
-                        <label for="password">Enter your Password</label>
+                        <input type="password" name="password" id="password" class="tooltipped" data-position="top" data-tooltip="Enter your Password">
+                        <label for="password">Password</label>
                     </div>
                     <br><br>
-                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up" id="loginButton">Sign-In</button>                    
+                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up loginButton">Sign-In</button>                    
                     <div class="row">
                         <div class="col s8"></div>
                         <div class="col s4">
-                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only" id="loginButton">Sign-In</button>
+                            <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-small-only loginButton">Sign-In</button>
                         </div>                    
                     </div><br><br>
                 </div>
@@ -103,5 +112,17 @@ if($showContinue==True){
 			</center>
         <br><br><br>
     </body>
+<div id="publicnetwork" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h5>Warning About Signing-In on Free Wifi & Public Networks</h5>
+      <p style="text-align:justify">
+	  	Free WiFi and other public networks can read the data you are sending. Unless you are not using the password in Holy Child Montessori to your other accounts (Social Network or Email), DO NOT proceed in signing-in.
+        If you suspect that there is an unknown change to your account, change your password immediately on a private network. You may also contact us to reset it for you. 
+	  </p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">I Understand</a>
+    </div>
+</div>
 </html>
 <script type="text/javascript" src="loginizer.js"></script>

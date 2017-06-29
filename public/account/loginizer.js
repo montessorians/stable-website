@@ -15,14 +15,17 @@ $(document).ready(function(){
 
 // Initialization Function
 function init(){
+    $('.tooltipped').tooltip({delay: 50});
+    $('.modal').modal();
     hideCards();
+    $(".splashscreen").fadeOut();
     displayEnterEmail();
 }
 
-$("#usernameButton").click(function(){
+$(".usernameButton").click(function(){
     usernameProceed();
 });
-$("#loginButton").click(function(){
+$(".loginButton").click(function(){
     login();
 });
 
@@ -45,13 +48,13 @@ function displayPasswordEntry(){
 
 function usernameProceed(){
     $(".progress").show();
-    $("#usernameButton").attr("disabled","disabled");
+    $(".usernameButton").attr("disabled","disabled");
     $("#username").attr("disabled","disabled");
     let u = $("#username").val();
     if(!u){
         Materialize.toast("Please enter your username",3000);
         $(".progress").hide();
-        $("#usernameButton").attr("disabled",false);
+        $(".usernameButton").attr("disabled",false);
         $("#username").attr("disabled",false);
     } else {
     $.ajax({
@@ -66,7 +69,7 @@ function usernameProceed(){
             if(!data['username']){
             Materialize.toast("The account was not found",3000);
             $(".progress").hide();
-            $("#usernameButton").attr("disabled",false);
+            $(".usernameButton").attr("disabled",false);
             $("#username").attr("disabled",false);
             $("#username").val("");
         } else {
@@ -84,27 +87,9 @@ function usernameProceed(){
     }).fail(function(){
         Materialize.toast("An error occured. Please try again", 3000);
         $(".progress").hide();
-        $("#usernameButton").attr("disabled",false);
+        $(".usernameButton").attr("disabled",false);
         $("#username").attr("disabled",false);
     });}
-}
-
-function setCurrentUserID(param){
-    let user_id = param;
-    let fetchedAccountsList = localStorage.getItem("hcm-savedaccounts");
-    if(!fetchedAccountsList){
-        var accL = [];
-        var accL = JSON.stringify(accL.push(user_id));
-        localStorage.setItem("hcm-savedaccounts",accL);
-    } else {
-        var accountsList = JSON.parse(fetchedAccountsList);
-        if(_.some(accountsList,function(uid){return uid === user_id;})){} else {        
-        let aL = JSON.stringify(accountsList.push(user_id));
-        localStorage.setItem("hcm-savedaccounts",aL);
-        alert(user_id + " added");
-    }
-
-    }
 }
 
 function login(){
@@ -112,16 +97,16 @@ function login(){
     if(!u){
     } else {
         $(".progress").show();
-        $("#usernameButton").attr("disabled","disabled");
-        $("#loginButton").attr("disabled","disabled");
+        $(".usernameButton").attr("disabled","disabled");
+        $(".loginButton").attr("disabled","disabled");
         $("#username").attr("disabled","disabled");
         $("#password").attr("disabled","disabled");
         var p = $("#password").val();
         if(!p){
             Materialize.toast("Please enter your password", 3000);
             $(".progress").hide();
-            $("#usernameButton").attr("disabled",false);
-            $("#loginButton").attr("disabled",false);
+            $(".usernameButton").attr("disabled",false);
+            $(".loginButton").attr("disabled",false);
             $("#username").attr("disabled",false);
             $("#password").attr("disabled",false);
         } else {
@@ -139,8 +124,8 @@ function login(){
                     } else {
                         Materialize.toast(result,3000);
                         $(".progress").hide();
-                        $("#usernameButton").attr("disabled",false);
-                        $("#loginButton").attr("disabled",false);
+                        $(".usernameButton").attr("disabled",false);
+                        $(".loginButton").attr("disabled",false);
                         $("#username").attr("disabled",false);
                         $("#password").attr("disabled",false);
                     }

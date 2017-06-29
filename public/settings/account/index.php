@@ -29,8 +29,6 @@ if(empty($_GET['from'])){
 		</nav>
 		<div class="container">
 			<br>
-				<p class="red-text" id="response"></span>
-			<br>
 			<div class="input-field" id="usernameh">
 				<input type="text" name="username" id="username" value="<?=$_SESSION['username']?>">
   			<label for="username">Username</label>
@@ -70,12 +68,12 @@ if(empty($_GET['from'])){
 		var p = $("#password").val();
 		
 		if(!u){
-			$("#response").html("Username required <br><br>");
+			Materialize.toast("Username required", 3000);
 			$("#sub2").hide();
 			$("#saveChanges").show();
 		} else {
 			if(!p){
-				$("#response").html("Password required <br><br>");
+				Materialize.toast("Password required",3000);
 				$("#sub2").hide();
 				$("#saveChanges").show();
 			} else {
@@ -89,11 +87,11 @@ if(empty($_GET['from'])){
 		},
 		cache: false,
 		success: function(result){
-				$("#response").html(result + "<br><br>");
+				Materialize.toast(result,3000);
 				$("#sub2").hide();
 				$("#saveChanges").show();}
 	}).fail(function(){
-		$("#response").html("Cannot connect to server<br><br>");
+		Materialize.toast("Cannot connect to server",3000);
 		$("#sub2").hide();
 		$("#saveChanges").show();
 	});

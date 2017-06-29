@@ -11,6 +11,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 }
 </style>
 <body class="grey lighten-3">
+<div class="splashscreen"></div>
 <nav class="nav-extended <?=$primary_color?>">
     <div class="nav-wrapper">
       <a class="title" href="/"><?=$site_title?></a>
@@ -42,6 +43,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 	<?php include("_interface/_common/js_global_declaratives.php"); ?>
 	// Initialization
 	$(document).ready(function(){
+		$(".splashscreen").fadeOut();
 		setTitle(); home(); people(); assessment(); me(); notif();
 		$('.modal').modal();
 		$('ul.tabs').tabs({swipeable:false});

@@ -4,6 +4,7 @@
 	}
 </style>
 <body class="grey lighten-3">
+<div class="splashscreen"></div>
 <nav class="nav-extended blue-grey darken-2">
     <div class="nav-wrapper">
       <a class="title" href="/">Admin Console</a>
@@ -116,6 +117,7 @@
 	<?php include("_interface/_common/js_global_declaratives.php"); ?>
 	// Initialization
 	$(document).ready(function(){
+		$(".splashscreen").fadeOut();
 		$("meta[name='theme-color']").attr("content", "#455a64");
 		setTitle(); home(); me(); notif();
 		$('.modal').modal();

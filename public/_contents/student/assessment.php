@@ -86,12 +86,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						</tr>
 						";
 						
-						} else {
-						
-						}
-						
-						
-						
+						}						
 						
 					}
 				}
@@ -143,7 +138,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 		</div>
 		";
 		
-	} else {}
+	}
 	
 	?>
 </div>
@@ -159,6 +154,13 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				</li>
 				";
 			} else {
+				echo "
+				<li class='collection-item'>
+					<a class='black-text' id='vcShow' href='#vcshow'>View Classes <i class='material-icons'>expand_more</i></a>
+					<a class='black-text' id='vcHide' href='#vchide'>Hide Classes <i class='material-icons'>expand_less</i></a>
+				</li>
+				<div class='vcContainer'>
+				";
 				foreach($classes_array as $key){
 					foreach($key as $enroll_id){
 						$school_year = $db_enroll->get("school_year", "enroll_id", "$enroll_id");
@@ -196,17 +198,34 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 								</p>
 							</li>
 							";
+
 							
 						} else {
 							
 						}
 					}
+				
 				}
+							echo "</div>
+				<script>
+				$(document).ready(function(){
+					$('.vcContainer').hide();
+					$('#vcHide').hide();
+				});
+				$('#vcShow').click(function(){
+					$('#vcShow').hide();
+					$('#vcHide').show();
+					$('.vcContainer').slideDown();										
+				});
+				$('#vcHide').click(function(){
+					$('#vcShow').show();
+					$('#vcHide').hide();
+					$('.vcContainer').slideUp();										
+				});
+				</script>
+				";
 			}
 		?>
-		<li class="collection-item">
-			<center><p class="grey-text"><font size="-2">-- Nothing Follows --</font></p></center>
-		</li>
 		</ul>
 </div>
 	<br>
