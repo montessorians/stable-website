@@ -4,6 +4,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="<?=$theme_color?>">
+<link rel="manifest" href="https://hcmontessori-f7956.firebaseapp.com/json/manifest.json">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
