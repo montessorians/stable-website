@@ -1,0 +1,11 @@
+{
+    "short_name":"Holy Child Montessori",
+    "name":"Holy Child Montessori WebApp",
+    "icons":[{
+        "src":"assets/favicon.ico"
+    }],
+    "start_url":"index.php",
+    "background_color":"seagreen",
+    "display":"standalone",
+    "orientation":"portrait"
+}
