@@ -314,6 +314,8 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				if(!$late_jul)$late_jul=null;if(!$late_aug)$late_aug=null;if(!$late_sep)$late_sep=null;
 				if(!$late_oct)$late_oct=null;if(!$late_nov)$late_nov=null;if(!$late_dec)$late_dec=null;
 
+				if($school_year == $current_sy){
+
 				echo "
 					<tr>
 						<td class='seagreen-text'><b>Absences</b></td>
@@ -348,6 +350,8 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						<td><b>$late_total</b></td>
 					</tr>
 				";
+
+				}
 
 				}
 			}

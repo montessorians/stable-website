@@ -22,7 +22,7 @@ $hcm_version_date = "July 2017 (Week 1)";
 $ua = $_SERVER['HTTP_USER_AGENT'];
 if(stripos($ua,"hcm-windows")){
     $desktop = True;
-    $hcm_windows_version_user = str_replace("hcm-windows-", $ua);
+    $hcm_windows_version_user = $ua;
 } else {
     $desktop = False;
     $hcm_windows_version_user = "";
