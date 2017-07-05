@@ -28,14 +28,17 @@
         padding-left: 10% !important;
         padding-right:10% !important;
     }
+    .ssdata {
+        display: none;
+    }
 </style>
 <body>
         <!-- SplashScreen Display -->
         <div class="splashscreen valign-wrapper" id="splashscreen">
             <h3 class="valign center-block white-text">
-              <center>
+              <center class="ssdata">
                 <b>Holy Child Montessori</b><br><br>
-                <font size="3">Loading Site for the First Time</font>
+                <font size="3">Loading Site</font>
                 </center>
             </h3>
         </div>
@@ -236,7 +239,6 @@
 <script>
     // Initialization
     $(document).ready(function(){
-        $("#splashscreen").hide(); 
         $("meta[name='theme-color']").attr("content", "seagreen");
         initSplashScreen();
         $("#hcm-logo").hide();
@@ -249,15 +251,16 @@
 			window.location.replace("account/?local=1");
 		}
 	});
+
     function initSplashScreen(){
         var splashscreen = localStorage.getItem("hcm-splashscreen");
         if(!splashscreen){
             var time = 5000;
-            $("#splashscreen").show();
+            $(".ssdata").show();
             splash(time);
             localStorage.setItem("hcm-splashscreen", "1");
         } else {
-            $("#splashscreen").hide();
+            $("#splashscreen").fadeOut();
         }
     }
     function splash(param){
