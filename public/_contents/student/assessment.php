@@ -156,8 +156,8 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 			} else {
 				echo "
 				<li class='collection-item'>
-					<a class='black-text' id='vcShow' href='#vcshow'>View Classes <i class='material-icons'>expand_more</i></a>
-					<a class='black-text' id='vcHide' href='#vchide'>Hide Classes <i class='material-icons'>expand_less</i></a>
+					<a class='black-text' id='vcShow'>View Classes <i class='material-icons'>expand_more</i></a>
+					<a class='black-text' id='vcHide'>Hide Classes <i class='material-icons'>expand_less</i></a>
 				</li>
 				<div class='vcContainer'>
 				";
