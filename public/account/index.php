@@ -57,7 +57,7 @@ if($showContinue==True){
             <div class="card z-depth-5 hoverable" id="askUsernameCard">
                 <div class="progress green lighten-4"><div class="indeterminate seagreen"></div></div>
                 <div class="card-content">
-                    <img width="70px" height="70px" src="logo.png" id="logo">
+                    <img width="70px" height="70px" src="../assets/logo.jpg" id="logo">
                     <h5 class="blue-grey-text text-darken-1">Welcome Montessorian!</h5>
                     <p><?=$msg?></p>
                     <br><br>
@@ -88,7 +88,7 @@ if($showContinue==True){
                     <p id="userID">@username</p>
                     <br><br>
                     <div class="input-field">
-                        <input type="password" name="password" id="password" class="tooltipped" data-position="top" data-tooltip="Enter your Password">
+                        <input type="password" name="password" id="password">
                         <label for="password">Password</label>
                     </div>
                     <br><br>
