@@ -125,4 +125,142 @@ if($showContinue==True){
     </div>
 </div>
 </html>
-<script type="text/javascript" src="loginizer.js"></script>
+<script type="text/javascript">
+// Initialization Event
+$(document).ready(function(){
+    init();
+}).keypress(function(e){
+    var key = e.which;
+    if(key==13){
+        var p = $("#password").val();
+        if(!p){
+            usernameProceed();
+        } else {
+            login();
+        }
+    }
+});
+
+// Initialization Function
+function init(){
+    $('.tooltipped').tooltip({delay: 50});
+    $('.modal').modal();
+    $("meta[name='theme-color']").attr("content", "gainsboro");
+    hideCards();
+    $(".splashscreen").fadeOut();
+    displayEnterEmail();
+}
+
+$(".usernameButton").click(function(){
+    usernameProceed();
+});
+$(".loginButton").click(function(){
+    login();
+});
+
+function hideCards(){
+    $(".card").hide();
+    $(".progress").hide();
+}
+
+
+function displayEnterEmail(){
+    $("#askUsernameCard").slideDown({duration:300});
+    $("#logo").fadeIn({duration: 800});
+}
+
+function displayPasswordEntry(){
+    $("#progress").hide();
+    hideCards();    
+    $("#askPasswordCard").slideDown();
+}
+
+function usernameProceed(){
+    $(".progress").show();
+    $(".usernameButton").attr("disabled","disabled");
+    $("#username").attr("disabled",true);
+    let u = $("#username").val();
+    if(!u){
+        Materialize.toast("Please enter your username",3000);
+        $(".progress").hide();
+        $(".usernameButton").attr("disabled",false);
+        $("#username").attr("disabled",false);
+    } else {
+    $.ajax({
+        type:'POST',
+        url:'../action/account/check_username.php',
+        data: {
+            username : u
+        },
+        cache:'false',
+        success: function(result){
+            let data = JSON.parse(result);
+            if(!data['username']){
+            Materialize.toast("The account was not found",3000);
+            $(".progress").hide();
+            $(".usernameButton").attr("disabled",false);
+            $("#username").attr("disabled",false);
+            $("#username").val("");
+        } else {
+                var fn = data['first_name'];
+                var un = "@"+data['username'];
+                var pu = "../"+data['photo_url'];
+                $("#firstName").html(fn);
+                $("#userID").html(un);
+                if(!data['photo_url']){} else {
+                    $("#accountIcon").attr('src',pu);
+                }                
+                displayPasswordEntry();
+            }
+        }
+    }).fail(function(){
+        Materialize.toast("An error occured. Please try again", 3000);
+        $(".progress").hide();
+        $(".usernameButton").attr("disabled",false);
+        $("#username").attr("disabled",false);
+    });}
+}
+
+function login(){
+    var u = $("#username").val();
+    if(!u){
+    } else {
+        $(".progress").show();
+        $(".usernameButton").attr("disabled",true);
+        $(".loginButton").attr("disabled",true);
+        $("#username").attr("disabled",true);
+        $("#password").attr("disabled",true);
+        var p = $("#password").val();
+        if(!p){
+            Materialize.toast("Please enter your password", 3000);
+            $(".progress").hide();
+            $(".usernameButton").attr("disabled",false);
+            $(".loginButton").attr("disabled",false);
+            $("#username").attr("disabled",false);
+            $("#password").attr("disabled",false);
+        } else {
+            $.ajax({
+                type:'POST',
+                url:'loginprocess.php',
+                cache:'false',
+                data: {
+                    username: u,
+                    password: p
+                },
+                success: function(result){
+                    if(result=="Ok"){
+                        window.location.replace(from);
+                    } else {
+                        Materialize.toast(result,3000);
+                        $(".progress").hide();
+                        $(".usernameButton").attr("disabled",false);
+                        $(".loginButton").attr("disabled",false);
+                        $("#username").attr("disabled",false);
+                        $("#password").attr("disabled",false);
+                    }
+                }
+            });
+        }
+    }
+}
+</script>

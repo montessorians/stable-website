@@ -1,51 +1,49 @@
 <?php
 include("_setup.php");
-$children_array = $db_parentchild->where(array("parentchild_id"), "parent_id", "$parent_id");
+$children_array = $db_parentchild->where(array(), "parent_id", "$parent_id");
 $admin_array = $db_admin->select(array());
 ?>
 <div class="container">
     <br>
     <h4 class="seagreen-text">My Children</h4>
-    <?php
-    if(empty($children_array)){
+<?php
+$proceed = 0;
+if(!$children_array){
+    echo "
+        <div class='card'>
+            <div class='card-content'><br><center>
+                <p class='grey-text'>
+                    <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+                    You don't have any child connected to your account yet.
+                </p></center></br>
+            </div> 
+        </div>";
+    $proceed = 0;
+} else {$proceed = 1;}
+
+if($proceed==1){
+    echo "<div class='row'>";
+    foreach($children_array as $child){
+        $parentchild_id = $child['parentchild_id'];
+        $student_id = $child['student_id'];
+        $first_name = $db_student->get("first_name","student_id", "$student_id");
+        $last_name = $db_student->get("last_name","student_id", "$student_id");
+        $suffix_name = $db_student->get("suffix_name","student_id", "$student_id");
+        $grade = $db_student->get("grade","student_id", "$student_id");
+        $section = $db_student->get("section","student_id", "$student_id");
+
+        $address = $db_student->get("address","student_id", "$student_id");
+        $city = $db_student->get("city","student_id", "$student_id");
+        $country = $db_student->get("country","student_id", "$student_id");
+        $mobile_number = $db_student->get("mobile_number","student_id", "$student_id");
+        $telephone_number = $db_student->get("telephone_number","student_id", "$student_id");
+        $email = $db_student->get("email","student_id", "$student_id");
+
+        $photo_url = $db_account->get("photo_url","student_id", "$student_id");
+        $user_id = $db_account->get("user_id", "student_id", "$student_id");
+        if(!$photo_url)$photo_url="assets/noimg.bmp";
+
         echo "
-            <div class='card'>
-                <div class='card-content'><br><center>
-                    <p class='grey-text'>
-                        <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-                        You don't have any child connected to your account yet.
-                    </p></center></br>
-                </div> 
-            </div>";
-    } else {
-
-        echo "<div class='row'>";
-
-        foreach($children_array as $key){
-            foreach($key as $parentchild_id){
-
-                $student_id = $db_parentchild->get("student_id", "parentchild_id", "$parentchild_id");
-                $first_name = $db_student->get("first_name","student_id", "$student_id");
-                $last_name = $db_student->get("last_name","student_id", "$student_id");
-                $suffix_name = $db_student->get("suffix_name","student_id", "$student_id");
-                $grade = $db_student->get("grade","student_id", "$student_id");
-                $section = $db_student->get("section","student_id", "$student_id");
-
-                $address = $db_student->get("address","student_id", "$student_id");
-                $city = $db_student->get("city","student_id", "$student_id");
-                $country = $db_student->get("country","student_id", "$student_id");
-                $mobile_number = $db_student->get("mobile_number","student_id", "$student_id");
-                $telephone_number = $db_student->get("telephone_number","student_id", "$student_id");
-                $email = $db_student->get("email","student_id", "$student_id");
-
-                $photo_url = $db_account->get("photo_url","student_id", "$student_id");
-                $user_id = $db_account->get("user_id", "student_id", "$student_id");
-
-                if(empty($photo_url)){
-                    $photo_url = "assets/noimg.bmp";
-                } 
-
-                echo "
                 <div class='col s6'>
                 <a href='#card$student_id'>
                 <div class='card'>
@@ -164,14 +162,10 @@ $admin_array = $db_admin->select(array());
                 </script>
                 ";
 
-            }
-        }
-
-        echo "</div>";// End of row
-
-    }
-
-    ?>
+    }    
+    echo "</div>";// End of row
+}
+?>
     <br>
     <h4 class="seagreen-text">Administrators</h4>
 <?php

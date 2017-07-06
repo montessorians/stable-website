@@ -17,7 +17,7 @@ $previous_transaction_time = "";
 $daily_limit = $e;
 
 $ecash_id = $db_ecash->get("ecash_id", "user_id", "$user_id");
-if(empty($ecash_id)){} else {
+if(isset($ecash_id)){
 	
 	$allow_ecash = $db_ecash->get("allow_ecash", "ecash_id", "$ecash_id");
 	$daily_limit = $db_ecash->get("daily_limit", "ecash_id", "$ecash_id");
