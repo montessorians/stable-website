@@ -9,7 +9,6 @@ $previous_balance = $e;
 $previous_transaction = "";
 $previous_transaction_amount = "";
 $previous_transaction_merchant = "";
-$previous_transaction_amount = "";
 $previous_transaction_month = "";
 $previous_transaction_day = "";
 $previous_transaction_year = "";
@@ -30,10 +29,6 @@ if(isset($ecash_id)){
 		$previous_balance = $e;
 	}
 	$previous_transaction = $db_ecash->get("previous_transaction", "ecash_id", "$ecash_id");
-	$previous_transaction_amount = $db_ecash->get("previous_transaction_amount", "ecash_id", "$ecash_id");
-	if(empty($previous_transaction_amount)){
-		$previous_transaction_amount = $e;
-	}
 	$previous_transaction_merchant = $db_ecash->get("previous_transaction_merchant", "ecash_id", "$ecash_id");
 	$previous_transaction_month = $db_ecash->get("previous_transaction_month", "ecash_id", "$ecash_id");
 	$previous_transaction_day = $db_ecash->get("previous_transaction_day", "ecash_id", "$ecash_id");
@@ -68,7 +63,6 @@ if(isset($ecash_id)){
 				<strong>$previous_transaction</strong>
 				<p class='grey-text'>
 					Merchant: $previous_transaction_merchant<br>
-					Amount: ₱ $previous_transaction_amount<br>
 					Previous Balance: ₱ $previous_balance<br>
 					Date: $previous_transaction_month $previous_transaction_day, $previous_transaction_year<br>
 					Time:  $time<br>

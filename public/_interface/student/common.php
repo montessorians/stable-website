@@ -25,6 +25,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 			<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
 			<li class="tab"><a href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
 			<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
+			<li class="tab"><a href="#pulse" id="pulseButton"><i class="material-icons">bubble_chart</i></a></li>
 			<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
 		</ul>
 	</div>
@@ -33,6 +34,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <div class="col s12" id="assessment"></div>
 <div class="col s12" id="ecash"></div>
 <div class="col s12" id="people"></div>
+<div class="col s12" id="pulse"></div>
 <div class="col s12" id="me"></div>  
 <?php
 	// Interface Modals
@@ -49,7 +51,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 	// Initialization
 	$(document).ready(function(){
 		$(".splashscreen").fadeOut();
-		setTitle(); home(); assessment(); ecash(); me(); people(); notif();
+		setTitle(); home(); assessment(); ecash(); me(); people();
 		$('.modal').modal(); $('ul.tabs').tabs({swipeable:false});
 		$('.tooltipped').tooltip({delay: 50});
 		setInterval(function(){
@@ -61,6 +63,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 	$("#homeButton").click(function(){ home(); });
 	$("#ecashButton").click(function(){ ecash(); });
 	$("#notifButton").click(function(){ notif(); });
+	$("#pulseButton").click(function(){ pulse(); });
 	// Global Functions
 	<?php include("_interface/_common/scripts.php"); ?>
 	// Local Functions
@@ -107,6 +110,17 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 				$("#people").html(result);
 			}
 		}).fail(function(){$("#people").html(error);});
+	}
+	// Pulse
+	function pulse(){
+		$("#pulse").html(loading);
+		$.ajax({
+			type: 'GET',
+			url: '_contents/student/pulse.php',
+			success: function(result){
+				$("#pulse").html(result);
+			}
+		}).fail(function(){$("#pulse").html(error);});
 	}
 	// Me
 	function me(){

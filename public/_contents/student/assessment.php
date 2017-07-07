@@ -182,7 +182,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						$last_name = $db_teacher->get("last_name", "teacher_id", "$teacher_id");
 						$suffix_name = $db_teacher->get("suffix_name", "teacher_id", "$teacher_id");
 						$teacher_name = $first_name . " " . $last_name . " " . $suffix_name;
-						if(!last_name)$teacher_name = "To be Announced";
+						if(!$last_name)$teacher_name = "To be Announced";
 						$proceed = 1;	
 					}
 
