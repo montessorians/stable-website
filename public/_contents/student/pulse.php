@@ -53,13 +53,16 @@ $card1 = "
     if(!$check_hold){
         echo $card1;
     } else {
-        echo "<div class='card-content'>
-								<center>
-									<p class='grey-text large'>
-									<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-									You are not allowed to use Pulse.</p>
-								</center>
-							</div>";
+        echo "
+        <div class='card'>
+            <div class='card-content'>
+				<center>
+				    <p class='grey-text large'>
+					<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+					You are not allowed to use Pulse.</p>
+				</center>
+			</div>
+        </div>";
     }
     ?>
 </div>
