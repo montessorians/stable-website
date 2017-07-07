@@ -25,7 +25,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 			<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
 			<li class="tab"><a href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
 			<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
-			<li class="tab"><a href="#pulse" id="pulseButton"><i class="material-icons">bubble_chart</i></a></li>
+			<!--li class="tab"><a href="#pulse" id="pulseButton"><i class="material-icons">bubble_chart</i></a></li-->
 			<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
 		</ul>
 	</div>
