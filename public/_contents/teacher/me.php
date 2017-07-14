@@ -34,7 +34,7 @@
 			if(empty($photo_url)){
 				echo "<i class=\"material-icons circle red\">person</i>";
 			}else{
-				echo "<img src='../../$photo_url' class='circle'>";
+				echo "<a href='#profilepic'><img src='../../$photo_url' class='circle'></a>";
 			}
 		?>
 		<p class="user-name"><?=$name?></p>

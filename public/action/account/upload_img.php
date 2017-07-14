@@ -42,19 +42,27 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
     $msg = "Sorry, your file is too large.";
     $uploadOk = 0;
 }
+/*
+Temporarily disabled filetype checking. Recheck statement
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
     $msg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
+*/
+
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $msg = "Sorry, your file was not uploaded.";
+    //$msg = "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    			
+    	
+		$old_img = $db_account->get("photo_url","user_id","$user_id");
+		if(isset($old_img)){
+			unlink("../../".$old_img);
+		}
     	$db_account->to("photo_url", "$save", "user_id", "$user_id");
     				
     	$notif_id = uniqid();
@@ -90,6 +98,6 @@ if ($uploadOk == 0) {
 	}//
 }
 
-header("Location: " . $_SERVER['HTTP_REFERER'] . "?msg=$msg");
+header("Location: " . $_SERVER['HTTP_REFERER'] . "&?msg=$msg");
 
 ?>
