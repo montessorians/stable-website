@@ -1,9 +1,13 @@
 <style>
     .brand {
-        height:100px !important;
-        width: 100px !important;
-        margin-left: 3% !important;
+        height:inherit !important;
+        width: 12% !important;
+        margin-left: 60px; !important;
         position: absolute !important;
+    }
+    .left{
+        margin-top: 2px;
+        margin-left: 20px;
     }
     .right {
         margin-right:20px !important;
@@ -43,19 +47,43 @@
             </h3>
         </div>
         <a href="/">
-            <img src="assets/favicon.ico" class="brand z-depth-5" id="hcm-logo">
+            <img src="/assets/favicon.ico" class="brand z-depth-5" id="hcm-logo">
         </a>
         <nav class="<?=$primary_color?>">
-            <a href="account/?local=1" class="right">Sign-In</a>            
-            <a href="account/?local=1" class="right"><i class="material-icons">person</i></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large left"><i class="material-icons">menu</i></a>
+            <a href="/account/?local=1" class="right">Sign-In</a>            
+            <a href="/account/?local=1" class="right"><i class="material-icons">person</i></a>
+
+            <ul class="side-nav" id="mobile-demo">
+                <li class="userView">
+                    <div class="background">
+                        <img src="/assets/thumb1.png" width="100%">
+                    </div>
+                    <p><b>Welcome Montessorian!</b></p>
+                </li>
+                <li><a href="/pages/aboutus">About Us</a></li>
+                <li><a href="/pages/admissions">Admissions</a></li>
+                <li><a href="/pages/alumni">Alumni</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/pages/schoolofexcellence">School of Excellence</a></li>
+                <li><a href="/pages/continuingeducation">School of Continuing Education</a></li>
+                <li><a href="/pages/onlineschool">Online School</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/pages/library">School Library</a></li>
+                <li><a href="/pages/research">Research and Publication</a></li>
+                <li><a href="/pages/community">Community Engagement</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/account/?local=1">Sign-In</a></li>
+            </ul>
+
         </nav>
         <!-- Jumbotron for larger window and desktop -->
         <div class="jumbotron hide-on-small-only">
-            <img src="assets/pub.png" class="jumbo" id="img1">
+            <img src="/assets/pub.png" class="jumbo" id="img1">
         </div>
         <!-- Jumbotron for mobile images and small windows -->
         <div class="jumbotron-mobile hide-on-med-and-up">
-            <img src="assets/pub.png" class="jumbo-mobile" id="img1">
+            <img src="/assets/pub.png" class="jumbo-mobile" id="img1">
         </div>
 
         <div class="container">
@@ -245,6 +273,7 @@
         $("#hcm-logo").slideDown(2000);
         window.sr = ScrollReveal();
         sr.reveal('.reveal', {reset: false});
+        $(".button-collapse").sideNav({closeOnClick: true});
     }).keypress(function(e){
 		var key = e.which;
 		if(key == 13){
