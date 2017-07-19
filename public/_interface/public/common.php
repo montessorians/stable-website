@@ -1,7 +1,17 @@
+<?php
+session_start();
+if(!$_SESSION['logged_in']){
+    $si = "Sign-In";
+    $li = "/account/?local=1";
+} else {
+    $si = $_SESSION['username'];
+    $li = "/account/logout";
+}
+?>
 <style>
     .brand {
         height:inherit !important;
-        width: 12% !important;
+        width: 17% !important;
         margin-left: 60px; !important;
         position: absolute !important;
     }
@@ -51,8 +61,8 @@
         </a>
         <nav class="<?=$primary_color?>">
             <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large left"><i class="material-icons">menu</i></a>
-            <a href="/account/?local=1" class="right">Sign-In</a>            
-            <a href="/account/?local=1" class="right"><i class="material-icons">person</i></a>
+            <a href="<?=$li?>" class="right"><?=$si?></a>            
+            <a href="<?=$li?>" class="right"><i class="material-icons">person</i></a>
 
             <ul class="side-nav" id="mobile-demo">
                 <li class="userView">
