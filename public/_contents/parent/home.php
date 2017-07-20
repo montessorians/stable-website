@@ -1,6 +1,5 @@
 <?php
-include("_setup.php");
-$exam_week = $db_schooldata->get("exam_week", "school_id", "1");
+include("../_include/setup.php");
 if($exam_week === "yes"){
 	$exam_week = "
 		<div class='card yellow'>

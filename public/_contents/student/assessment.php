@@ -1,9 +1,7 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $classes_array = $db_enroll->where(array(), "student_id", "$student_id");
 $attendance_array = $db_attendance->where(array(), "student_id", "$student_id");
-$current_sy = $db_schooldata->get("school_year", "school_id", "1");
-$print_grades = $db_schooldata->get("print_grades", "school_id", "1");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 ?>
 

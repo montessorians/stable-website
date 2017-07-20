@@ -1,10 +1,8 @@
 <?php
-include("_setup.php");
-
+include("../_include/setup.php");
 $parentchild_array = $db_parentchild->where(array("parentchild_id"), "student_id", "$student_id");
 $enroll_array = $db_enroll->where(array("enroll_id"), "student_id", "$student_id");
 $admin_array = $db_admin->select(array());
-
 ?>
 <div class="container">
 <br>

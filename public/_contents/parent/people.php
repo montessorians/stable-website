@@ -1,5 +1,5 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $children_array = $db_parentchild->where(array(), "parent_id", "$parent_id");
 $admin_array = $db_admin->select(array());
 ?>

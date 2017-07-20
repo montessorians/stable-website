@@ -1,19 +1,10 @@
 <?php
-	session_start();
-	include("../../_system/config.php");
-	$user_id = $_SESSION['user_id'];
-	$username = $_SESSION['username'];
-	$parent_id = $_SESSION['parent_id'];
-	include("../../_system/database/db.php");
-	$db_parent = new DBase("parent", "../../_store");
-	$db_account = new DBase("account", "../../_store");
-	$db_schooldata = new DBase("school_data", "../../_store");
+	include("../_include/setup.php");
 	$photo_url = $db_account->get("photo_url", "user_id", "$user_id");
 	$first_name = $db_parent->get("first_name", "parent_id", "$parent_id");
 	$last_name = $db_parent->get("last_name", "parent_id", "$parent_id");
 	$suffix_name = $db_parent->get("suffix_name", "parent_id", "$parent_id");
 	$name = $first_name . " " . $last_name . " " . $suffix_name;
-	$current_sy = $db_schooldata->get("school_year", "school_id", "1");
 ?>
 <style>
 	.collection-title{

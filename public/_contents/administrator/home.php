@@ -1,5 +1,5 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $exam_week = $db_schooldata->get("exam_week", "school_id", "1");
 if($exam_week === "yes"){
 	$exam_week = "

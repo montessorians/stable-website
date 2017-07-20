@@ -1,9 +1,8 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $check_hold = $db_hold->count("student_id","$student_id");
 $hold_array = $db_hold->where(array("hold_id"), "student_id", "$student_id");
 
-$exam_week = $db_schooldata->get("exam_week", "school_id", "1");
 if($exam_week === "yes"){
 	$exam_week = "
 		<div class='card yellow'>

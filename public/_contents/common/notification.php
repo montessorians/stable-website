@@ -1,10 +1,5 @@
 <?php
-session_start();
-include("../../_system/database/db.php");
-include("../../_system/config.php");
-$user_id =$_SESSION['user_id'];
-
-$db_notification = new DBase("notification", "../../_store");
+include("../_include/setup.php");
 $array = $db_notification->where(array(), "user_id", "$user_id");
 ?>
 <style>

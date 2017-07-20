@@ -1,5 +1,5 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $classes = $db_enroll->where(array("school_year","class_id"),"student_id","$student_id");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 

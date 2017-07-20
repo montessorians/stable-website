@@ -1,7 +1,5 @@
 <?php
-    include("_setup.php");
-    $current_sy = $db_schooldata->get("school_year", "school_id", "1");
-    $grade_encode = $db_schooldata->get("grade_encode", "school_id", "1");
+    include("../_include/setup.php");
     $classes_array = $db_class->where(array(), "teacher_id", "$teacher_id");
 ?>
 <div class="container">

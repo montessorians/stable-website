@@ -1,5 +1,5 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $admin_array = $db_admin->select(array());
 ?>
 <div class="container">

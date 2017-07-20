@@ -1,8 +1,6 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 $children_array = $db_parentchild->where(array(), "parent_id", "$parent_id");
-$current_sy = $db_schooldata->get("school_year", "school_id", "1");
-$print_grades = $db_schooldata->get("print_grades", "school_id", "1");
 
 $empty_child = "
     <div class='card'>

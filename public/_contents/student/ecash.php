@@ -1,5 +1,5 @@
 <?php
-include("_setup.php");
+include("../_include/setup.php");
 
 $e = "0.00";
 
