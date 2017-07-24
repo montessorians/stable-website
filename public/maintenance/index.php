@@ -17,10 +17,12 @@ session_start();
 			}
 			h1{
 				color: white;
+				font-family: Arial;
 				font-size: 30pt;
 			}
 			p{
 				color: #E3E3E3;
+				font-family: Arial;
 				font-size: 20pt;
 			}
 		</style>
