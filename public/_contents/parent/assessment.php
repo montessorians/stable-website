@@ -42,7 +42,7 @@ $empty_child = "
 
 			if(isset($check_hold)){
 				echo "
-            	    <div class='card'>
+            	    <div class='card hoverable'>
                 	    <div class='card-content'><br><center>
                     	    <p class='grey-text'>
                         	    <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
@@ -52,12 +52,9 @@ $empty_child = "
               	</div>";
 				$proceed = 0;
 			} else {
-				$proceed = 1;
-			}
-
 			if(!$classes_array){
 				echo "
-					<div class='card'><div class='card-content'>
+					<div class='card hoverable'><div class='card-content'>
 						$student_title
 					<center class='grey-text'>
                     <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
@@ -67,11 +64,12 @@ $empty_child = "
 			} else {
 				$proceed = 1;
 			}
+			}
 
 			if($proceed == 1){
 
 			echo "
-				<div class='card'>
+				<div class='card hoverable'>
 					<div class='card-content'>
 						$student_title
 					</div>
@@ -209,12 +207,12 @@ if($proceed ==1){
 
 		if(!$attendance_array){
 			echo "
-				<div class='card'>
+				<div class='card hoverable'>
 					<div class='card-content'>
 						<p><font size='4'><b>$name</b> ($sectiongrade)</font></p><br>
 						<center><p class='grey-text'>
 						<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-						You are not enrolled yet.</p></center>
+						$first_name is not enrolled yet.</p></center>
                     </div>
 				</div>";
 			$proceed = 0;
@@ -224,7 +222,7 @@ if($proceed ==1){
 
 		if($proceed == 1){
 			echo "
-			<div class='card'>
+			<div class='card hoverable'>
 				<div class='card-content'>
 					<p><font size='4'><b>$name</b> ($sectiongrade)</font></p>
 				</div>

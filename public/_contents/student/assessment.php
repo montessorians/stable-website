@@ -8,19 +8,21 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 <div class="container">
 <br>
 <h4 class="seagreen-text">My Grades</h4>
-<div class="card">
+<div class="card hoverable">
 	<?php
 	if(empty($check_hold)){
 	
 		if(empty($classes_array)){
 			
-			echo "<div class='card-content'>
-								<center>
-									<p class='grey-text'>
-									<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-									You don't have any subjects yet.</p>
-								</center>
-							</div>";	
+			echo "
+			<div class='card-content'>
+				<center>
+					<p class='grey-text'>
+						<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+						You don't have any subjects yet.
+					</p>
+				</center>
+			</div>";	
 			
 		} else {
 			
@@ -107,13 +109,14 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 		} //
 		
 	 else {
-			echo "<div class='card-content'>
-								<center>
-									<p class='grey-text large'>
-									<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-									You are not allowed to view your grades.</p>
-								</center>
-							</div>";				
+			echo "
+			<div class='card-content'>
+				<center>
+					<p class='grey-text large'>
+						<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+						You are not allowed to view your grades.</p>
+				</center>
+			</div>";				
 	}
 	
 	if(empty($check_hold)){
@@ -142,7 +145,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 </div>
 <br>
 <h4 class="seagreen-text">My Classes</h4>
-<div class="card">
+<div class="card hoverable">
 	<ul class="collection">
 		<?php
 			if(empty($classes_array)){
@@ -226,18 +229,18 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 </div>
 	<br>
 	<h4 class="seagreen-text">My Attendance</h4>
-	<div class="card">
+	<div class="card hoverable">
 		<?php
 			if(empty($attendance_array)){
 				echo "
-					<div class='card-content'>
-								<center>
-									<p class='grey-text'>
-									<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-									You are not enrolled yet.</p>
-								</center>
-					</div>
-				";
+				<div class='card-content'>
+					<center>
+						<p class='grey-text'>
+							<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+							You are not enrolled yet.
+						</p>
+					</center>
+				</div>";
 			} else {
 				
 				echo "

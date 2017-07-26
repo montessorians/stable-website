@@ -2,7 +2,7 @@
 include("../_include/setup.php");
 if($exam_week === "yes"){
 	$exam_week = "
-		<div class='card yellow'>
+		<div class='card hoverable yellow'>
 			<div class='card-content'>
 				<center>School is on Exam Week</center>
 			</div>
@@ -47,7 +47,7 @@ startTime();
 </h4>
 <br>
 
-<div class="card">
+<div class="card hoverable">
 <div class="card-content">
 	<h5>
 		Today is <?=date("M d Y")?> <span id="txt"></span>

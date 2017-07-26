@@ -10,7 +10,7 @@ $admin_array = $db_admin->select(array());
 $proceed = 0;
 if(!$children_array){
     echo "
-        <div class='card'>
+        <div class='card hoverable'>
             <div class='card-content'><br><center>
                 <p class='grey-text'>
                     <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
@@ -46,7 +46,7 @@ if($proceed==1){
         echo "
                 <div class='col s6'>
                 <a href='#card$student_id'>
-                <div class='card'>
+                <div class='card hoverable'>
                     <div class='card-img'>
                         <img src='$photo_url' width='100%'>
                     </div>
@@ -170,7 +170,7 @@ if($proceed==1){
     <h4 class="seagreen-text">Administrators</h4>
 <?php
 $noclass_card = "
-<div class='card'><div class='card-content'><center>
+<div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>No Administrators Yet</p>
 </center></div></div>";
 
@@ -196,7 +196,7 @@ foreach($admin_array as $admin){
                      echo "
                          <div class='col s6'>
                          <a href='#card$admin_id'>
-                         <div class='card'>
+                         <div class='card hoverable'>
                             <div class='card-img'>
                                 <img src='$photo_url' width='100%' class='responsive-img'>
                             </div>

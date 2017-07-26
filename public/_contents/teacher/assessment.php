@@ -10,7 +10,7 @@
 $proceed = 0;
 if(!classes_array){
     echo "
-        <div class='card'>
+        <div class='card hoverable'>
             <div class='card-content'><br><center>
                 <p class='grey-text'>
                     <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
@@ -39,7 +39,7 @@ if($proceed==1){
 
         // Filter: Check if school year on class the same as current school year.
         if($school_year == $current_sy){
-            echo "<div class='card'>
+            echo "<div class='card hoverable'>
                     <div class='card-content'>
                         <h5 class='seagreen-text'>$class_title</h5>
                         <p>

@@ -12,7 +12,7 @@ $array = $db_post->select(array("post_id"));
 if(empty($array)){
 	
 	echo "
-	<div class='card'>
+	<div class='card hoverable'>
 		<div class='card-content'>
 			<center>No Posts Yet</center>
 		</div>
@@ -80,7 +80,7 @@ if(empty($array)){
 					break;
 			}//
 			
-			echo "<div class='col s6'><div class='card reveal'>";
+			echo "<div class='col s6'><div class='card reveal hoverable'>";
 				
 				if(empty($photo_url)){
 				} else {

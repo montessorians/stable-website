@@ -25,6 +25,7 @@ $array = $db_notification->where(array(), "user_id", "$user_id");
 			$notification_url = $notif['notification_url'];
 			$notification_icon = $notif['notification_icon'];
 			$sender_alternative = $notif['sender_alternative'];
+			if($sender_alternative==''){}else{$sender_alternative=$sender_alternative." -";}
 			$sender_id = $notif['sender_id'];
 			$create_month = $notif['create_month'];
 			$create_day = $notif['create_day'];
@@ -38,9 +39,9 @@ $array = $db_notification->where(array(), "user_id", "$user_id");
 			 	<p class='notif-content black-text'>
 			 		<b>$notification_title</b><br>
 			 		<span class='grey-text text-darken-2'>$notification_content</span>
-			 	</p>
+			 	</p><br>
 			 	<p><font size='-1' class='grey-text'>
-			 		$sender_alternative - $create_month $create_day, $create_year $create_time
+			 		<b>$sender_alternative</b> $create_month $create_day, $create_year $create_time
 			 	</font></p>
 			";
 			if(isset($notification_url))echo"</a>";

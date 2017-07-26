@@ -9,7 +9,7 @@ $admin_array = $db_admin->select(array());
 <h4 class="seagreen-text">My Teachers</h4>
 <?php
 $noclass_card = "
-<div class='card'><div class='card-content'><center>
+<div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>You Don't Have Any Teacher Yet</p>
 </center></div></div>";
 
@@ -45,7 +45,7 @@ $teacher_array = array();
                      echo "
                          <div class='col s6'>
                          <a href='#card$teacher_id'>
-                         <div class='card'>
+                         <div class='card hoverable'>
                             <div class='card-img'>
                                 <img src='$photo_url' width='100%' class='responsive-img'>
                             </div>
@@ -93,7 +93,7 @@ echo "</div>";
 <h4 class="seagreen-text">My Parents</h4>
 <?php
 $noclass_card = "
-<div class='card'><div class='card-content'><center>
+<div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>Your Parents aren't Connect Yet</p>
 </center></div></div>";
 
@@ -127,7 +127,7 @@ $noclass_card = "
                      echo "
                          <div class='col s6'>
                          <a href='#card$parent_id'>
-                         <div class='card'>
+                         <div class='card hoverable'>
                             <div class='card-img'>
                                 <img src='$photo_url' width='100%' class='responsive-img'>
                             </div>
@@ -184,7 +184,7 @@ $noclass_card = "
 <h4 class="seagreen-text">Administrators</h4>
 <?php
 $noclass_card = "
-<div class='card'><div class='card-content'><center>
+<div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>No Administrators Yet</p>
 </center></div></div>";
 
@@ -213,7 +213,7 @@ if(empty($admin_array)){
                      echo "
                          <div class='col s6'>
                          <a href='#card$admin_id'>
-                         <div class='card'>
+                         <div class='card hoverable'>
                             <div class='card-img'>
                                 <img src='$photo_url' width='100%' class='responsive-img'>
                             </div>
