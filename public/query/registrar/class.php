@@ -15,6 +15,7 @@
 	$activity_title = "View Class";
 	
 	$db_class = new DBase("class", "../../_store");
+	$db_subject = new DBase("subject","../../_store");
 	$db_teacher = new DBase("teacher", "../../_store");
 	$db_student = new DBase("student", "../../_store");
 	$db_enroll = new DBase("student_class", "../../_store");
@@ -29,10 +30,12 @@
 		}
 	}
 	
-	$class_title = $db_class->get("class_title", "class_id", "$class_id");
-	$class_description = $db_class->get("class_description", "class_id", "$class_id");
+	$subject_id = $db_class->get("subject_id","class_id","$class_id");
+	$subject_title = $db_subject->get("subject_title","subject_id","$subject_id");
+	$subject_description = $db_subject->get("subject_description", "subject_id", "$subject_id");
+	$grade = $db_subject->get("grade", "subject_id", "$subject_id");
+	$section = $db_class->get("section", "class_id", "$class_id");	
 	$school_year = $db_class->get("school_year", "class_id", "$class_id");
-	$grade = $db_class->get("grade", "class_id", "$class_id");
 	$section = $db_class->get("section", "class_id", "$class_id");
 	$class_code = $db_class->get("class_code", "class_id", "$class_id");
 	$class_room = $db_class->get("class_room", "class_id", "$class_id");
@@ -43,7 +46,6 @@
 	$end_time = $db_class->get("end_time", "class_id", "$class_id");
 	$end_time = date("h:i a", strtotime($end_time));
 	$schedule = $db_class->get("schedule", "class_id", "$class_id");
-	$units = $db_class->get("units", "class_id", "$class_id");
 	
 	if(empty($teacher_id)){
 		$teacher = "Teacher: No teacher assigned";
@@ -73,13 +75,15 @@
 			<a href="<?=$from?>" class="button-collapse show-on-large"><i class="material-icons">arrow_back</i></a>
 			</div>
 			<div class="nav-content">
-				<span class="nav-title"><?=$class_title?></span>
+				<span class="nav-title"><?=$subject_title?></span>
 			</div>
 		</nav>
-
 		<ul class="collection">
 			<li class="collection-item">
-				Description: <?=$class_description?>
+				Subject ID: <?=$subject_id?>
+			</li>
+			<li class="collection-item">
+				Description: <?=$subject_description?>
 			</li>
 			<li class="collection-item">
 				School Year: <?=$school_year?>

@@ -18,6 +18,7 @@ session_start();
 	
 	$db_account = new DBase("account", "../../_store");
 	$db_student = new DBase("student", "../../_store");
+	$db_subject = new DBase("subject", "../../_store");
 	$db_enroll = new DBase("student_class", "../../_store");
 	$db_class = new DBase("class", "../../_store");
 	$db_notification = new DBase("notification", "../../_store");
@@ -48,12 +49,13 @@ session_start();
 
 
 	$class_id = $db_enroll->get("class_id", "enroll_id", "$enroll_id");
-	$class_title = $db_class->get("class_title", "class_id", "$class_id");	
+	$subject_id = $db_class->get("subject_id","class_id","$class_id");
+	$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");	
 	$user_id = $db_account->get("user_id", "student_id", "$student_id");
 	$n_a = array(
 					"notification_id" => "$notif_id",
-					"notification_title" => "$class_title grade has been encoded",
-					"notification_content" => "Your grade for $class_title is ready to be viewed.",
+					"notification_title" => "$subject_title grade has been encoded",
+					"notification_content" => "Your grade for $subject_title is ready to be viewed.",
 					"photo_url" => "",
 					"notification_url" => "",
 					"notification_icon" => "assessment",

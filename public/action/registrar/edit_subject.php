@@ -47,7 +47,7 @@ if($proceed===1){
         "subject_code"=>"$subject_code",
         "units"=>"$units"
     ); 
-    $db_subject->index("subject_id","$subject_id");
+    $index = $db_subject->index("subject_id","$subject_id");
     $db_subject->update($index,$array);
     echo "$subject_title ($subject_id) has been edited successfully!";
 }

@@ -18,6 +18,7 @@ $db_student = new DBase('student','../../_store/');
 $db_hold = new DBase('student_hold','../../_store/');
 $db_attendance = new DBase('student_attendance','../../_store/');
 $db_class = new DBase('class','../../_store/');
+$db_subject = new DBase('subject','../../_store/');
 $db_studentclass = new DBase('student_class','../../_store/');
 $db_parentchild = new DBase("parentchild","../../_store");
 
@@ -195,11 +196,12 @@ foreach($grade_array as $key){
         $sy_enroll = $db_studentclass->get("school_year", "enroll_id", "$enroll_id");        
         if($sy_enroll == $school_year){
             $class_id = $db_studentclass->get("class_id", "enroll_id", "$enroll_id");
+            $subject_id = $db_class->get("subject_id","class_id","$class_id");
             $first_quarter = $db_studentclass->get("first_quarter_grade", "enroll_id", "$enroll_id");
             $second_quarter = $db_studentclass->get("second_quarter_grade", "enroll_id", "$enroll_id");
             $third_quarter = $db_studentclass->get("third_quarter_grade", "enroll_id", "$enroll_id");
             $fourth_quarter = $db_studentclass->get("fourth_quarter_grade", "enroll_id", "$enroll_id");
-            $class_title = $db_class->get("class_title", "class_id", "$class_id");
+            $subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
 
             $div = 4;
 					 if(empty($fourth_quarter)){$div = 3;}
@@ -224,7 +226,7 @@ foreach($grade_array as $key){
             $pdf->SetXY(20,$c_y+5);
 
             $pdf->Cell(15,5, $class_id,1,0,'C',0);
-            $pdf->Cell(80,5, $class_title,1,0,'L',0);
+            $pdf->Cell(80,5, $subject_title,1,0,'L',0);
             $pdf->Cell(15,5, $first_quarter,1,0,'C',0);
             $pdf->Cell(15,5, $second_quarter,1,0,'C',0);
             $pdf->Cell(15,5, $third_quarter,1,0,'C',0);

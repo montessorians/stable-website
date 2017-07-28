@@ -37,6 +37,7 @@ $db_transaction = new DBase("ecash_transaction", "$loc");
 
 // Class
 $db_class = new DBase("class","$loc");
+$db_subject = new DBase("subject",$loc);
 $db_enroll = new DBase("student_class","$loc");
 $db_attendance = new DBase("student_attendance","$loc");
 

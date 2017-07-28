@@ -48,7 +48,8 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				$enroll_id = $enroll['enroll_id'];
 				$school_year = $enroll['school_year'];
 				$class_id = $enroll['class_id'];
-				$class_title = $db_class->get("class_title", "class_id", "$class_id");
+				$subject_id = $db_class->get("subject_id","class_id","$class_id");
+				$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
 
 				$first_quarter_grade = $enroll['first_quarter_grade'];
 				$second_quarter_grade = $enroll['second_quarter_grade'];
@@ -77,7 +78,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				if($school_year == $current_sy){
 					echo "
 						<tr>
-							<td class='seagreen-text'><b>$class_title</b></td>
+							<td class='seagreen-text'><b>$subject_title</b></td>
 							<td>$first_quarter_grade</td>
 							<td>$second_quarter_grade</td>
 							<td>$third_quarter_grade</td>
@@ -170,7 +171,8 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 					$class_id = $enroll['class_id'];
 
 					if($school_year == $current_sy){
-						$class_title = $db_class->get("class_title", "class_id", "$class_id");
+						$subject_id = $db_class->get("subject_id","class_id","$class_id");
+						$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
 						$start_time = $db_class->get("start_time", "class_id", "$class_id");
 						$start_time = date("h:i a", strtotime($start_time));
 						$end_time = $db_class->get("end_time", "class_id", "$class_id");
@@ -191,7 +193,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						echo "
 							<li class='collection-item'>
 								<p>
-									<font size='4pt'>$class_title</font><br>
+									<font size='4pt'>$subject_title</font><br>
 									<span class='grey-text'>
 										Time: $start_time - $end_time<br>
 										Days: $schedule<br>

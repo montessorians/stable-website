@@ -160,7 +160,7 @@ include("../../_system/secure.php");
 			
 			<div class="input-field col s6">
 				<input type="text" id="max_students" value="<?=$max_students?>">
-				<label for="max_students"></label>
+				<label for="max_students">Max no. of Students</label>
 			</div>
 			
 			</div>
@@ -180,7 +180,7 @@ include("../../_system/secure.php");
 	
 	function createClass(){
 		
-		var i = $("#subject_id").val();
+		var si = $("#subject_id").val();
 		var s_y = $("#school_year").val();
 		var s = $("#section").val();
 		var c = $("#class_code").val();
@@ -208,7 +208,7 @@ include("../../_system/secure.php");
 						echo "class_id: '$class_id',";
 						}
 						?>
-						subject_id: i,
+						subject_id: si,
 						school_year: s_y,
 						section: s,
 						class_code: c,
@@ -218,7 +218,7 @@ include("../../_system/secure.php");
 						start_time: s_t,
 						end_time: e_t,
 						schedule: sc,
-						max_students: mx
+						max_students: ms
 					},
 					cache: false,
 					success: function(result){

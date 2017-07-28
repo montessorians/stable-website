@@ -54,6 +54,7 @@ if(empty($query)){
 
 					$subject_title = $db_subject->get("subject_title","subject_id","$subject_id");
 					$subject_description = $db_subject->get("subject_description","subject_id","$subject_id");
+					$grade = $db_subject->get("grade","subject_id","$subject_id");
 					$units = $db_subject->get("units","subject_id","$subject_id");
 					$subject_code = $db_subject->get("subject_code","subject_id","$subject_id");
 

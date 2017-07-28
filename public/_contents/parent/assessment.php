@@ -93,7 +93,8 @@ $empty_child = "
 					$enroll_id = $enroll['enroll_id'];
 					$school_year = $enroll['school_year'];
 					$class_id = $enroll['class_id'];
-					$class_title = $db_class->get("class_title", "class_id", "$class_id");
+					$subject_id = $db_class->get("subject_id","class_id","$class_id");
+					$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
 
 					$first_quarter_grade = $enroll['first_quarter_grade'];
 					$second_quarter_grade = $enroll['second_quarter_grade'];
@@ -122,7 +123,7 @@ $empty_child = "
 					if($school_year == $current_sy){
 					echo "
 						<tr>
-							<td class='seagreen-text'><b>$class_title</b></td>
+							<td class='seagreen-text'><b>$subject_title</b></td>
 							<td>$first_quarter_grade</td>
 							<td>$second_quarter_grade</td>
 							<td>$third_quarter_grade</td>

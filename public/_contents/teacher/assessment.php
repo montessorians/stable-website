@@ -27,9 +27,10 @@ if(!classes_array){
 if($proceed==1){
     foreach($classes_array as $class){
         $class_id = $class['class_id'];
-        $class_title = $class['class_title'];
+		$subject_id = $db_class->get("subject_id","class_id","$class_id");
+		$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
         $school_year = $class['school_year'];
-        $grade = $class['grade'];
+        $grade = $db_subject->get("grade","subject_id","$subject_id");
         $section = $class['section'];
         $class_code = $class['class_code'];
         $class_room = $class['class_room'];
@@ -41,7 +42,7 @@ if($proceed==1){
         if($school_year == $current_sy){
             echo "<div class='card hoverable'>
                     <div class='card-content'>
-                        <h5 class='seagreen-text'>$class_title</h5>
+                        <h5 class='seagreen-text'>$subject_title</h5>
                         <p>
                             <strong>Grade/Section:</strong> $grade - $section<br>
                             <strong>Schedule:</strong> $start_time - $end_time ($schedule)<br>

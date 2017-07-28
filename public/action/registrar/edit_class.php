@@ -32,8 +32,6 @@
 
 	if($db_class->exists("class_id","$class_id")){
 		if($db_subject->exists("subject_id", "$subject_id")){
-			echo "Subject Doesn't Exist";
-		} else {
 			if(!$school_year){
 				echo "School Year Required";
 			} else {
@@ -58,6 +56,9 @@
 				
 				echo "<span class='green-text text-darken-2'>Class $class_id has been edited successfully.</span>";
 			}
+		
+		} else {
+		echo "Subject $subject_id Doesn't Exist";
 		}
 	} else {
 		echo "Class Doesn't Exist";

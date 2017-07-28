@@ -18,6 +18,7 @@ session_start();
 	
 	$db_account = new DBase("account", "../../_store");
 	$db_notification = new DBase("notification", "../../_store");
+	$db_subject = new DBase("subject","../../_store");
 	$db_class = new DBase("class","../../_store");
 	$db_student = new DBase("student", "../../_store");
 	$db_enroll = new DBase("student_class", "../../_store");
@@ -54,7 +55,8 @@ session_start();
 				$first_name = $db_student->get("first_name", "student_id", "$student_id");
 				$last_name = $db_student->get("last_name",  "student_id", "$student_id");
 				$suffix_name = $db_student->get("suffix_name", "student_id", "$student_id");
-				$class_title = $db_class->get("class_title", "class_id", "$class_id");
+				$subject_id = $db_class->get("subject_id","class_id","$class_id");
+				$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
 				$school_year = $db_class->get("school_year", "class_id", "$class_id");
 				
 				$array = array(
@@ -80,8 +82,8 @@ session_start();
 				$user_id = $db_account->get("user_id", "student_id", "$student_id");
 	$n_a = array(
 					"notification_id" => "$notif_id",
-					"notification_title" => "You are now enrolled in $class_title ",
-					"notification_content" => "Congratulations! You are now enrolled in your class $class_title for SY $school_year.",
+					"notification_title" => "You are now enrolled in $subject_title ",
+					"notification_content" => "Congratulations! You are now enrolled in your subject $subject_title for SY $school_year.",
 					"photo_url" => "",
 					"notification_url" => "",
 					"notification_icon" => "assignment_turned_in",
@@ -95,7 +97,7 @@ session_start();
 				);
 				$db_notification->add($n_a);
 
-				echo "<span class='green-text'> $first_name $last_name $suffix_name enrolled in $class_title </span>";
+				echo "<span class='green-text'> $first_name $last_name $suffix_name enrolled in $subject_title </span>";
 				
 			}
 		} else {
