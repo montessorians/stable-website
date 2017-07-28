@@ -36,8 +36,9 @@
 				</div>
 				<div class="input-field col s6">
 					<select id="searchBy" class="browser-default">
-						<option value="class_title">Class Title</option>
 						<option value="class_id">Class ID</option>
+						<option value="subject_title">Subject Title</option>
+						<option value="subject_id">Subject ID</option>
 						<option value="grade">Grade</option>
 						<option value="school_year">School Year</option>
 						<option value="section">Section</option>
@@ -48,7 +49,7 @@
 						<option value="start_time">Start Time(24h)</option>
 						<option value="end_time">End Time (24h)</option>
 						<option value="schedule">Schedule</option>
-						<option value="units">Units</option>
+						<option value="max_students">Maximum No of Students</option>
 					</select>
 				</div>
 			</div>

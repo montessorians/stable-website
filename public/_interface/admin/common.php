@@ -51,6 +51,9 @@
   			<a href="query/account/teachers.php" class="black-text">Search a Teacher</a>
   		</li>
   		<li class="collection-item">
+  			<a href="query/registrar/subjects.php" class="black-text">Search Subjects</a>
+  		</li>
+		<li class="collection-item">
   			<a href="query/registrar/classes.php" class="black-text">Search Classes</a>
   		</li>
   		<li class="collection-item">
@@ -75,13 +78,16 @@
   			<a href="forms/registrar/enroll_student.php" class="black-text">Enroll a Student</a>
   		</li>
   		<li class="collection-item">
-  			<a href="forms/registrar/enroll_class.php" class="black-text">Add a Subject/Class to a Student</a>
+  			<a href="forms/registrar/enroll_class.php" class="black-text">Add a Class to a Student</a>
   		</li>
   		<li class="collection-item">
   			<a href="forms/registrar/enroll_teacher.php" class="black-text">Assign Teacher to a Class</a>
   		</li>
   		<li class="collection-item">
-  			<a href="forms/registrar/create_class.php" class="black-text">Create a Subject/Class</a>
+  			<a href="forms/registrar/create_subject.php" class="black-text">Create a Subject</a>
+  		</li>
+		  <li class="collection-item">
+  			<a href="forms/registrar/create_class.php" class="black-text">Create a Class</a>
   		</li>
   		<li class="collection-item">
   			<a href="forms/registrar/set_lrn.php" class="black-text">Set Student LRN</a>

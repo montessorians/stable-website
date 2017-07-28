@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 	include("../../_system/secure.php");
 	include("../../_system/database/db.php");
 	if(empty($_GET['from'])){
@@ -11,19 +11,15 @@ session_start();
 		$from = $_GET['from'];
 	}
 	if($_SESSION['account_type'] == "admin"){} else {
-		if($_SESSION['account_type'] == "developer"){} else {
-				header("Location: $from");
-		}
+		header("Location: $from");
 	}
 	
-	
+	$db_subject = new DBase("subject","../../_store");
 	$db_class = new DBase("class","../../_store");
 	
 	$class_id = $_POST['class_id'];
-	$class_title = $_POST['class_title'];
-	$class_description = $_POST['class_description'];
+	$subject_id = $_POST['subject_id'];
 	$school_year = $_POST['school_year'];
-	$grade = $_POST['grade'];
 	$section = $_POST['section'];
 	$class_code = $_POST['class_code'];
 	$class_room = $_POST['class_room'];
@@ -32,24 +28,20 @@ session_start();
 	$start_time = $_POST['start_time'];
 	$end_time = $_POST['end_time'];
 	$schedule = $_POST['schedule'];
-	$units = $_POST['units'];
-	
-	if(empty($class_title)){
-		echo "Class Title cannot be empty"; 
-	} else {
-		if(empty($grade)){
-			echo "Grade is required";
+	$max_students = $_POST['max_students'];
+
+	if($db_class->exists("class_id","$class_id")){
+		if($db_subject->exists("subject_id", "$subject_id")){
+			echo "Subject Doesn't Exist";
 		} else {
-			if(empty($school_year)){
-				echo "School Year is required";
+			if(!$school_year){
+				echo "School Year Required";
 			} else {
-				
+
 				$array = array(
 				"class_id" => "$class_id",
-				"class_title" => "$class_title",
-				"class_description" => "$class_description",
+				"subject_id" => "$subject_id",
 				"school_year" => "$school_year",
-				"grade" => "$grade",
 				"section" => "$section",
 				"class_code" => "$class_code",
 				"class_room" => "$class_room",
@@ -58,16 +50,17 @@ session_start();
 				"start_time" => "$start_time",
 				"end_time" => "$end_time",
 				"schedule" => "$schedule",
-				"units" => "$units"
+				"max_students" => "$max_students"
 				);
 				
 				$index = $db_class->index("class_id", "$class_id");
 				$db_class->update($index, $array);
 				
-				echo "<span class='green-text text-darken-2'>$class_title has been edited successfully. Class ID is $class_id</span>";
-				
+				echo "<span class='green-text text-darken-2'>Class $class_id has been edited successfully.</span>";
 			}
 		}
+	} else {
+		echo "Class Doesn't Exist";
 	}
-	
+
 ?>

@@ -16,14 +16,12 @@ session_start();
 		}
 	}
 	
-	
+	$db_subject = new DBase("subject", "../../_store");
 	$db_class = new DBase("class","../../_store");
 	
 	$class_id = mt_rand(10000,99999);
-	$class_title = $_POST['class_title'];
-	$class_description = $_POST['class_description'];
+	$subject_id = $_POST['subject_id'];
 	$school_year = $_POST['school_year'];
-	$grade = $_POST['grade'];
 	$section = $_POST['section'];
 	$class_code = $_POST['class_code'];
 	$class_room = $_POST['class_room'];
@@ -32,8 +30,37 @@ session_start();
 	$start_time = $_POST['start_time'];
 	$end_time = $_POST['end_time'];
 	$schedule = $_POST['schedule'];
-	$units = $_POST['units'];
-	
+	$max_students = $_POST['max_students'];
+
+	if($db_subject->exists("subject_id","$subject_id")){
+
+		if(!$grade){
+			echo "Grade is Required";
+		} else {
+			if(!$school_year){
+				echo "School Year is Required";
+			} else {
+				$array = array(
+				"class_id" => "$class_id",
+				"class_title" => "$class_title",
+				"school_year" => "$school_year",
+				"section" => "$section",
+				"class_code" => "$class_code",
+				"class_room" => "$class_room",
+				"access_code" => "$access_code",
+				"teacher_id" => "$teacher_id",
+				"start_time" => "$start_time",
+				"end_time" => "$end_time",
+				"schedule" => "$schedule",
+				"max_students" => "$max_students"
+				);
+			}
+		}
+
+	} else {
+		echo "Subject Doesn't Exist";
+	}
+
 	if(empty($class_title)){
 		echo "Class Title cannot be empty"; 
 	} else {
@@ -44,22 +71,7 @@ session_start();
 				echo "School Year is required";
 			} else {
 				
-				$array = array(
-				"class_id" => "$class_id",
-				"class_title" => "$class_title",
-				"class_description" => "$class_description",
-				"school_year" => "$school_year",
-				"grade" => "$grade",
-				"section" => "$section",
-				"class_code" => "$class_code",
-				"class_room" => "$class_room",
-				"access_code" => "$access_code",
-				"teacher_id" => "$teacher_id",
-				"start_time" => "$start_time",
-				"end_time" => "$end_time",
-				"schedule" => "$schedule",
-				"units" => "$units"
-				);
+				
 				
 				$db_class->add($array);
 				echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
