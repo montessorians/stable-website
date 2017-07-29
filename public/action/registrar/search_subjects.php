@@ -41,6 +41,7 @@ if(!$r){
             </div>
             <div class='card-action'>
                 <a class='green-text' href='../../forms/registrar/create_subject.php?subject_id=$subject_id'>Edit Subject</a>
+                <a class='green-text' href='../../forms/registrar/create_class.php?subject_id=$subject_id'>Create Class</a>
             </div>
         </div>
         ";

@@ -47,6 +47,7 @@ include("../../_system/secure.php");
 		$activity_title = "Create a Class";	
 		$button = "Create";
 		$url = "../../action/registrar/create_class.php";
+		if(isset($_GET['subject_id'])) $subject_id = $_GET['subject_id'];
 	} else {
 		$class_id = $_GET['class_id'];
 		$class_id = $db_class->get("class_id", "class_id", "$class_id");
