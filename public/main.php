@@ -18,6 +18,7 @@ Website
 	include("_system/styles.php");
 	?>
 	<meta property="og:title" content="Holy Child Montessori">
+	<meta property="og:description" content="Providing quality education since 1992";
 	<meta property="og:url" content="http://hcmontessori.likesyou.org">
 	<meta property="og:site_name" content="Holy Child Montessori">
 	<meta property="og:type" content="website">
