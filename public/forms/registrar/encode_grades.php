@@ -156,7 +156,7 @@ include("../../_system/secure.php");
 			?>
 			<br><br>
 			<div id='response'></div>
-			
+			<br><p>We do not restrict the grades that you input but limit grades to the ceiling grades provided. (1st Qtr. 97, 2nd Qtr. 98, 3rd Qtr. 99, 4th Qtr. 100)</p>
 		</div><br><br><br><br>
 	</body>
 </html>
