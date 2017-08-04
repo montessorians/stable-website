@@ -37,6 +37,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						<th>4th</th>
 						<th>Average</th>
 						<th>Final</th>
+						<th>Comments</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,6 +57,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				$third_quarter_grade = $enroll['third_quarter_grade'];
 				$fourth_quarter_grade = $enroll['fourth_quarter_grade'];
 				$final_grade = $enroll['final_grade'];
+				$enroll_notes = $enroll['enroll_notes'];
 
 				if(!$fourth_quarter_grade){$div = 3; $fourth_quarter_grade=null;}
 				if(!$third_quarter_grade){$div = 2; $third_quarter_grade=null;}
@@ -85,7 +87,20 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 							<td>$fourth_quarter_grade</td>
 							<td>$average_grade</td>
 							<td>$final_grade</td>
+							<td>";
+							if($enroll_notes !== ""){echo "<a class='grey-text' href='#enrollnotes$enroll_id'><i class='material-icons'>comment</i></a>";}
+						echo "
+							</td>
 						</tr>
+						<div class='modal modal-fixed-footer' id='enrollnotes$enroll_id'>
+							<div class='modal-content'>
+								<h4 class='grey-text'>Comment for $subject_title</h4>
+								<p>$enroll_notes</p>
+							</div>
+							<div class='modal-footer'>
+								<a class='modal-action modal-close waves-effect waves-green btn-flat'>Close</a>
+    						</div>
+						</div>
 						";
 				}
 
