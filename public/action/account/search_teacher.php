@@ -71,6 +71,7 @@ if(empty($query)){
 										<a class='black-text' href='../../profile/?teacher_id=$teacher_id'>View Profile</a>
 										<a class='black-text' href='../../forms/account/add_user.php?teacher_id=$teacher_id'>Edit Profile</a>
 										<a class='black-text' href='../../forms/registrar/enroll_teacher.php?teacher_id=$teacher_id'>Assign to Class</a>
+										<a class='black-text' href='../../forms/account/reset_password.php?user_id=$user_id'>Reset Password</a>
 										<a class='black-text' href='../../forms/account/upload_img.php?user_id=$user_id'>Upload Picture</a>
 									</div>
 									";
