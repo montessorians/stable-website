@@ -48,39 +48,53 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <script type="text/javascript">
 	// Declaratives
 	<?php include("_interface/_common/js_global_declaratives.php"); ?>
+
 	// Initialization
 	$(document).ready(function(){
+		// Creates a Smooth Transition to prevent half-baked render
 		$(".splashscreen").fadeOut();
+		// Initialize Functions
 		setTitle(); home(); assessment(); ecash(); me(); people();
+		// Start Modals
 		$('.modal').modal(); $('ul.tabs').tabs({swipeable:false});
 		$('.tooltipped').tooltip({delay: 50});
+		// Start Timer
 		setInterval(function(){
 			setTitle();
 		},100000);		
 	});
+
 	// Event Handling
 	$("#clearNotif").click(function(){ deleteAllNotification(); });	
 	$("#homeButton").click(function(){ home(); });
 	$("#ecashButton").click(function(){ ecash(); });
 	$("#notifButton").click(function(){ notif(); });
 	$("#pulseButton").click(function(){ pulse(); });
+
 	// Global Functions
 	<?php include("_interface/_common/scripts.php"); ?>
+
 	// Local Functions
 	// Home
 	function home(){
+		// Show Ajax Loader
 		$("#home").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/home.php',
 			success: function(result){
+				// Show Result
 				$("#home").html(result);
 			}
 		}).fail(function(){$("#home").html(error);});
 	}
+
 	// Assessment
 	function assessment(){
+		// Show Ajax Loader
 		$("#assessment").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/assessment.php',
@@ -89,46 +103,62 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 			}
 		}).fail(function(){$("#assessment").html(error);});
 	}
+
 	// Ecash
 	function ecash(){
+		// Show Ajax Loader
 		$("#ecash").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/ecash.php',
 			success: function(result){
+				// Show result
 				$("#ecash").html(result);
 			}
 		}).fail(function(){$("#ecash").html(error);});
 	}
+
 	// People
 	function people(){
+		// Show Ajax Loader
 		$("#people").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/people.php',
 			success: function(result){
+				// Show Result
 				$("#people").html(result);
 			}
 		}).fail(function(){$("#people").html(error);});
 	}
+
 	// Pulse
 	function pulse(){
+		// Show Ajax Loader
 		$("#pulse").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/pulse.php',
 			success: function(result){
+				// Show Result
 				$("#pulse").html(result);
 			}
 		}).fail(function(){$("#pulse").html(error);});
 	}
+
 	// Me
 	function me(){
+		// Show Ajax Loader
 		$("#me").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/student/me.php',
 			success: function(result){
+				// Show Result
 				$("#me").html(result);
 			}
 		}).fail(function(){$("#me").html(error);});

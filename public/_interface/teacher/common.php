@@ -43,75 +43,103 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <script type="text/javascript">
 	// Declaratives
 	<?php include("_interface/_common/js_global_declaratives.php"); ?>
+
 	//Initialization
 	$(document).ready(function(){
+		// Creates a Smooth Transition to prevent half-baked render
 		$(".splashscreen").fadeOut();
+		// Initalize Functions
 		setTitle(); home(); assessment(); me(); people(); notif(); calendar();
+		// Start Modal
 		$('.modal').modal();
 		$('ul.tabs').tabs({swipeable:false});
 		$('.tooltipped').tooltip({delay: 50});
+		// Start Timer
 		setInterval(function(){
 			setTitle();
 		},100000);
 	});
+	
 	// Event Handlinng
 	$("#notifButton").click(function(){ notif(); });
 	$("#homeButton").click(function(){ home(); });	
 	$("#clearNotif").click(function(){ deleteAllNotification(); });
+
 	// Global Functions
 	<?php include("_interface/_common/scripts.php"); ?>
+
+
 	// Local Functions
 	// Home
 	function home(){
+		// Show Ajax Loader
 		$("#home").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/teacher/home.php',
 			success: function(result){
+				// Show Result
 				$("#home").html(result);
 			}
 		}).fail(function(){$("#home").html(error);});
 	}
+
 	// Assessment
 	function assessment(){
+		// Show Ajax Loader
 		$("#assessment").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/teacher/assessment.php',
 			success: function(result){
+				// Show Result
 				$("#assessment").html(result);
 			}
 		}).fail(function(){$("#assessment").html(error);});
 	}
+
 	// People
 	function people(){
+		// Show Ajax Loader
 		$("#people").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/teacher/people.php',
 			success: function(result){
+				// Show Result
 				$("#people").html(result);
 			}
 		}).fail(function(){$("#people").html(error);});
 	}
+
 	// Calendar
 	function calendar(){
+		// Show Ajax Loader
 		$("#calendar").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/teacher/calendar.php',
 			success: function(result){
+				// Show Result
 				$("#calendar").html(result);
 			}
 		}).fail(function(){$("#calendar").html(error);});
 	}
+
 	// Me
 	function me(){
+		// Show Ajax Loader
 		$("#me").html(loading);
+		// Start Ajax
 		$.ajax({
 			type: 'GET',
 			url: '_contents/teacher/me.php',
 			success: function(result){
+				// Show result
 				$("#me").html(result);
 			}
 		}).fail(function(){$("#me").html(error);});
