@@ -30,6 +30,9 @@ if(empty($_SESSION['logged_in'])){
 	include("_interface/public/common.php");
 }
 if(isset($_SESSION['account_type'])){
+	
+	require_once("secure.php");
+
 	$account_type = $_SESSION['account_type'];
 	$user_id = $_SESSION['user_id'];
 
@@ -54,24 +57,24 @@ if(isset($_SESSION['account_type'])){
 			include_once("_interface/student/common.php");
 			break;
 		case("admin"):
-			include_once("_interface/admin/common.php");
 			$admin_id = $db_account->get("admin_id", "user_id", "$user_id");
+			include_once("_interface/admin/common.php");
 			break;
 		case("teacher"):
-			include_once("_interface/teacher/common.php");
 			$teacher_id = $db_account->get("teacher_id", "user_id", "$user_id");
+			include_once("_interface/teacher/common.php");
 			break;
 		case("parent"):
-			include_once("_interface/parent/common.php");
 			$parent_id = $db_account->get("parent_id", "user_id", "$user_id");
+			include_once("_interface/parent/common.php");
 			break;
 		case("staff"):
-			include_once("_interface/staff/common.php");
 			$staff_id = $db_account->get("staff_id", "user_id", "$user_id");
+			include_once("_interface/staff/common.php");
 			break;
 		case("developer"):
-			include_once("_interface/developer/common.php");
 			$developer_id = $db_account->get("developer_id", "user_id", "$user_id");
+			include_once("_interface/developer/common.php");
 			break;
 		default:	
 			include_once("_interface/public/common.php");

@@ -40,7 +40,7 @@ $empty_child = "
 
 			$student_title = "<p><font size='4'><b>$name</b> ($sectiongrade)</font></p>";
 
-			if(isset($check_hold)){
+			if(!empty($check_hold)){
 				echo "
             	    <div class='card hoverable'>
                 	    <div class='card-content'><br><center>
@@ -49,7 +49,7 @@ $empty_child = "
                             	You cannot view $first_name's grade. Please see the hold record of your child or contact the administrators.
                       	    </p></center></br>
                     	</div>
-              	</div>";
+             	 	</div>";
 				$proceed = 0;
 			} else {
 			if(!$classes_array){
@@ -167,6 +167,8 @@ $empty_child = "
             	            <a class='modal-action waves-effect waves-teal btn-flat' href='print/grades/?student_id=$student_id' target='_blank'>Print</a>
                     	</div>
 	                </div>";
+					} else {
+						echo "</div>";
 					}
 				}
 

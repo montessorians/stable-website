@@ -13,6 +13,10 @@ if(empty($username_check)){
 	$password_check = $db_account->get("password", "username", "$username");
 	if(password_verify($password,$password_check)){
 		$user_id = $db_account->get("user_id", "username", "$username");
+		
+		$_SESSION['user_ip'] = $_SERVER['REMOTE_ADDR'];
+		$_SESSION['user_ua'] = $_SERVER['HTTP_USER_AGENT'];
+
 		$_SESSION['username'] = $username;
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['account_type'] = $db_account->get("account_type", "user_id", "$user_id");

@@ -55,7 +55,7 @@ if(empty($query)){
 							<div class='card'>
 								<div class='card-content'>";
 								
-								if(empty($photo_url)){} else {
+								if(!empty($photo_url)){
 									echo "<img class='right' src='../../$photo_url' width='150px'>";
 								}
 								
