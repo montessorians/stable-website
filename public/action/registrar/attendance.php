@@ -1,9 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_account = new DBase("account", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_dump = new DBase("attendance_dump", "../../_store");
+include("../_require/db.php");
 
 $student_id = $_POST['student_id'];
 

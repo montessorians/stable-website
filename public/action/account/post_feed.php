@@ -3,9 +3,7 @@ session_start();
 if(empty($_SESSION['logged_in'])){
 	header("Location: ../../");
 }
-include("../../_system/database/db.php");
-
-$db_post = new DBase("post", "../../_store");
+include("../_require/db.php");
 
 $post_id = uniqid();
 $user_id = $_SESSION['user_id'];

@@ -1,10 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_account = new DBase("account", "../../_store");
-$db_parentchild = new DBase("parentchild", "../../_store");
-$db_parent = new DBase("parent", "../../_store");
-$db_student = new DBase("student", "../../_store");
+include("../_require/db.php");
 
 $query = $_POST['query'];
 $searchBy = $_POST['searchBy'];

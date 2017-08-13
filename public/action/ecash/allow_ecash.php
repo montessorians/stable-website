@@ -1,10 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-
-$db_ecash = new DBase("ecash", "../../_store");
-$db_account = new DBase("account", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
+include("../_require/db.php");
 
 $student_id = $_POST['student_id'];
 $allow_ecash = $_POST['allow_ecash'];
@@ -25,27 +21,27 @@ switch($allow_ecash){
 }
 
 $notif_id = uniqid();
-				$create_month = date("M");
-				$create_day = date("d");
-				$create_year = date("Y");
-				$create_time = date("h:i a");
+$create_month = date("M");
+$create_day = date("d");
+$create_year = date("Y");
+$create_time = date("h:i a");
 	
-	$n_a = array(
-					"notification_id" => "$notif_id",
-					"notification_title" => "$notification_title",
-					"notification_content" => "$notification_content",
-					"photo_url" => "",
-					"notification_url" => "",
-					"notification_icon" => "account_balance_wallet",
-					"user_id" => "$user_id",
-					"sender_alternative" => "E-Cash",
-					"sender_id" => "",
-					"create_month" => "$create_month",
-					"create_day" => "$create_day",
-					"create_year" => "$create_year",
-					"create_time" => "$create_time"
-				);
-				$db_notification->add($n_a);
+$n_a = array(
+	"notification_id" => "$notif_id",
+	"notification_title" => "$notification_title",
+	"notification_content" => "$notification_content",
+	"photo_url" => "",
+	"notification_url" => "",
+	"notification_icon" => "account_balance_wallet",
+	"user_id" => "$user_id",
+	"sender_alternative" => "E-Cash",
+	"sender_id" => "",
+	"create_month" => "$create_month",
+	"create_day" => "$create_day",
+	"create_year" => "$create_year",
+	"create_time" => "$create_time"
+	);
+$db_notification->add($n_a);
 
 echo "Allow E-Cash has been changed successfully to $allow_ecash";
 

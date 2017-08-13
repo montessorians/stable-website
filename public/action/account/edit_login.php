@@ -4,19 +4,17 @@ if(empty($_SESSION['logged_in'])){
 	header("Location: ../../");
 }
 
-include("../../_system/database/db.php");
+include("../_require/db.php");
 
 $user_id = $_SESSION['user_id'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$db_account = new DBase("account", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
-				$notif_id = uniqid();
-				$create_month = date("M");
-				$create_day = date("d");
-				$create_year = date("Y");
-				$create_time = date("h:i a");
+$notif_id = uniqid();
+$create_month = date("M");
+$create_day = date("d");
+$create_year = date("Y");
+$create_time = date("h:i a");
 
 
 if(empty($username)){

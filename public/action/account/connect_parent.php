@@ -4,13 +4,7 @@ if(empty($_SESSION['logged_in'])){
 	header("Location: ../../");
 }
 
-include("../../_system/database/db.php");
-
-$db_student = new DBase("student", "../../_store");
-$db_parent = new DBase("parent", "../../_store");
-$db_account = new DBase("account", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
-$db_parentchild = new DBase("parentchild", "../../_store");
+include("../_require/db.php");
 
 $continue = 0;
 

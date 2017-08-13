@@ -1,36 +1,75 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Login Process
+*/
+
+// Start Session
 session_start();
+
+// Include DB
 include("../_system/database/db.php");
+
+// Create obj for Account DB
 $db_account = new DBase("account", "../_store");
 
+// Handle POST requests of Username && Password
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+// Query username if it exists in the database
 $username_check = $db_account->get("username", "username", "$username");
-if(empty($username_check)){
+
+
+// Check if username check query eariler is empty or null
+if(!$username_check){
+
+	// Return an error message if username is not found
 	echo "Wrong Sign-In Details";
+
 } else {
+
+	// Query stored password
 	$password_check = $db_account->get("password", "username", "$username");
+
+	// User password verify function to check if similar
 	if(password_verify($password,$password_check)){
-		$user_id = $db_account->get("user_id", "username", "$username");
-		
+
+		// Get the user ID
+		$user_array = $db_account->where(array(),"username","$username");
+
+		// Sets log-in status to True
+		$_SESSION['logged_in'] = True;
+
+		// For Security Checking
 		$_SESSION['user_ip'] = $_SERVER['REMOTE_ADDR'];
 		$_SESSION['user_ua'] = $_SERVER['HTTP_USER_AGENT'];
 
-		$_SESSION['username'] = $username;
-		$_SESSION['user_id'] = $user_id;
-		$_SESSION['account_type'] = $db_account->get("account_type", "user_id", "$user_id");
-		$_SESSION['logged_in'] = True;
-		$_SESSION['student_id'] = $db_account->get("student_id", "user_id", "$user_id");
-		$_SESSION['parent_id'] = $db_account->get("parent_id", "user_id", "$user_id");
-		$_SESSION['teacher_id'] = $db_account->get("teacher_id", "user_id", "$user_id");
-		$_SESSION['staff_id'] = $db_account->get("staff_id", "user_id", "$user_id");
-		$_SESSION['admin_id'] = $db_account->get("admin_id", "user_id", "$user_id");
-		$_SESSION['developer_id'] = $db_account->get("developer_id", "user_id", "$user_id");
+		// Sets necessary user vars into session
+		foreach($user_array as $user){
+
+			$_SESSION['username'] = $user['username'];
+			$_SESSION['user_id'] = $user['user_id'];
+			$_SESSION['account_type'] = $user['account_type'];
+			$_SESSION['student_id'] = $user['student_id'];
+			$_SESSION['parent_id'] = $user['parent_id'];
+			$_SESSION['teacher_id'] = $user['teacher_id'];
+			$_SESSION['staff_id'] = $user['staff_id'];
+			$_SESSION['admin_id'] = $user['admin_id'];
+			$_SESSION['developer_id'] = $user['developer_id'];
+
+		}
+		
+		// Required by system to log-in user
 		echo "Ok";
 		
 	} else {
+
+		// Returns an error if user has given a wrong login detail
 		echo "Wrong Sign-In Details";
+
 	}
 }
 ?>

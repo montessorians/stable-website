@@ -1,9 +1,7 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_class = new DBase("class", "../../_store");
-$db_subject = new DBase("subject","../../_store");
-$db_teacher = new DBase("teacher", "../../_store");
+
+include("../_require/db.php");
 
 $query = $_POST['query'];
 $searchBy = $_POST['searchBy'];

@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	
 	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+	include("../_require/db.php");
+	
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -14,8 +16,6 @@
 		header("Location: $from");
 	}
 	
-	$db_subject = new DBase("subject","../../_store");
-	$db_class = new DBase("class","../../_store");
 	
 	$class_id = $_POST['class_id'];
 	$subject_id = $_POST['subject_id'];

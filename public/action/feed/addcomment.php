@@ -2,12 +2,7 @@
 // Start Session
 session_start();
 // Include Database File
-include("../../_system/database/db.php");
-
-// Create Object for Database
-$db_post = new DBase("post", "../../_store");
-$db_comment = new DBase("post_comment", "../../_store");
-$db_account = new DBase("account", "../../_store");
+include("../_require/db.php");
 
 // Set Sender
 if(empty($_SESSION['logged_in'])){

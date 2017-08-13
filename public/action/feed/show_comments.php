@@ -3,18 +3,7 @@
 session_start();
 
 // Include Database
-include("../../_system/database/db.php");
-
-// Create Object for Database
-$db_post = new DBase("post", "../../_store");
-$db_comment = new DBase("post_comment", "../../_store");
-$db_account = new DBase("account", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_parent = new DBase("parent", "../../_store");
-$db_teacher = new DBase("teacher", "../../_store");
-$db_admin = new DBase("admin", "../../_store");
-$db_developer = new DBase("developer", "../../_store");
-$db_staff = new DBase("staff", "../../_store");
+include("../_require/db.php");
 
 //Handle post_id
 if(empty($_REQUEST['post_id'])){

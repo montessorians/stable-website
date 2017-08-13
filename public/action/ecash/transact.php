@@ -1,11 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_account = new DBase("account", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_ecash = new DBase("ecash", "../../_store");
-$db_transaction = new DBase("ecash_transaction", "../../_store");
+include("../_require/db.php");
 
 $transaction_id = uniqid();
 $student_id = $_POST['student_id'];

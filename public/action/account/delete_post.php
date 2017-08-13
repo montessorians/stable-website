@@ -4,12 +4,9 @@ if(empty($_SESSION['logged_in'])){
 	header("Location: ../../");
 }
 
-include("../../_system/database/db.php");
+include("../_require/db.php");
 
 $post_id = $_REQUEST['post_id'];
-
-$db_post = new DBase("post", "../../_store");
-$db_comment = new DBase("post_comment", "../../_store");
 
 	$index = $db_post->index("post_id", "$post_id");
 	$db_post->rm($index);

@@ -1,8 +1,10 @@
 <?php
 session_start();
-	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
-	if(empty($_GET['from'])){
+
+include("../../_system/secure.php");
+include("../_require/db.php");
+	
+    if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
 		} else {
@@ -15,8 +17,6 @@ session_start();
 				header("Location: $from");
 		}
 	}
-
-$db_subject = new DBase("subject", "../../_store");
 
 $subject_id = mt_rand(10000,99999);
 $subject_title = $_POST['subject_title'];

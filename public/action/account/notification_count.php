@@ -11,8 +11,7 @@ Counts how many notification current user has.
 session_start();
 
 // Declarations
-include("../../_system/database/db.php");
-$db_notification = new DBase("notification", "../../_store");
+include("../_require/db.php");
 
 // Checks for User ID
 if(empty($_REQUEST['user_id'])){

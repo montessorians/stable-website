@@ -1,7 +1,9 @@
 <?php
 session_start();
-	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+
+include("../../_system/secure.php");
+include("../_require/db.php");
+
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";

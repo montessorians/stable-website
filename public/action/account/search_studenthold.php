@@ -1,14 +1,11 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_account = new DBase("account", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_studenthold = new DBase("student_hold", "../../_store");
+include("../_require/db.php");
 
 $student_id = $_POST['student_id'];
 
 if(empty($student_id)){
-	$student_hold = $db_studenthold->select(array("hold_id"));
+	$student_hold = $db_hold->select(array("hold_id"));
 } else {
 	
 	$check_studentid = $db_student->get("student_id", "student_id", "$student_id");
@@ -17,7 +14,7 @@ if(empty($student_id)){
 		echo "<div class='card'><div class='card-content'>Student not found</div></div>";
 	} else {
 		
-		$student_hold = $db_studenthold->where(array("hold_id"), "student_id","$student_id");
+		$student_hold = $db_hold->where(array("hold_id"), "student_id","$student_id");
 		
 		
 			}
@@ -31,14 +28,14 @@ if(empty($student_id)){
 			
 			foreach($student_hold as $key){
 				foreach($key as $hold_id){
-					$student_id = $db_studenthold->get("student_id", "hold_id", "$hold_id");
+					$student_id = $db_hold->get("student_id", "hold_id", "$hold_id");
 					$first_name = $db_student->get("first_name", "student_id", "$student_id");
 					$last_name = $db_student->get("last_name", "student_id", "$student_id");
 					$suffix_name = $db_student->get("suffix_name", "student_id", "$student_id");
 					$grade = $db_student->get("grade", "student_id", "$student_id");
 					$section = $db_student->get("section", "student_id", "$student_id");
-					$department = $db_studenthold->get("department", "hold_id", "$hold_id");
-					$hold_content = $db_studenthold->get("hold_content", "hold_id", "$hold_id");
+					$department = $db_hold->get("department", "hold_id", "$hold_id");
+					$hold_content = $db_hold->get("hold_content", "hold_id", "$hold_id");
 					
 					echo "
 						<div class='card' id='card$hold_id'>

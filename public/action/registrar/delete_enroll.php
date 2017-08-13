@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-include("../../_system/database/db.php");
-$db_studentclass = new DBase("student_class", "../../_store");
+include("../_require/db.php");
 
 if(empty($_SERVER[HTTP_REFERER])){
     $from = "../../";

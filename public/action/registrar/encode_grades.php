@@ -1,7 +1,9 @@
 <?php
 session_start();
-	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+
+include("../../_system/secure.php");
+include("../_require/db.php");
+
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -16,17 +18,11 @@ session_start();
 		}
 	}
 	
-	$db_account = new DBase("account", "../../_store");
-	$db_student = new DBase("student", "../../_store");
-	$db_subject = new DBase("subject", "../../_store");
-	$db_enroll = new DBase("student_class", "../../_store");
-	$db_class = new DBase("class", "../../_store");
-	$db_notification = new DBase("notification", "../../_store");
-				$notif_id = uniqid();
-				$create_month = date("M");
-				$create_day = date("d");
-				$create_year = date("Y");
-				$create_time = date("h:i a");
+	$notif_id = uniqid();
+	$create_month = date("M");
+	$create_day = date("d");
+	$create_year = date("Y");
+	$create_time = date("h:i a");
 
 	
 	$enroll_id = $_POST['enroll_id'];

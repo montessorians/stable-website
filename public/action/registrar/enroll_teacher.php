@@ -1,7 +1,9 @@
 <?php
 session_start();
-	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+
+include("../../_system/secure.php");
+include("../_require/db.php");
+
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -16,8 +18,6 @@ session_start();
 		}
 	}
 	
-	$db_teacher = new DBase("teacher","../../_store");
-	$db_class = new DBase("class","../../_store");
 	
 	$teacher_id = $_POST['teacher_id'];
 	$class_id = $_POST['class_id'];

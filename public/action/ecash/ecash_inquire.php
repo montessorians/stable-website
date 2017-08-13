@@ -3,8 +3,7 @@
 Returns the Current Balance of a user
 */
 session_start();
-include("../../_system/database/db.php");
-$db_ecash = new DBase("ecash", "../../_store");
+include("../_require/db.php");
 if(empty($_REQUEST['user_id'])){
     echo "0";
 } else {

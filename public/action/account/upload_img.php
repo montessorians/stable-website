@@ -1,9 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-
-$db_account = new DBase("account", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
+include("../_require/db.php");
 
 $user_id = $_REQUEST['user_id'];
 

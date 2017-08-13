@@ -4,7 +4,7 @@ if(empty($_SESSION['logged_in'])){
 	header("Location: ../../");
 }
 
-include("../../_system/database/db.php");
+include("../_require/db.php");
 
 $hold_id = uniqid();
 $student_id = $_POST['student_id'];
@@ -16,9 +16,6 @@ $hold_year = date("Y");
 $hold_hour = date("H");
 $hold_minute = date("i");
 
-$db_student = new DBase("student", "../../_store");
-$db_account = new DBase("account", "../../_store");
-$db_hold = new DBase("student_hold", "../../_store");
 
 $check_sid = $db_student->get("student_id", "student_id", "$student_id");
 if(empty($check_sid)){
@@ -40,12 +37,11 @@ if(empty($check_sid)){
 	
 	$user_id = $db_account->get("user_id", "student_id", "$student_id");
 	
-	$db_notification = new DBase("notification", "../../_store");
-				$notif_id = uniqid();
-				$create_month = date("M");
-				$create_day = date("d");
-				$create_year = date("Y");
-				$create_time = date("h:i a");
+	$notif_id = uniqid();
+	$create_month = date("M");
+	$create_day = date("d");
+	$create_year = date("Y");
+	$create_time = date("h:i a");
 	
 	$n_a = array(
 					"notification_id" => "$notif_id",

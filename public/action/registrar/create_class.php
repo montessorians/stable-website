@@ -1,7 +1,9 @@
 <?php
 session_start();
 	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+
+	include("../_require/db.php");
+
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -15,10 +17,7 @@ session_start();
 				header("Location: $from");
 		}
 	}
-	
-	$db_subject = new DBase("subject", "../../_store");
-	$db_class = new DBase("class","../../_store");
-	
+		
 	$class_id = mt_rand(10000,99999);
 	$subject_id = $_POST['subject_id'];
 	$school_year = $_POST['school_year'];

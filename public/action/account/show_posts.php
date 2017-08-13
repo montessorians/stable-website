@@ -1,12 +1,13 @@
 <?php
-$db_post = new DBase("post", "../../_store");
-$db_account = new DBase("account", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_parent = new DBase("parent", "../../_store");
-$db_teacher = new DBase("teacher", "../../_store");
-$db_admin = new DBase("admin", "../../_store");
-$db_staff = new DBase("staff", "../../_store");
-$db_developer = new DBase("developer", "../../_store");
+$loc = "../../_store";
+$db_post = new DBase("post", "$loc");
+$db_account = new DBase("account", "$loc");
+$db_student = new DBase("student", "$loc");
+$db_parent = new DBase("parent", "$loc");
+$db_teacher = new DBase("teacher", "$loc");
+$db_admin = new DBase("admin", "$loc");
+$db_staff = new DBase("staff", "$loc");
+$db_developer = new DBase("developer", "$loc");
 
 $array = $db_post->select(array("post_id"));
 if(empty($array)){

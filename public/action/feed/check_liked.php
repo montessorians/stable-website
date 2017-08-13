@@ -2,9 +2,7 @@
 // Start Session
 session_start();
 // Include Database File
-include("../../_system/database/db.php");
-// Create Object for Database
-$db_postlikes = new DBase("post_likes", "../../_store");
+include("../_require/db.php");
 
 $do = False;
 

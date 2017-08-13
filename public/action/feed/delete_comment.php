@@ -3,10 +3,7 @@
 session_start();
 
 // Object
-include("../../_system/database/db.php");
-
-// Create Object for Database
-$db_comment = new DBase("post_comment", "../../_store");
+include("../_require/db.php");
 
 // Comment ID
 $comment_id = $_POST['comment_id'];

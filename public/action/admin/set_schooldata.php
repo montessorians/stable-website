@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+include("../_require/db.php");
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -15,9 +15,7 @@ include("../../_system/secure.php");
 				header("Location: $from");
 		}
 	}
-	
-	$db_schooldata = new DBase("school_data", "../../_store");
-	
+		
 	$school_year = $_POST['school_year'];
 	$quarter = $_POST['quarter'];
 	$exam_week = $_POST['exam_week'];

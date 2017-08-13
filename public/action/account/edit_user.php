@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+	include("../_require/db.php");
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -35,14 +35,6 @@
 	$email = $_POST['email'];
 	$username = $_POST['username'];
 
-	$db_account = new DBase("account","../../_store");
-	$db_student = new DBase("student","../../_store");
-	$db_admin = new DBase("admin","../../_store");
-	$db_teacher = new DBase("teacher","../../_store");
-	$db_parent = new DBase("parent","../../_store");
-	$db_staff = new DBase("staff","../../_store");
-	$db_developer = new DBase("developer","../../_store");
-	
 	$student_id = $db_account->get("student_id", "user_id", "$user_id");
 	$parent_id = $db_account->get("parent_id", "user_id", "$user_id");
 	$teacher_id = $db_account->get("teacher_id", "user_id", "$user_id");

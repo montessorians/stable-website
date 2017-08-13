@@ -1,8 +1,10 @@
 <?php
 /*
 Holy Child Montessori
-All Rights Reserved 
 2017
+All Rights Reserved 
+
+config.php
 */
 
 // Site Config
@@ -14,12 +16,11 @@ $accent_color_text = "white-text";
 
 $site_title = "Holy Child Montessori";
 
-
 // Site Versioning Settings
 $ua = $_SERVER['HTTP_USER_AGENT'];
-$hcm_version_no = "1.03";
+$hcm_version_no = "1.04";
 $hcm_version_release = "Public";
-$hcm_version_date = "August 2017 (Week 2)";
+$hcm_version_date = "August 2017 (Week 3)";
 
 /*
 if(stripos($ua,"hcm-windows")){

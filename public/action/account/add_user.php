@@ -1,9 +1,10 @@
 <?php
 	// Start Session
 	session_start();
+	
 	// Include Secure File & Database
 	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
+	include("../_require/db.php");
 
 	// Check for from attribs
 	if(empty($_GET['from'])){
@@ -54,16 +55,6 @@
 	$create_year = date("Y");
 	$create_hour = date("H");
 	$create_minute = date("i");
-
-	// Create object for all database
-	$db_account = new DBase("account","../../_store");
-	$db_ecash = new DBase("ecash","../../_store");
-	$db_student = new DBase("student","../../_store");
-	$db_admin = new DBase("admin","../../_store");
-	$db_teacher = new DBase("teacher","../../_store");
-	$db_parent = new DBase("parent","../../_store");
-	$db_staff = new DBase("staff","../../_store");
-	$db_developer = new DBase("developer","../../_store");
 	
 	// Check for username
 	$username_check = $db_account->get("username", "username", "$username");

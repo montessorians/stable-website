@@ -1,8 +1,6 @@
 <?php
 session_start();
-include("../../_system/database/db.php");
-$db_ecash = new DBase("ecash", "../../_store");
-$db_notification = new DBase("notification", "../../_store");
+include("../_require/db.php");
 
 if(empty($_REQUEST['user_id'])){
     echo "Unknown User";

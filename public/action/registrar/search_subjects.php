@@ -1,7 +1,8 @@
 <?php
 session_start();
 include("../../_system/database/db.php");
-$db_subject = new DBase("subject","../../_store");
+
+include("../_require/db.php");
 
 $query = $_POST['query'];
 $searchBy = $_POST['searchBy'];

@@ -1,6 +1,6 @@
 <?php
     session_start();
-	include("../../_system/database/db.php");
+	include("../_require/db.php");
 	if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
@@ -12,8 +12,7 @@
     $user_id = $_SESSION['user_id'];
 	$account_type = $_SESSION['account_type'];
 	
-    $db_account = new DBase("account", "../../_store");
-    $db = new DBase("$account_type","../../_store");
+    $db = new DBase("$account_type","$loc");
 
     $id_const = $account_type."_id";
     $id = $db_account->get("$id_const", "user_id", "$user_id");
