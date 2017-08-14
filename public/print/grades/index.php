@@ -104,8 +104,10 @@ foreach($student_info_array as $student){
 
 }
 
+// Get grades (Array)
 $grade_array = $db_enroll->where(array(),"student_id", "$student_id"); 
-$attendance_array = $db_attendance->where(array("attendance_id"),  "student_id", "$student_id");
+// Get attendance (Array)
+$attendance_array = $db_attendance->where(array(),  "student_id", "$student_id");
 
 $site_title = "Holy Child Montessori";
 $address = "Tanza, Navotas City, Philippines";
@@ -115,9 +117,14 @@ $doc_title = "Progress Report";
 
 // Design PDF
 $title = $first_name . "'s Progress Report";
+
+// Set Filename
 $pdf->setTitle($title);
 
+// Initialize Page
 $pdf->AddPage();
+
+// Set Margins
 $pdf->SetMargins(20,0,20);
 
 // Set Logo
@@ -141,63 +148,85 @@ $pdf->Text(94,30, $office);
 $pdf->SetFont('Arial','B',20);
 $pdf->Text(90,40, $doc_title);
 
-// SY
+// School Year
 $pdf->SetFont('Arial','',15);
 $pdf->Text(105,48, $school_year);
 
+// Set Font to Normal 12pt
 $pdf->SetFont('Arial','',12);
 
 // Name
 $name = "Name: ".$first_name." ".$middle_name." ".$last_name." ".$suffix_name;
 $pdf->Text(20,60, $name);
+
 //Section
 $gs = "Grade/Section: ".$grade." - ".$section;
 $pdf->Text(120,60, $gs);
+
 //SID
 $s_id = "Student ID No.: ".$student_id;
 $pdf->Text(20,65, $s_id);
+
 //SID
 $lrn = "LRN: ".$student_lrn;
 $pdf->Text(120,65, $lrn);
 
-// Legend
+/*
+Legend
+*/
+
+// Title
 $pdf->SetFont('Arial','',8);
 $pdf->SetTextColor(100,100,100);
 $pdf->Text(20,70, "Grading System");
 $pdf->SetTextColor(50,50,50);
 $pdf->SetXY(20,72);
 
+// col 1
 $pdf->SetFillColor(46,139,87);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '90% above',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Advanced (A)',1,0,'C',0);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '80%-84%',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Approaching Proficiency (AP)',1,0,'C',0);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '74% Below',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Beginning (B)',1,0,'C',0);
 
+// col 2
 $c_y = $pdf->getY();
+
 $pdf->SetXY(20,$c_y+5);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '85%-89%',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Proficient (P)',1,0,'C',0);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '75%-79%',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Developing (D)',1,0,'C',0);
+
 $pdf->SetTextColor(255,255,255);
 $pdf->Cell(20,5, '',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, '',1,0,'C',0);
 
+/*
+Grades
+*/
+
 $pdf->SetXY(20,85);
 
+// Table Head
 $pdf->SetFont('Arial','B',11);
 $pdf->SetFillColor(46,139,87);
 $pdf->SetTextColor(255,255,255);
@@ -209,13 +238,17 @@ $pdf->Cell(15,5, '3rd',1,0,'C','true');
 $pdf->Cell(15,5, '4th',1,0,'C','true');
 $pdf->Cell(25,5, 'Final',1,0,'C','true');
 
+// Set to normal 11pt and black color
 $pdf->SetTextColor(10,10,10);
 $pdf->SetFont('Arial','',11);
 
+// Initialize values
 $total_average_grade = 0;
 $total_subjects = 0;
 
+// Loop through grade array
 foreach($grade_array as $grade){
+
     $enroll_id = $grade['enroll_id'];
     $sy_enroll = $grade['school_year'];
     if($sy_enroll == $school_year){
@@ -322,42 +355,90 @@ $pdf->SetFont('Arial','',8);
 $pdf->Cell(181,5, '--Not Yet Officially Enrolled--',1,0,'C',0);
 
 } else {
-foreach($attendance_array as $key){
-    foreach($key as $attendance_id){
 
-        $sy_attendance = $db_attendance->get("school_year", "attendance_id", "$attendance_id");
+foreach($attendance_array as $att){
+    
+    $attendance_id = $att['attendance_id'];
+    $sy_attendance = $att['school_year'];
 
-        if($sy_attendance === $school_year){
+    if($sy_attendance == $school_year){
+        $grade = $att['grade'];
+        $section = $att['section'];
+        $absent_jan = $att['absent_jan'];
+        $absent_feb = $att['absent_feb'];
+        $absent_mar = $att['absent_mar'];
+        $absent_apr = $att['absent_apr'];
+        $absent_may = $att['absent_may'];
+        $absent_jun = $att['absent_jun'];
+        $absent_jul = $att['absent_jul'];
+        $absent_aug = $att['absent_aug'];
+        $absent_sep = $att['absent_sep'];
+        $absent_oct = $att['absent_oct'];
+        $absent_nov = $att['absent_nov'];
+        $absent_dec = $att['absent_dec'];
+        if(!$absent_jan) $absent_jan = 0;
+        if(!$absent_feb) $absent_feb = 0;
+        if(!$absent_mar) $absent_mar = 0;
+        if(!$absent_apr) $absent_apr = 0;
+        if(!$absent_may) $absent_may = 0;
+        if(!$absent_jun) $absent_jun = 0;
+        if(!$absent_jul) $absent_jul = 0;
+        if(!$absent_aug) $absent_aug = 0;
+        if(!$absent_sep) $absent_sep = 0;
+        if(!$absent_oct) $absent_oct = 0;
+        if(!$absent_nov) $absent_nov = 0;
+        if(!$absent_dec) $absent_dec = 0;
+        $absent_total = $absent_jan + $absent_feb + $absent_mar + $absent_apr + $absent_may + $absent_jun + $absent_jul + $absent_aug + $absent_sep + $absent_oct + $absent_nov + $absent_dec;
+        $absent_jan = $att['absent_jan'];
+        $absent_feb = $att['absent_feb'];
+        $absent_mar = $att['absent_mar'];
+        $absent_apr = $att['absent_apr'];
+        $absent_may = $att['absent_may'];
+        $absent_jun = $att['absent_jun'];
+        $absent_jul = $att['absent_jul'];
+        $absent_aug = $att['absent_aug'];
+        $absent_sep = $att['absent_sep'];
+        $absent_oct = $att['absent_oct'];
+        $absent_nov = $att['absent_nov'];
+        $absent_dec = $att['absent_dec'];
 
-		    $grade  = $db_attendance->get("grade", "attendance_id", "$attendance_id");
-			$section  = $db_attendance->get("section", "attendance_id", "$attendance_id");
-			$absent_jan  = $db_attendance->get("absent_jan", "attendance_id", "$attendance_id");
-		    $absent_feb  = $db_attendance->get("absent_feb", "attendance_id", "$attendance_id");
-			$absent_mar  = $db_attendance->get("absent_mar", "attendance_id", "$attendance_id");
-			$absent_apr  = $db_attendance->get("absent_apr", "attendance_id", "$attendance_id");
-			$absent_may  = $db_attendance->get("absent_may", "attendance_id", "$attendance_id");
-			$absent_jun  = $db_attendance->get("absent_jun", "attendance_id", "$attendance_id");
-			$absent_jul  = $db_attendance->get("absent_jul", "attendance_id", "$attendance_id");
-			$absent_aug  = $db_attendance->get("absent_aug", "attendance_id", "$attendance_id");
-			$absent_sep  = $db_attendance->get("absent_sep", "attendance_id", "$attendance_id");
-			$absent_oct  = $db_attendance->get("absent_oct", "attendance_id", "$attendance_id");
-			$absent_nov  = $db_attendance->get("absent_nov", "attendance_id", "$attendance_id");
-			$absent_dec  = $db_attendance->get("absent_dec", "attendance_id", "$attendance_id");
-			$absent_total = $absent_jan + $absent_feb + $absent_mar + $absent_apr + $absent_may + $absent_jun + $absent_jul + $absent_aug + $absent_sep + $absent_oct + $absent_nov + $absent_dec;
-					
-			$late_jan  = $db_attendance->get("late_jan", "attendance_id", "$attendance_id");
-			$late_feb  = $db_attendance->get("late_feb", "attendance_id", "$attendance_id");
-			$late_mar  = $db_attendance->get("late_mar", "attendance_id", "$attendance_id");
-			$late_apr  = $db_attendance->get("late_apr", "attendance_id", "$attendance_id");
-			$late_may  = $db_attendance->get("late_may", "attendance_id", "$attendance_id");
-			$late_jun  = $db_attendance->get("late_jun", "attendance_id", "$attendance_id");
-			$late_jul  = $db_attendance->get("late_jul", "attendance_id", "$attendance_id");
-			$late_aug  = $db_attendance->get("late_aug", "attendance_id", "$attendance_id");
-			$late_sep  = $db_attendance->get("late_sep", "attendance_id", "$attendance_id");
-			$late_oct  = $db_attendance->get("late_oct", "attendance_id", "$attendance_id");
-			$late_nov  = $db_attendance->get("late_nov", "attendance_id", "$attendance_id");
-			$late_dec  = $db_attendance->get("late_dec", "attendance_id", "$attendance_id");
-			$late_total = $late_jan + $late_feb + $late_mar + $late_apr + $late_may + $late_jun + $late_jul + $late_aug + $late_sep + $late_oct + $late_nov + $late_dec; 
+        $late_jan = $att['late_jan'];
+        $late_feb = $att['late_feb'];
+        $late_mar = $att['late_mar'];
+        $late_apr = $att['late_apr'];
+        $late_may = $att['late_may'];
+        $late_jun = $att['late_jun'];
+        $late_jul = $att['late_jul'];
+        $late_aug = $att['late_aug'];
+        $late_sep = $att['late_sep'];
+        $late_oct = $att['late_oct'];
+        $late_nov = $att['late_nov'];
+        $late_dec = $att['late_dec'];
+        if(!$late_jan) $late_jan = 0;
+        if(!$late_feb) $late_feb = 0;
+        if(!$late_mar) $late_mar = 0;
+        if(!$late_apr) $late_apr = 0;
+        if(!$late_may) $late_may = 0;
+        if(!$late_jun) $late_jun = 0;
+        if(!$late_jul) $late_jul = 0;
+        if(!$late_aug) $late_aug = 0;
+        if(!$late_sep) $late_sep = 0;
+        if(!$late_oct) $late_oct = 0;
+        if(!$late_nov) $late_nov = 0;
+        if(!$late_dec) $late_dec = 0;
+        $late_total = $late_jan + $late_feb + $late_mar + $late_apr + $late_may + $late_jun + $late_jul + $late_aug + $late_sep + $late_oct + $late_nov + $late_dec; 
+        $late_jan = $att['late_jan'];
+        $late_feb = $att['late_feb'];
+        $late_mar = $att['late_mar'];
+        $late_apr = $att['late_apr'];
+        $late_may = $att['late_may'];
+        $late_jun = $att['late_jun'];
+        $late_jul = $att['late_jul'];
+        $late_aug = $att['late_aug'];
+        $late_sep = $att['late_sep'];
+        $late_oct = $att['late_oct'];
+        $late_nov = $att['late_nov'];
+        $late_dec = $att['late_dec'];
 
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);
@@ -394,19 +475,22 @@ $pdf->Cell(12,5, $late_apr,1,0,'C',0);
 $pdf->Cell(12,5, $late_may,1,0,'C',0);
 $pdf->Cell(12,5, $late_total,1,0,'C',0);
 
-        }
-
     }
+
 }
+
 }
 
 $c_y = $pdf->getY();
+
 $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(110,5, "Eligible for Transfer and Admission to: ______________________",0,0,'L',0);
 $pdf->Cell(90,5, "Lacks credits in: ______________________",0,0,'L',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(180,5, "_________________________________",0,0,'C',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);
 $pdf->Cell(180,5, "Principal/Registrar",0,0,'C',0);
@@ -414,16 +498,20 @@ $pdf->Cell(180,5, "Principal/Registrar",0,0,'C',0);
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(180,5, "CANCELATION OF TRANSFER ELIGIBILITY",0,0,'C',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);
 $pdf->Cell(70,5, "Has been admitted to: _______________",0,0,'L',0);
 $pdf->Cell(110,5, "School: _________________________________________________",0,0,'L',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);
 $pdf->Cell(70,5, "Date: ____________________________",0,0,'L',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(180,5, "_________________________________",0,0,'C',0);
+
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);
 $pdf->Cell(180,5, "Principal",0,0,'C',0);
@@ -433,6 +521,7 @@ $pdf->SetTextColor(130,130,130);
 $date = date("M d, Y h:i a");
 $pdf->Text(20,260, "System Generated Form. Printed on $date.");
 $pdf->Text(20,265, "Not valid for enrollment unless signed by the School Registrar/Principal.");
+
 // Output Document
 $pdf->Output();
 ?>
