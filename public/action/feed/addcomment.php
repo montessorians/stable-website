@@ -1,15 +1,16 @@
 <?php
 // Start Session
 session_start();
+
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
+
 // Include Database File
 include("../_require/db.php");
 
 // Set Sender
-if(empty($_SESSION['logged_in'])){
-    header("Location: ../../");
-} else {
     $user_id = $_SESSION['user_id'];
-}
 
 // Handle Post Data
 $post_id = $_REQUEST['post_id'];

@@ -10,13 +10,17 @@ Counts how many notification current user has.
 // Starts Session
 session_start();
 
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
+
 // Declarations
 include("../_require/db.php");
 
 // Checks for User ID
 if(empty($_REQUEST['user_id'])){
     if(empty($_SESSION['logged_in'])){
-        header("Location: ../../");
+        header("Location: /error/unauthorized.php");
         $user_id = 0;
     } else {
         $user_id = $_SESSION['user_id'];

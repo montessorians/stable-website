@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(empty($_SESSION['logged_in'])){
-	header("Location: ../../");
-}
+
+// Declare Permission Level
+$perm = 5;
+require_once("../../_system/secure.php");
 
 include("../_require/db.php");
 $parentchild_id = $_REQUEST['parentchild_id'];

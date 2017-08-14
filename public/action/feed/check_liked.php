@@ -1,6 +1,11 @@
 <?php
 // Start Session
 session_start();
+
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
+
 // Include Database File
 include("../_require/db.php");
 

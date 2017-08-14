@@ -2,6 +2,10 @@
 // Start Session
 session_start();
 
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
+
 // Object
 include("../_require/db.php");
 

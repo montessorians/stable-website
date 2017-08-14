@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+// Declare Permission Level
+$perm = 4;
+require_once("../../_system/secure.php");
+
 include("../_require/db.php");
 
 $query = $_POST['query'];

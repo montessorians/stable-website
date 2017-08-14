@@ -1,22 +1,11 @@
 <?php
 session_start();
 
-include("../../_system/secure.php");
-include("../_require/db.php");
-	
-    if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}
-	if($_SESSION['account_type'] == "admin"){} else {
-		if($_SESSION['account_type'] == "developer"){} else {
-				header("Location: $from");
-		}
-	}
+// Declare Permission Level
+$perm = 5;
+require_once("../../_system/secure.php");
+
+include("../_require/db.php");	
 
 $subject_id = mt_rand(10000,99999);
 $subject_title = $_POST['subject_title'];

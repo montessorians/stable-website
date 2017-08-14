@@ -2,8 +2,11 @@
 	// Start Session
 	session_start();
 	
-	// Include Secure File & Database
-	include("../../_system/secure.php");
+	// Declare Permission Level
+	$perm = 5;
+	require_once("../../_system/secure.php");
+
+	// Include Database
 	include("../_require/db.php");
 
 	// Check for from attribs

@@ -1,9 +1,10 @@
 <?php
 // Deletes all Notification from the Logged In User
 session_start();
-if(empty($_SESSION['logged_in'])){
-	header("Location: ../../");
-}
+
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
 
 include("../_require/db.php");
 $user_id = $_SESSION['user_id'];

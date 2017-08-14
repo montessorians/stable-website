@@ -1,14 +1,12 @@
 <?php
     session_start();
+
+	// Declare Permission Level
+	$perm = 3;
+	require_once("../../_system/secure.php");
+
 	include("../_require/db.php");
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}
+
     $user_id = $_SESSION['user_id'];
 	$account_type = $_SESSION['account_type'];
 	

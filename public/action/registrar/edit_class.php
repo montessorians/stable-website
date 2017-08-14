@@ -1,22 +1,12 @@
 <?php
 	session_start();
 	
-	include("../../_system/secure.php");
+	// Declare Permission Level
+	$perm = 5;
+	require_once("../../_system/secure.php");
+
 	include("../_require/db.php");
-	
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}
-	if($_SESSION['account_type'] == "admin"){} else {
-		header("Location: $from");
-	}
-	
-	
+		
 	$class_id = $_POST['class_id'];
 	$subject_id = $_POST['subject_id'];
 	$school_year = $_POST['school_year'];

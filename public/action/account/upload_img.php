@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+// Declare Permission Level
+$perm = 3;
+require_once("../../_system/secure.php");
+
 include("../_require/db.php");
 
 $user_id = $_REQUEST['user_id'];

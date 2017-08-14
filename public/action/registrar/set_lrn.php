@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-include("../../_system/secure.php");
+// Declare Permission Level
+$perm = 5;
+require_once("../../_system/secure.php");
+
 include("../_require/db.php");
 
 	if(empty($_GET['from'])){

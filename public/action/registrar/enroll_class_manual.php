@@ -1,24 +1,12 @@
 <?php
-session_start();
+	session_start();
 
-include("../../_system/secure.php");
-include("../_require/db.php");
+	// Declare Permission Level
+	$perm = 5;
+	require_once("../../_system/secure.php");
 
+	include("../_require/db.php");
 
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}
-	if($_SESSION['account_type'] == "admin"){} else {
-		if($_SESSION['account_type'] == "developer"){} else {
-				header("Location: $from");
-		}
-	}
-	
 	
 	$notif_id = uniqid();
 	$create_month = date("M");

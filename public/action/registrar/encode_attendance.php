@@ -1,30 +1,17 @@
 <?php
-session_start();
-	include("../../_system/secure.php");
-	include("../../_system/database/db.php");
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}
-	if($_SESSION['account_type'] == "admin"){} else {
-		if($_SESSION['account_type'] == "developer"){} else {
-				header("Location: $from");
-		}
-	}
-	
-	$db_account = new DBase("account", "../../_store");
-	$db_student = new DBase("student", "../../_store");
-	$db_attendance = new DBase("student_attendance", "../../_store");
-	$db_notification = new DBase("notification", "../../_store");
-				$notif_id = uniqid();
-				$create_month = date("M");
-				$create_day = date("d");
-				$create_year = date("Y");
-				$create_time = date("h:i a");
+	session_start();
+
+	// Declare Permission Level
+	$perm = 4;
+	require_once("../../_system/secure.php");
+
+	include("../_require/db.php");
+
+	$notif_id = uniqid();
+	$create_month = date("M");
+	$create_day = date("d");
+	$create_year = date("Y");
+	$create_time = date("h:i a");
 
 	
 	$attendance_id = $_POST['attendance_id'];

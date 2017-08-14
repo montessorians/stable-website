@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-include("../_require/db.php");
+// Declare Permission Level
+$perm = 5;
+require_once("../../_system/secure.php");
 
-if(empty($_SERVER[HTTP_REFERER])){
-    $from = "../../";
-} else {
-    $from = $_SERVER['HTTP_REFERER'];
-}
+include("../_require/db.php");
 
 if(empty($_SESSION['logged_in'])){
     header("Location: $from");

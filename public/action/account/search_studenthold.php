@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+// Declare Permission Level
+$perm = 5;
+require_once("../../_system/secure.php");
+
 include("../_require/db.php");
 
 $student_id = $_POST['student_id'];
