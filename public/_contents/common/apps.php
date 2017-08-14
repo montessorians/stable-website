@@ -10,7 +10,7 @@
 							<i class="medium material-icons">school</i><br>
 							Online School
 						</center>
-						</div>					
+						</div>
 					</div>
 					</a>
 				</div>
@@ -22,7 +22,7 @@
 							<i class="medium material-icons">cloud</i><br>
 							Cloud Locker
 						</center>
-						</div>					
+						</div>
 					</div>
 					</a>
 				</div>
@@ -34,7 +34,7 @@
 							<i class="medium material-icons">message</i><br>
 							Messages
 						</center>
-						</div>					
+						</div>
 					</div>
 					</a>
 				</div>

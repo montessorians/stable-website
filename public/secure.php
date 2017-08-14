@@ -10,6 +10,7 @@ security.php
 if(!$_SESSION['user_ip']) header("Location: /account/logout/");
 if(!$_SESSION['user_ua']) header("Location: /account/logout/");
 
+// Get current IP and UA
 $current_ip = $_SERVER['REMOTE_ADDR'];
 $current_ua = $_SERVER['HTTP_USER_AGENT'];
 

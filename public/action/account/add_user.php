@@ -65,7 +65,6 @@
 		
 			$user_id = uniqid();
 
-			
 			$staff_id = mt_rand(1000000000,9999999999);
 			$developer_id = mt_rand(1000000000,9999999999);
 			
