@@ -14,7 +14,7 @@ empty - admin only (auto)
 5 - allow admin only
 */
 
-if(!$perm) $perm = 3;
+if(empty($perm)) $perm = 3;
 
 switch($perm){
 	case(1):
