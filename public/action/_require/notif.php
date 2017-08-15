@@ -14,6 +14,10 @@ $notif_icon = ;
 $notif_user_id = ;
 $notif_sender_alternative = ;
 $notif_sender_id = ;
+
+// Send Notification
+include("../_require/notif.php");
+
 */
 
 // Generate a Notification ID
@@ -26,14 +30,14 @@ $notif_create_year = date("Y");
 $notif_create_time = date("h:i a");
 
 // Handle empty vars
-if(!$notif_title) $notif_title = "Untitled Notification";
-if(!$notif_content) $notif_content = "";
-if(!$notif_photo_url) $photo_url = "";
-if(!$notif_url) $notif_url = "";
-if(!$notif_icon) $notif_icon = "";
-if(!$notif_user_id) $notif_user_id = "";
-if(!$notif_sender_alternative) $notif_sender_id = "";
-if(!$notif_sender_id) $notif_sender_id = "";
+if(!@$notif_title) $notif_title = "Untitled Notification";
+if(!@$notif_content) $notif_content = "";
+if(!@$notif_photo_url) $notif_photo_url = "";
+if(!@$notif_url) $notif_url = "";
+if(!@$notif_icon) $notif_icon = "";
+if(!@$notif_user_id) $notif_user_id = "";
+if(!@$notif_sender_alternative) $notif_sender_alternative = "";
+if(!@$notif_sender_id) $notif_sender_id = "";
 
 // Prepare Array
 $notif_array = array(

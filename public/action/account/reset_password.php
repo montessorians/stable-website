@@ -1,69 +1,87 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Reset Password
+*/
+
+// Start Session
 session_start();
 
 // Declare Permission Level
 $perm = 3;
+
+// Require Secure File
 require_once("../../_system/secure.php");
 
+// Include DB File
 include("../_require/db.php");
 
+// Handle Post Data
 $user_id = $_POST['user_id'];
 $password = $_POST['password'];
 
-$notif_id = uniqid();
-$create_month = date("M");
-$create_day = date("d");
-$create_year = date("Y");
-$create_time = date("h:i a");
-
-
+// Check for Empty User ID
 if(empty($user_id)){
-	echo "User ID cannot be empty";
-} else {
-	if(empty($password)){
-		echo "Password cannot be empty";
-	} else {
 
+	// echo msg
+	echo "User ID cannot be empty";
+
+} else {
+
+	// Check for empty password
+	if(empty($password)){
+
+		// echo msg
+		echo "Password cannot be empty";
+
+	} else {
 		
+		// Check for password length
 		if(strlen($password) < 8){
+
+			// echo msg
 			echo "Password too short";
+
 		} else {
 	
+			// Hash and Salt Password
 			$password = password_hash("$password", PASSWORD_DEFAULT);
-			
+
+			// Query User ID			
 			$userid_check = $db_account->get("user_id", "user_id", "$user_id");
-			
+
+			// Check if User ID in DB			
 			if(empty($userid_check)){
 			
-			echo "User ID doesn't exist";	
+				// echo msg
+				echo "User ID doesn't exist";	
 				
 			} else {
 			
+				// Check if user ID matches
 				if($userid_check === $user_id){
 					
+					// Rewrite Password
 					$db_account->to("password", "$password", "user_id", "$user_id");
-					
-					$n_a = array(
-					"notification_id" => "$notif_id",
-					"notification_title" => "Password was reset",
-					"notification_content" => "Your password was reset. Please immediately change your password.",
-					"photo_url" => "",
-					"notification_url" => "settings/account",
-					"notification_icon" => "security",
-					"user_id" => "$user_id",
-					"sender_alternative" => "Montessori Accounts",
-					"sender_id" => "",
-					"create_month" => "$create_month",
-					"create_day" => "$create_day",
-					"create_year" => "$create_year",
-					"create_time" => "$create_time"
-				);
-				$db_notification->add($n_a);
-					
-				echo "<span class='green-text'>Password Updated Successfully!</span>";
+
+					$notif_title = "Password was reset";
+					$notif_content = "Your password was reset. Please immediately change your password.";
+					$notif_url = "/settings/account";
+					$notif_icon = "security";
+					$notif_user_id = "$user_id";
+					$notif_sender_alternative = "Montessori Accounts";
+
+					// Send Notification
+					include("../_require/notif.php");
+
+					// Echo msg
+					echo "<span class='green-text'>Password Updated Successfully!</span>";
 					
 				} else {
-				
+
+					// echo msg				
 					echo "Username already taken";
 						
 				}
