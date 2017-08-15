@@ -19,7 +19,7 @@ if(empty($perm)) $perm = 3;
 switch($perm){
 	case(1):
 		//Redirect if User is Logged-In
-		if($_SESSION['logged_in']) header("Location: /error/unauthorized.php");
+		if(@$_SESSION['logged_in']) header("Location: /error/unauthorized.php");
 		break;
 	case(2):
 		// Do Something

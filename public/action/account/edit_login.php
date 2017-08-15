@@ -1,4 +1,12 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Edit Login
+*/
+
+// Start Session
 session_start();
 
 // Declare Permission Level

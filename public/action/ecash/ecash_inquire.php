@@ -14,6 +14,7 @@ if(empty($_REQUEST['user_id'])){
 } else {
     $user_id = $_REQUEST['user_id'];
     $current_balance = $db_ecash->get("current_balance","user_id", "$user_id");
+    if(!$current_balance) $current_balance = "0.00";
     echo $current_balance;
 }
 ?>

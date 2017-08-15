@@ -137,10 +137,11 @@ if(empty($enrollment)){
 	}
 	
 }
-if(empty($print_grades)){
-	$pg_y = "";
-	$pg_n = "";
-} else {
+
+$pg_y = "";
+$pg_n = "";
+
+if(!empty($print_grades)){
 	switch($print_grades){
 		case("yes"):
 			$pg_y = "selected";
