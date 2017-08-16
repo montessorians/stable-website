@@ -66,6 +66,7 @@ if(empty($user_id)){
 					// Rewrite Password
 					$db_account->to("password", "$password", "user_id", "$user_id");
 
+					// Set Notif Data
 					$notif_title = "Password was reset";
 					$notif_content = "Your password was reset. Please immediately change your password.";
 					$notif_url = "/settings/account";
