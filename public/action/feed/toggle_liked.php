@@ -1,4 +1,8 @@
 <?php
+/*
+Holy Child Montessori
+2017
+*/
 // Start Session
 session_start();
 

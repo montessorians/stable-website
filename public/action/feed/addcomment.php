@@ -1,16 +1,25 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Add Comment
+*/
+
 // Start Session
 session_start();
 
 // Declare Permission Level
 $perm = 3;
+
+// Require Secure File
 require_once("../../_system/secure.php");
 
 // Include Database File
 include("../_require/db.php");
 
 // Set Sender
-    $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
 // Handle Post Data
 $post_id = $_REQUEST['post_id'];
@@ -18,24 +27,38 @@ $comment_body = strip_tags($_REQUEST['comment_body']);
 
 // Check if Post ID is null
 if(empty(post_id)){
+
     echo "Empty Post ID";
     $do = False;
+
 } else {
+
+    // Query if post id exists
     $check_post_existence = $db_post->get("post_id", "post_id", "$post_id");
+
     if(!check_post_existence){
+
         echo "Cannot add comment. Post doesn't exist.";
         $do = False;
+
     } else {
+
         $do = True;
+
     }
+
 }
 
 // Check if Comment Body is null
 if(empty($comment_body)){
+
     echo "You cannot post an empty comment";
     $do = False;
+
 } else {
+
     $do = True;
+
 }
 
 // Check if we can proceed
@@ -60,9 +83,12 @@ $array = array(
 
 // Add Array to Database
 $db_comment->add($array);
+
 echo "Comment has been added!";
 
 } else {
+
     echo "An error occured";
+
 }
 ?>
