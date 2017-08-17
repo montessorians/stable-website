@@ -1,30 +1,53 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Search Subjects
+*/
+
+//Start Session
 session_start();
 
 // Declare Permission Level
 $perm = 4;
+
+// Require Secure File
 require_once("../../_system/secure.php");
 
+// Include DB
 include("../_require/db.php");
 
+// Handle Post Data
 $query = $_POST['query'];
 $searchBy = $_POST['searchBy'];
 
+// Check if empty query
 if(!$query){
+
     $r = $db_subject->select(array());
+
 } else {
+
     $r = $db_subject->like(array(), "$searchBy", "/.*$query/");
+
 }
 
+// Check if empty results
 if(!$r){
+
     echo "
 	<div class='card'>
 		<div class='card-content'>
 		    <center>No results found for $query</center>
 		</div>
 	</div>";
+
 } else {
+
+    // Loop along
     foreach($r as $subject){
+
         $subject_id = $subject['subject_id'];
         $subject_title = $subject['subject_title'];
         $subject_description = $subject['subject_description'];

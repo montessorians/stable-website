@@ -1,71 +1,113 @@
 <?php
-	session_start();
+/*
+Holy Child Montessori
+2017
+
+Create Class
+*/
+
+// Start Session
+session_start();
+
+// Declare Permission Level
+$perm = 5;
+
+// Require Secure File
+require_once("../../_system/secure.php");
+
+// Include DB
+include("../_require/db.php");
+
+// Generate ID
+$class_id = mt_rand(10000,99999);
+
+// Handle Post Data
+$subject_id = $_POST['subject_id'];
+$school_year = $_POST['school_year'];
+$section = $_POST['section'];
+$class_code = $_POST['class_code'];
+$class_room = $_POST['class_room'];
+$access_code = $_POST['access_code'];
+$teacher_id = $_POST['teacher_id'];
+$start_time = $_POST['start_time'];
+$end_time = $_POST['end_time'];
+$schedule = $_POST['schedule'];
+$max_students = $_POST['max_students'];
+
+// Query if Subject ID Exists
+if($db_subject->exists("subject_id","$subject_id")){
+
+	// Check if grade is entered
+	if(!$grade){
 	
-	// Declare Permission Level
-	$perm = 5;
-	require_once("../../_system/secure.php");
-
-	include("../_require/db.php");
-		
-	$class_id = mt_rand(10000,99999);
-	$subject_id = $_POST['subject_id'];
-	$school_year = $_POST['school_year'];
-	$section = $_POST['section'];
-	$class_code = $_POST['class_code'];
-	$class_room = $_POST['class_room'];
-	$access_code = $_POST['access_code'];
-	$teacher_id = $_POST['teacher_id'];
-	$start_time = $_POST['start_time'];
-	$end_time = $_POST['end_time'];
-	$schedule = $_POST['schedule'];
-	$max_students = $_POST['max_students'];
-
-	if($db_subject->exists("subject_id","$subject_id")){
-
-		if(!$grade){
-			echo "Grade is Required";
-		} else {
-			if(!$school_year){
-				echo "School Year is Required";
-			} else {
-				$array = array(
-				"class_id" => "$class_id",
-				"class_title" => "$class_title",
-				"school_year" => "$school_year",
-				"section" => "$section",
-				"class_code" => "$class_code",
-				"class_room" => "$class_room",
-				"access_code" => "$access_code",
-				"teacher_id" => "$teacher_id",
-				"start_time" => "$start_time",
-				"end_time" => "$end_time",
-				"schedule" => "$schedule",
-				"max_students" => "$max_students"
-				);
-			}
-		}
-
+		echo "Grade is Required";
+	
 	} else {
-		echo "Subject Doesn't Exist";
+	
+		// Check if school year is entered
+		if(!$school_year){
+	
+			echo "School Year is Required";
+	
+		} else {
+
+			// Construct Array
+			$array = array(
+			"class_id" => "$class_id",
+			"class_title" => "$class_title",
+			"school_year" => "$school_year",
+			"section" => "$section",
+			"class_code" => "$class_code",
+			"class_room" => "$class_room",
+			"access_code" => "$access_code",
+			"teacher_id" => "$teacher_id",
+			"start_time" => "$start_time",
+			"end_time" => "$end_time",
+			"schedule" => "$schedule",
+			"max_students" => "$max_students"
+			);
+	
+		}
+	
 	}
 
-	if(empty($class_title)){
-		echo "Class Title cannot be empty"; 
+} else {
+
+	echo "Subject Doesn't Exist";
+
+}
+
+
+// Check if class title was sent
+if(empty($class_title)){
+
+	echo "Class Title cannot be empty"; 
+
+} else {
+
+	// Check if grade is sent
+	if(empty($grade)){
+
+		echo "Grade is required";
+
 	} else {
-		if(empty($grade)){
-			echo "Grade is required";
+
+		// Check if school year is sent
+		if(empty($school_year)){
+
+			echo "School Year is required";
+
 		} else {
-			if(empty($school_year)){
-				echo "School Year is required";
-			} else {
-				
-				
-				
-				$db_class->add($array);
-				echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
-				
-			}
+			
+			// Add to DB
+			$db_class->add($array);
+
+			echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
+			
 		}
+
 	}
+
+}
 	
 ?>
