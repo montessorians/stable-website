@@ -75,15 +75,71 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 					}
 				}
 
+				// Indicators
+				$up = "<i class='tiny material-icons green-text text-darken-1'>arrow_drop_up</i>";
+				$down = "<i class='tiny material-icons red-text text-darken-1'>arrow_drop_down</i>";
+				$nc = "<i class='tiny material-icons yellow-text text-darken-1'>remove</i>";
+
+				$sg_indic = ""; $tg_indic = ""; $fg_indic = "";
+
+				if(!empty($second_quarter_grade)){
+					if($second_quarter_grade > $first_quarter_grade) $sg_indic = $up;
+					if($second_quarter_grade < $first_quarter_grade) $sg_indic = $down;
+					if($second_quarter_grade == $first_quarter_grade) $sg_indic = $nc;
+				}
+
+				if(!empty($third_quarter_grade)){
+					if($third_quarter_grade > $second_quarter_grade) $tg_indic = $up;
+					if($third_quarter_grade < $second_quarter_grade) $tg_indic = $down;
+					if($third_quarter_grade == $second_quarter_grade) $tg_indic = $nc;
+				}
+
+				if(!empty($fourth_quarter_grade)){
+					if($fourth_quarter_grade > $third_quarter_grade) $fg_indic = $up;
+					if($fourth_quarter_grade < $third_quarter_grade) $fg_indic = $down;
+					if($fourth_quarter_grade == $third_quarter_grade) $fg_indic = $nc;
+				}
+
+				// Coloring
+				$pass_color = " green lighten-4 ";
+				$fail_color = " red lighten-4 ";
+
+				$frg_color = ""; $sg_color = ""; $tg_color = ""; $fg_color = ""; $ac_color = "";
+
+				if(!empty($first_quarter_grade)){
+					if($first_quarter_grade >= 70) $frg_color = $pass_color;
+					if($first_quarter_grade < 70) $frg_color = $fail_color;
+				}
+
+				if(!empty($second_quarter_grade)){
+					if($second_quarter_grade >= 70) $sg_color = $pass_color;
+					if($second_quarter_grade < 70) $sg_color = $fail_color;
+				}
+
+				if(!empty($third_quarter_grade)){
+					if($third_quarter_grade >= 70) $tg_color = $pass_color;
+					if($third_quarter_grade < 70) $tg_color = $fail_color;
+				}
+
+				if(!empty($fourth_quarter_grade)){
+					if($fourth_quarter_grade >= 70) $fg_color = $pass_color;
+					if($fourth_quarter_grade < 70) $fg_color = $fail_color;
+				}
+
+				if(!empty($average_grade)){
+					if($average_grade >= 70) $ag_color = $pass_color;
+					if($average_grade < 70) $ag_color = $fail_color;
+				}
+
 				if($school_year == $current_sy){
 					echo "
 						<tr>
 							<td class='seagreen-text'><b>$subject_title</b></td>
-							<td>$first_quarter_grade</td>
-							<td>$second_quarter_grade</td>
-							<td>$third_quarter_grade</td>
-							<td>$fourth_quarter_grade</td>
-							<td>$average_grade</td>
+							<td class='$fg_color'>$first_quarter_grade</td>
+							<td class='$sg_color'>$second_quarter_grade $sg_indic</td>
+							<td class='$tg_color'>$third_quarter_grade $tg_indic</td>
+							<td class='$fg_color'>$fourth_quarter_grade $fg_indic</td>
+							<td class='$ag_color'>$average_grade</td>
 							<td>$final_grade</td>
 						</tr>
 						";
