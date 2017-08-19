@@ -10,6 +10,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 	border-radius: 30pt;
 }
 </style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <body class="grey lighten-3">
 <div class="splashscreen"></div>
 <nav class="nav-extended <?=$primary_color?>">

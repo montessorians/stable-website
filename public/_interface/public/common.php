@@ -83,17 +83,17 @@ if(!$_SESSION['logged_in']){
                 <li><a href="/pages/research">Research and Publication</a></li>
                 <li><a href="/pages/community">Community Engagement</a></li>
                 <li><div class="divider"></div></li>
-                <li><a href="/account/?local=1">Sign-In</a></li>
+                <li><a href="<?=$li?>"><?=$si?></a></li>
             </ul>
 
         </nav>
         <!-- Jumbotron for larger window and desktop -->
         <div class="jumbotron hide-on-small-only">
-            <img src="/assets/pub.png" class="jumbo" id="img1">
+            <img src="/assets/cover.jpg" class="jumbo" id="img1">
         </div>
         <!-- Jumbotron for mobile images and small windows -->
         <div class="jumbotron-mobile hide-on-med-and-up">
-            <img src="/assets/pub.png" class="jumbo-mobile" id="img1">
+            <img src="/assets/cover.jpg" class="jumbo-mobile" id="img1">
         </div>
 
         <div class="container">

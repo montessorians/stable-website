@@ -4,7 +4,6 @@ $classes_array = $db_enroll->where(array(), "student_id", "$student_id");
 $attendance_array = $db_attendance->where(array(), "student_id", "$student_id");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 ?>
-
 <div class="container">
 <br>
 <h4 class="seagreen-text">My Grades</h4>
@@ -460,8 +459,35 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
       <a class="modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
     </div>
 </div>
+
 <script type="text/javascript">
 	$(document).ready(function(){
     $('.modal').modal();
   });
+/*
+  google.charts.load('current',{packages:['bar']});
+  google.charts.setOnLoadCallback(gradeChart);
+
+  function gradeChart(){
+
+	var data = new google.visualization.DataTable();
+	data.addColumn('string','Subject');
+	data.addColumn('number','1st Quarter Grade');
+	data.addColumn('number','2nd Quarter Grade');
+	data.addColumn('number','3rd Quarter Grade');
+	data.addColumn('number','4th Quarter Grade');
+	data.addRows([
+		['English',90,91,92,93],
+		['Math',91,92,94,95],
+		['Filipino',96,97,98,99]
+	]);
+
+	var options = {
+		bars:"horizontal",
+		height:"auto"
+	}
+	var chart = new google.charts.Bar(document.getElementById('gradeChart'));
+
+	chart.draw(data,options);
+  }*/
 </script>
