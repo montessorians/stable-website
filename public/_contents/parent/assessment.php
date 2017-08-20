@@ -16,9 +16,11 @@ $empty_child = "
     <br>
     <h4 class="seagreen-text">My Children's Grades <a href="#modal1"><i class="grey-text material-icons">info</i></a></h4>
     <?php
-    if(!$children_array){
-        echo $empty_child;
-    } else {
+    if(empty($children_array)){
+
+		echo $empty_child;
+
+	} else {
 
         echo "<div class='row'>";
 
@@ -28,15 +30,27 @@ $empty_child = "
 			$student_id = $child['student_id'];
 			$check_hold = $db_hold->where(array("hold_id"), "student_id", "$student_id");
 
-        	$first_name = $db_student->get("first_name","student_id", "$student_id");
-            $last_name = $db_student->get("last_name","student_id", "$student_id");
-            $suffix_name = $db_student->get("suffix_name","student_id", "$student_id");
-            $grade = $db_student->get("grade","student_id", "$student_id");
-            $section = $db_student->get("section","student_id", "$student_id");
-            $name = $first_name . " " . $last_name . " " . $suffix_name;
+			$student_info = $db_student->where(array("first_name","last_name","suffix_name","grade","section"),"student_id","$student_id");
+
+			foreach($student_info as $student){
+				$first_name = $student['first_name'];
+				$last_name = $student['last_name'];
+				$suffix_name = $student['suffix_name'];
+				$grade = $student['grade'];
+				$section = $student['section'];
+			}
+
+			$name = $first_name . " " . $last_name . " " . $suffix_name;
             $sectiongrade = $grade . " - " . $section;
 
 			$classes_array = $db_enroll->where(array(), "student_id", "$student_id");
+
+			$current_classes = array();
+
+			foreach($classes_array as  $class){
+				$school_year = $class['school_year'];
+				if($school_year == $current_sy) array_push($current_classes, $class);
+			}
 
 			$student_title = "<p><font size='4'><b>$name</b> ($sectiongrade)</font></p>";
 
@@ -52,21 +66,22 @@ $empty_child = "
              	 	</div>";
 				$proceed = 0;
 			} else {
-			if(!$classes_array){
-				echo "
-					<div class='card hoverable'><div class='card-content'>
-						$student_title
-					<center class='grey-text'>
-                    <i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-                    $first_name doesn't have any subjects yet
-                    </center><br><br></div></div>";
-					$proceed = 0;
-			} else {
-				$proceed = 1;
-			}
+
+				if(empty($current_classes)){
+					echo "
+						<div class='card hoverable'><div class='card-content'>
+							$student_title
+						<center class='grey-text'><br><br>
+						<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+						$first_name doesn't have any subjects yet for S.Y. $current_sy
+						</center><br></div></div>";
+						$proceed = 0;
+				} else {
+					$proceed = 1;
+				}
 			}
 
-			if($proceed == 1){
+		if($proceed == 1){
 
 			echo "
 				<div class='card hoverable'>
@@ -87,7 +102,7 @@ $empty_child = "
 					</thead>
 					<tbody>";
 				
-				foreach($classes_array as $enroll){
+				foreach($current_classes as $enroll){
 					$div = 4;
 
 					$enroll_id = $enroll['enroll_id'];

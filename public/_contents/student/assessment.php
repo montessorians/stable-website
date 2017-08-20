@@ -3,6 +3,17 @@ include("../_include/setup.php");
 $classes_array = $db_enroll->where(array(), "student_id", "$student_id");
 $attendance_array = $db_attendance->where(array(), "student_id", "$student_id");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
+
+foreach($classes_array as $enroll){
+	$school_year = $enroll['school_year'];
+	if($school_year == $current_sy) array_push($current_classes, $enroll);
+}
+
+foreach($attendance_array as $attendance){
+	$school_year = $attendance['school_year'];
+	if($school_year == $current_sy) array_push($current_attendance, $attendance);
+}
+
 ?>
 <div class="container">
 <br>
@@ -11,14 +22,14 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 	<?php
 	if(empty($check_hold)){
 	
-		if(empty($classes_array)){
+		if(empty($current_classes)){
 			
 			echo "
 			<div class='card-content'>
 				<center>
 					<p class='grey-text'>
 						<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-						You don't have any subjects yet.
+						You don't have any subjects for S.Y. $current_sy yet
 					</p>
 				</center>
 			</div>";	
@@ -40,8 +51,9 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				</thead>
 				<tbody>
 			";
-			
-			foreach($classes_array as $enroll){
+
+			foreach($current_classes as $enroll){
+	
 				$div = 4;
 
 				$enroll_id = $enroll['enroll_id'];
@@ -74,7 +86,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						}
 					}
 				}
-
+				/*
 				// Indicators
 				$up = "<i class='tiny material-icons green-text text-darken-1'>arrow_drop_up</i>";
 				$down = "<i class='tiny material-icons red-text text-darken-1'>arrow_drop_down</i>";
@@ -98,7 +110,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 					if($fourth_quarter_grade > $third_quarter_grade) $fg_indic = $up;
 					if($fourth_quarter_grade < $third_quarter_grade) $fg_indic = $down;
 					if($fourth_quarter_grade == $third_quarter_grade) $fg_indic = $nc;
-				}
+				}*/
 
 				// Coloring
 				$pass_color = " green lighten-4 ";
@@ -136,11 +148,11 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 						<tr>
 							<td class='seagreen-text'><b>$subject_title</b></td>
 							<td class='$fg_color'>$first_quarter_grade</td>
-							<td class='$sg_color'>$second_quarter_grade $sg_indic</td>
-							<td class='$tg_color'>$third_quarter_grade $tg_indic</td>
-							<td class='$fg_color'>$fourth_quarter_grade $fg_indic</td>
-							<td class='$ag_color'>$average_grade</td>
-							<td>$final_grade</td>
+							<td class='$sg_color'>$second_quarter_grade</td>
+							<td class='$tg_color'>$third_quarter_grade</td>
+							<td class='$fg_color'>$fourth_quarter_grade</td>
+							<td class='$ag_color'>$average_grade </td>
+							<td>$final_grade </td>
 						</tr>
 						";
 				}
@@ -183,14 +195,14 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 
 		if($print_grades == "yes"){
 			echo "
-			<a class='grey-text' href='#modal2'>
+			<a class='grey-text tooltipped' data-position='top' data-tooltip='Print your Grades' href='#modal2'>
 				<i class='material-icons'>print</i>
 			</a>
 			";
 		}
 
 		echo"
-			<a class='grey-text' href='#modal1'>
+			<a class='grey-text tooltipped' data-position='top' data-tooltipped='Information' href='#modal1'>
 				<i class='material-icons'>info</i>
 			</a>
 		</div>
@@ -205,10 +217,17 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 <div class="card hoverable">
 	<ul class="collection">
 		<?php
-			if(empty($classes_array)){
+			if(empty($current_classes)){
 				echo "
 				<li class='collection-item'>
-					<center><p>You haven't enrolled to any subject yet.</p></center>
+					<br>	
+					<center>
+						<p class='grey-text'>
+							<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
+							You don't have any subjects for S.Y. $current_sy yet
+						</p>
+					</center>
+					<br>
 				</li>
 				";
 			} else {
@@ -220,7 +239,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				<div class='vcContainer'>
 				";
 
-				foreach($classes_array as $enroll){
+				foreach($current_classes as $enroll){
 					$proceed = 0;
 					$enroll_id = $enroll['enroll_id'];
 					$school_year = $enroll['school_year'];
@@ -289,13 +308,13 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 	<h4 class="seagreen-text">My Attendance</h4>
 	<div class="card hoverable">
 		<?php
-			if(empty($attendance_array)){
+			if(empty($current_attendance)){
 				echo "
 				<div class='card-content'>
 					<center>
 						<p class='grey-text'>
 							<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-							You are not enrolled yet.
+							You are not enrolled for S.Y. $current_sy yet
 						</p>
 					</center>
 				</div>";
@@ -324,7 +343,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 				<tbody>
 			";
 
-			foreach($attendance_array as $attendance){
+			foreach($current_attendance as $attendance){
 				$attendance_id = $attendance['attendance_id'];
 				$school_year = $attendance['school_year'];
 				$grade = $attendance['grade'];
@@ -441,7 +460,7 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 			
 		?>
 	<div class="card-action">
-		<a class="grey-text" href="#modal3"><i class="material-icons">info</i></a>
+		<a class='grey-text tooltipped' data-position='top' data-tooltip='Information' href="#modal3"><i class="material-icons">info</i></a>
 	</div>
 	</div>
 	<br><br><br>
@@ -517,9 +536,10 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+$(document).ready(function(){
     $('.modal').modal();
-  });
+	$('.tooltipped').tooltip({delay: 50});
+});
 /*
   google.charts.load('current',{packages:['bar']});
   google.charts.setOnLoadCallback(gradeChart);
