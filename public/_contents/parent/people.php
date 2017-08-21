@@ -26,6 +26,18 @@ if($proceed==1){
     foreach($children_array as $child){
         $parentchild_id = $child['parentchild_id'];
         $student_id = $child['student_id'];
+        
+        $student_info = $db_student->where(array(),"student_id","$student_id");
+        
+        foreach($student_info as $student){
+            $first_name = $student['first_name'];
+            $last_name = $student['last_name'];
+            $suffix_name = $student['suffix_name'];
+            $grade = $student['grade'];
+            $section = $student['section'];
+                 
+        }
+        
         $first_name = $db_student->get("first_name","student_id", "$student_id");
         $last_name = $db_student->get("last_name","student_id", "$student_id");
         $suffix_name = $db_student->get("suffix_name","student_id", "$student_id");
