@@ -1,4 +1,10 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Main
+*/
 //Include Required Files
 include("_system/config.php");
 include("_system/database/db.php");
@@ -10,11 +16,20 @@ Holy Child Montessori
 Website
 2017
 All Rights Reserved
+
+Created by Holy Child Montessori Educational Technologies.
+This system has been made open-source and is available at
+http://github.com/hcmedutech/website. 
+
+This web application is being continuously being developed.
+For version details, please log-in using your account
+and in the Me tab, scroll to the bottom-most part.
 -->
 <!Doctype html>
 <html>
 <head>
 
+	<!-- Site Title -->
 	<title><?=$site_title?></title>
 
 	<!-- Favicon -->
