@@ -1,14 +1,18 @@
 <?php
 include("../_include/setup.php");
+
 $parentchild_array = $db_parentchild->where(array("parentchild_id"), "student_id", "$student_id");
+
 $enroll_array = $db_enroll->where(array("enroll_id","school_year","class_id"), "student_id", "$student_id");
 $admin_array = $db_admin->select(array());
 
 $current_enroll = array();
+
 foreach($enroll_array as $enroll){
     $school_year = $enroll['school_year'];
     if($school_year == $current_sy) array_push($current_enroll, $enroll);
 }
+
 ?>
 <div class="container">
 <br>

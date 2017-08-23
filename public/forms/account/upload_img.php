@@ -41,7 +41,7 @@
 		
 		<div class="container">
 			<br><br>
-			<form action="../../action/account/upload_img.php" method="post" enctype="multipart/form-data">
+			<form action="/action/account/upload_img.php" method="post" enctype="multipart/form-data">
 
 			<div class="input-field">
   			<input type="text" name="user_id" id="user_id" value="<?=$user_id?>">

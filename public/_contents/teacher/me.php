@@ -5,6 +5,7 @@
 	$last_name = $db_teacher->get("last_name", "teacher_id", "$teacher_id");
 	$suffix_name = $db_teacher->get("suffix_name", "teacher_id", "$teacher_id");
 	$name = $first_name . " " . $last_name . " " . $suffix_name;
+	if(empty($photo_url)) $photo_url = "assets/noimg.bmp";	
 ?>
 <style>
 	.collection-title{
@@ -21,14 +22,7 @@
 </style>
 <ul class="collection">
 	<li class="collection-item avatar">
-		<?php
-			if(empty($photo_url)){
-				echo "<i class=\"material-icons circle red\">person</i>";
-			}else{
-				echo "<a href='#profilepic'><img src='../../$photo_url' class='circle'></a>";
-			}
-		?>
-		<p class="user-name"><?=$name?></p>
+		<?php echo "<a href='#profilepic'><img src='/$photo_url' class='circle'></a>"; ?>		<p class="user-name"><?=$name?></p>
 		<p class="grey-text">
 			<a href="settings/account" class="grey-text">
 				@<?=$username?> <i class="material-icons tiny">edit</i><br>

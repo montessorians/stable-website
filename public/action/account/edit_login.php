@@ -26,7 +26,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Check if empty username
-if(!$username){
+if(empty($username)){
 
 	// echo msg
 	echo "Username cannot be empty";
@@ -34,7 +34,7 @@ if(!$username){
 } else {
 
 	// Check if empty password
-	if(!$password){
+	if(empty($password)){
 
 		// echo msg
 		echo "Password cannot be empty";
@@ -43,6 +43,7 @@ if(!$username){
 
 		// Sanitize username input
 		$username = strip_tags($username);
+		$username = str_replace(" ","", $username);
 
 		// Check for pw length
 		if(strlen($password) < 8){

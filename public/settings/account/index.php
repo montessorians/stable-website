@@ -1,18 +1,25 @@
 <?php
 session_start();
-if(empty($_SESSION['logged_in'])){
-	header("Location: ../../account");
-}
+
+$perm = 3;
+
+include("../../_system/secure.php");
+
+include("../../secure.php");
+
 include("../../_system/config.php");
+
 $activity_title = "Account Settings";
+
 if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
+	if(empty($_SERVER['HTTP_REFERER'])){
+		$from = "../../";
+	} else {
+		$from = $_SERVER['HTTP_REFERER'];
 	}
+} else {
+	$from = $_GET['from'];
+}
 ?>
 <!Doctype html>
 <html>
@@ -38,6 +45,7 @@ if(empty($_GET['from'])){
   				<label for="password">Password</label>
   		</div>
   		<br>
+		  <p>Your username must not contain spaces. It would be automatically be removed in the system.</p>
 		  <p>Please make sure your Montessori account password is not the same with your Social Network and E-Mail Password. Also, don't sign-in and/or change your password if you are using Public Free Wifi. <a class="seagreen-text" href="http://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=5" target="_blank">Click Here for Info</a></p>
 		<br>
   		<button id="saveChanges" class="btn btn-large waves-effect waves-light <?=$accent_color?>">Save Changes</button>

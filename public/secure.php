@@ -7,8 +7,8 @@ security.php
 */
 
 // Logout User if they don't contain required security vars
-if(!$_SESSION['user_ip']) header("Location: /account/logout/");
-if(!$_SESSION['user_ua']) header("Location: /account/logout/");
+if(empty($_SESSION['user_ip'])) header("Location: /account/logout/");
+if(empty($_SESSION['user_ua'])) header("Location: /account/logout/");
 
 // Get current IP and UA
 $current_ip = $_SERVER['REMOTE_ADDR'];

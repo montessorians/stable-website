@@ -8,6 +8,7 @@
 	$grade = $db_student->get("grade", "student_id", "$student_id");
 	$grade_schoolyear = $db_student->get("school_year", "student_id", "$student_id");
 	$section = $db_student->get("section", "student_id", "$student_id");
+	if(empty($photo_url)) $photo_url = "assets/noimg.bmp";
 	if(empty($grade)){
 		$status = "Not Enrolled";
 	} else {
@@ -36,14 +37,7 @@
 </style>
 <ul class="collection">
 	<li class="collection-item avatar">
-		<?php
-			if(empty($photo_url)){
-				echo "<i class=\"material-icons circle red\">person</i>";
-			}else{
-				echo "<a href='#profilepic'><img src='../../$photo_url' class='circle'></a>";
-			}
-		?>
-		<p class="user-name"><?=$name?></p>
+		<?php echo "<a href='#profilepic'><img src='/$photo_url' class='circle'></a>"; ?>		<p class="user-name"><?=$name?></p>
 		<p class="grey-text">
 			<a href="settings/account" class="grey-text">
 				@<?=$username?> <i class="material-icons tiny">edit</i><br>
