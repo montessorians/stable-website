@@ -6,8 +6,11 @@ $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 
 foreach($classes_array as $enroll){
 	$school_year = $enroll['school_year'];
-	if($school_year == $current_sy) array_push($current_classes, $enroll);
+	if(!empty($school_year)){
+		if($school_year == $current_sy) array_push($current_classes, $enroll);	
+	}
 }
+
 
 foreach($attendance_array as $attendance){
 	$school_year = $attendance['school_year'];

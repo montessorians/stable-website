@@ -18,11 +18,11 @@
 		if(isset($photo_url)) echo "<br><img src='../../$photo_url' id='profilepic' width='40%'>";
 		?>
 		<br>
-		<form method="post" enctype="multipart/form-data">
-			<div class="file-field input-field">
+		<p>Want to upload your picture? E-mail us at <a href="mailto:hcmontessori@gmail.com" class="seagreen-text">hcmontessori@gmail.com</a>!</p>
+			<!--div class="file-field input-field">
 				<div class="btn btn-small <?=$accent_color?>">
 					<span>Image</span>
-					<input type="file" id="fileToUpload" name="fileToUpload">
+					<input type="file" name="fileToUpload" id="file">
 				</div>
 				<div class="file-path-wrapper">
 					<input class="file-path validate" type="text">
@@ -30,8 +30,7 @@
 			</div>
 			<p class="grey-text">Must be in .jpg or .png file. Must be proper and should show your face clearly.</p>
 			<br>
-			<button class="btn btn-large <?=$primary_color?> waves-effect">Upload</button>
-		</form>
+			<button class="btn btn-large <?=$primary_color?> waves-effect" id="uploadImg">Upload</button-->
 	</div>
 	<div class="modal-footer">
 		<a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>

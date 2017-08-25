@@ -1,32 +1,39 @@
 <?php
 // Start Session
 session_start();
+
 include("../_system/config.php");
+
 $activity_title = "Account";
+
 $showContinue = False;
 
 // Handle redirection after login
 if(empty($_REQUEST['from'])){
     if(empty($_SERVER['HTTP_REFERER'])){
+
         $from = "../";
         $showContinue = False;
+
     } else {
+
         $from = $_SERVER['HTTP_REFERER'];
+
         if(empty($_REQUEST['local'])){
             $showContinue = True;
         } else {
             $showContinue = False;                        
         }
+
     }
+
 } else {
     $from = $_REQUEST['from'];
     $showContinue = True;
 }
 
 // Check if user is already logged in
-if(empty($_SESSION['logged_in'])){} else {
-    header("Location: $from");
-}
+if(!empty($_SESSION['logged_in'])) header("Location: $from");
 
 if($showContinue==True){
     $msg = "To continue you must be logged-in";
@@ -34,18 +41,23 @@ if($showContinue==True){
     $msg = "Sign-In with your Holy Child Montessori Account";
 }
 ?>
+<!--
+    Holy Child Montessori
+    2017
+    All Rights Reserved
+
+    Account
+-->
 <!Doctype html>
-<html>
+<html lang="en">
     <head>
         <title><?=$activity_title." - ".$site_title?></title>
         <?php include("../_system/styles.php"); ?>
-        <script>
+        <script type="text/javascript">
             const from = "<?=$from?>";
         </script>
         <style>
-            .splashscreen{
-                background-color: gainsboro !important;
-            }
+            .splashscreen{ background-color: gainsboro !important; }
         </style>
     </head>
     <body class="grey lighten-4" id="body">
@@ -105,13 +117,17 @@ if($showContinue==True){
         </div></div>
         <br><br>
         	<center>
-				<a class="btn btn-flat grey-text" href="http://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=2">Forgot Password</a> 
-				<a class="btn btn-flat grey-text" href="http://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=3">Privacy Information</a>
+				<a class="btn btn-flat grey-text" href="#forgotpassword">Forgot Password</a> 
+				<a class="btn btn-flat grey-text" href="#privacyinformation">Privacy Information</a>
 				<p class="grey-text">Copyright <?=date("Y")?><br>
 				<b><?=$site_title?></b> </p>
 			</center>
         <br><br><br>
     </body>
+
+<!--
+Public Network Modal
+-->
 <div id="publicnetwork" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h5>Warning About Signing-In on Free Wifi & Public Networks</h5>
@@ -124,6 +140,43 @@ if($showContinue==True){
       <a class="modal-action modal-close waves-effect waves-green btn-flat">I Understand</a>
     </div>
 </div>
+
+<!--
+Forgot Password Modal
+-->
+<div id="forgotpassword" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Forgot Password</h5>
+        <p style="text-align:justify">
+            If you forgot your password, please immediately contact us through our office to reset it for you. We will send you a
+            temporary password that you can use to sign in to your account.<br>
+            <br>
+            Once we have given you a temporary password please change it with your new password.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
+</div>
+
+<!--
+Privacy Information
+-->
+<div id="privacyinformation" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h5>Privacy Information</h5>
+        <p style="text-align:justify">
+            We care about your privacy, Holy Child Montessori strives to protect your information.
+            Even if we apply sophisticated security methods in our system, there might be instances
+            that security would be compromised especially in your end. If this ever happen, the school
+            is not liable for any loss or damage to you.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
+</div>
+
 </html>
 <script type="text/javascript">
 // Initialization Event
