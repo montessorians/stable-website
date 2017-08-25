@@ -108,7 +108,7 @@ echo "</div>";
 <?php
 $noclass_card = "
 <div class='card hoverable'><div class='card-content'><center>
-<p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>Your Parents aren't Connect Yet</p>
+<p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>Your parents aren't connected to your account yet</p>
 </center></div></div>";
 
     if(empty($parentchild_array)){

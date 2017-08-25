@@ -17,7 +17,8 @@ include("../../_system/secure.php");
 	$db_class = new DBase("class", "../../_store");
 	$db_student = new DBase("student", "../../_store");
 	$db_enroll = new DBase("student_class", "../../_store");
-	
+	$db_subject = new DBase("subject", "../../_store");
+
 	$class_id = $_GET['class_id'];
 	if(empty($class_id)){
 		header("Location: $from");
@@ -29,7 +30,9 @@ include("../../_system/secure.php");
 		}
 	}
 	
-	$class_title = $db_class->get("class_title", "class_id","$class_id");
+	$subject_id = $db_class->get("subject_id", "class_id","$class_id");
+	$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
+
 	$grade_encode = $db_schooldata->get("grade_encode", "school_id", "1");
 	$current_quarter = $db_schooldata->get("quarter", "school_id", "1");
 	$enroll_array = $db_enroll->where(array("enroll_id"), "class_id", "$class_id");
@@ -49,7 +52,7 @@ include("../../_system/secure.php");
 		</nav>
 		<div class="container">
 		<br>
-			<h4 class="green-text text-darken-2"><?=$class_title?> Grades</h4>
+			<h4 class="green-text text-darken-2"><?=$subject_title?> Grades</h4>
 		<br>
 			<?php
 			
@@ -184,7 +187,7 @@ include("../../_system/secure.php");
 						type: 'POST',
 						url: '../../action/registrar/encode_grades.php',
 						data: {
-							enroll_id: $enroll_id,
+							enroll_id: '$enroll_id',
 							first_quarter_grade: Vfirst$enroll_id,
 							second_quarter_grade: Vsecond$enroll_id,
 							third_quarter_grade: Vthird$enroll_id,

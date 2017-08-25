@@ -120,13 +120,13 @@ $empty_child = "
 					$fourth_quarter_grade = $enroll['fourth_quarter_grade'];
 					$final_grade = $enroll['final_grade'];
 
-					if(!$fourth_quarter_grade){$div = 3; $fourth_quarter_grade=null;}
-					if(!$third_quarter_grade){$div = 2; $third_quarter_grade=null;}
-					if(!$second_quarter_grade){$div = 1; $second_quarter_grade=null;}
-					if(!$first_quarter_grade){$div = 1; $first_quarter_grade=null;}
+					if(empty($fourth_quarter_grade)){$div = 3; $fourth_quarter_grade=null;}
+					if(empty($third_quarter_grade)){$div = 2; $third_quarter_grade=null;}
+					if(empty($second_quarter_grade)){$div = 1; $second_quarter_grade=null;}
+					if(empty($first_quarter_grade)){$div = 1; $first_quarter_grade=null;}
 
 					$average_grade = ceil(($first_quarter_grade + $second_quarter_grade + $third_quarter_grade + $fourth_quarter_grade)/$div);
-					if(!$average_grade)$average_grade=null;
+					if(empty($average_grade))$average_grade=null;
 
 					if(isset($fourth_quarter_grade)){
 						if(!$final_grade){
@@ -138,19 +138,50 @@ $empty_child = "
 						}
 					}
 
-					if($school_year == $current_sy){
-					echo "
-						<tr>
-							<td class='seagreen-text'><b>$subject_title</b></td>
-							<td>$first_quarter_grade</td>
-							<td>$second_quarter_grade</td>
-							<td>$third_quarter_grade</td>
-							<td>$fourth_quarter_grade</td>
-							<td>$average_grade</td>
-							<td>$final_grade</td>
-						</tr>
-						";
+
+					// Coloring
+					$pass_color = " green lighten-4 ";
+					$fail_color = " red lighten-4 ";
+
+					$frg_color = ""; $sg_color = ""; $tg_color = ""; $fg_color = ""; $ag_color = "";
+
+					if(!empty($first_quarter_grade)){
+						if($first_quarter_grade >= 70) $frg_color = $pass_color;
+						if($first_quarter_grade < 70) $frg_color = $fail_color;
 					}
+
+					if(!empty($second_quarter_grade)){
+						if($second_quarter_grade >= 70) $sg_color = $pass_color;
+						if($second_quarter_grade < 70) $sg_color = $fail_color;
+					}
+
+					if(!empty($third_quarter_grade)){
+						if($third_quarter_grade >= 70) $tg_color = $pass_color;
+						if($third_quarter_grade < 70) $tg_color = $fail_color;
+					}
+
+					if(!empty($fourth_quarter_grade)){
+						if($fourth_quarter_grade >= 70) $fg_color = $pass_color;
+						if($fourth_quarter_grade < 70) $fg_color = $fail_color;
+					}
+
+					if(!empty($average_grade)){
+						if($average_grade >= 70) $ag_color = $pass_color;
+						if($average_grade < 70) $ag_color = $fail_color;
+					}
+
+					echo "
+					<tr>
+						<td class='seagreen-text'><b>$subject_title</b></td>
+						<td class='$fg_color'>$first_quarter_grade</td>
+						<td class='$sg_color'>$second_quarter_grade</td>
+						<td class='$tg_color'>$third_quarter_grade</td>
+						<td class='$fg_color'>$fourth_quarter_grade</td>
+						<td class='$ag_color'>$average_grade </td>
+						<td>$final_grade </td>
+					</tr>
+					";
+
 
 				} //fe
 
@@ -211,7 +242,7 @@ $empty_child = "
 
 $proceed = 0;
 
-if(!$children_array){
+if(empty($children_array)){
 
 	echo $empty_child;
 

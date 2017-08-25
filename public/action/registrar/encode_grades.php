@@ -39,7 +39,6 @@ $first_name = $db_student->get("first_name", "student_id", "$student_id");
 $last_name = $db_student->get("last_name", "student_id", "$student_id");
 $suffix_name = $db_student->get("suffix_name", "student_id", "$student_id");
 
-
 $class_id = $db_enroll->get("class_id", "enroll_id", "$enroll_id");
 $subject_id = $db_class->get("subject_id","class_id","$class_id");
 $subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");	
@@ -54,6 +53,30 @@ $notif_sender_alternative = "Registrar";
 
 // Send Notification
 include("../_require/notif.php");
+
+$parent_array = $db_parentchild->where(array(),"student_id","$student_id");
+
+if(!empty($parent_array)){
+
+    foreach($parent_array as $parent){
+        $parent_id = $parent['parent_id'];
+        $user_id = $db_account->get("user_id", "parent_id", "$parent_id");
+        if(!empty($user_id)){
+
+            // Prepare Notif
+            $notif_title = "$first_name's grade for $subject_title has been encoded";
+            $notif_content = "$first_name's $subject_title grade is ready to be viewed.";
+            $notif_icon = "assessment";
+            $notif_user_id = "$user_id";
+            $notif_sender_alternative = "Registrar";
+
+            // Send Notification
+            include("../_require/notif.php");
+
+        }
+    }
+
+}
 
 echo "Grades of $first_name $last_name $suffix_name has been encoded successfully!";
 
