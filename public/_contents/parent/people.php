@@ -183,23 +183,22 @@ $noclass_card = " <div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>No Teacher Information Yet</p>
 </center></div></div>";
 
-if(empty($children_array)) echo $noclass_card;
+$teacher_array = array();
 
-if(!empty($children_array)){
+if(empty($children_array)) echo $noclass_card;
+if(!empty($children_array))
+{
     foreach($children_array as $child){
         $parentchild_id = $child['parentchild_id'];
         $student_id = $child['student_id'];
         $student_classes = $db_enroll->where(array(),"student_id","$student_id");
-        if(!empty($student_classes)) {
+        if(!empty($student_classes)){
             $current_classes = array();
             foreach($student_classes as $class){
                 $school_year = $class['school_year'];
                 if($school_year == $current_sy) array_push($current_classes, $class);
             }
-            if(empty($current_classes)) echo $noclass_card;
             if(!empty($current_classes)){
-                $teacher_array = array();
-         
                 foreach($current_classes as $class){
                     $class_id = $class['class_id'];
                     $teacher_id = $db_class->get("teacher_id","class_id","$class_id");
@@ -207,72 +206,70 @@ if(!empty($children_array)){
                         if(!in_array($teacher_id,$teacher_array)) array_push($teacher_array, $teacher_id);
                     }
                 }
-
-                if(empty($teacher_array)) echo $noclass_card;
-                if(!empty($teacher_array)){
-                    echo "<div class='row'>";                    
-                    foreach($teacher_array as $teacher_id){
-                        $teacher_info = $db_teacher->where(array(),"teacher_id", "$teacher_id");
-                        foreach($teacher_info as $teacher){
-                            $teacher_id = $teacher['teacher_id'];
-                            $first_name = $teacher['first_name'];
-                            $last_name = $teacher['last_name'];
-                            $suffix_name = $teacher['suffix_name'];
-                            $mobile_number = $teacher['mobile_number'];
-                            $telephone_number = $teacher['telephone_number'];
-                            $email = $teacher['email'];
-
-                            $username = $db_account->get("username", "teacher_id", "$teacher_id");
-                            $photo_url = $db_account->get("photo_url", "teacher_id", "$teacher_id");
-                       
-                            if(empty($photo_url)) $photo_url = "/assets/noimg.bmp";
-
-                            echo "
-                            <div class='col s6'>
-                                <div class='card hoverable' id='card$teacher_id'>
-                                <a href='#card$teacher_id'>
-                                    <div class='card-img'>
-                                        <img src='$photo_url' width='100%' class='responsive-img'>
-                                    </div>
-                                    <div class='card-content'>
-                                        <p class='seagreen-text'><font size='4'><b>$first_name $last_name $suffix_name</b></font><br>
-                                        <span class='grey-text text-darken-2 truncate'>@$username</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                            <div class='modal modal-fixed-footer' id='card$teacher_id'>
-                            <div class='modal-content'>
-                                <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
-                                <ul class='collection'>
-                                    <li class='collection-item'>
-                                        Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
-                                    </li>
-                                    <li class='collection-item'>
-                                        Tel. Number: <a href='tel:$telephone_number' class='seagreen-text'>$telephone_number</a>
-                                    </li>
-                                    <li class='collection-item'>
-                                        E-Mail: <a href='mailto:$email' class='seagreen-text'>$email</a>
-                                    </li>
-                                    <li class='collection-item'>
-                                        Teacher ID No.: $teacher_id
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class='modal-footer'>
-                                <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
-                            </div>
-                         </div>
-                            ";
-                        }
-                    echo "</div>";
-                    }
-                }
-         
             }
-        }        
+        }
+    }    
+}
+
+if(empty($teacher_array)) echo $noclass_card;
+if(!empty($teacher_array)){
+    echo "<div class='row'>";
+    foreach($teacher_array as $teacher_id){
+        $teacher_info = $db_teacher->where(array(),"teacher_id", "$teacher_id");
+        foreach($teacher_info as $teacher){
+            $teacher_id = $teacher['teacher_id'];
+            $first_name = $teacher['first_name'];
+            $last_name = $teacher['last_name'];
+            $suffix_name = $teacher['suffix_name'];
+            $mobile_number = $teacher['mobile_number'];
+            $telephone_number = $teacher['telephone_number'];
+            $email = $teacher['email'];
+        }
+        $username = $db_account->get("username", "teacher_id", "$teacher_id");
+        $photo_url = $db_account->get("photo_url", "teacher_id", "$teacher_id");
+   
+        if(empty($photo_url)) $photo_url = "/assets/noimg.bmp";
+
+        echo "
+        <div class='col s6'>
+            <div class='card hoverable' id='card$teacher_id'>
+            <a href='#card$teacher_id'>
+                <div class='card-img'>
+                    <img src='$photo_url' width='100%' class='responsive-img'>
+                </div>
+                <div class='card-content'>
+                    <p class='seagreen-text'><font size='4'><b>$first_name $last_name $suffix_name</b></font><br>
+                    <span class='grey-text text-darken-2 truncate'>@$username</span>
+                    </p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class='modal modal-fixed-footer' id='card$teacher_id'>
+        <div class='modal-content'>
+            <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
+            <ul class='collection'>
+                <li class='collection-item'>
+                    Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
+                </li>
+                <li class='collection-item'>
+                    Tel. Number: <a href='tel:$telephone_number' class='seagreen-text'>$telephone_number</a>
+                </li>
+                <li class='collection-item'>
+                    E-Mail: <a href='mailto:$email' class='seagreen-text'>$email</a>
+                </li>
+                <li class='collection-item'>
+                    Teacher ID No.: $teacher_id
+                </li>
+            </ul>
+        </div>
+        <div class='modal-footer'>
+            <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
+        </div>
+     </div>
+        ";
     }
+    echo "</div>";
 }
 ?>
     <br>

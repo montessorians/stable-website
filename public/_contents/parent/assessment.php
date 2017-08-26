@@ -91,8 +91,8 @@ $empty_child = "
 						$student_title
 					</div>
 				<table class='responsive-table centered'>
-					<thead>
-						<tr class='blue-grey-text text-darken-2'>
+					<thead class='seagreen'>
+						<tr class='white-text'>
 							<th>Subject</th>
 							<th>1st</th>
 							<th>2nd</th>
@@ -300,8 +300,8 @@ if($proceed ==1){
 					<p><font size='4'><b>$name</b> ($sectiongrade)</font></p>
 				</div>
 				<table class='responsive-table centered'>
-				<thead>
-					<tr class='blue-grey-text text-darken-2'>
+				<thead class='seagreen'>
+					<tr class='white-text'>
 						<th>Attendance</th>
 						<th>Jan</th>
 						<th>Feb</th>

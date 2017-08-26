@@ -44,8 +44,8 @@ foreach($attendance_array as $attendance){
 			
 			echo "
 				<table class='responsive-table centered'>
-				<thead>
-					<tr class='blue-grey-text text-darken-2'>
+				<thead class='seagreen'>
+					<tr class='white-text'>
 						<th>Subject</th>
 						<th>1st</th>
 						<th>2nd</th>
@@ -206,7 +206,7 @@ foreach($attendance_array as $attendance){
 		}
 
 		echo"
-			<a class='grey-text tooltipped' data-position='top' data-tooltipped='Information' href='#modal1'>
+			<a class='grey-text tooltipped' data-position='top' data-tooltip='Information' href='#modal1'>
 				<i class='material-icons'>info</i>
 			</a>
 		</div>
@@ -326,8 +326,8 @@ foreach($attendance_array as $attendance){
 				
 				echo "
 				<table class='responsive-table centered'>
-				<thead>
-					<tr class='blue-grey-text text-darken-2'>
+				<thead class='seagreen'>
+					<tr class='white-text'>
 						<th>Attendance</th>
 						<th>Jan</th>
 						<th>Feb</th>

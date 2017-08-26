@@ -34,18 +34,20 @@ if(empty($current_enroll)){
     $teacher_array = array();
 
     foreach($current_enroll as $enroll){
-    
         $enroll_id = $enroll['enroll_id'];
         $class_id = $enroll['class_id'];
     
         $teacher_id = $db_class->get("teacher_id", "class_id", "$class_id");
-    
+
         if(!in_array($teacher_id,$teacher_array)) array_push($teacher_array,$teacher_id);
-    
+
+    }
+
+    foreach($teacher_array as $teacher_id){
+
         $teacher_info = $db_teacher->where(array(),"teacher_id","$teacher_id");
-    
+
         foreach($teacher_info as $teacher){
-    
             $first_name = $teacher['first_name'];
             $last_name = $teacher['last_name'];
             $suffix_name = $teacher['suffix_name'];
@@ -54,7 +56,7 @@ if(empty($current_enroll)){
             $email = $teacher['email'];
     
         }
-    
+
         $user_id = $db_account->get("user_id", "teacher_id", "$teacher_id");
         $username = $db_account->get("username", "user_id", "$user_id");  
         $photo_url = $db_account->get("photo_url", "user_id", "$user_id");
@@ -100,6 +102,7 @@ if(empty($current_enroll)){
         </div>";
 
     }
+
 echo "</div>";
 }//else
 ?>

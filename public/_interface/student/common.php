@@ -5,7 +5,9 @@ $suffix_name = $db_student->get("suffix_name", "student_id","$student_id");
 $name = $first_name . " " . $last_name . " " . $suffix_name;
 ?>
 <style>
-.title{margin-left: 30px;}
+.title{
+	margin-left: 30px;
+}
 .round{
 	border-radius: 30pt;
 }
@@ -22,12 +24,12 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
     </div>
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
-			<li class="tab"><a href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
-			<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
-			<li class="tab"><a href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
-			<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Grades" href="#assessment"><i class="material-icons">assessment</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="E-Cash" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="People" href="#people"><i class="material-icons">group</i></a></li>
 			<!--li class="tab"><a href="#pulse" id="pulseButton"><i class="material-icons">bubble_chart</i></a></li-->
-			<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Me" href="#me"><i class="material-icons">account_circle</i></a></li>
 		</ul>
 	</div>
 </nav>
