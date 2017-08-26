@@ -4,6 +4,8 @@ $classes_array = $db_enroll->where(array(), "student_id", "$student_id");
 $attendance_array = $db_attendance->where(array(), "student_id", "$student_id");
 $check_hold = $db_hold->where(array("hold_id"),"student_id","$student_id");
 
+$current_classes = array();
+
 foreach($classes_array as $enroll){
 	$school_year = $enroll['school_year'];
 	if(!empty($school_year)){
@@ -11,6 +13,7 @@ foreach($classes_array as $enroll){
 	}
 }
 
+$current_attendance = array();
 
 foreach($attendance_array as $attendance){
 	$school_year = $attendance['school_year'];
@@ -255,13 +258,13 @@ foreach($attendance_array as $attendance){
 						$end_time = date("h:i a", strtotime($end_time));
 						$schedule = $db_class->get("schedule", "class_id", "$class_id");
 						$room = $db_class->get("class_room", "class_id", "$class_id");
-						if(!$room)$room = "To be announced";
+						if(empty($room))$room = "To be announced";
 						$teacher_id = $db_class->get("teacher_id", "class_id", "$class_id");
 						$first_name = $db_teacher->get("first_name", "teacher_id", "$teacher_id");
 						$last_name = $db_teacher->get("last_name", "teacher_id", "$teacher_id");
 						$suffix_name = $db_teacher->get("suffix_name", "teacher_id", "$teacher_id");
 						$teacher_name = $first_name . " " . $last_name . " " . $suffix_name;
-						if(!$last_name)$teacher_name = "To be Announced";
+						if(empty($last_name))$teacher_name = "To be Announced";
 						$proceed = 1;	
 					}
 
