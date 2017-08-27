@@ -3,7 +3,7 @@
 	<center>
 		<p>
 			<font size="-1" class="grey-text">
-				Version <?=$hcm_version_no . " - " . $hcm_version_release . " (" . $_SESSION['account_type'] . ")"?>
+				<?=$hcm_version_no . " (" . $_SESSION['account_type'] . ")"?>
 				<br><a onclick="alert('Your Device Info:\n<?=$ua?>');" class="grey-text" href="#ua"><?=$hcm_version_date?></a>
 			</font>
 		</p>
