@@ -6,11 +6,15 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Critical User Safety Scripts -->
+    <!--script
+      type="text/javascript"
+      src="/assets/console.image.min.js">
+    </script-->
     <script type="text/javascript">
 	    console.error(
         "%c\n\nHoly Child Montessori\n\n This is meant for developer's use only. If someone told you to access this tool, they might be able to gain access to your account and steal personal information.\n\nVisit https://fb.com/montessorians for information.\n\n\n",
         "color: red; padding-left:2%; font-size: x-large; text-align:center"
-        ); 
+        );
     </script>
 
     <!-- CSS -->
@@ -50,4 +54,3 @@
       ga('create', 'UA-79559064-1', 'auto');
       ga('send', 'pageview');
     </script>
-
