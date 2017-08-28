@@ -1,4 +1,7 @@
 <?php
+/*
+Holy Child Montessori
+*/
 include("_system/config.php");
 ?>
 <!DOCTYPE html>
