@@ -53,7 +53,7 @@ if($proceed==1){
         if(empty($photo_url))$photo_url="assets/noimg.bmp";
 
         echo "
-                <div class='col s6'>
+                <div class='col s4'>
                 <a href='#card$student_id'>
                 <div class='card hoverable'>
                     <div class='card-img'>
@@ -61,7 +61,7 @@ if($proceed==1){
                     </div>
                     <div class='card-content'>
                        <p><font size='4'><b class='seagreen-text'>$first_name $last_name $suffix_name</b></font><br>
-                       <span class='grey-text text-darken-2'>$grade - $section<br>@$username</span></p>
+                       <span class='grey-text text-darken-2'>$grade - $section<br><span class='truncate'>@$username</span></span></p>
                     </div>
                 </div>
                 </a>
@@ -73,6 +73,9 @@ if($proceed==1){
                             <li class='collection-item'>
                                 Student ID No.: $student_id
                             </li>
+			    <li class='collection-item'>
+			    	Username: @$username
+			    </li>
                             <li class='collection-item'>
                                 E-Cash Enabled: <span id='allowecash$student_id'></span>
                             </li>
@@ -231,7 +234,7 @@ if(!empty($teacher_array)){
         if(empty($photo_url)) $photo_url = "/assets/noimg.bmp";
 
         echo "
-        <div class='col s6'>
+        <div class='col s4'>
             <div class='card hoverable' id='card$teacher_id'>
             <a href='#card$teacher_id'>
                 <div class='card-img'>
@@ -249,6 +252,9 @@ if(!empty($teacher_array)){
         <div class='modal-content'>
             <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
             <ul class='collection'>
+	    	<li class='collection-item'>
+		    Username: @$username
+		</li>
                 <li class='collection-item'>
                     Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
                 </li>
@@ -299,7 +305,7 @@ if(!empty($admin_array)){
      if(!$photo_url) $photo_url = "assets/noimg.bmp";
 
                      echo "
-                         <div class='col s6'>
+                         <div class='col s4'>
                          <a href='#card$admin_id'>
                          <div class='card hoverable'>
                             <div class='card-img'>
@@ -317,6 +323,9 @@ if(!empty($admin_array)){
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>
+				    <li class='collection-item'>
+				    	Username: @$username
+				    </li>
                                     <li class='collection-item'>
                                         Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
                                     </li>
