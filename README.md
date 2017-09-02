@@ -8,3 +8,6 @@ http://hcmontessori.likesyou.org,
 
 ## Reminders
 - An administrator account is required to be made first.
+
+## Milestones
+- Officially Reached 100 commits on GitHub
