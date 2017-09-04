@@ -2,6 +2,19 @@
   		<div class="modal-content">
   			<h5 class="grey-text"><strong>Apps</strong></h5>
 			<div class="row">
+			<div class="col s4">
+					<a href="http://peaceoneday.org" class="browser-default">
+					<div class="card teal">
+						<div class="card-content">
+						<center class="white-text">
+							<i class="medium material-icons">favorite</i><br>
+							Peace One Day
+						</center>
+						</div>
+					</div>
+					</a>
+				</div>
+
 				<div class="col s4">
 					<a href="http://holychildmontessori.edu20.org" class="browser-default">
 					<div class="card green">
