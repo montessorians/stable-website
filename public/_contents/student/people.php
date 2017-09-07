@@ -29,7 +29,7 @@ if(empty($current_enroll)){
 
 } else {
 
-    echo "<div class='row'>";
+    echo "<div class='cards-container'>";
 
     $teacher_array = array();
 
@@ -117,7 +117,7 @@ $noclass_card = "
     if(empty($parentchild_array)){
         echo $noclass_card;
     } else {
-        echo "<div class='row'>";
+        echo "<div class='cards-container'>";
 
         foreach($parentchild_array  as $key){
             foreach($key as $parentchild_id){
@@ -208,7 +208,7 @@ $noclass_card = "
 if(empty($admin_array)){
     echo $noclass_card;
 } else {
-    echo "<div class='row'>";
+    echo "<div class='cards-container'>";
 
     foreach($admin_array as $admin){
 

@@ -15,7 +15,7 @@ if(!$admin_array){
     echo $noclass_card;
 } else
 {
-echo "<div class='row'>";
+echo "<div class='cards-container'>";
 foreach($admin_array as $admin){
      $admin_id = $admin['admin_id'];
      $first_name = $admin['first_name'];

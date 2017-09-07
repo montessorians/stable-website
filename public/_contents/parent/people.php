@@ -22,7 +22,7 @@ if(!$children_array){
 } else {$proceed = 1;}
 
 if($proceed==1){
-    echo "<div class='row'>";
+    echo "<div class='cards-container'>";
     foreach($children_array as $child){
         $parentchild_id = $child['parentchild_id'];
         $student_id = $child['student_id'];
@@ -73,9 +73,9 @@ if($proceed==1){
                             <li class='collection-item'>
                                 Student ID No.: $student_id
                             </li>
-			    <li class='collection-item'>
-			    	Username: @$username
-			    </li>
+			                <li class='collection-item'>
+			                	Username: @$username
+            			    </li>
                             <li class='collection-item'>
                                 E-Cash Enabled: <span id='allowecash$student_id'></span>
                             </li>
@@ -216,7 +216,7 @@ if(!empty($children_array))
 
 if(empty($teacher_array)) echo $noclass_card;
 if(!empty($teacher_array)){
-    echo "<div class='row'>";
+    echo "<div class='cards-container'>";
     foreach($teacher_array as $teacher_id){
         $teacher_info = $db_teacher->where(array(),"teacher_id", "$teacher_id");
         foreach($teacher_info as $teacher){
@@ -252,9 +252,9 @@ if(!empty($teacher_array)){
         <div class='modal-content'>
             <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
             <ul class='collection'>
-	    	<li class='collection-item'>
-		    Username: @$username
-		</li>
+	        	<li class='collection-item'>
+		            Username: @$username
+        		</li>
                 <li class='collection-item'>
                     Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
                 </li>
@@ -289,7 +289,7 @@ $noclass_card = "
 if(empty($admin_array)) echo $noclass_card;
 
 if(!empty($admin_array)){
-    echo "<div class='row'>";  
+    echo "<div class='cards-container'>";  
     foreach($admin_array as $admin){
      $admin_id = $admin['admin_id'];
      $first_name = $admin['first_name'];
@@ -323,9 +323,9 @@ if(!empty($admin_array)){
                             <div class='modal-content'>
                                 <h5 class='seagreen-text'><b>$first_name $last_name $suffix_name</b></h5>
                                 <ul class='collection'>
-				    <li class='collection-item'>
-				    	Username: @$username
-				    </li>
+                				    <li class='collection-item'>
+				                    	Username: @$username
+                				    </li>
                                     <li class='collection-item'>
                                         Mobile Number: <a href='tel:$mobile_number' class='seagreen-text'>$mobile_number</a>
                                     </li>
@@ -353,7 +353,7 @@ echo "</div>";
 </div>
 <br><br><br><br><br>
 <script type="text/javascript">
-	$(document).ready(function(){
-    $('.modal').modal();
-  });
+$(document).ready(function(){
+    $('.modal').modal();    
+});
 </script>

@@ -61,7 +61,7 @@ switch($account_type){
         // Get Parent ID from current session
         $parent_id = $_SESSION['parent_id'];
         // Query in DB for connected parent-student
-        $check_parent = $db_parentchild->where(array("parentchild_id"), "parent_id", "$parent_id");
+        $check_parent = $db_parentchild->where(array(), "parent_id", "$parent_id");
         // If no connected parents yet,  redirect home or check if not
         if(empty($check_parent)){header("Location: ../../");} else {
             // Loop to check if student ID  in parent 
@@ -69,11 +69,11 @@ switch($account_type){
                 // var for each student_id
                 $si = $parentchild['student_id'];
                 // if match add to allow_parent array
-                if($student_id === $si) array_push($allow_parent, $si);
+                if($student_id == $si) array_push($allow_parent, $si);
             }
         }//empty-checkparent
         // If allow parent array still empty, then student not connected, redirect home
-        if(!$allow_parent) header("Location: ../../");
+        if(empty($allow_parent)) header("Location: ../../");
         // Query DB if student has hold
         $hold = $db_hold->where(array("hold_id"), "student_id", "$student_id");
         // if hold is not empty redirect home
