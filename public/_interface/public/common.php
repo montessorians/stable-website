@@ -11,6 +11,12 @@ if(!$_SESSION['logged_in']){
 <style>
     .brand {
         height:inherit !important;
+        width: 120px !important;
+        margin-left: 60px !important;
+        position: absolute !important;
+    }
+    .brand-mobile {
+        height:inherit !important;
         width: 17% !important;
         margin-left: 60px; !important;
         position: absolute !important;
@@ -57,7 +63,16 @@ if(!$_SESSION['logged_in']){
             </h3>
         </div>
         <a href="/">
-            <img src="/assets/favicon.ico" class="brand z-depth-5" id="hcm-logo">
+            
+            <!-- Logo for larger window and desktop -->
+            <div class="hide-on-small-only">
+                <img src="/assets/favicon.ico" class="brand z-depth-5" id="hcm-logo">
+            </div>
+            <!-- Logo for mobile images and small windows -->
+            <div class="hide-on-med-and-up">
+                <img src="/assets/favicon.ico" class="brand-mobile z-depth-5" id="hcm-logo">
+            </div>
+
         </a>
         <nav class="<?=$primary_color?>">
             <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large left"><i class="material-icons">menu</i></a>
