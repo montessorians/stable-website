@@ -3,9 +3,12 @@ session_start();
 include("../../_system/config.php");
 include("../../_system/database/db.php");
 
-$db_studentclass = new DBase("student_class", "../../_store");
-$db_student = new DBase("student", "../../_store");
-$db_class = new DBase("class", "../../_store");
+$db_loc = "../../_store";
+
+$db_studentclass = new DBase("student_class", $db_loc);
+$db_student = new DBase("student", $db_loc);
+$db_subject = new Dbase("subject", $db_loc);
+$db_class = new DBase("class", $db_loc);
 
 $activity_title = "View All Grades";
 if(empty($_SESSION['account_type'])){
@@ -82,19 +85,23 @@ if(empty($_SERVER['HTTP_REFERER'])){
                                 $enroll_id = $enroll['enroll_id'];
                                 $school_year = $enroll['school_year'];
                                 $class_id = $enroll['class_id'];
+                                $class_array = $db_class->where(array("subject_id"),"class_id","$class_id");
+                                foreach($class_array as $class){
+                                    $subject_id = $class['subject_id'];
+                                }
+                                $subject_title = $db_subject->get("subject_title","subject_id",$subject_id);
                                 $first_quarter = $enroll['first_quarter_grade'];
                                 $second_quarter = $enroll['second_quarter_grade'];
                                 $third_quarter = $enroll['third_quarter_grade'];
                                 $fourth_quarter = $enroll['fourth_quarter_grade'];
                                 $final_grade = $enroll['final_grade'];
-                                $class_title = $db_class->get("class_title", "class_id", "$class_id");
-                                $grade = $db_class->get("grade", "class_id", "$class_id");
-                                
+                                $grade = $db_subject->get("grade", "subject_id", "$subject_id");
+
                                 echo "                                
                                 <tr>
                                     <td>$school_year</td>
                                     <td>$grade</td>
-                                    <td><a href='class.php?class_id=$class_id' target='_blank' class='seagreen-text'>$class_title</a></td>
+                                    <td><a href='class.php?class_id=$class_id' target='_blank' class='seagreen-text'>$subject_title</a></td>
                                     <td>$first_quarter</td>
                                     <td>$second_quarter</td>
                                     <td>$third_quarter</td>
@@ -120,6 +127,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
                     </tr>
                 </tbody>
             </table>
+            <br><br><br><br>
         </div>
     </body>
 </html>

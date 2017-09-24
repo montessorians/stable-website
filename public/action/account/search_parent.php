@@ -78,7 +78,9 @@ if(empty($r)){
 
 			// Get Info			
 			$user_id = $db_account->get("user_id", "parent_id", "$parent_id");
+			$username = $db_account->get("username","parent_id","$parent_id");
 			$photo_url = $db_account->get("photo_url", "user_id", "$user_id");
+
 			$first_name = $db_parent->get("first_name", "parent_id", "$parent_id");
 			$last_name = $db_parent->get("last_name", "parent_id", "$parent_id");
 			$suffix_name = $db_parent->get("suffix_name", "parent_id", "$parent_id");						
@@ -91,7 +93,8 @@ if(empty($r)){
 			if(!empty($photo_url)) echo "<img class='right' src='../../$photo_url' width='150px'>";
 								
 			echo "
-			<strong>$first_name $last_name $suffix_name</strong>
+			<p class='seagreen-text'><b>$first_name $last_name $suffix_name</b></p>
+			<p class='grey-text'>@$username</p><br>
 			<p><font size='4'>$parent_id</font></p>
 			</div>";
 
