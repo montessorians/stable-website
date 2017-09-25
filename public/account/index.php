@@ -53,10 +53,8 @@ if($showContinue==True){
     <head>
         <title><?=$activity_title." - ".$site_title?></title>
         <?php include("../_system/styles.php"); ?>
-        
         <script type="text/javascript">
-            //const from = "<?=$from?>";
-            const from = "/";
+            const from = "<?=$from?>";
         </script>
         <style>
             .splashscreen{ background-color: gainsboro !important; }

@@ -26,8 +26,11 @@ For version details, please log-in using your account
 and in the Me tab, scroll to the bottom-most part.
 -->
 <!Doctype html>
-<html>
+<html lang="en">
 <head>
+
+	<!-- Encoding -->
+	<meta charset="UTF-8">
 
 	<!-- Site Title -->
 	<title><?=$site_title?></title>
