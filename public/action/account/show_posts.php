@@ -129,7 +129,7 @@ if(empty($array)){
 
 		echo "
 		<div class='card-action'>
-			<a id='likeButton$post_id' class='grey-text'><i class='material-icons' id='likedStatus$post_id'></i></a>
+			<a href='#like$post_id' id='likeButton$post_id' class='grey-text'><i class='material-icons' id='likedStatus$post_id'>favorite_border</i></a>
 			<a href='#comment$post_id' id='button$post_id' class='grey-text'><i class='material-icons'>comment</i></a>";
 
 		$sh = "<a href='action/account/delete_post.php?post_id=$post_id' class='red-text'><i class='material-icons'>delete</i></a>"; 
