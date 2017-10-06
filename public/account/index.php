@@ -36,7 +36,7 @@ if(empty($_REQUEST['from'])){
 if(!empty($_SESSION['logged_in'])) header("Location: $from");
 
 if($showContinue==True){
-    $msg = "To continue you must be logged-in";
+    $msg = "To continue, you must be signed-in";
 } else {
     $msg = "Sign-In with your Holy Child Montessori Account";
 }
