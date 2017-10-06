@@ -1,7 +1,12 @@
 <?php
+// Start Session
 session_start();
+
+// Include Secure File
 include("../../_system/secure.php");
-	if(empty($_GET['from'])){
+
+// Check 'from' data
+if(empty($_GET['from'])){
 		if(empty($_SERVER['HTTP_REFERER'])){
 			$from = "../../";
 		} else {
@@ -15,14 +20,35 @@ include("../../_system/secure.php");
 		}
 	}
 	
-	include("../../_system/config.php");
-	$activity_title = "Enroll a Student";
-	include("../../_system/database/db.php");
+include("../../_system/config.php");
 
-$db_schooldata = new DBase("school_data", "../../_store");
+// Const Declaration
+$activity_title = "Enroll a Student";
+$db_loc = "../../_store";
+$grade_array = array(
+	"Nursery 1", "Nursery 2",
+	"Kindergarten 1", "Kindergarten 2",
+	"Preparatory", "Grade 1",
+	"Grade 2", "Grade 3",
+	"Grade 4", "Grade 5",
+	"Grade 6", "Grade 7",
+	"Grade 8", "Grade 9",
+	"Grade 10", "Grade 11",
+	"Grade 12", "Tutorial",
+	"Free Class", "Online Class",
+	"Multilevel", "Training",
+	"Seminar"
+);
+
+// Include DB
+include("../../_system/database/db.php");
+
+$db_schooldata = new DBase("school_data", $db_loc);
+
 $school_year = $db_schooldata->get("school_year", "school_id", "1");
 $sy1 = (date("Y")-1)."-".date("Y"); 
 $sy2 = date("Y")."-".(date("Y")+1);
+
 if(empty($school_year)){
 	$sy1_s = "";
 	$sy2_s = "";
@@ -72,7 +98,6 @@ if(empty($_REQUEST['student_id'])){
 				<select id="grade" class="browser-default">
 					<option disabled selected>Grade/Class Type</option>
 					<?php
-						$grade_array = array("Nursery 1", "Nursery 2", "Kindergarten 1", "Kindergarten 2", "Preparatory", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "Tutorial", "Free Class", "Online Class", "Multilevel", "Training", "Seminar");
 						foreach($grade_array as $grade){
 							echo "
 								<option value='$grade'>$grade</option>
