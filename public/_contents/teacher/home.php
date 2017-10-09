@@ -11,7 +11,7 @@ if($exam_week === "yes"){
 
 if($grade_encode === "yes"){
 	$grade_encode = "
-		<div class='card'>
+		<div class='card hoverable'>
 			<div class='card-content'>
 				<center class='grey-text text-darken-2'>
 				<i class='material-icons medium'>assessments</i><br>
