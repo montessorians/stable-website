@@ -14,7 +14,6 @@ include("_system/config.php");
 <?php
 include("_system/styles.php");
 ?>
-<title></title>
 </head>
 <body>
     <br><br>
