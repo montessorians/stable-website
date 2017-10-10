@@ -43,7 +43,7 @@ if(!$username_check){
 		// Sets log-in status to True
 		$_SESSION['logged_in'] = True;
 
-		// For Security Checking
+		// For Security Checking, Cookie Injection Prevention
 		$_SESSION['user_ip'] = $_SERVER['REMOTE_ADDR'];
 		$_SESSION['user_ua'] = $_SERVER['HTTP_USER_AGENT'];
 
@@ -61,13 +61,30 @@ if(!$username_check){
 			$_SESSION['developer_id'] = $user['developer_id'];
 
 		}
-		
-		// Required by system to log-in user
+		/*
+		Proposed communication change
+		$array = array(
+		"code":"200",
+		"message":"User successfully signed-in"
+		);
+		echo json_encode($array);
+		*/
+
+		// Required by client to sign-in user
 		echo "Ok";
 		
 	} else {
 
-		// Returns an error if user has given a wrong login detail
+		/*
+		Proposed communication change
+		$array = array(
+			"code":"500",
+			"message":"Wrong Sign-In Details"
+		);
+		echo json_encode($array);
+		*/
+
+		// Returns an error if user has given a wrong sign-in detail
 		echo "Wrong Sign-In Details";
 
 	}

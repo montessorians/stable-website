@@ -7,6 +7,8 @@ Website
 
 // Start Session
 session_start();
+
 // Include Main.php if not found automatically redirect to maintenance page
-if(!@include("main.php")){header("Location: maintenance");};
+if(!@include("main.php")) header("Location: maintenance");
+
 ?>

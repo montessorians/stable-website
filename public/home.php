@@ -12,7 +12,7 @@ Website
 All Rights Reserved
 -->
 <!Doctype html>
-<html>
+<html lang="en">
 <head>
 
 	<title><?=$site_title?></title>
