@@ -10,7 +10,7 @@ config.php
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '06';
-$hcm_version_patch = '2';
+$hcm_version_patch = '3';
 $hcm_version_release = "Public";
 $hcm_version_date = "August 2017 (Week 4)";
 
@@ -35,6 +35,9 @@ if($hcm_version_minor == 0) $hcm_version_minor_d = ".$hcm_version_minor";
 $hcm_version_no = $hcm_version_major.$hcm_version_minor_d.$hcm_version_patch_d.$hcm_version_release_d;
 
 /*
+
+For Windows Client
+
 if(stripos($ua,"hcm-windows")){
     $desktop = True;
     $hcm_windows_version_user = $ua;
