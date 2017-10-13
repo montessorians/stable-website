@@ -69,7 +69,8 @@ if($showContinue==True){
             <div class="card z-depth-5 hoverable" id="askUsernameCard">
                 <div class="progress green lighten-4"><div class="indeterminate seagreen"></div></div>
                 <div class="card-content">
-                    <img width="70px" height="70px" src="../assets/logo.jpg" id="logo">
+                    <div class="lg"></div>
+                    <img width="70px" height="70px" src="/assets/logo.jpg" id="logo">
                     <h5 class="blue-grey-text text-darken-1">Welcome Montessorian!</h5>
                     <p><?=$msg?></p>
                     <br><br>
@@ -183,115 +184,209 @@ Privacy Information
 $(document).ready(function(){
     init();
 }).keypress(function(e){
+
+    // Get which key
     var key = e.which;
+
+    // Check if enter is pressed
     if(key==13){
+
+        // Get value of password
         var p = $("#password").val();
+
+        // Check if empty password
         if(!p){
+
+            // Proceed with username check
             usernameProceed();
+
         } else {
+
+            // Proceed with login
             login();
+
         }
+
     }
+
 });
 
 // Initialization Function
 function init(){
+
     $('.tooltipped').tooltip({delay: 50});
     $('.modal').modal();
+
     $("meta[name='theme-color']").attr("content", "gainsboro");
     hideCards();
     $(".splashscreen").fadeOut();
-    displayEnterEmail();
+    displayEnterUsername();
+
 }
 
+
+/*
+Button Handlers
+ */
+
+// Username Check Button
 $(".usernameButton").click(function(){
     usernameProceed();
 });
+
+// Login Button
 $(".loginButton").click(function(){
     login();
 });
 
+// Hide Cards Function
 function hideCards(){
     $(".card").hide();
     $(".progress").hide();
 }
 
-
-function displayEnterEmail(){
+// Display Enter Username Card
+function displayEnterUsername(){
     $("#askUsernameCard").slideDown({duration:300});
     $("#logo").fadeIn({duration: 800});
 }
 
+// Display Password Entry Card
 function displayPasswordEntry(){
     $("#progress").hide();
     hideCards();    
     $("#askPasswordCard").slideDown();
 }
 
+/*
+Form Processing
+*/
+
+// Username Checker
 function usernameProceed(){
+
+    // Handle UI
     $(".progress").show();
     $(".usernameButton").attr("disabled","disabled");
     $("#username").attr("disabled",true);
+
+    // Get Username from Form
     let u = $("#username").val();
+
+    // Check if empty username
     if(!u){
+
+        // Alert User of empty Username
         Materialize.toast("Please enter your username",3000);
+
+        // Handle UI
         $(".progress").hide();
         $(".usernameButton").attr("disabled",false);
         $("#username").attr("disabled",false);
+
     } else {
-    $.ajax({
-        type:'POST',
-        url:'../action/account/check_username.php',
-        data: {
-            username : u
-        },
-        cache:'false',
-        success: function(result){
-            let data = JSON.parse(result);
-            if(!data['username']){
-            Materialize.toast("The account was not found",3000);
+
+        // Send Data
+        $.ajax({
+            type:'POST',
+            url:'../action/account/check_username.php',
+            data: {
+                username : u
+            },
+            cache:'false',
+            success: function(result){
+ 
+                // JSON parse result
+                let data = JSON.parse(result);
+
+                // Check if contains username
+                if(!data['username']){
+ 
+                    // Alert user that account was not found
+                    Materialize.toast("The account was not found",3000);
+
+                    // Handle UI
+                    $(".progress").hide();
+                    $(".usernameButton").attr("disabled",false);
+                    $("#username").attr("disabled",false);
+                    $("#username").val("");
+ 
+                } else {
+
+                    // Var the user data
+                    var fn = data['first_name'];
+                    var un = "@"+data['username'];
+                    var pu = "../"+data['photo_url'];
+
+                    // Set env
+                    $("#firstName").html(fn);
+                    $("#userID").html(un);
+ 
+                    // Check for user image
+                    if(!data['photo_url']){
+                    } else {
+
+                        // Set user image
+                        $("#accountIcon").attr('src',pu);
+ 
+                    }                
+ 
+                    // Display Password entry
+                    displayPasswordEntry();
+ 
+                }
+            }
+
+        }).fail(function(){
+
+            // Alert if error occured
+            Materialize.toast("An error occured. Please try again", 3000);
+
+            // Handle UI
             $(".progress").hide();
             $(".usernameButton").attr("disabled",false);
             $("#username").attr("disabled",false);
-            $("#username").val("");
-        } else {
-                var fn = data['first_name'];
-                var un = "@"+data['username'];
-                var pu = "../"+data['photo_url'];
-                $("#firstName").html(fn);
-                $("#userID").html(un);
-                if(!data['photo_url']){} else {
-                    $("#accountIcon").attr('src',pu);
-                }                
-                displayPasswordEntry();
-            }
-        }
-    }).fail(function(){
-        Materialize.toast("An error occured. Please try again", 3000);
-        $(".progress").hide();
-        $(".usernameButton").attr("disabled",false);
-        $("#username").attr("disabled",false);
-    });}
+
+        });
+    }
 }
 
+// Login Function
 function login(){
+
+    // Get Username from Form
     var u = $("#username").val();
+
+    // Check if empty username
     if(!u){
     } else {
+
+        // Handle UI
         $(".progress").show();
         $(".usernameButton").attr("disabled",true);
         $(".loginButton").attr("disabled",true);
         $("#username").attr("disabled",true);
         $("#password").attr("disabled",true);
+
+        // Get Password from Form
         var p = $("#password").val();
+
+        // Check if empty password
         if(!p){
+
+            // Alert of empty password
             Materialize.toast("Please enter your password", 3000);
+
+            // Handle UI
             $(".progress").hide();
             $(".usernameButton").attr("disabled",false);
             $(".loginButton").attr("disabled",false);
             $("#username").attr("disabled",false);
             $("#password").attr("disabled",false);
+
         } else {
+
+            // Send data
             $.ajax({
                 type:'POST',
                 url:'loginprocess.php',
@@ -301,18 +396,31 @@ function login(){
                     password: p
                 },
                 success: function(result){
+
+                    // Check if returned ok
                     if(result=="Ok"){
+
+                        // Redirect to from variable
                         window.location.replace(from);
+
                     } else {
+
+                        // Prompt user of server response
                         Materialize.toast(result,3000);
+
+                        // Handle UI
                         $(".progress").hide();
                         $(".usernameButton").attr("disabled",false);
                         $(".loginButton").attr("disabled",false);
                         $("#username").attr("disabled",false);
                         $("#password").attr("disabled",false);
+
                     }
+
                 }
+
             });
+
         }
     }
 }

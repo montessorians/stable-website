@@ -550,7 +550,7 @@ $pdf->Cell(180,5, "Principal/Registrar",0,0,'C',0);
 // Cancellation of Transfer Eligibility
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+10);
-$pdf->Cell(180,5, "CANCELATION OF TRANSFER ELIGIBILITY",0,0,'C',0);
+$pdf->Cell(180,5, "CANCELLATION OF TRANSFER ELIGIBILITY",0,0,'C',0);
 
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+5);

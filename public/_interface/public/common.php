@@ -10,18 +10,30 @@ if(!$_SESSION['logged_in']){
 ?>
 <style>
     .brand {
-        height:inherit !important;
+        height: 120px !important;
         width: 120px !important;
         margin-left: 60px !important;
         position: absolute !important;
+        background-image: url("/assets/favicon.ico");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
     .brand-mobile {
-        height:inherit !important;
+        height: 18% !important;
         width: 17% !important;
-        margin-left: 60px; !important;
+        margin-left: 60px !important;
         position: absolute !important;
+        background-image: url("/assets/favicon.ico");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
     }
-    .left{
+    .brand-box {
+        background-color: seagreen !important;
+    }
+    .left {
         margin-top: 2px;
         margin-left: 20px;
     }
@@ -51,6 +63,14 @@ if(!$_SESSION['logged_in']){
     .ssdata {
         display: none;
     }
+    .jumboImage{
+        max-width: 100%;
+        height:400px;
+        background-image: url("/assets/cover.jpg");
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: cover;
+    }
 </style>
 <body>
         <!-- SplashScreen Display -->
@@ -66,11 +86,15 @@ if(!$_SESSION['logged_in']){
             
             <!-- Logo for larger window and desktop -->
             <div class="hide-on-small-only">
-                <img src="/assets/favicon.ico" class="brand z-depth-5" id="hcm-logo">
+                <div class="brand-box">
+                    <div class="brand z-depth-5 hoverable" id="hcm-logo"></div>
+                </div>
             </div>
             <!-- Logo for mobile images and small windows -->
             <div class="hide-on-med-and-up">
-                <img src="/assets/favicon.ico" class="brand-mobile z-depth-5" id="hcm-logo">
+                <div class="brand-box">
+                    <div class="brand-mobile z-depth-5 hoverable" id="hcm-logo"></div>
+                </div>
             </div>
 
         </a>
@@ -102,13 +126,15 @@ if(!$_SESSION['logged_in']){
             </ul>
 
         </nav>
+        
         <!-- Jumbotron for larger window and desktop -->
         <div class="jumbotron hide-on-small-only">
-            <img src="/assets/cover.jpg" class="jumbo" id="img1">
+            <div class="jumboImage jumbo"></div>
         </div>
+
         <!-- Jumbotron for mobile images and small windows -->
         <div class="jumbotron-mobile hide-on-med-and-up">
-            <img src="/assets/cover.jpg" class="jumbo-mobile" id="img1">
+            <div class="jumboImage jumbo-mobile"></div>
         </div>
 
         <div class="container">
@@ -202,13 +228,31 @@ if(!$_SESSION['logged_in']){
         </div>
 
         <div class="coursesoffered">
+            <style>
+                .kinder {
+                    background-image: url("assets/thumb2.png");
+                    max-width: 100%;
+                    height: 180px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+                .tutorial {
+                    background-image: url("assets/thumb1.png");
+                    max-width: 100%;
+                    height: 180px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+            </style>
             <h4 class="white-text"><b>Courses Offered</b></h4><br>
             <div class="row">
                 
                 <div class="col s6 reveal">
-                    <div class="card">
+                    <div class="card hoverable">
                         <div class="card-img">
-                            <img src="assets/thumb2.png" width="100%">
+                            <div class="kinder"></div>
                         </div>
                         <div class="card-content">
                             <center class="seagreen-text"><h5 class='truncate'><b>Kindergarten</b></h5></center>
@@ -216,9 +260,9 @@ if(!$_SESSION['logged_in']){
                     </div>
                 </div>
                 <div class="col s6 reveal">
-                    <div class="card">
+                    <div class="card hoverable">
                         <div class="card-img">
-                            <img src="assets/thumb1.png" width="100%">
+                            <div class="tutorial"></div>
                         </div>
                         <div class="card-content">
                             <center class="seagreen-text"><h5 class='truncate'><b>Tutorial Services</b></h5></center>

@@ -19,6 +19,7 @@ include("../../_system/secure.php");
 	include("../../_system/database/db.php");
 	$db_class = new DBase("class", "../../_store");
 
+	// Schedule List
 	$schedule_list = array(
 		"Mon-Wed-Fri", "Tue-Thu", "Mon-Wed",
 		"Monday", "Tuesday", "Wednesday",
@@ -56,17 +57,20 @@ include("../../_system/secure.php");
 		}
 	}
 	
-	$subject_id = $db_class->get("subject_id", "class_id", "$class_id");
-	$school_year = $db_class->get("school_year", "class_id", "$class_id");
-	$section = $db_class->get("section", "class_id", "$class_id");
-	$class_code = $db_class->get("class_code", "class_id", "$class_id");
-	$class_room = $db_class->get("class_room", "class_id", "$class_id");
-	$access_code = $db_class->get("access_code", "class_id", "$class_id");
-	$teacher_id = $db_class->get("teacher_id", "class_id", "$class_id");
-	$start_time = $db_class->get("start_time", "class_id", "$class_id");
-	$end_time = $db_class->get("end_time", "class_id", "$class_id");
-	$schedule = $db_class->get("schedule", "class_id", "$class_id");	
-	$max_students = $db_class->get("max_students", "class_id", "$class_id");
+	if(!empty($class_id)){
+		$subject_id = $db_class->get("subject_id", "class_id", "$class_id");
+		$school_year = $db_class->get("school_year", "class_id", "$class_id");
+		$section = $db_class->get("section", "class_id", "$class_id");
+		$class_code = $db_class->get("class_code", "class_id", "$class_id");
+		$class_room = $db_class->get("class_room", "class_id", "$class_id");
+		$access_code = $db_class->get("access_code", "class_id", "$class_id");
+		$teacher_id = $db_class->get("teacher_id", "class_id", "$class_id");
+		$start_time = $db_class->get("start_time", "class_id", "$class_id");
+		$end_time = $db_class->get("end_time", "class_id", "$class_id");
+		$schedule = $db_class->get("schedule", "class_id", "$class_id");	
+		$max_students = $db_class->get("max_students", "class_id", "$class_id");
+	}
+
 ?>
 <!Doctype html>
 <html>
@@ -153,7 +157,7 @@ include("../../_system/secure.php");
 						foreach($schedule_list as $schedule_entry){
 							$selected = "";
 							if($schedule_entry === $schedule) $selected="selected";
-							echo "<option value='$schedule' $selected>$schedule</option>";
+							echo "<option value='$schedule_entry' $selected>$schedule_entry</option>";
 						}
 						?>
 					</select>
