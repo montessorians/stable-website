@@ -573,8 +573,9 @@ $pdf->Cell(180,5, "Principal",0,0,'C',0);
 $pdf->SetTextColor(130,130,130);
 $date = date("M d, Y h:i a");
 $pdf->Text(20,255, "DepEd Form 138");
+$pdf->SetFont('Arial','',9);
 $pdf->Text(20,260, "System Generated Form. Printed on $date.");
-$pdf->Text(20,265, "Not valid for enrollment unless signed by the School Registrar/Principal.");
+//$pdf->Text(20,265, "Not valid for enrollment unless signed by the School Registrar/Principal.");
 
 // Output Document
 $pdf->Output();
