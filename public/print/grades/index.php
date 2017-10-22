@@ -527,6 +527,8 @@ if(empty($attendance_array)){
 Prefooter Forms
 */
 
+$pdf->SetFont('Arial','',10);
+
 // Certificate of Transfer
 $c_y = $pdf->getY();
 $pdf->SetXY(20,$c_y+15);
@@ -534,7 +536,7 @@ $pdf->Cell(180,5, "CERTIFICATE OF TRANSFER",0,0,'C',0);
 
 $c_y = $pdf->getY();
 
-$pdf->SetXY(20,$c_y+5);
+$pdf->SetXY(20,$c_y+10);
 $pdf->Cell(110,5, "Eligible for Transfer and Admission to: ______________________",0,0,'L',0);
 $pdf->Cell(90,5, "Lacks credits in: ______________________",0,0,'L',0);
 
@@ -543,7 +545,7 @@ $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(180,5, "_________________________________",0,0,'C',0);
 
 $c_y = $pdf->getY();
-$pdf->SetXY(20,$c_y+5);
+$pdf->SetXY(20,$c_y+4);
 $pdf->Cell(180,5, "Principal/Registrar",0,0,'C',0);
 
 
@@ -553,7 +555,7 @@ $pdf->SetXY(20,$c_y+10);
 $pdf->Cell(180,5, "CANCELLATION OF TRANSFER ELIGIBILITY",0,0,'C',0);
 
 $c_y = $pdf->getY();
-$pdf->SetXY(20,$c_y+5);
+$pdf->SetXY(20,$c_y+10);
 $pdf->Cell(70,5, "Has been admitted to: _______________",0,0,'L',0);
 $pdf->Cell(110,5, "School: _________________________________________________",0,0,'L',0);
 
@@ -572,9 +574,13 @@ $pdf->Cell(180,5, "Principal",0,0,'C',0);
 // Footer
 $pdf->SetTextColor(130,130,130);
 $date = date("M d, Y h:i a");
+
+$pdf->SetFont('Arial','B',9);
 $pdf->Text(20,255, "DepEd Form 138");
-$pdf->SetFont('Arial','',9);
+$pdf->SetTextColor(180,180,180);
+$pdf->SetFont('Arial','',6);
 $pdf->Text(20,260, "System Generated Form. Printed on $date.");
+
 //$pdf->Text(20,265, "Not valid for enrollment unless signed by the School Registrar/Principal.");
 
 // Output Document

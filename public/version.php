@@ -5,6 +5,9 @@ Holy Child Montessori
 
 Version
 */
+
+
+// Include Database
 include("_system/config.php");
 ?>
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 Holy Child Montessori
 2017
 
-security.php
+Security
 */
 
 // Logout User if they don't contain required security vars

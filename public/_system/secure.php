@@ -3,7 +3,7 @@
 Holy Child Montessori
 2017
 
-Secure
+Secure (For Logged-In State)
 
 LEGEND:
 empty - admin only (auto)
