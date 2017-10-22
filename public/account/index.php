@@ -401,7 +401,7 @@ function login(){
                     if(result=="Ok"){
 
                         // Redirect to from variable
-                        window.location.replace(from);
+                        window.location.replace('/');
 
                     } else {
 

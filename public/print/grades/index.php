@@ -198,7 +198,7 @@ $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Approaching Proficiency (AP)',1,0,'C',0);
 
 $pdf->SetTextColor(255,255,255);
-$pdf->Cell(20,5, '74% Below',1,0,'C','True');
+$pdf->Cell(20,5, '74% below',1,0,'C','True');
 $pdf->SetTextColor(50,50,50);
 $pdf->Cell(40,5, 'Beginning (B)',1,0,'C',0);
 
@@ -232,6 +232,7 @@ $pdf->SetXY(20,85);
 $pdf->SetFont('Arial','B',11);
 $pdf->SetFillColor(46,139,87);
 $pdf->SetTextColor(255,255,255);
+
 /*
 with ID
 $pdf->Cell(15,5, 'ID',1,0,'C','true');
