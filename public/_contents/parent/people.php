@@ -53,11 +53,21 @@ if($proceed==1){
         if(empty($photo_url))$photo_url="assets/noimg.bmp";
 
         echo "
+		<style>
+			.previewImgStudent$student_id{
+				 background-image: url('$photo_url');
+				 max-width: 100%;
+	                    	 height: 180px;
+        	            	 background-repeat: no-repeat;
+                		 background-position: center;
+                   	 	 background-size: cover;
+			}
+		</style>
                 <div class='col s4'>
                 <a href='#card$student_id'>
                 <div class='card hoverable'>
                     <div class='card-img'>
-                        <img src='$photo_url' width='100%'>
+                        <div class='previewImgStudent$student_id'></div>
                     </div>
                     <div class='card-content'>
                        <p><font size='4'><b class='seagreen-text'>$first_name $last_name $suffix_name</b></font><br>
@@ -73,9 +83,9 @@ if($proceed==1){
                             <li class='collection-item'>
                                 Student ID No.: $student_id
                             </li>
-			                <li class='collection-item'>
-			                	Username: @$username
-            			    </li>
+			    <li class='collection-item'>
+			        Username: @$username
+            		    </li>
                             <li class='collection-item'>
                                 E-Cash Enabled: <span id='allowecash$student_id'></span>
                             </li>
@@ -234,11 +244,21 @@ if(!empty($teacher_array)){
         if(empty($photo_url)) $photo_url = "/assets/noimg.bmp";
 
         echo "
+	<style>
+		.imgPreviewTeacher$teacher_id{
+			background-image: url('$photo_url');
+			max-width: 100%;
+	                height: 180px;
+        	        background-repeat: no-repeat;
+                	background-position: center;
+                   	background-size: cover;
+		}
+	</style>
         <div class='col s4'>
             <div class='card hoverable' id='card$teacher_id'>
             <a href='#card$teacher_id'>
                 <div class='card-img'>
-                    <img src='$photo_url' width='100%' class='responsive-img'>
+                    <div class='imgPreviewTeacher$teacher_id'></div>
                 </div>
                 <div class='card-content'>
                     <p class='seagreen-text'><font size='4'><b>$first_name $last_name $suffix_name</b></font><br>
@@ -305,11 +325,21 @@ if(!empty($admin_array)){
      if(!$photo_url) $photo_url = "assets/noimg.bmp";
 
                      echo "
+		     	 <style>
+			 	.imgPreviewAdmin$admin_id{
+					background-image: url('$photo_url');
+					max-width: 100%;
+					height: 180px;
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: cover;
+				}
+			 </style>
                          <div class='col s4'>
                          <a href='#card$admin_id'>
                          <div class='card hoverable'>
                             <div class='card-img'>
-                                <img src='$photo_url' width='100%' class='responsive-img'>
+                                <div class='imgPreviewAdmin$admin_id'></div>
                             </div>
                             <div class='card-content'>
                                 <p class='seagreen-text'><font size='4'><b>$first_name $last_name $suffix_name</b></font><br>
