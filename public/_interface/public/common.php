@@ -302,7 +302,7 @@ if(!$_SESSION['logged_in']){
          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuNfQSkwl85bk38k4de_QR-DwBGL-069o&q=Holy+Child+Montessori,+Carnation+St,+Navotas,+Metro+Manila,+Philippines" allowfullscreen>
         </iframe>
 
-        <footer class="page-footer blue-grey darken-1">
+<footer class="page-footer blue-grey darken-1">
 	<div class="container footercont">
         <div class="row">
 		<div class="col s4">

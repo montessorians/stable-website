@@ -397,26 +397,37 @@ function login(){
                 },
                 success: function(result){
 
-                    // Check if returned ok
-                    if(result=="Ok"){
+                    // JSON parse result
+                    let data = JSON.parse(result);
 
-                        // Redirect to from variable
-                        window.location.replace('/');
+                    if(!data['code']){
+
+                        Materialize.toast("An Error Occured");
 
                     } else {
 
-                        // Prompt user of server response
-                        Materialize.toast(result,3000);
+                        let code = data['code'];
+                        let msg = data['message'];
 
-                        // Handle UI
-                        $(".progress").hide();
-                        $(".usernameButton").attr("disabled",false);
-                        $(".loginButton").attr("disabled",false);
-                        $("#username").attr("disabled",false);
-                        $("#password").attr("disabled",false);
+                        if(code == 200){
+
+                            window.location.replace('/');    
+
+                        } else {
+
+                            Materialize.toast(msg,3000);
+
+                            // Handle UI
+                            $(".progress").hide();
+                            $(".usernameButton").attr("disabled",false);
+                            $(".loginButton").attr("disabled",false);
+                            $("#username").attr("disabled",false);
+                            $("#password").attr("disabled",false);
+
+                        }
 
                     }
-
+                    
                 }
 
             });

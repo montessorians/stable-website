@@ -61,31 +61,27 @@ if(!$username_check){
 			$_SESSION['developer_id'] = $user['developer_id'];
 
 		}
-		/*
-		Proposed communication change
+		
+		//Proposed communication change
 		$array = array(
-		"code":"200",
-		"message":"User successfully signed-in"
+		"code"=>"200",
+		"message"=>"User successfully signed-in"
 		);
 		echo json_encode($array);
-		*/
-
-		// Required by client to sign-in user
-		echo "Ok";
 		
 	} else {
 
-		/*
-		Proposed communication change
+		
+		//Proposed communication change
 		$array = array(
-			"code":"500",
-			"message":"Wrong Sign-In Details"
+			"code"=>"500",
+			"message"=>"Wrong Sign-In Details"
 		);
 		echo json_encode($array);
-		*/
+		
 
 		// Returns an error if user has given a wrong sign-in detail
-		echo "Wrong Sign-In Details";
+		//echo "Wrong Sign-In Details";
 
 	}
 }
