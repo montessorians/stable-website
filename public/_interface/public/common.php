@@ -20,8 +20,8 @@ if(!$_SESSION['logged_in']){
         background-size: cover;
     }
     .brand-mobile {
-        height: 18% !important;
-        width: 17% !important;
+        height: 80px !important;
+        width: 80px !important;
         margin-left: 60px !important;
         position: absolute !important;
         background-image: url("/assets/favicon.ico");
@@ -87,13 +87,13 @@ if(!$_SESSION['logged_in']){
             <!-- Logo for larger window and desktop -->
             <div class="hide-on-small-only">
                 <div class="brand-box">
-                    <div class="brand z-depth-5 hoverable" id="hcm-logo"></div>
+                    <div class="brand z-depth-5 hoverable hcm-logo"></div>
                 </div>
             </div>
             <!-- Logo for mobile images and small windows -->
             <div class="hide-on-med-and-up">
                 <div class="brand-box">
-                    <div class="brand-mobile z-depth-5 hoverable" id="hcm-logo"></div>
+                    <div class="brand-mobile z-depth-5 hoverable hcm-logo"></div>
                 </div>
             </div>
 
@@ -141,7 +141,7 @@ if(!$_SESSION['logged_in']){
             <br>
             <br>
             <h4 class="seagreen-text"><b>Why Choose Montessori?</b></h4><br><br>
-            <div class="row">
+            <div class="cards-container">
                 <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
@@ -168,7 +168,7 @@ if(!$_SESSION['logged_in']){
                    <p class="grey-text text-darken-2">We have mastered the best approach for your child's education.</p>
                     </center>
                 </div>
-                 <div class="col s4 reveal">
+                <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
                             <i class="large material-icons">local_atm</i>
@@ -181,8 +181,6 @@ if(!$_SESSION['logged_in']){
                     <p class="grey-text text-darken-2">The only school that doesn't sacrifice quality for affordability.</p>
                     </center>
                 </div>               
-            </div>
-            <div class="row">
                  <div class="col s4 reveal">
                     <center class="seagreen-text">
                         <div class="hide-on-small-only">
@@ -247,7 +245,7 @@ if(!$_SESSION['logged_in']){
                 }
             </style>
             <h4 class="white-text"><b>Courses Offered</b></h4><br>
-            <div class="row">
+            <div class="cards-container">
                 
                 <div class="col s6 reveal">
                     <div class="card hoverable">
@@ -277,17 +275,15 @@ if(!$_SESSION['logged_in']){
         <br>
         <br>
         <h4 class="seagreen-text"><b>Contact Us</b></h4><br>
-        <div class="row">
+        <div class="cards-container">
             <div class="col s6 reveal">
-                <a class="btn btn-large btn-block blue waves-effect waves-light" href="https://fb.com/montessorians">Facebook</a>
+                <a class="btn btn-large btn-block blue waves-effect waves-light" href="https://fb.com/montessorians"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
             </div>
             <div class="col s6 reveal">
-                <a class="btn btn-large btn-block light-blue waves-effect waves-light" href="https://twitter.com/hcmofgasak">Twitter</a>
+                <a class="btn btn-large btn-block light-blue waves-effect waves-light" href="https://twitter.com/hcmofgasak"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </div>
-        </div>
-        <div class="row">
             <div class="col s6 reveal">
-                <a class="btn btn-large btn-block red waves-effect waves-light" href="mailto:hcmontessori@gmail.com">GMail</a>
+                <a class="btn btn-large btn-block red waves-effect waves-light" href="mailto:hcmontessori@gmail.com"><i class="fa fa-google" aria-hidden="true"></i></a>
             </div>
             <div class="col s6">
             </div>
@@ -338,11 +334,12 @@ if(!$_SESSION['logged_in']){
     $(document).ready(function(){
         $("meta[name='theme-color']").attr("content", "seagreen");
         initSplashScreen();
-        $("#hcm-logo").hide();
-        $("#hcm-logo").slideDown(2000);
+        $(".hcm-logo").hide();
         window.sr = ScrollReveal();
         sr.reveal('.reveal', {reset: false});
         $(".button-collapse").sideNav({closeOnClick: true});
+        $(".hcm-logo").slideDown(10000);
+
     }).keypress(function(e){
 		var key = e.which;
 		if(key == 13){

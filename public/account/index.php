@@ -101,7 +101,7 @@ if($showContinue==True){
                     <p id="userID">@username</p>
                     <br><br>
                     <div class="input-field">
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" autocomplete="hcmhcmhcm">
                         <label for="password">Password</label>
                     </div>
                     <br><br>

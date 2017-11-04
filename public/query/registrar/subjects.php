@@ -35,7 +35,7 @@
 					<label for="query">Query</label>
 				</div>
 				<div class="input-field col s6">
-					<select id="searchBy" class="browser-default">
+					<select id="searchBy">
 						<option value="subject_id">Subject ID</option>
 						<option value="subject_title">Title</option>
 						<option value="subject_description">Description</option>
@@ -54,7 +54,9 @@
 </html>
 <script type="text/javascript">
 	
-	$(document).ready().keypress(function(e){
+	$(document).ready(function(){
+		$('select').material_select();
+	}).keypress(function(e){
 		var key = e.which;
 		if(key == 13){
 			search();

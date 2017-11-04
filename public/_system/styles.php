@@ -20,10 +20,13 @@
     <!-- CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link
       rel="stylesheet"
       href="/assets/custom-styles.css">
+    <link
+      rel="stylesheet"
+      href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- JS -->
     <script
@@ -34,7 +37,7 @@
     </script>
     <script
       type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js">
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
     </script>
     <script
       type="text/javascript"
