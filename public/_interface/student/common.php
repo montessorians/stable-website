@@ -28,7 +28,6 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Grades" href="#assessment"><i class="material-icons">assessment</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="E-Cash" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="People" href="#people"><i class="material-icons">group</i></a></li>
-			<!--li class="tab"><a href="#pulse" id="pulseButton"><i class="material-icons">bubble_chart</i></a></li-->
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Me" href="#me"><i class="material-icons">account_circle</i></a></li>
 		</ul>
 	</div>
@@ -37,7 +36,6 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <div class="col s12" id="assessment"></div>
 <div class="col s12" id="ecash"></div>
 <div class="col s12" id="people"></div>
-<div class="col s12" id="pulse"></div>
 <div class="col s12" id="me"></div>  
 <?php
 	// Interface Modals
@@ -49,121 +47,111 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
   
 </body>
 <script type="text/javascript">
-	// Declaratives
-	<?php include("_interface/_common/js_global_declaratives.php"); ?>
+// Declaratives
+<?php include("_interface/_common/js_global_declaratives.php"); ?>
 
-	// Initialization
-	$(document).ready(function(){
-		// Creates a Smooth Transition to prevent half-baked render
-		$(".splashscreen").fadeOut();
-		// Initialize Functions
-		setTitle(); home(); assessment(); ecash(); me(); people();
-		// Start Modals
-		$('.modal').modal(); $('ul.tabs').tabs({swipeable:false});
-		$('.tooltipped').tooltip({delay: 50});
-		// Start Timer
-		setInterval(function(){
-			setTitle();
-		},100000);		
-	});
+// Initialization
+$(document).ready(function(){
 
-	// Event Handling
-	$("#clearNotif").click(function(){ deleteAllNotification(); });	
-	$("#homeButton").click(function(){ home(); });
-	$("#ecashButton").click(function(){ ecash(); });
-	$("#notifButton").click(function(){ notif(); });
-	$("#pulseButton").click(function(){ pulse(); });
+	// Creates a Smooth Transition to prevent half-baked render
+	$(".splashscreen").fadeOut();
 
-	// Global Functions
-	<?php include("_interface/_common/scripts.php"); ?>
+	// Initialize Functions
+	setTitle(); home(); assessment(); ecash(); me(); people();
 
-	// Local Functions
-	// Home
-	function home(){
-		// Show Ajax Loader
-		$("#home").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/home.php',
-			success: function(result){
-				// Show Result
-				$("#home").html(result);
-			}
-		}).fail(function(){$("#home").html(error);});
-	}
+	// Start Modals
+	$('.modal').modal(); $('ul.tabs').tabs({swipeable:false});
+	$('.tooltipped').tooltip({delay: 50});
 
-	// Assessment
-	function assessment(){
-		// Show Ajax Loader
-		$("#assessment").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/assessment.php',
-			success: function(result){
-				$("#assessment").html(result);
-			}
-		}).fail(function(){$("#assessment").html(error);});
-	}
+	// Start Timer
+	setInterval(function(){
+		setTitle();
+	},100000);		
 
-	// Ecash
-	function ecash(){
-		// Show Ajax Loader
-		$("#ecash").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/ecash.php',
-			success: function(result){
-				// Show result
-				$("#ecash").html(result);
-			}
-		}).fail(function(){$("#ecash").html(error);});
-	}
+});
 
-	// People
-	function people(){
-		// Show Ajax Loader
-		$("#people").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/people.php',
-			success: function(result){
-				// Show Result
-				$("#people").html(result);
-			}
-		}).fail(function(){$("#people").html(error);});
-	}
+// Event Handling
+$("#clearNotif").click(function(){ deleteAllNotification(); });	
+$("#homeButton").click(function(){ home(); });
+$("#ecashButton").click(function(){ ecash(); });
+$("#notifButton").click(function(){ notif(); });
 
-	// Pulse
-	function pulse(){
-		// Show Ajax Loader
-		$("#pulse").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/pulse.php',
-			success: function(result){
-				// Show Result
-				$("#pulse").html(result);
-			}
-		}).fail(function(){$("#pulse").html(error);});
-	}
+// Global Functions
+<?php include("_interface/_common/scripts.php"); ?>
 
-	// Me
-	function me(){
-		// Show Ajax Loader
-		$("#me").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/student/me.php',
-			success: function(result){
-				// Show Result
-				$("#me").html(result);
-			}
-		}).fail(function(){$("#me").html(error);});
-	}
+// Local Functions
+
+// Home
+function home(){
+	// Show Ajax Loader
+	$("#home").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/student/home.php',
+		success: function(result){
+			// Show Result
+			$("#home").html(result);
+		}
+	}).fail(function(){$("#home").html(error);});
+}
+
+// Assessment
+function assessment(){
+	// Show Ajax Loader
+	$("#assessment").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/student/assessment.php',
+		success: function(result){
+			$("#assessment").html(result);
+		}
+	}).fail(function(){$("#assessment").html(error);});
+}
+
+// Ecash
+function ecash(){
+	// Show Ajax Loader
+	$("#ecash").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/student/ecash.php',
+		success: function(result){
+			// Show result
+			$("#ecash").html(result);
+		}
+	}).fail(function(){$("#ecash").html(error);});
+}
+
+// People
+function people(){
+	// Show Ajax Loader
+	$("#people").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/student/people.php',
+		success: function(result){
+			// Show Result
+			$("#people").html(result);
+		}
+	}).fail(function(){$("#people").html(error);});
+}
+
+// Me
+function me(){
+	// Show Ajax Loader
+	$("#me").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/student/me.php',
+		success: function(result){
+			// Show Result
+			$("#me").html(result);
+		}
+	}).fail(function(){$("#me").html(error);});
+}
 </script>

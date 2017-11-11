@@ -1,5 +1,5 @@
 	// Declare Error
-	var error = "<div class='container'><br><br><center><h4 class='grey-text'><i class='medium material-icons'>warning</i><br>You are offline</h4></center></div>";
+	var error = "<div class='container'><br><br><center><h4 class='grey-text'><i class='medium material-icons'>warning</i><br>You are Offline</h4></center></div>";
 	// Declare Loading
 	var loading = "<div class='progress green lighten-4'><div class='indeterminate seagreen'></div></div>";
 	// Declare Ajax Loader

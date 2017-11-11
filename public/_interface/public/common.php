@@ -1,5 +1,8 @@
 <?php
+// Start Session
 session_start();
+
+// Check if logged in
 if(!$_SESSION['logged_in']){
     $si = "Sign-In";
     $li = "/account/?local=1";
@@ -19,6 +22,7 @@ if(!$_SESSION['logged_in']){
         background-position: center;
         background-size: cover;
     }
+
     .brand-mobile {
         height: 80px !important;
         width: 80px !important;
@@ -28,41 +32,49 @@ if(!$_SESSION['logged_in']){
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-
     }
+
     .brand-box {
         background-color: seagreen !important;
     }
+
     .left {
         margin-top: 2px;
         margin-left: 20px;
     }
+
     .right {
         margin-right:20px !important;
     }
+
     .jumbotron {
         background-color:silver !important;
         height: auto !important;
     }
+
     .jumbo {
         width:100% !important;
         padding-left: 10% !important;
         padding-right: 10% !important;
     }
+
     .jumbo-mobile {
         width: 100% !important;
     }
+
     .coursesoffered {
-        background-color:seagreen !important;
+        background-color: seagreen !important;
         width:100% !important;
         padding-top: 5% !important;
-        padding-bottom: 2% !important;
+        padding-bottom: 4% !important;
         padding-left: 10% !important;
         padding-right:10% !important;
     }
+
     .ssdata {
         display: none;
     }
+    
     .jumboImage{
         max-width: 100%;
         height:400px;
@@ -123,7 +135,7 @@ if(!$_SESSION['logged_in']){
                 <li><a href="/pages/community">Community Engagement</a></li>
                 <li><div class="divider"></div></li>
                 <li><a href="<?=$li?>"><?=$si?></a></li>
-            </ul>
+            </ul> 
 
         </nav>
         
@@ -248,7 +260,7 @@ if(!$_SESSION['logged_in']){
             <div class="cards-container">
                 
                 <div class="col s6 reveal">
-                    <div class="card hoverable">
+                    <div class="card hoverable z-depth-3">
                         <div class="card-img">
                             <div class="kinder"></div>
                         </div>
@@ -258,7 +270,7 @@ if(!$_SESSION['logged_in']){
                     </div>
                 </div>
                 <div class="col s6 reveal">
-                    <div class="card hoverable">
+                    <div class="card hoverable z-depth-3">
                         <div class="card-img">
                             <div class="tutorial"></div>
                         </div>
@@ -275,20 +287,9 @@ if(!$_SESSION['logged_in']){
         <br>
         <br>
         <h4 class="seagreen-text"><b>Contact Us</b></h4><br>
-        <div class="cards-container">
-            <div class="col s6 reveal">
-                <a class="btn btn-large btn-block blue waves-effect waves-light" href="https://fb.com/montessorians"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-            </div>
-            <div class="col s6 reveal">
-                <a class="btn btn-large btn-block light-blue waves-effect waves-light" href="https://twitter.com/hcmofgasak"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-            <div class="col s6 reveal">
-                <a class="btn btn-large btn-block red waves-effect waves-light" href="mailto:hcmontessori@gmail.com"><i class="fa fa-google" aria-hidden="true"></i></a>
-            </div>
-            <div class="col s6">
-            </div>
-        </div>
-        
+            <a class="tooltipped btn btn-large blue waves-effect waves-light hoverable" data-position="top" data-tooltip="Facebook" href="https://fb.com/montessorians"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            <a class="tooltipped btn btn-large light-blue waves-effect waves-light hoverable" data-position="top" data-tooltip="Twitter" href="https://twitter.com/hcmofgasak"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a class="tooltipped btn btn-large red waves-effect waves-light hoverable" data-position="top" data-tooltip="GMail" href="mailto:hcmontessori@gmail.com"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div><!-- container -->
         <br><br><br>
         <iframe
@@ -311,7 +312,6 @@ if(!$_SESSION['logged_in']){
 		<h5 class="white-text">Quick Links</h5>
 		<a href="account" class="white-text">Sign-In</a><br>
 		<a href="https://holychildmontessori.edu20.org" class="white-text">Online School</a><br>
-		<a href="alumni" class="white-text">Alumni Portal</a>
 	</div>
     <div class="col s4">
         <h5 class="white-text">About Us</h5>
@@ -324,44 +324,60 @@ if(!$_SESSION['logged_in']){
     <br>
 	<div class="footer-copyright">
 		<div class="container">
-			Copyright <?=date("Y");?> <?=$site_title?>
+			Copyright <?=date("Y");?>. <?=$site_title?>. All Rights Reserved.
 		</div>
 	</div>
 </footer>
 </body>
-<script>
-    // Initialization
-    $(document).ready(function(){
-        $("meta[name='theme-color']").attr("content", "seagreen");
-        initSplashScreen();
-        $(".hcm-logo").hide();
-        window.sr = ScrollReveal();
-        sr.reveal('.reveal', {reset: false});
-        $(".button-collapse").sideNav({closeOnClick: true});
-        $(".hcm-logo").slideDown(10000);
+<script type="text/javascript">
+// Initialization
+$(document).ready(function(){
 
-    }).keypress(function(e){
-		var key = e.which;
-		if(key == 13){
-			window.location.replace("account/?local=1");
-		}
-	});
+    $("meta[name='theme-color']").attr("content", "seagreen");
+    initSplashScreen();
+    $(".hcm-logo").hide();
+    window.sr = ScrollReveal();
+    sr.reveal('.reveal', {reset: false});
+    $(".button-collapse").sideNav({closeOnClick: true});
+    $(".hcm-logo").slideDown(10000);
+    $('.tooltipped').tooltip({delay: 50});
 
-    function initSplashScreen(){
-        var splashscreen = localStorage.getItem("hcm-splashscreen");
-        if(!splashscreen){
-            var time = 5000;
-            $(".ssdata").show();
-            splash(time);
-            localStorage.setItem("hcm-splashscreen", "1");
-        } else {
-            $("#splashscreen").fadeOut();
-        }
+}).keypress(function(e){
+
+    var key = e.which;
+
+    if(key == 13){
+
+        window.location.replace("account/?local=1");
+
     }
-    function splash(param){
-        var time = param;
-        setTimeout(function(){
-            $("#splashscreen").fadeOut();
-        },time);
+
+});
+
+/*
+    initSplashScreen
+    Check if splashscreen data will be shown or not
+*/
+function initSplashScreen(){
+    var splashscreen = localStorage.getItem("hcm-splashscreen");
+    if(!splashscreen){
+        var time = 5000;
+        $(".ssdata").show();
+        splash(time);
+        localStorage.setItem("hcm-splashscreen", "1");
+    } else {
+        $("#splashscreen").fadeOut();
     }
+}
+
+/*
+    splash
+    Splashscreen handler
+ */
+function splash(param){
+    var time = param;
+    setTimeout(function(){
+        $("#splashscreen").fadeOut();
+    },time);
+}
 </script>

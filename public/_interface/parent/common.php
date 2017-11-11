@@ -41,86 +41,95 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 ?>  
 </body>
 <script type="text/javascript">
-	// Declaratives
-	<?php include("_interface/_common/js_global_declaratives.php"); ?>
+// Declaratives
+<?php include("_interface/_common/js_global_declaratives.php"); ?>
 
-	// Initialization
-	$(document).ready(function(){
-		// Creates a Smooth Transition to prevent half-baked render
-		$(".splashscreen").fadeOut();
-		// Initialize tasks
-		setTitle(); home(); people(); assessment(); me(); notif();
-		// Activate modals etc.
-		$('.modal').modal();
-		$('ul.tabs').tabs({swipeable:false});
-		$('.tooltipped').tooltip({delay: 50});		
-		// Start Timer
-		setInterval(function(){
-			setTitle();
-		},100000);
-	});
+// Initialization
+$(document).ready(function(){
 
-	// Event Handling - Listen to Button Press
-	$("#notifButton").click(function(){ notif(); });
-	$("#homeButton").click(function(){ home(); });
-	$("#clearNotif").click(function(){ deleteAllNotification(); });
+	// Creates a Smooth Transition to prevent half-baked render
+	$(".splashscreen").fadeOut();
 
-	// Global Functions
-	<?php include("_interface/_common/scripts.php"); ?>
+	// Initialize tasks
+	setTitle(); home(); people(); assessment(); me(); notif();
 
-	// Local Functions
-	// Home
-	function home(){
-		// Show Ajax loader
-		$("#home").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/parent/home.php',
-			success: function(result){
-				// Show resulting content
-				$("#home").html(result);
-			}
-		}).fail(function(){$("#home").html(error);});
-	}
-	// People
-	function people(){
-		// Show Ajax Loader
-		$("#people").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/parent/people.php',
-			success: function(result){
-				// Show resulting content
-				$("#people").html(result);
-			}
-		}).fail(function(){$("#people").html(error);});
-	}
-	// Assessment
-	function assessment(){
-		// Show Ajax Loader
-		$("#asessment").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/parent/assessment.php',
-			success: function(result){
-				$("#assessment").html(result);
-			}
-		}).fail(function(){$("#assessment").html(error);});
-	}
-	// Me
-	function me(){
-		// Show Ajax Loader
-		$("#me").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/parent/me.php',
-			success: function(result){
-				$("#me").html(result);
-			}
-		}).fail(function(){$("#me").html(error);});
-	}
+	// Activate modals etc.
+	$('.modal').modal();
+	$('ul.tabs').tabs({swipeable:false});
+	$('.tooltipped').tooltip({delay: 50});		
+
+	// Start Timer
+	setInterval(function(){
+		setTitle();
+	},100000);
+
+});
+
+// Event Handling - Listen to Button Press
+$("#notifButton").click(function(){ notif(); });
+$("#homeButton").click(function(){ home(); });
+$("#clearNotif").click(function(){ deleteAllNotification(); });
+
+// Global Functions
+<?php include("_interface/_common/scripts.php"); ?>
+
+// Local Functions
+
+// Home
+function home(){
+	// Show Ajax loader
+	$("#home").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/parent/home.php',
+		success: function(result){
+			// Show resulting content
+			$("#home").html(result);
+		}
+	}).fail(function(){$("#home").html(error);});
+}
+
+// People
+function people(){
+	// Show Ajax Loader
+	$("#people").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/parent/people.php',
+		success: function(result){
+			// Show resulting content
+			$("#people").html(result);
+		}
+	}).fail(function(){$("#people").html(error);});
+}
+
+// Assessment
+function assessment(){
+	// Show Ajax Loader
+	$("#asessment").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/parent/assessment.php',
+		success: function(result){
+			$("#assessment").html(result);
+		}
+	}).fail(function(){$("#assessment").html(error);});
+}
+
+// Me
+function me(){
+	// Show Ajax Loader
+	$("#me").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/parent/me.php',
+		success: function(result){
+			$("#me").html(result);
+		}
+	}).fail(function(){$("#me").html(error);});
+}
 </script>

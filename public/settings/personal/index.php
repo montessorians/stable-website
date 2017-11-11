@@ -82,7 +82,7 @@ $email = $db->get("email","$id_const","$p_id");
 			<div class="row">
 			<p><font size="-1" class="seagreen-text">Birth Date</font></p>
 			<div class="input-field col s5">
-				<select class="browser-default" name="birth_month" id="birth_month">
+				<select  name="birth_month" id="birth_month">
 					<?php
 					$months = array("January","February","March","April","May","June","July", "August", "September", "October", "November", "December");
 					foreach($months as $month){
@@ -94,7 +94,7 @@ $email = $db->get("email","$id_const","$p_id");
 				</select>
 			</div>
 			<div class="input-field col s3">
-				<select class="browser-default" name="birth_day" id="birth_day">
+				<select  name="birth_day" id="birth_day">
 					<?php
 						$i = 1;
 						while($i <= 31){
@@ -107,7 +107,7 @@ $email = $db->get("email","$id_const","$p_id");
 				</select>
 			</div>
 			<div class="input-field col s4">
-				<select class="browser-default" name="birth_year" id="birth_year">
+				<select  name="birth_year" id="birth_year">
 					<?php
 						$i = date("Y");
 						while($i >= 1950){
@@ -126,7 +126,7 @@ $email = $db->get("email","$id_const","$p_id");
   	    		<label for="birth_place">Birth Place</label>
       		</div>
 			<div class="input-field col s6">
-				<select class="browser-default" name="gender" id="gender">
+				<select  name="gender" id="gender">
 				<?php
 					$genders = array("male","female");
 					foreach($genders as $g){
@@ -198,6 +198,7 @@ $email = $db->get("email","$id_const","$p_id");
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#sub2").hide();
+		$('select').material_select();
 	});
 	function saveChanges(){
 		$("#sub2").show();
@@ -265,6 +266,7 @@ if($_SESSION['account_type']=="student"){} else {
 				birth_month: b_m,
 				birth_day: b_d,
 				birth_year: b_y,
+				birth_place: b_p,
 				address: a,
 				city: c,
 				country: co,

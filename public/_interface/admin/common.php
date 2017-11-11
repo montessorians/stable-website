@@ -112,75 +112,90 @@
   </div>
   <div id="more" class="col s12"></div>  
 <?php
-	// Interface Modals
-	include("_interface/_common/notifications.php");
-	// Common Apps
-	include("_contents/common/apps.php");
+// Interface Modals
+include("_interface/_common/notifications.php");
+
+// Common Apps
+include("_contents/common/apps.php");
 ?>
 </body>
 <script type="text/javascript">
-	// Declaratives
-	<?php include("_interface/_common/js_global_declaratives.php"); ?>
-	// Initialization
-	$(document).ready(function(){
-		// Creates a Smooth Transition to prevent half-baked render
-		$(".splashscreen").fadeOut();
-		// Set Theme-color
-		$("meta[name='theme-color']").attr("content", "#455a64");
-		// Initialize Tasks
-		setTitle(); home(); me(); notif();
-		// Activate Modals etc.
-		$('.modal').modal();
-		$('.collapsible').collapsible();
-		// Start Timer
-		setInterval(function(){
-			setTitle();
-		},100000);
-	}).keypress(function(e){
-		// Read Key Press
-		var key = e.which;
-		// If Enter is triggered do something
-		if(key == 13){
-			// Redirect to Student Search
-			window.location.replace("query/account/students.php");
+// Declaratives
+<?php include("_interface/_common/js_global_declaratives.php"); ?>
+
+// Initialization
+$(document).ready(function(){
+
+	// Creates a Smooth Transition to prevent half-baked render
+	$(".splashscreen").fadeOut();
+
+	// Set Theme-color
+	$("meta[name='theme-color']").attr("content", "#455a64");
+
+	// Initialize Tasks
+	setTitle(); home(); me(); notif();
+
+	// Activate Modals etc.
+	$('.modal').modal();
+	$('.collapsible').collapsible();
+
+	// Start Timer
+	setInterval(function(){
+		setTitle();
+	},100000);
+
+}).keypress(function(e){
+
+	// Read Key Press
+	var key = e.which;
+
+	// If Enter is triggered do something
+	if(key == 13){
+
+		// Redirect to Student Search
+		window.location.replace("query/account/students.php");
+
+	}
+
+});
+
+// Event Handling - Listen to Button Press
+$("#homeButton").click(function(){ home(); });
+$("#notifButton").click(function(){ notif(); });
+$("#clearNotif").click(function(){ deleteAllNotification(); });
+
+// Global Functions
+<?php include("_interface/_common/scripts.php"); ?>
+
+// Local Functions
+
+// Home
+function home(){
+	// Set content to Ajax loader
+	$("#home").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/administrator/home.php',
+		success: function(result){
+			// Show fetched result and display
+			$("#home").html(result);
 		}
-	});
+	}).fail(function(){$("#home").html(error);});
+}
 
-	// Event Handling - Listen to Button Press
-	$("#homeButton").click(function(){ home(); });
-	$("#notifButton").click(function(){ notif(); });
-	$("#clearNotif").click(function(){ deleteAllNotification(); });
-
-	// Global Functions
-	<?php include("_interface/_common/scripts.php"); ?>
-
-	// Local Functions
-	// Home
-	function home(){
-		// Set content to Ajax loader
-		$("#home").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/administrator/home.php',
-			success: function(result){
-				// Show fetched result and display
-				$("#home").html(result);
-			}
-		}).fail(function(){$("#home").html(error);});
-	}
-	// Me
-	function me(){
-		// Set content to Ajax loader
-		$("#me").html(loading);
-		// Start Ajax
-		$.ajax({
-			type: 'GET',
-			url: '_contents/administrator/me.php',
-			success: function(result){
-				// Show fetched result and display
-				$("#more").html(result);
-			}
-		}).fail(function(){$("#more").html(error);});
-	}
+// Me
+function me(){
+	// Set content to Ajax loader
+	$("#me").html(loading);
+	// Start Ajax
+	$.ajax({
+		type: 'GET',
+		url: '_contents/administrator/me.php',
+		success: function(result){
+			// Show fetched result and display
+			$("#more").html(result);
+		}
+	}).fail(function(){$("#more").html(error);});
+}
 </script>
