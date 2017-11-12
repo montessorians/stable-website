@@ -501,7 +501,7 @@ if($proceed ==1){
 
 </div><!--Container-->
 <script type="text/javascript">
-	$(document).ready(function(){
-    $('.modal').modal();
-  });
+$(document).ready(function(){	
+	$('.modal').modal();
+});
 </script>
