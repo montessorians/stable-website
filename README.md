@@ -1,4 +1,4 @@
-# Holy Child Montessori Website Sample
+# Holy Child Montessori Website
 The official website of Holy Child Montessori School of Excellence.
 http://hcmontessori.likesyou.org,
 
