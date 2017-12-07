@@ -236,7 +236,9 @@ if(!empty($print_grades)){
 </html>
 <script type="text/javascript">
 	
-	$(document).ready().keypress(function(e){
+	$(document).ready(function(){
+		$('select').material_select();
+	}).keypress(function(e){
 		var key = e.which;
 		if(key == 13){
 			saveChanges();
