@@ -47,6 +47,10 @@
       type="text/javascript"
       src="/assets/scrollreveal.min.js">
     </script>
+    <script
+        type="text/javascript"
+        src="/assets/snowflakes.js">
+    </script>
 
     <!-- Google Analytics -->
     <script type="text/javascript">
@@ -56,4 +60,9 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-79559064-1', 'auto');
       ga('send', 'pageview');
+
+      $(document).ready(function(){
+        Snowflakes();
+      });
+
     </script>
