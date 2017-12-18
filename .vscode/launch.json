@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "php",
             "request": "launch",
             "name": "Launch Program",
             "program": "${file}"
