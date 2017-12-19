@@ -19,6 +19,7 @@
 			<li class="tab"><a href="#ecash">E-Cash</a></li>
 			<li class="tab"><a href="#registrar">Registrar</a></li>
 			<li class="tab"><a href="#administration">Administration</a></li>
+			<li class="tab"><a href="#reports">Reports</a></li>
 			<li class="tab"><a href="#more">More</a></li>
 		</ul>
 	</div>
@@ -95,7 +96,7 @@
   	</ul>
   </div>
   <div id="administration">
-  		<ul class="collection">
+  	<ul class="collection">
   		<li class="collection-item">
   			<a href="forms/registrar/set_schooldata.php" class="black-text">Set School Data</a>
   		</li>
@@ -109,6 +110,15 @@
   			<a href="query/account/admin.php" class="black-text">Search an Admin</a>
   		</li>
   	</ul>
+  </div>
+  <div id="reports" class="col s12">
+  <br>
+	<h5 class="blue-grey-text t">Registrar</h5>
+	<ul class="collection">
+		<li class="collection-item">
+			<a href="export/registrar/studentlist.php" class="black-text">Current Student's List (xlsx)</a>
+		</li>
+	</ul>
   </div>
   <div id="more" class="col s12"></div>  
 <?php
