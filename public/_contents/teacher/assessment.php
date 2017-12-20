@@ -8,7 +8,7 @@
     <br>
 <?php
 $proceed = 0;
-if(!classes_array){
+if(empty($classes_array)){
     echo "
         <div class='card hoverable'>
             <div class='card-content'><br><center>
@@ -42,11 +42,11 @@ if($proceed==1){
         if($school_year == $current_sy){
             echo "<div class='card hoverable'>
                     <div class='card-content'>
-                        <h5 class='seagreen-text'>$subject_title</h5>
+                        <h5 class='seagreen-text'><b>$subject_title</b> ($grade - $section)</h5>
                         <p>
-                            <strong>Grade/Section:</strong> $grade - $section<br>
-                            <strong>Schedule:</strong> $start_time - $end_time ($schedule)<br>
-                            <strong>Class Code:</strong> $class_code
+                            <b>Class Code:</b> $class_code<br>
+                            <b>Schedule:</b> $start_time - $end_time ($schedule)<br>
+                            <b>Classroom:</b> $class_room
                         </p>
                     </div>
                     <div class='card-action'>

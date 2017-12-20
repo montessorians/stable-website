@@ -75,6 +75,8 @@
 						// Set Title to be Used
 						var title = siteTitle;
 					} else {
+						if(notifCount>100) var title = "100+";
+						if(notifCount>1000)var title = "1000+";
 						// Construct and Set title
 						var title = "(" + notifCount + ") " + siteTitle;
 					}

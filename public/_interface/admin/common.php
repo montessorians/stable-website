@@ -60,18 +60,18 @@
   		<li class="collection-item">
   			<a href="query/account/parent.php" class="black-text">Search a Parent</a>
   		</li>
-  		</ul>
-  		<h5 class="blue-grey-text t">User Management</h5>
-  		<ul class="collection">
+  	</ul>
+  	<h5 class="blue-grey-text t">User Management</h5>
+  	<ul class="collection">
   		<li class="collection-item">
   			<a href="forms/account/add_user.php" class="black-text">Add User</a>
   		</li>
 		<li class="collection-item">
   			<a href="forms/account/connect_parent.php" class="black-text">Connect Parent to Student</a>
   		</li>
-  		</ul>
-  		<h5 class="blue-grey-text t">Class and Enrollment</h5>
-  		<ul class="collection">
+  	</ul>
+  	<h5 class="blue-grey-text t">Class and Enrollment</h5>
+  	<ul class="collection">
   		<li class="collection-item">
   			<a href="query/registrar/classes.php" class="black-text" target="_blank">Search Classes & Encode Grades</a>
   		</li>
