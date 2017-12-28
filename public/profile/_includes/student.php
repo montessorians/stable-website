@@ -5,10 +5,12 @@
     </div>
     <div class="nav-content">
         <span class="nav-title">
-            <?=$first_name." ".$middle_name." ".$last_name." ".$suffix_name?>            <?=$first_name . " " .$middle_name[0].". ".$last_name." ".$suffix_name?>
+            <?=$first_name." ".$middle_name." ".$last_name." ".$suffix_name?> 
         </span>
         <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#home" id="info">Info</a></li>
+            <li class="tab"><a href="#info">Info</a></li>
+            <li class="tab"><a href="#subjects">Subjects</a></li>
+            <li class="tab"><a href="#parents">Parents</a></li>
         </ul>
     </div>
 </nav>
@@ -34,6 +36,9 @@
                 <ul class="collection">
                     <li class="collection-item">
                         Account Type: <?=$account_type?>
+                    </li>
+                    <li class="collection-item">
+                        Username: <?=$username?>
                     </li>
                     <li class="collection-item">
                         Gender: <?=$gender?>
@@ -75,6 +80,25 @@
 
         <br><br>
 
+        <div class="hoverable card">
+            <div class="card-content">
+                <h5>Educational Information</h5><br><br>
+                <ul class="collection">
+                    <li class="collection-item">
+                        Student LRN: <?=$student_lrn?>
+                    </li>
+                    <li class="collection-item">
+                        Grade/Section: <?=$grade." - ".$section?>
+                    </li>
+                    <li class="collection-item">
+                        School Year: <?=$school_year?>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <br><br>
+
         <div class="card hoverable">
             <div class="card-content">
                 <h5>Contact Information</h5><br><br>
@@ -86,6 +110,96 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="col s12" id="subjects">
+    <div class="container">
+    <br><br>
+        <?php
+            if(empty($subjects)){
+                echo "
+                    <div class='card'>
+                        <div class='card-content'>
+                            <center>Student has no subjects yet</center>
+                        </div>
+                    </div>
+                ";
+            }
+            if(!empty($subjects)){
+                echo "<div class='cards-container'>";
+                foreach($subjects as $subject){
+                    $subject_title = $subject['subject_title'];
+                    $subject_description = $subject['subject_description'];
+                    $school_year = $subject['school_year'];
+                    $school_year_taken = $subject['school_year_taken'];
+                    $grade = $subject['grade'];
+                    $section = $subject['section'];
+                    $class_room = $subject['class_room'];
+                    $start_time = $subject['start_time'];
+                    $end_time = $subject['end_time'];
+                    $teacher_id = $subject['teacher_id'];
+                    $teacher_name = $subject['teacher_name'];
+                    $schedule = $subject['schedule'];
+
+                    echo "
+                        <div class='card col s6'>
+                            <div class='card-content'>
+                                <p>
+                                    <b>$subject_title</b><br>
+                                    $subject_description<br>
+                                    <br>
+                                    School Year: $school_year<br>
+                                    School Year Taken: $school_year_taken<br>
+                                    Grade/Section: $grade - $section<br>
+                                    Teacher: <a href='/profile?teacher_id=$teacher_id' class='seagreen-text'>$teacher_name</a><br>
+                                    Classroom: $class_room<br>
+                                    Schedule: $start_time - $end_time ($school_year)<br>
+                                </p>
+                            </div>
+                        </div>
+                    ";
+                }
+                echo "</div>";
+            }
+        ?>
+    </div>
+</div>
+
+<div class="col s12" id="parents">
+    <div class="container"><br><br>
+        <?php
+            if(empty($parents)){
+                echo "
+                    <div class='card'>
+                        <div class='card-content'>
+                            <center>No Parents Connected</center>
+                        </div>
+                    </div>
+                ";
+            }
+
+            if(!empty($parents)){
+                foreach($parents as $parent){
+                    $parent_id = $parent['parent_id'];
+                    $parent_name = $parent['parent_name'];
+                    $relation = $parent['relation'];
+
+                    echo "
+                        <div class='card'>
+                            <div class='card-content'>
+                                <p>
+                                    <a class='seagreen-text' href='/profile/?parent_id=$parent_id'><b>$parent_name</b></a><br>
+                                    <br>
+                                    Parent ID: $parent_id<br>
+                                    Relation:  $relation
+                                </p>
+                            </div>
+                        </div>
+                    ";
+                }
+            }
+        ?>
     </div>
 </div>
 <br><br><br><br>

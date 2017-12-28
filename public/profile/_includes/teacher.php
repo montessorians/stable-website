@@ -8,7 +8,7 @@
             <?=$first_name." ".$middle_name." ".$last_name." ".$suffix_name?>
         </span>
         <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#home" id="info">Info</a></li>
+            <li class="tab"><a href="#info">Info</a></li>
         </ul>
     </div>
 </nav>
@@ -34,6 +34,9 @@
                 <ul class="collection">
                     <li class="collection-item">
                         Account Type: <?=$account_type?>
+                    </li>
+                    <li class="collection-item">
+                        Username: <?=$username?>
                     </li>
                     <li class="collection-item">
                         Gender: <?=$gender?>

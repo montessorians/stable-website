@@ -164,7 +164,7 @@ include("../../_system/secure.php");
 			<br><br>
 			<div id='response'></div>
 			<br><p>We do not restrict the grades that you input but limit grades to the ceiling grades provided. (1st Qtr. 97, 2nd Qtr. 98, 3rd Qtr. 99, 4th Qtr. 100)</p>
-			<p>If no final grade is given, the average grade or (Q1+Q2+Q3+Q4)/4 would be computed and would show a PASS or FAIL mark based on the passing score on the student's account.</p>
+			<p>If no final grade is given, the average grade or (Q1+Q2+Q3+Q4)/4 would be computed and would show a PASS or FAIL mark on the student's report card.</p>
 		</div><br><br><br><br>
 	</body>
 </html>

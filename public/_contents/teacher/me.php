@@ -37,6 +37,12 @@
 		</a>
 	</li>
 	<li class="collection-item avatar">
+		<a href="/assets/gradebook_template.xlsx" class="black-text">
+			<i class="material-icons circle blue">assessment</i>
+			<p class="collection-title grey-text text-darken-2">Gradebook Template <i class="material-icons tiny">launch</i></p>
+		</a>
+	</li>
+	<li class="collection-item avatar">
 		<a href="https://drive.google.com/drive/folders/0B3k_JJe8SSgmMTQwTEI2STJTWEk?usp=sharing" class="black-text">
 			<i class="material-icons circle pink">folder</i>
 			<p class="collection-title grey-text text-darken-2">Resources for Teachers <i class="material-icons tiny">launch</i></p>

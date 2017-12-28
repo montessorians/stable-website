@@ -8,7 +8,8 @@
             <?=$first_name." ".$middle_name." ".$last_name." ".$suffix_name?>
         </span>
         <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#home" id="info">Info</a></li>
+            <li class="tab"><a href="#info">Info</a></li>
+            <li class="tab"><a href="#children">Children</a></li>
         </ul>
     </div>
 </nav>
@@ -34,6 +35,9 @@
                 <ul class="collection">
                     <li class="collection-item">
                         Account Type: <?=$account_type?>
+                    </li>
+                    <li class="collection-item">
+                        Username: <?=$username?>
                     </li>
                     <li class="collection-item">
                         Gender: <?=$gender?>
@@ -86,6 +90,43 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="col s12" id="children">
+    <div class="container"><br><br>
+        <?php
+            if(empty($children)){
+                echo "
+                    <div class='card'>
+                        <div class='card-content'>
+                            <center>No Children Connected</center>
+                        </div>
+                    </div>
+                ";
+            } 
+
+
+            if(!empty($children)){
+                foreach($children as $child){
+                    $student_id = $child['student_id'];
+                    $student_name = $child['student_name'];
+                    $relation = $child['relation'];
+
+                    echo "
+                        <div class='card'>
+                            <div class='card-content'>
+                                <p>
+                                    <a class='seagreen-text' href='/profile/?student_id=$student_id'><b>$student_name</b></a><br><br>
+                                    Student ID: $student_id<br>
+                                    Relationship: $relation
+                                </p>
+                            </div>
+                        </div>
+                    ";
+                }
+            }
+        ?>
     </div>
 </div>
 <br><br><br><br>

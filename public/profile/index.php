@@ -99,23 +99,158 @@ function dataGetter($acc_type,$id){
     return $db_tmp->where(array(),"$const", "$id");
 }
 
+function childGetter($id){
+    $arr = array();
+    $db_loc = "../_store";
+    $db_student = new DBase("student",$db_loc);
+    $db_parentchild = new DBase("parentchild",$db_loc);
+    $parentchild = $db_parentchild->where(array(),"parent_id",$id);
+    foreach($parentchild as $pc){
+        $student_id = $pc['student_id'];
+        $relation = $pc['relation'];
+        $student_info  = $db_student->where(array(),"student_id",$student_id);
+        foreach($student_info as $student){
+            $student_fn = $student['first_name'];
+            $student_ln = $student['last_name'];
+            $student_sn = $student['suffix_name'];
+            $student_name = "$student_fn $student_ln $student_sn";
+        }
+    
+
+    $const_array = array(
+        "student_id"=>$student_id,
+        "relation"=>$relation,
+        "student_name"=>"$student_name"
+    );
+    array_push($arr, $const_array);
+    }
+
+    return $arr;
+}
+
+
+
+function parentGetter($id){
+    $arr = array();
+    $db_loc = "../_store";
+    $db_parent = new DBase("parent",$db_loc);
+    $db_parentchild = new DBase("parentchild",$db_loc);
+    $parentchild = $db_parentchild->where(array(),"student_id",$id);
+    foreach($parentchild as $pc){
+        $parent_id = $pc['parent_id'];
+        $relation = $pc['relation'];
+        $parent_info  = $db_parent->where(array(),"parent_id",$parent_id);
+        foreach($parent_info as $parent){
+            $parent_fn = $parent['first_name'];
+            $parent_ln = $parent['last_name'];
+            $parent_sn = $parent['suffix_name'];
+            $parent_name = "$parent_fn $parent_ln $parent_sn";
+        }
+    
+
+    $const_array = array(
+        "parent_id"=>$parent_id,
+        "relation"=>$relation,
+        "parent_name"=>"$parent_name"
+    );
+    array_push($arr, $const_array);
+    }
+
+    return $arr;
+}
+
+function studentClassGetter($id){
+    $arr = array();
+    $db_loc = "../_store";
+    $db_enroll = new DBase("student_class",$db_loc);
+    $db_class = new DBase("class",$db_loc);
+    $db_subject = new DBase("subject",$db_loc);
+    $db_teacher = new DBase("teacher",$db_loc);
+
+    $student_class = $db_enroll->where(array("enroll_id","school_year","class_id"),"student_id",$id);
+    
+    foreach($student_class as $enroll){
+    
+        $enroll_id = $enroll['enroll_id'];
+        $school_year_taken = $enroll['school_year'];
+        $class_id = $enroll['class_id'];
+        $class_info = $db_class->where(array(),"class_id",$class_id);
+    
+        foreach($class_info as $class){
+            $subject_id = $class['subject_id'];
+            $subject_info = $db_subject->where(array(),"subject_id",$subject_id);
+            foreach($subject_info as $subject){
+                $subject_title = $subject['subject_title'];
+                $subject_description = $subject['subject_description'];
+                $grade = $subject['grade'];
+            }
+            $school_year = $class['school_year'];
+            $section = $class['section'];
+            $class_code = $class['class_code'];
+            $class_room = $class['class_room'];
+            $start_time = $class['start_time'];
+            $end_time = $class['end_time'];
+            $teacher_id = $class['teacher_id'];
+            $teacher_info = $db_teacher->where(array("first_name","last_name","suffix_name"),"teacher_id",$teacher_id);
+            foreach($teacher_info as $teacher){
+                $teacher_fn = $teacher['first_name'];
+                $teacher_ln = $teacher['last_name'];
+                $teacher_sn = $teacher['suffix_name'];
+                $teacher_name = "$teacher_fn $teacher_ln $teacher_sn";
+            }
+            $schedule = $class['schedule'];
+        }
+
+        $const_array = array(
+            "class_id"=>$class_id,
+            "subject_id"=>$subject_id,
+            "subject_title"=>$subject_title,
+            "subject_description"=>$subject_description,
+            "school_year"=>$school_year,
+            "school_year_taken"=>$school_year_taken,
+            "grade"=>$grade,
+            "section"=>$section,
+            "class_room"=>$class_room,
+            "start_time"=>$start_time,
+            "end_time"=>$end_time,
+            "teacher_id"=>$teacher_id,
+            "teacher_name"=>$teacher_name,
+            "schedule"=>$schedule
+        );
+        array_push($arr, $const_array);
+    
+
+    }
+    return $arr;
+}
+
 $data = array();
 
 switch($account_type){
     case("admin"):
         $data = dataGetter("admin",$admin_id);
-        $admin_office = $data[0]['admin_office'];
-        $admin_position = $data[0]['admin_position'];
+        foreach($data as $adm){
+            $admin_office = $adm['admin_office'];
+            $admin_position = $adm['admin_position'];    
+        }
         break;
     case("student"):
         $data = dataGetter("student",$student_id);
-        $student_lrn = $data[0]['student_lrn'];
-        $grade = $data[0]['grade'];
-        $school_year = $data[0]['school_year'];
-        $section = $data[0]['section'];
+        foreach($data as $stud){
+            $student_lrn = $stud['student_lrn'];
+            $grade = $stud['grade'];
+            $school_year = $stud['school_year'];
+            $section = $stud['section'];    
+        }
+        $subjects = studentClassGetter($student_id);
+        $parents = parentGetter($student_id);
+        if(empty($subjects)) $subjects = array();
+        if(empty($parents)) $parents = array();
         break;
-    case("parent"):
+        case("parent"):
         $data = dataGetter("parent",$parent_id);
+        $children = childGetter($parent_id);
+        if(empty($children)) $children = array();
         break;
     case("teacher"):
         $data = dataGetter("teacher",$teacher_id);

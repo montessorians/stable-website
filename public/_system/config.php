@@ -9,7 +9,7 @@ config.php
 
 // Site Versioning Settings
 $hcm_version_major = '1';
-$hcm_version_minor = '08';
+$hcm_version_minor = '09';
 $hcm_version_patch = '0';
 $hcm_version_release = "Public";
 $hcm_version_date = "December 2017 (Week 4)";
