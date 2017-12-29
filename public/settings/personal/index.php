@@ -23,21 +23,24 @@ $account_type = $_SESSION['account_type'];
 $id_const = $account_type . "_id";
 $db = new DBase("$account_type", "../../_store");
 $p_id = $db_account->get("$id_const","user_id", "$user_id");
-$first_name = $db->get("first_name", "$id_const", "$p_id");
-$middle_name = $db->get("middle_name", "$id_const", "$p_id");
-$last_name = $db->get("last_name", "$id_const", "$p_id");
-$suffix_name = $db->get("suffix_name", "$id_const", "$p_id");
-$birth_month = $db->get("birth_month", "$id_const", "$p_id");
-$birth_day = $db->get("birth_day", "$id_const", "$p_id");
-$birth_year = $db->get("birth_year", "$id_const", "$p_id");
-$birth_place = $db->get("birth_place", "$id_const", "$p_id");
-$gender = $db->get("gender", "$id_const", "$p_id");
-$address = $db->get("address","$id_const","$p_id");
-$city = $db->get("city","$id_const","$p_id");
-$country = $db->get("country","$id_const","$p_id");
-$mobile_number = $db->get("mobile_number","$id_const","$p_id");
-$telephone_number = $db->get("telephone_number","$id_const","$p_id");
-$email = $db->get("email","$id_const","$p_id");
+$person_details = $db->where(array(),$id_const,"$p_id");
+foreach($person_details as $person){
+	$first_name = $person['first_name'];
+	$middle_name = $person['middle_name'];
+	$last_name = $person['last_name'];
+	$suffix_name = $person['suffix_name'];
+	$birth_month = $person['birth_month'];
+	$birth_day = $person['birth_day'];
+	$birth_year = $person['birth_year'];
+	$birth_place = $person['birth_place'];
+	$gender = $person['gender'];
+	$address = $person['address'];
+	$city = $person['city'];
+	$country = $person['country'];	
+	$mobile_number = $person['mobile_number'];
+	$telephone_number = $person['telephone_number'];
+	$email = $person['email'];
+}
 ?>
 <!Doctype html>
 <html>

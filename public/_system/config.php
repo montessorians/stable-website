@@ -5,12 +5,15 @@ Holy Child Montessori
 All Rights Reserved 
 
 config.php
+
+This is where the version number etc. is set along
+with the other configurations of the site.
 */
 
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '09';
-$hcm_version_patch = '0';
+$hcm_version_patch = '1';
 $hcm_version_release = "Public";
 $hcm_version_date = "December 2017 (Week 4)";
 
@@ -33,5 +36,4 @@ if($hcm_version_patch == 0) $hcm_version_patch_d = ".$hcm_version_patch";
 if($hcm_version_minor == 0) $hcm_version_minor_d = ".$hcm_version_minor";
 
 $hcm_version_no = $hcm_version_major.$hcm_version_minor_d.$hcm_version_patch_d.$hcm_version_release_d;
-
 ?>

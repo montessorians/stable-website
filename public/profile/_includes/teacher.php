@@ -49,7 +49,7 @@
                             if($viewer_account_type =="admin"){
                                 echo $bdate;
                             } else {
-                                if($viewer_user_id == $account_id){
+                                if($viewer_user_id == $user_id){
                                     echo $bdate;
                                 } else {
                                     echo $bdatepublic;
@@ -65,7 +65,7 @@
                         if($viewer_account_type =="admin"){
                             echo $priv;
                         } else {
-                            if($viewer_user_id == $account_id){
+                            if($viewer_user_id == $user_id){
                                 echo $priv;
                             }
                         }                        

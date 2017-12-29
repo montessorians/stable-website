@@ -1,4 +1,12 @@
 <?php
+/*
+Holy Child Montessori
+2017
+
+Home
+*/
+
+
 //Include Required Files
 include("_system/config.php");
 include("_system/database/db.php");
@@ -6,15 +14,35 @@ include("_system/database/db.php");
 $db_loc = "/_store";
 ?>
 <!--
+
 Holy Child Montessori
 Website
-2017
+Created 2017
 All Rights Reserved
+
+Created by Holy Child Montessori Educational Technologies.
+This system has been made open-source and is available at
+http://github.com/hcmedutech/website. 
+
+This web application is being continuously being developed.
+For version details, please log-in using your account
+and in the Me tab, scroll to the bottom-most part or
+visit http://hcmontessor.likesyou.org/version.php.
+
+For bugs and other issues, please visit the GitHub repository
+and open a bug report. Vulnerability and other security issues
+may be e-mailed to us at hcmontessori@gmail.com.
+
 -->
+
 <!Doctype html>
 <html lang="en">
 <head>
 
+	<!-- Encoding -->
+	<meta charset="UTF-8">
+
+	<!-- Site Title -->
 	<title><?=$site_title?></title>
 
 	<!-- Favicon -->
@@ -35,12 +63,13 @@ All Rights Reserved
 
 </head>
 
-<body>
-<?php
-include("_interface/public/common.php");
-?>
-</body>
+	<body>
+	<?php
+		include("_interface/public/common.php");
+	?>
+	</body>
 
 </html>
 
+<!-- Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
