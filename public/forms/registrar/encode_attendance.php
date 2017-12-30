@@ -92,63 +92,63 @@ if(empty($attendance_array)){
 		$school_year = $att['school_year'];
 		$grade = $att['grade'];
 		$section = $att['section'];
-		$absent_jan = $att['absent_jan'];
-		$absent_feb = $att['absent_feb'];
-		$absent_mar = $att['absent_mar'];
-		$absent_apr = $att['absent_apr'];
-		$absent_may = $att['absent_may'];
-		$absent_jun = $att['absent_jun'];
-		$absent_jul = $att['absent_jul'];
-		$absent_aug = $att['absent_aug'];
-		$absent_sep = $att['absent_sep'];
-		$absent_oct = $att['absent_oct'];
-		$absent_nov = $att['absent_nov'];
-		$absent_dec = $att['absent_dec'];
+		$pres_jan = $att['pres_jan'];
+		$pres_feb = $att['pres_feb'];
+		$pres_mar = $att['pres_mar'];
+		$pres_apr = $att['pres_apr'];
+		$pres_may = $att['pres_may'];
+		$pres_jun = $att['pres_jun'];
+		$pres_jul = $att['pres_jul'];
+		$pres_aug = $att['pres_aug'];
+		$pres_sep = $att['pres_sep'];
+		$pres_oct = $att['pres_oct'];
+		$pres_nov = $att['pres_nov'];
+		$pres_dec = $att['pres_dec'];
 
-		$late_jan = $att['late_jan'];
-		$late_feb = $att['late_feb'];
-		$late_mar = $att['late_mar'];
-		$late_apr = $att['late_apr'];
-		$late_may = $att['late_may'];
-		$late_jun = $att['late_jun'];
-		$late_jul = $att['late_jul'];
-		$late_aug = $att['late_aug'];
-		$late_sep = $att['late_sep'];
-		$late_oct = $att['late_oct'];
-		$late_nov = $att['late_nov'];
-		$late_dec = $att['late_dec'];
+		$sch_jan = $att['sch_jan'];
+		$sch_feb = $att['sch_feb'];
+		$sch_mar = $att['sch_mar'];
+		$sch_apr = $att['sch_apr'];
+		$sch_may = $att['sch_may'];
+		$sch_jun = $att['sch_jun'];
+		$sch_jul = $att['sch_jul'];
+		$sch_aug = $att['sch_aug'];
+		$sch_sep = $att['sch_sep'];
+		$sch_oct = $att['sch_oct'];
+		$sch_nov = $att['sch_nov'];
+		$sch_dec = $att['sch_dec'];
 
 		if($school_year == $current_sy){
 			echo "
 				<tr>
-					<td class='green-text text-darken-2'><b>Absences</b></td>
-					<td><input type='text' id='absent_jan' value='$absent_jan'></td>
-					<td><input type='text' id='absent_feb' value='$absent_feb'></td>
-					<td><input type='text' id='absent_mar' value='$absent_mar'></td>
-					<td><input type='text' id='absent_apr' value='$absent_apr'></td>
-					<td><input type='text' id='absent_may' value='$absent_may'></td>
-					<td><input type='text' id='absent_jun' value='$absent_jun'></td>
-					<td><input type='text' id='absent_jul' value='$absent_jul'></td>
-					<td><input type='text' id='absent_aug' value='$absent_aug'></td>
-					<td><input type='text' id='absent_sep' value='$absent_sep'></td>
-					<td><input type='text' id='absent_oct' value='$absent_oct'></td>
-					<td><input type='text' id='absent_nov' value='$absent_nov'></td>
-					<td><input type='text' id='absent_dec' value='$absent_dec'></td>
+					<td class='green-text text-darken-2'><b>Days Present</b></td>
+					<td><input type='text' id='pres_jan' value='$pres_jan'></td>
+					<td><input type='text' id='pres_feb' value='$pres_feb'></td>
+					<td><input type='text' id='pres_mar' value='$pres_mar'></td>
+					<td><input type='text' id='pres_apr' value='$pres_apr'></td>
+					<td><input type='text' id='pres_may' value='$pres_may'></td>
+					<td><input type='text' id='pres_jun' value='$pres_jun'></td>
+					<td><input type='text' id='pres_jul' value='$pres_jul'></td>
+					<td><input type='text' id='pres_aug' value='$pres_aug'></td>
+					<td><input type='text' id='pres_sep' value='$pres_sep'></td>
+					<td><input type='text' id='pres_oct' value='$pres_oct'></td>
+					<td><input type='text' id='pres_nov' value='$pres_nov'></td>
+					<td><input type='text' id='pres_dec' value='$pres_dec'></td>
 				</tr>
 				<tr>
-					<td class='green-text text-darken-2'><b>Lates</b></td>
-					<td><input type='text' id='late_jan' value='$late_jan'></td>
-					<td><input type='text' id='late_feb' value='$late_feb'></td>
-					<td><input type='text' id='late_mar' value='$late_mar'></td>
-					<td><input type='text' id='late_apr' value='$late_apr'></td>
-					<td><input type='text' id='late_may' value='$late_may'></td>
-					<td><input type='text' id='late_jun' value='$late_jun'></td>
-					<td><input type='text' id='late_jul' value='$late_jul'></td>
-					<td><input type='text' id='late_aug' value='$late_aug'></td>
-					<td><input type='text' id='late_sep' value='$late_sep'></td>
-					<td><input type='text' id='late_oct' value='$late_oct'></td>
-					<td><input type='text' id='late_nov' value='$late_nov'></td>
-					<td><input type='text' id='late_dec' value='$late_dec'></td>
+					<td class='green-text text-darken-2'><b>Days of School</b></td>
+					<td><input type='text' id='sch_jan' value='$sch_jan'></td>
+					<td><input type='text' id='sch_feb' value='$sch_feb'></td>
+					<td><input type='text' id='sch_mar' value='$sch_mar'></td>
+					<td><input type='text' id='sch_apr' value='$sch_apr'></td>
+					<td><input type='text' id='sch_may' value='$sch_may'></td>
+					<td><input type='text' id='sch_jun' value='$sch_jun'></td>
+					<td><input type='text' id='sch_jul' value='$sch_jul'></td>
+					<td><input type='text' id='sch_aug' value='$sch_aug'></td>
+					<td><input type='text' id='sch_sep' value='$sch_sep'></td>
+					<td><input type='text' id='sch_oct' value='$sch_oct'></td>
+					<td><input type='text' id='sch_nov' value='$sch_nov'></td>
+					<td><input type='text' id='sch_dec' value='$sch_dec'></td>
 				</tr>
 				";
 		}
@@ -195,9 +195,9 @@ function saveAttendance(){
 <?php
 	$m_a = array('jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec');
 	foreach($m_a as $month){
-		echo "var ab_$month = $('#absent_$month').val();
+		echo "var pr_$month = $('#pres_$month').val();
 		";
-		echo "var la_$month = $('#late_$month').val()
+		echo "var sc_$month = $('#sch_$month').val()
 		";
 	}
 ?>
@@ -208,9 +208,9 @@ function saveAttendance(){
 		data: {
 <?php
 foreach($m_a as $month){
-	echo "absent_$month: ab_$month,
+	echo "pres_$month: pr_$month,
 	";
-	echo "late_$month: la_$month,
+	echo "sch_$month: sc_$month,
 	";
 }
 foreach($attendance_array as $att){

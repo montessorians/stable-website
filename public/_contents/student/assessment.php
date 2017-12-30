@@ -352,84 +352,84 @@ foreach($attendance_array as $attendance){
 				$school_year = $attendance['school_year'];
 				$grade = $attendance['grade'];
 				$section = $attendance['section'];
-				$absent_jan = $attendance['absent_jan'];
-				$absent_feb = $attendance['absent_feb'];
-				$absent_mar = $attendance['absent_mar'];
-				$absent_apr = $attendance['absent_apr'];
-				$absent_may = $attendance['absent_may'];
-				$absent_jun = $attendance['absent_jun'];
-				$absent_jul = $attendance['absent_jul'];
-				$absent_aug = $attendance['absent_aug'];
-				$absent_sep = $attendance['absent_sep'];
-				$absent_oct = $attendance['absent_oct'];
-				$absent_nov = $attendance['absent_nov'];
-				$absent_dec = $attendance['absent_dec'];
-				if(!$absent_jan)$absent_jan=0;if(!$absent_feb)$absent_feb=0;if(!$absent_mar)$absent_mar=0;
-				if(!$absent_apr)$absent_apr=0;if(!$absent_may)$absent_may=0;if(!$absent_jun)$absent_jun=0;
-				if(!$absent_jul)$absent_jul=0;if(!$absent_aug)$absent_aug=0;if(!$absent_sep)$absent_sep=0;
-				if(!$absent_oct)$absent_oct=0;if(!$absent_nov)$absent_nov=0;if(!$absent_dec)$absent_dec=0;
-				$absent_total = $absent_jan + $absent_feb + $absent_mar + $absent_apr + $absent_may + $absent_jun + $absent_jul + $absent_aug + $absent_sep + $absent_oct + $absent_nov + $absent_dec;
-				if(!$absent_jan)$absent_jan=null;if(!$absent_feb)$absent_feb=null;if(!$absent_mar)$absent_mar=null;
-				if(!$absent_apr)$absent_apr=null;if(!$absent_may)$absent_may=null;if(!$absent_jun)$absent_jun=null;
-				if(!$absent_jul)$absent_jul=null;if(!$absent_aug)$absent_aug=null;if(!$absent_sep)$absent_sep=null;
-				if(!$absent_oct)$absent_oct=null;if(!$absent_nov)$absent_nov=null;if(!$absent_dec)$absent_dec=null;
+				$pres_jan = $attendance['pres_jan'];
+				$pres_feb = $attendance['pres_feb'];
+				$pres_mar = $attendance['pres_mar'];
+				$pres_apr = $attendance['pres_apr'];
+				$pres_may = $attendance['pres_may'];
+				$pres_jun = $attendance['pres_jun'];
+				$pres_jul = $attendance['pres_jul'];
+				$pres_aug = $attendance['pres_aug'];
+				$pres_sep = $attendance['pres_sep'];
+				$pres_oct = $attendance['pres_oct'];
+				$pres_nov = $attendance['pres_nov'];
+				$pres_dec = $attendance['pres_dec'];
+				if(!$pres_jan)$pres_jan=0;if(!$pres_feb)$pres_feb=0;if(!$pres_mar)$pres_mar=0;
+				if(!$pres_apr)$pres_apr=0;if(!$pres_may)$pres_may=0;if(!$pres_jun)$pres_jun=0;
+				if(!$pres_jul)$pres_jul=0;if(!$pres_aug)$pres_aug=0;if(!$pres_sep)$pres_sep=0;
+				if(!$pres_oct)$pres_oct=0;if(!$pres_nov)$pres_nov=0;if(!$pres_dec)$pres_dec=0;
+				$pres_total = $pres_jan + $pres_feb + $pres_mar + $pres_apr + $pres_may + $pres_jun + $pres_jul + $pres_aug + $pres_sep + $pres_oct + $pres_nov + $pres_dec;
+				if(!$pres_jan)$pres_jan=null;if(!$pres_feb)$pres_feb=null;if(!$pres_mar)$pres_mar=null;
+				if(!$pres_apr)$pres_apr=null;if(!$pres_may)$pres_may=null;if(!$pres_jun)$pres_jun=null;
+				if(!$pres_jul)$pres_jul=null;if(!$pres_aug)$pres_aug=null;if(!$pres_sep)$pres_sep=null;
+				if(!$pres_oct)$pres_oct=null;if(!$pres_nov)$pres_nov=null;if(!$pres_dec)$pres_dec=null;
 
-				$late_jan = $attendance['late_jan'];
-				$late_feb = $attendance['late_feb'];
-				$late_mar = $attendance['late_mar'];
-				$late_apr = $attendance['late_apr'];
-				$late_may = $attendance['late_may'];
-				$late_jun = $attendance['late_jun'];
-				$late_jul = $attendance['late_jul'];
-				$late_aug = $attendance['late_aug'];
-				$late_sep = $attendance['late_sep'];
-				$late_oct = $attendance['late_oct'];
-				$late_nov = $attendance['late_nov'];
-				$late_dec = $attendance['late_dec'];
-				if(!$late_jan)$late_jan=0;if(!$late_feb)$late_feb=0;if(!$late_mar)$late_mar=0;
-				if(!$late_apr)$late_apr=0;if(!$late_may)$late_may=0;if(!$late_jun)$late_jun=0;
-				if(!$late_jul)$late_jul=0;if(!$late_aug)$late_aug=0;if(!$late_sep)$late_sep=0;
-				if(!$late_oct)$late_oct=0;if(!$late_nov)$late_nov=0;if(!$late_dec)$late_dec=0;
-				$late_total = $late_jan + $late_feb + $late_mar + $late_apr + $late_may + $late_jun + $late_jul + $late_aug + $late_sep + $late_oct + $late_nov + $late_dec;
-				if(!$late_jan)$late_jan=null;if(!$late_feb)$late_feb=null;if(!$late_mar)$late_mar=null;
-				if(!$late_apr)$late_apr=null;if(!$late_may)$late_may=null;if(!$late_jun)$late_jun=null;
-				if(!$late_jul)$late_jul=null;if(!$late_aug)$late_aug=null;if(!$late_sep)$late_sep=null;
-				if(!$late_oct)$late_oct=null;if(!$late_nov)$late_nov=null;if(!$late_dec)$late_dec=null;
+				$sch_jan = $attendance['sch_jan'];
+				$sch_feb = $attendance['sch_feb'];
+				$sch_mar = $attendance['sch_mar'];
+				$sch_apr = $attendance['sch_apr'];
+				$sch_may = $attendance['sch_may'];
+				$sch_jun = $attendance['sch_jun'];
+				$sch_jul = $attendance['sch_jul'];
+				$sch_aug = $attendance['sch_aug'];
+				$sch_sep = $attendance['sch_sep'];
+				$sch_oct = $attendance['sch_oct'];
+				$sch_nov = $attendance['sch_nov'];
+				$sch_dec = $attendance['sch_dec'];
+				if(!$sch_jan)$sch_jan=0;if(!$sch_feb)$sch_feb=0;if(!$sch_mar)$sch_mar=0;
+				if(!$sch_apr)$sch_apr=0;if(!$sch_may)$sch_may=0;if(!$sch_jun)$sch_jun=0;
+				if(!$sch_jul)$sch_jul=0;if(!$sch_aug)$sch_aug=0;if(!$sch_sep)$sch_sep=0;
+				if(!$sch_oct)$sch_oct=0;if(!$sch_nov)$sch_nov=0;if(!$sch_dec)$sch_dec=0;
+				$sch_total = $sch_jan + $sch_feb + $sch_mar + $sch_apr + $sch_may + $sch_jun + $sch_jul + $sch_aug + $sch_sep + $sch_oct + $sch_nov + $sch_dec;
+				if(!$sch_jan)$sch_jan=null;if(!$sch_feb)$sch_feb=null;if(!$sch_mar)$sch_mar=null;
+				if(!$sch_apr)$sch_apr=null;if(!$sch_may)$sch_may=null;if(!$sch_jun)$sch_jun=null;
+				if(!$sch_jul)$sch_jul=null;if(!$sch_aug)$sch_aug=null;if(!$sch_sep)$sch_sep=null;
+				if(!$sch_oct)$sch_oct=null;if(!$sch_nov)$sch_nov=null;if(!$sch_dec)$sch_dec=null;
 
 				if($school_year == $current_sy){
 
 				echo "
 					<tr>
-						<td class='seagreen-text'><b>Absences</b></td>
-						<td>$absent_jan</td>
-						<td>$absent_feb</td>
-						<td>$absent_mar</td>
-						<td>$absent_apr</td>
-						<td>$absent_may</td>
-						<td>$absent_jun</td>
-						<td>$absent_jul</td>
-						<td>$absent_aug</td>
-						<td>$absent_sep</td>
-						<td>$absent_oct</td>
-						<td>$absent_nov</td>
-						<td>$absent_dec</td>
-						<td><b>$absent_total</b></td>
+						<td class='seagreen-text'><b>Days Present</b></td>
+						<td>$pres_jan</td>
+						<td>$pres_feb</td>
+						<td>$pres_mar</td>
+						<td>$pres_apr</td>
+						<td>$pres_may</td>
+						<td>$pres_jun</td>
+						<td>$pres_jul</td>
+						<td>$pres_aug</td>
+						<td>$pres_sep</td>
+						<td>$pres_oct</td>
+						<td>$pres_nov</td>
+						<td>$pres_dec</td>
+						<td><b>$pres_total</b></td>
 					</tr>
 					<tr>
-						<td class='seagreen-text'><b>Lates</b></td>
-						<td>$late_jan</td>
-						<td>$late_feb</td>
-						<td>$late_mar</td>
-						<td>$late_apr</td>
-						<td>$late_may</td>
-						<td>$late_jun</td>
-						<td>$late_jul</td>
-						<td>$late_aug</td>
-						<td>$late_sep</td>
-						<td>$late_oct</td>
-						<td>$late_nov</td>
-						<td>$late_dec</td>
-						<td><b>$late_total</b></td>
+						<td class='seagreen-text'><b>Days of School</b></td>
+						<td>$sch_jan</td>
+						<td>$sch_feb</td>
+						<td>$sch_mar</td>
+						<td>$sch_apr</td>
+						<td>$sch_may</td>
+						<td>$sch_jun</td>
+						<td>$sch_jul</td>
+						<td>$sch_aug</td>
+						<td>$sch_sep</td>
+						<td>$sch_oct</td>
+						<td>$sch_nov</td>
+						<td>$sch_dec</td>
+						<td><b>$sch_total</b></td>
 					</tr>
 				";
 
