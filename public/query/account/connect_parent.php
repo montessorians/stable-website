@@ -78,38 +78,38 @@ $preselect="";
 </html>
 <script type="text/javascript">
 	
-	$(document).ready(function(){
-		$('select').material_select();
-	}).keypress(function(e){
-		var key = e.which;
-		if(key == 13){
-			search();
-		}
-	});
-	
-	$("#searchButton").click(function(){
+$(document).ready(function(){
+	$('select').material_select();
+}).keypress(function(e){
+	var key = e.which;
+	if(key == 13){
 		search();
-	});
-	
-	function search(){
-		var q = $("#query").val();
-		var s = $("#searchBy").val();
-		
-		$.ajax({
-			type: 'POST',
-			url: '../../action/account/search_connect_parent.php',
-			data: {
-				query: q,
-				searchBy: s
-			},
-			cache: false,
-			success: function(result){
-				$("#searchresult").html(result);
-			}
-		}).fail(function(){
-			var failview = "<div class='card'><div class='card-content'><center><p class='grey-text'>Error connecting to server</p></center></div></div>";
-			$("#searchresult").html(failview);
-		});
 	}
+});
+
+$("#searchButton").click(function(){
+	search();
+});
+
+function search(){
+	var q = $("#query").val();
+	var s = $("#searchBy").val();
+	
+	$.ajax({
+		type: 'POST',
+		url: '../../action/account/search_connect_parent.php',
+		data: {
+			query: q,
+			searchBy: s
+		},
+		cache: false,
+		success: function(result){
+			$("#searchresult").html(result);
+		}
+	}).fail(function(){
+		var failview = "<div class='card'><div class='card-content'><center><p class='grey-text'>Error connecting to server</p></center></div></div>";
+		$("#searchresult").html(failview);
+	});
+}
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

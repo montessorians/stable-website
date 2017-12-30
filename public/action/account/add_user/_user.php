@@ -1,4 +1,13 @@
 <?php
+/**
+ * Holy Child Montessor
+ * 2017
+ * 
+ * _user
+ * 
+ * Common include to create
+ * an account for any type
+ */
 // Generate ID
 $user_id = uniqid();
 

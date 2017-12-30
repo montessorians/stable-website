@@ -1,4 +1,15 @@
 <?php
+/**
+ * Holy Child Montessori
+ * 2017
+ * 
+ * Action
+ * Account
+ * Student
+ * 
+ * Add a Student Account
+ */
+
 // Generate Student ID
 $student_id = date("Y") . mt_rand(100000,999999);
 

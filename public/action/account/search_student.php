@@ -114,6 +114,9 @@ if(empty($r)){
 					<a href='/forms/ecash/transact.php?student_id=$student_id' class='black-text'>
 						Transact w/ E-Cash
 					</a>
+					<a href='/query/ecash/balance.php?student_id=$student_id' class='black-text'>
+						Inquire E-Cash Balance
+					</a>
 					<a href='/profile/?student_id=$student_id' class='black-text'>
 						View Profile
 					</a>

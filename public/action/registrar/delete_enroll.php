@@ -4,6 +4,7 @@ Holy Child Montessori
 2017
 
 Delete Enroll
+Unenroll a student from class
 */
 
 // Start Session
@@ -36,11 +37,9 @@ if(empty($_REQUEST['enroll_id'])){
 $check = $db_studentclass->get("enroll_id", "enroll_id", "$enroll_id");
 
 // Check if exists
-if(empty($check)){
+if(empty($check)) header("Location: $from");
 
-    header("Location: $from");
-
-} else {
+if(!empty($check)){
 
     // Get Index
     $index = $db_studentclass->index("enroll_id", "$enroll_id");

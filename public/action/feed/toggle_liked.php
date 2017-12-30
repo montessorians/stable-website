@@ -67,7 +67,7 @@ if($do === True){
                 if($user_id == $user_id_now){
 
                     // Increment if found
-                    $count = $count++;
+                    $count = $count+1;
 
                     // Get ID
                     $index = $db_postlikes->index("postlike_id", "$postlike_id");

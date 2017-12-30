@@ -1,4 +1,15 @@
 <?php
+/**
+ * Holy Child Montessori
+ * 2017
+ * 
+ * Action
+ * Account
+ * Staff
+ * 
+ * Add a Staff Account
+ */
+
 // Generate ID
 $staff_id = mt_rand(1000000000,9999999999);
 

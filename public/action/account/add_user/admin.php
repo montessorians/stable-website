@@ -1,4 +1,15 @@
 <?php
+/**
+ * Holy Child Montessori
+ * 2017
+ * 
+ * Action
+ * Account
+ * Admin
+ * 
+ * Add an Admin Account
+ */
+
 // Generate Admin ID
 $admin_id = mt_rand(1000000000,9999999999);
 

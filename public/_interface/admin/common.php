@@ -33,10 +33,13 @@
   </div>
   <div id="ecash" class="col s12">
   	<ul class="collection">
-			<li class="collection-item">
-				<a href="forms/ecash/transact.php" class="black-text">Transact with E-Cash</a>
-			</li>
-		</ul>
+		<li class="collection-item">
+			<a href="forms/ecash/transact.php" class="black-text">Transact with E-Cash</a>
+		</li>
+		<li class="collection-item">
+			<a href="query/ecash/balance.php" class="black-text">Inquire E-Cash Balance</a>
+		</li>
+	</ul>
   </div>
   <div id="calendar" class="col s12">
 	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;showTz=0&amp;height=500&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=fnlv7nr0lp27l04m7nk9fht4q0%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Asia%2FManila" style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>

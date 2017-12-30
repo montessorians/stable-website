@@ -18,16 +18,22 @@ require_once("../../_system/secure.php");
 // Include DB
 include("../_require/db.php");
 
+$user_id = "";
+$student_id = "";
+if(!empty($_REQUEST['user_id'])) $user_id = $_REQUEST['user_id'];
+if(!empty($_REQUEST['student_id'])){
+    $student_id = $_REQUEST['student_id'];
+    $user_id = $db_account->get("user_id","student_id",$student_id);
+    if(empty($user_id)) die("Student Not Found");
+}
+
 // Check if empty data sent
-if(empty($_REQUEST['user_id'])){
+if(empty($user_id)){
 
     echo "0";
 
 } else {
     
-    // Handle Data
-    $user_id = $_REQUEST['user_id'];
-
     // Query
     $current_balance = $db_ecash->get("current_balance","user_id", "$user_id");
 

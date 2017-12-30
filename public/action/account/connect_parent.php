@@ -119,7 +119,9 @@ include("../_require/notif.php");
 echo "Parent and Student Added Successfully! ($p_first_name $p_last_name with $s_first_name $s_last_name)";
 
 } else {
+
  echo "An error occured";
+
 }
 
 

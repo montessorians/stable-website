@@ -72,24 +72,35 @@ if(empty($r)){
 			</div>
 		</div>";
 	
-} else {
+}
 
-	// loop along results
-	foreach($r as $key){
-		foreach($key as $admin_id){
+if(!empty($r)){
 
-			// Get Info
-			$user_id = $db_account->get("user_id", "admin_id", "$admin_id");
-			$photo_url = $db_account->get("photo_url", "user_id", "$user_id");
-			$first_name = $db_admin->get("first_name", "admin_id", "$admin_id");
-			$last_name = $db_admin->get("last_name", "admin_id", "$admin_id");
-			$suffix_name = $db_admin->get("suffix_name", "admin_id", "$admin_id");						
+	foreach($r as $adminResult){
+		if($adminResult['admin_id'] !== ""){
 
+			$admin_id = $adminResult['admin_id'];
+
+			$admin_info = $db_admin->where(array(),"admin_id",$admin_id);
+	
+			foreach($admin_info as $admin){
+				$first_name = $admin['first_name'];
+				$last_name = $admin['last_name'];
+				$suffix_name = $admin['suffix_name'];	
+			}
+	
+			$account_info = $db_account->where(array(),"admin_id",$admin_id);
+	
+			foreach($account_info as $account){
+				$user_id = $account['user_id'];
+				$photo_url = $account['photo_url'];
+			}
+	
 			// Echo initial card html 
 			echo "
 			<div class='card'>
 				<div class='card-content'>";				
-
+	
 			// Echo img if not empty
 			if(!empty($photo_url)) echo "<img class='right' src='../../$photo_url' width='150px'>";
 			
@@ -110,20 +121,14 @@ if(empty($r)){
 						<a class='black-text' href='../../forms/account/upload_img.php?user_id=$user_id'>Upload Picture</a>
 					</div>
 				</div>";
-
-			} else {
-				
+	
+			} else {	
 				// echo card close
 				echo	"</div>";
-
 			}
-							
-						
-						
-		} // end of inner fe
-				
-	} // end of outer fe
 	
-} // end of non empty result
+		}
 
+	}
+}
 ?>
