@@ -26,43 +26,14 @@ $post_id = $_REQUEST['post_id'];
 $comment_body = strip_tags($_REQUEST['comment_body']);
 
 // Check if Post ID is null
-if(empty(post_id)){
+if(empty($post_id)) die("Empty Post ID");
 
-    echo "Empty Post ID";
-    $do = False;
-
-} else {
-
-    // Query if post id exists
-    $check_post_existence = $db_post->get("post_id", "post_id", "$post_id");
-
-    if(!check_post_existence){
-
-        echo "Cannot add comment. Post doesn't exist.";
-        $do = False;
-
-    } else {
-
-        $do = True;
-
-    }
-
-}
+// Query if post id exists
+$check_post_existence = $db_post->get("post_id", "post_id", "$post_id");
+if(empty($check_post_existence)) die("Cannot add comment. Post doesn't exist.");
 
 // Check if Comment Body is null
-if(empty($comment_body)){
-
-    echo "You cannot post an empty comment";
-    $do = False;
-
-} else {
-
-    $do = True;
-
-}
-
-// Check if we can proceed
-if($do == True){
+if(empty($comment_body)) die("You cannot post an empty comment");
 
 // Generate random Comment ID
 $comment_id = uniqid();
@@ -85,10 +56,4 @@ $array = array(
 $db_comment->add($array);
 
 echo "Comment has been added!";
-
-} else {
-
-    echo "An error occured";
-
-}
 ?>

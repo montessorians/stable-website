@@ -13,9 +13,9 @@ with the other configurations of the site.
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '10';
-$hcm_version_patch = '0';
+$hcm_version_patch = '1';
 $hcm_version_release = "Public";
-$hcm_version_date = "December 2017 (Week 4) [Not Compatible with 1.09.*]";
+$hcm_version_date = "January 2018 (Week 1)";
 
 
 // Site Config

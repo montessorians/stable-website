@@ -35,9 +35,12 @@ $db_enroll->to("final_grade", "$final_grade", "enroll_id", "$enroll_id");
 
 // Get Student Data
 $student_id = $db_enroll->get("student_id", "enroll_id", "$enroll_id");	
-$first_name = $db_student->get("first_name", "student_id", "$student_id");
-$last_name = $db_student->get("last_name", "student_id", "$student_id");
-$suffix_name = $db_student->get("suffix_name", "student_id", "$student_id");
+$student_info = $db_student->where(array(),"student_id",$student_id);
+foreach($student_info as $student){
+    $first_name = $student['first_name'];
+    $last_name = $student['last_name'];
+    $suffix_name = $student['suffix_name'];
+}
 
 $class_id = $db_enroll->get("class_id", "enroll_id", "$enroll_id");
 $subject_id = $db_class->get("subject_id","class_id","$class_id");

@@ -78,15 +78,21 @@ if(empty($r)){
 		$end_time = $class['end_time'];
 		$max_students = $class['max_students'];
 
-		$subject_title = $db_subject->get("subject_title","subject_id","$subject_id");
-		$subject_description = $db_subject->get("subject_description","subject_id","$subject_id");
-		$grade = $db_subject->get("grade","subject_id","$subject_id");
-		$units = $db_subject->get("units","subject_id","$subject_id");
-		$subject_code = $db_subject->get("subject_code","subject_id","$subject_id");
+		$subject_info = $db_subject->where(array(),"subject_id",$subject_id);
+		foreach($subject_info as $subject){
+			$subject_title = $subject['subject_title'];
+			$subject_description = $subject['subject_description'];
+			$grade = $subject['grade'];
+			$units = $subject['units'];
+			$subject_code = $subject['subject_code'];
+		}
 
-		$first_name = $db_teacher->get("first_name", "teacher_id", "$teacher_id");
-		$last_name = $db_teacher->get("last_name", "teacher_id", "$teacher_id");
-		$suffix_name = $db_teacher->get("suffix_name", "teacher_id", "$teacher_id");
+		$teacher_info = $db_teacher->where(array(),"subject_id",$subject_id);
+		foreach($teacher_info as $teacher){
+			$first_name = $teacher['first_name'];
+			$last_name = $teacher['last_name'];
+			$suffix_name = $teacher['suffix_name'];
+		}
 
 		echo "			
 		<div class='card'>

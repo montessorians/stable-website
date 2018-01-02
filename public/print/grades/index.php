@@ -385,8 +385,10 @@ if(empty($attendance_array)){
         $sy_attendance = $att['school_year'];
 
         if($sy_attendance == $school_year){
+
             $grade = $att['grade'];
             $section = $att['section'];
+
             $pres_jan = $att['pres_jan'];
             $pres_feb = $att['pres_feb'];
             $pres_mar = $att['pres_mar'];
@@ -568,5 +570,6 @@ $pdf->Text(20,260, "System Generated Form. Printed on $date.");
 //$pdf->Text(20,265, "Not valid for enrollment unless signed by the School Registrar/Principal.");
 
 // Output Document
-$pdf->Output();
+$fn = "progressreport-$last_name-$first_name.pdf";
+$pdf->Output('',$fn,true);
 ?>

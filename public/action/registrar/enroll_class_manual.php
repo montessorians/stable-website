@@ -95,6 +95,22 @@ if(empty($check_student)){
 			
 			// Send Notification
 			include("../_require/notif.php");
+
+			$parents = $db_parentchild->where(array(),"student_id",$student_id);
+			foreach($parents as $parent){
+				$parent_id = $parent['parent_id'];
+				$p_user_id = $db_account->get("user_id","parent_id",$parent_id);
+
+				// Prepare Notif
+				$notif_title = "$first_name $suffix_name has been enrolled in $subject_title";
+				$notif_content = "Congratulations! $first_name $suffix_name  is now enrolled in $subject_title.";
+				$notif_icon = "assignment_turned_in";
+				$notif_user_id = "$p_user_id";
+				$notif_sender_alternative = "Registrar";
+
+				// Send Notification
+				include("../_require/notif.php");
+			}
 			
 			echo "<span class='green-text'> $first_name $last_name $suffix_name enrolled in $subject_title </span>";
 			

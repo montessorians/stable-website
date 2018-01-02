@@ -42,9 +42,12 @@ if(empty($check_student)){
 	if(empty($check_hold)){
 
 		// Get Student Data
-		$first_name = $db_student->get("first_name", "student_id", "$student_id");
-		$last_name = $db_student->get("last_name", "student_id", "$student_id");
-		$suffix_name = $db_student->get("suffix_name", "student_id", "$student_id");
+		$student_info = $db_student->where(array(),"student_id",$student_id);
+		foreach($student_info as $student){
+			$first_name = $student['first_name'];
+			$last_name = $student['last_name'];
+			$suffix_name = $student['suffix_name'];
+		}
 		
 		$db_student->to("grade","$grade","student_id", "$student_id");
 		$db_student->to("school_year","$school_year","student_id", "$student_id");
@@ -101,6 +104,22 @@ if(empty($check_student)){
 		
 		// Send Notification
 		include("../_require/notif.php");
+
+		$parents = $db_parentchild->where(array(),"student_id",$student_id);
+		foreach($parents as $parent){
+			$parent_id = $parent['parent_id'];
+			$p_user_id = $db_account->get("user_id","parent_id",$parent_id);
+
+			// Prepare Notif
+			$notif_title = "$first_name $suffix_name has been enrolled this SY $school_year";
+			$notif_content = "Congratulations! $first_name $suffix_name has been enrolled as $grade - $section.";
+			$notif_icon = "assessment";
+			$notif_user_id = "$p_user_id";
+			$notif_sender_alternative = "Registrar";
+
+			// Send Notification
+			include("../_require/notif.php");
+		}
 
 		echo "$first_name $last_name $suffix_name has been enrolled as $grade - $section this SY $school_year";
 		
