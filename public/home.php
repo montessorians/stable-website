@@ -72,4 +72,4 @@ may be e-mailed to us at hcmontessori@gmail.com.
 </html>
 
 <!-- Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->

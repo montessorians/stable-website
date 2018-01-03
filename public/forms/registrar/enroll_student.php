@@ -180,4 +180,4 @@ if(empty($_REQUEST['student_id'])){
 		}
 	}
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->

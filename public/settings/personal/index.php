@@ -300,4 +300,4 @@ if($_SESSION['account_type']=="student"){} else {
 		saveChanges();
 	});
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
