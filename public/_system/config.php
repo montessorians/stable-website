@@ -13,7 +13,7 @@ with the other configurations of the site.
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '10';
-$hcm_version_patch = '1';
+$hcm_version_patch = '2';
 $hcm_version_release = "Public";
 $hcm_version_date = "January 2018 (Week 1)";
 
