@@ -61,7 +61,18 @@ if($showContinue==True){
         </style>
     </head>
     <body class="grey lighten-4" id="body">
-        <div class="splashscreen"></div>
+        <div class="splashscreen valign-wrapper">
+            <div class="valign center-block">
+                <noscript>
+                    <b class="seagreen-text">
+                    <center>
+                        <h4>Sorry!</h4>
+                        <h5>This web application requires Javascript to be turned-on.</h5>
+                    </center>
+                    </b>
+                </noscript>
+            </div>
+        </div>
         <br><br><br>
         <div class="container"><div class="container">
 
@@ -218,10 +229,11 @@ function init(){
     $('.modal').modal();
 
     $("meta[name='theme-color']").attr("content", "gainsboro");
+    $("#username").attr("disabled","disabled");
+    $("#password").attr("disabled","disabled");
     hideCards();
     $(".splashscreen").fadeOut();
     displayEnterUsername();
-
 }
 
 
@@ -247,12 +259,14 @@ function hideCards(){
 
 // Display Enter Username Card
 function displayEnterUsername(){
+    $("#username").removeAttr("disabled","");
     $("#askUsernameCard").slideDown({duration:300});
     $("#logo").fadeIn({duration: 800});
 }
 
 // Display Password Entry Card
 function displayPasswordEntry(){
+    $("#password").removeAttr("disabled","");
     $("#progress").hide();
     hideCards();    
     $("#askPasswordCard").slideDown();

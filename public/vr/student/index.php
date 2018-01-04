@@ -11,7 +11,7 @@ $account_type = $_SESSION['account_type'];
 if($account_type !== "student") die("Unauthorized access");
 
 include('../../action/_require/db.php');
-
+/*
 //  Get Student Info
 $student_info_array = $db_student->where(array(),"student_id", "$student_id");
 
@@ -35,7 +35,7 @@ $grade_array = $db_enroll->where(array(),"student_id", "$student_id");
 
 // Get attendance (Array)
 $attendance_array = $db_attendance->where(array(),  "student_id", "$student_id");
-
+*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,9 +74,9 @@ $attendance_array = $db_attendance->where(array(),  "student_id", "$student_id")
 		<!-- Grade Box -->
 		<a-box
 			color="white"
-			position="5 2 3"
-			rotation="3 0 0"
-			scale="3 5 10">
+			position="3 0 0"
+			rotation="0 0 0"
+			scale="1 8 5">
         </a-box>
         <a-text
             value="Hello World"

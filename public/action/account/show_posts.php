@@ -202,8 +202,8 @@ if(empty($array)){
 					$('#likedStatus$post_id').slideDown();
 				}				
 			}).fail(function(){
-				Materialize.toast('Cannot connect to server');
-				$('#likedStatus$post_id').slideDown();							
+				Materialize.toast('Cannot connect to server',3000);
+				$('#likedStatus$post_id').slideDown();
 			});
 		}
 

@@ -45,7 +45,7 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
 <?php include("_interface/_common/js_global_declaratives.php"); ?>
 
 //Initialization
-$(document).ready(function(){
+$(document).ready(()=>{
 
 	// Creates a Smooth Transition to prevent half-baked render
 	$(".splashscreen").fadeOut();
@@ -59,16 +59,16 @@ $(document).ready(function(){
 	$('.tooltipped').tooltip({delay: 50});
 
 	// Start Timer
-	setInterval(function(){
+	setInterval(()=>{
 		setTitle();
 	},100000);
 
 });
 	
 // Event Handlinng
-$("#notifButton").click(function(){ notif(); });
-$("#homeButton").click(function(){ home(); });	
-$("#clearNotif").click(function(){ deleteAllNotification(); });
+$("#notifButton").click(()=>{notif();});
+$("#homeButton").click(()=>{home();});	
+$("#clearNotif").click(()=>{deleteAllNotification();});
 
 // Global Functions
 <?php include("_interface/_common/scripts.php"); ?>
@@ -84,11 +84,11 @@ function home(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/teacher/home.php',
-		success: function(result){
+		success: (result)=>{
 			// Show Result
 			$("#home").html(result);
 		}
-	}).fail(function(){$("#home").html(error);});
+	}).fail(()=>{$("#home").html(error);});
 }
 
 // Assessment
@@ -99,11 +99,11 @@ function assessment(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/teacher/assessment.php',
-		success: function(result){
+		success: (result)=>{
 			// Show Result
 			$("#assessment").html(result);
 		}
-	}).fail(function(){$("#assessment").html(error);});
+	}).fail(()=>{$("#assessment").html(error);});
 }
 
 // People
@@ -114,11 +114,11 @@ function people(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/teacher/people.php',
-		success: function(result){
+		success: (result)=>{
 			// Show Result
 			$("#people").html(result);
 		}
-	}).fail(function(){$("#people").html(error);});
+	}).fail(()=>{$("#people").html(error);});
 }
 
 // Calendar
@@ -129,11 +129,11 @@ function calendar(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/teacher/calendar.php',
-		success: function(result){
+		success: (result)=>{
 			// Show Result
 			$("#calendar").html(result);
 		}
-	}).fail(function(){$("#calendar").html(error);});
+	}).fail(()=>{$("#calendar").html(error);});
 }
 
 // Me
@@ -144,10 +144,10 @@ function me(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/teacher/me.php',
-		success: function(result){
+		success: (result)=>{
 			// Show result
 			$("#me").html(result);
 		}
-	}).fail(function(){$("#me").html(error);});
+	}).fail(()=>{$("#me").html(error);});
 }
 </script>

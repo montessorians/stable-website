@@ -6,13 +6,13 @@
 		$.ajax({
 			type: 'GET',
 			url: '_contents/common/notification.php',
-			success: function(result){
+			success: (result)=>{
 				// Show fetched content in Modal
 				$("#notificationContent").html(result);
 				// Slowly fade-in content
 				$("#notificationContent").fadeIn(500);
 			}
-		}).fail(function(){
+		}).fail(()=>{
 			// Show an Error if Fail
 			$("#notificationContent").html(error);
 			// Slowly fade-in content
@@ -30,7 +30,7 @@
 			content: 'none'
 		},
 		cache: false,
-		success: function(result){
+		success: (result)=>{
 			// If result returns ok
 			if(result=="ok"){
 				// Refresh notif
@@ -42,7 +42,7 @@
 				Materialize.toast("Error clearing notifications");
 			}
 		}
-		}).fail(function(){
+		}).fail(()=>{
 			// Show an Error if Failed to Pass Through
 			Materialize.toast("Error clearing notifications");
 		});
@@ -60,7 +60,7 @@
 			data: {
 				user_id: '<?=$user_id?>'
 			},
-			success: function(result){
+			success: (result)=>{
 				// Hold result as notifCount
 				var notifCount = result;
 				// Check if Notif Count is empty
@@ -78,7 +78,7 @@
 						if(notifCount>100) var title = "100+";
 						if(notifCount>1000)var title = "1000+";
 						// Construct and Set title
-						var title = "(" + notifCount + ") " + siteTitle;
+						var title = `(${notifCount}) ${siteTitle}`;
 					}
 					// Set Notification Icon
 					$("#notificon").html("notifications");
@@ -86,7 +86,7 @@
 				// Set Page Title
 				$(document).prop("title", title);
 			}
-		}).fail(function(){
+		}).fail(()=>{
 			// Set Initial Title as Page Title
 			$(document).prop("title", siteTitle);
 			// Set Paused Notification Title

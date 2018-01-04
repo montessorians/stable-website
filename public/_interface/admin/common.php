@@ -137,7 +137,7 @@ include("_contents/common/apps.php");
 <?php include("_interface/_common/js_global_declaratives.php"); ?>
 
 // Initialization
-$(document).ready(function(){
+$(document).ready(()=>{
 
 	// Creates a Smooth Transition to prevent half-baked render
 	$(".splashscreen").fadeOut();
@@ -173,9 +173,9 @@ $(document).ready(function(){
 });
 
 // Event Handling - Listen to Button Press
-$("#homeButton").click(function(){ home(); });
-$("#notifButton").click(function(){ notif(); });
-$("#clearNotif").click(function(){ deleteAllNotification(); });
+$("#homeButton").click(()=>{home();});
+$("#notifButton").click(()=>{notif();});
+$("#clearNotif").click(()=>{deleteAllNotification();});
 
 // Global Functions
 <?php include("_interface/_common/scripts.php"); ?>
@@ -190,11 +190,11 @@ function home(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/administrator/home.php',
-		success: function(result){
+		success: (result)=>{
 			// Show fetched result and display
 			$("#home").html(result);
 		}
-	}).fail(function(){$("#home").html(error);});
+	}).fail(()=>{$("#home").html(error);});
 }
 
 // Me
@@ -205,10 +205,10 @@ function me(){
 	$.ajax({
 		type: 'GET',
 		url: '_contents/administrator/me.php',
-		success: function(result){
+		success: (result)=>{
 			// Show fetched result and display
 			$("#more").html(result);
 		}
-	}).fail(function(){$("#more").html(error);});
+	}).fail(()=>{$("#more").html(error);});
 }
 </script>

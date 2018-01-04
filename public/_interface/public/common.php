@@ -88,7 +88,16 @@ if(!$_SESSION['logged_in']){
         <!-- SplashScreen Display -->
         <div class="splashscreen valign-wrapper" id="splashscreen">
             <h3 class="valign center-block white-text">
-              <center class="ssdata">
+                <noscript>
+                    <b class="white-text">
+                    <center>
+                        <h4>Sorry!</h4>
+                        <h5>This web application requires Javascript to be turned-on.</h5>
+                    </center>
+                    </b>
+                </noscript>
+
+                <center class="ssdata">
                 <b>Holy Child Montessori</b><br><br>
                 <font size="3">Loading Site</font>
                 </center>
@@ -153,88 +162,84 @@ if(!$_SESSION['logged_in']){
             <br>
             <br>
             <h4 class="seagreen-text"><b>Why Choose Montessori?</b></h4><br><br>
-            <div class="cards-container">
-                <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">public</i>
-                            <h5 class='truncate'><b>World-Class</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">public</i>
-                            <p class='truncate'><font size='4'><b>World-Class</b></font></p>
-                        </div>
-                    <p class="grey-text text-darken-2">Our world-class curriculum helps your child to be ready for life wherever they maybe.</p>
-                    </center>
+                
+            <div id="app">
+                <div class="row hide-on-med-and-up">
+                    <mobile-choose
+                        icon="public"
+                        title="World-Class"
+                        content="Our world-class curriculum helps your child to be ready for life wherever they maybe.">
+                    </mobile-choose>
+                    <mobile-choose
+                        icon="school"
+                        title="25 Years in the Industry"
+                        content="We have mastered the best approach for your child's education.">
+                    </mobile-choose>
+                    <mobile-choose
+                        icon="local_atm"
+                        title="Affordable"
+                        content="The only school that doesn't sacrifice quality for affordability.">
+                    </mobile-choose>
+                    <mobile-choose
+                        icon="cloud"
+                        title="School in the Cloud"
+                        content="Know your child's progress whenever, wherever in any device.">
+                    </mobile-choose>
+                    <mobile-choose
+                        icon="group"
+                        title="Caring Community"
+                        content="Your child is treated like family in a community that cares for one another.">
+                    </mobile-choose>
+                    <mobile-choose
+                        icon="thumb_up"
+                        title="Highly Recommended"
+                        content="We are a well-known school that provides quality education since 1992.">
+                    </mobile-choose>
                 </div>
-                <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">school</i>
-                            <h5 class='truncate'><b>25 Years<br>in the Industry</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">school</i>
-                            <p class='truncate'><font size='4'><b>25 Years<br>in the Industry</b></font></p>
-                        </div>
-                   <p class="grey-text text-darken-2">We have mastered the best approach for your child's education.</p>
-                    </center>
+
+                <div class="hide-on-small-only">
+
+                <div class="row">
+                        <choose
+                            icon="public"
+                            title="World-Class"
+                            content="Our world-class curriculum helps your child to be ready for life wherever they maybe.">
+                        </choose>
+                        <choose
+                            icon="school"
+                            title="25 Years in the Industry"
+                            content="We have mastered the best approach for your child's education.">
+                        </choose>
                 </div>
-                <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">local_atm</i>
-                            <h5 class='truncate'><b>Affordable</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">local_atm</i>
-                            <p class='truncate'><font size='4'><b>Affordable</b></font></p>
-                        </div>
-                    <p class="grey-text text-darken-2">The only school that doesn't sacrifice quality for affordability.</p>
-                    </center>
-                </div>               
-                 <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">cloud</i>
-                            <h5 class='truncate'><b>School<br>in the Cloud</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">cloud</i>
-                            <p class='truncate'><font size='4'><b>School<br>in the Cloud</b></font></p>
-                        </div>
-                    <p class="grey-text text-darken-2">Know your child's progress whenever, wherever in any device.</p>
-                    </center>
+                <div class="row">
+                        <choose
+                            icon="local_atm"
+                            title="Affordable"
+                            content="The only school that doesn't sacrifice quality for affordability.">
+                        </choose>
+                        <choose
+                            icon="cloud"
+                            title="School in the Cloud"
+                            content="Know your child's progress whenever, wherever in any device.">
+                        </choose>
                 </div>
-               
-                <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">group</i>
-                            <h5 class='truncate'><b>Caring<br>Community</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">group</i>
-                            <p class='truncate'><font size='4'><b>Caring<br>Community</b></font></p>
-                        </div>
-                    <p class="grey-text text-darken-2">Your child is treated like family in a community that cares for one another.</p>
-                    </center>
-                </div>
-                <div class="col s4 reveal">
-                    <center class="seagreen-text">
-                        <div class="hide-on-small-only">
-                            <i class="large material-icons">thumb_up</i>
-                            <h5 class='truncate'><b>Highly<br>Recommended</b></h5>
-                        </div>
-                        <div class="hide-on-med-and-up">
-                            <i class="medium material-icons">thumb_up</i>
-                            <p class='truncate'><font size='4'><b>Highly<br>Recommended</b></font></p>
-                        </div>
-                    <p class="grey-text text-darken-2">We are a well-known school that provides quality education since 1992.</p>
-                    </center>
-                </div>
+                <div class="row">
+                        <choose
+                            icon="group"
+                            title="Caring Community"
+                            content="Your child is treated like family in a community that cares for one another.">
+                        </choose>
+                        <choose
+                            icon="thumb_up"
+                            title="Highly Recommended"
+                            content="We are a well-known school that provides quality education since 1992.">
+                        </choose>
+                    </div>
+
+                </div>                    
             </div>
-            <br>
+                
+        <br>
         </div>
 
         <div class="coursesoffered">
@@ -295,7 +300,8 @@ if(!$_SESSION['logged_in']){
         <iframe
          width="100%"
          height="300"
-         frameborder="0" style="border:0"
+         frameborder="0"
+         style="border:0"
          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuNfQSkwl85bk38k4de_QR-DwBGL-069o&q=Holy+Child+Montessori,+Carnation+St,+Navotas,+Metro+Manila,+Philippines" allowfullscreen>
         </iframe>
 
@@ -380,4 +386,34 @@ function splash(param){
         $("#splashscreen").fadeOut();
     },time);
 }
+
+Vue.component('mobile-choose',{
+    props:['icon','title','content'],
+    template: `
+        <div class="col s12 reveal">
+            <center class="seagreen-text">
+                <i class="medium material-icons">{{icon}}</i>
+                <h5 class="truncate"><b>{{title}}</b></h5>
+                <p class="grey-text text-darken-2">{{content}}</p>
+            </center>
+        </div>
+    `
+});
+
+Vue.component('choose',{
+    props:['icon','title','content'],
+    template: `
+        <div class="col s6 reveal">
+            <center class="seagreen-text">
+                <i class="large material-icons">{{icon}}</i>
+                <h5 class="truncate"><b>{{title}}</b></h5>
+                <p class="grey-text text-darken-2">{{content}}</p>
+            </center>
+        </div>
+    `    
+});
+
+new Vue({
+    el: '#app'
+})
 </script>
