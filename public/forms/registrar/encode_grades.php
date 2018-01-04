@@ -1,40 +1,44 @@
 <?php
 session_start();
 include("../../_system/secure.php");
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
-	}	
-	include("../../_system/config.php");
-	include("../../_system/database/db.php");
-	$activity_title = "Encode Grades";
-	
-	$db_schooldata = new DBase("school_data", "../../_store");
-	$db_class = new DBase("class", "../../_store");
-	$db_student = new DBase("student", "../../_store");
-	$db_enroll = new DBase("student_class", "../../_store");
-	$db_subject = new DBase("subject", "../../_store");
-
-	$class_id = $_GET['class_id'];
-	if(empty($class_id)){
-		header("Location: $from");
+if(empty($_GET['from'])){
+	if(empty($_SERVER['HTTP_REFERER'])){
+		$from = "../../";
 	} else {
-		$check_classid = $db_class->get("class_id","class_id", "$class_id");
-		if(empty($check_classid)) header("Location: $from");
-	}
-	
-	$subject_id = $db_class->get("subject_id", "class_id","$class_id");
-	$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
-	$grade = $db_subject->get("grade","subject_id","$subject_id");
-	$section = $db_class->get("section","class_id","$class_id");
+		$from = $_SERVER['HTTP_REFERER'];
+	}} else {
+	$from = $_GET['from'];
+}	
+include("../../_system/config.php");
+include("../../_system/database/db.php");
+$activity_title = "Encode Grades";
 
-	$grade_encode = $db_schooldata->get("grade_encode", "school_id", "1");
-	$current_quarter = $db_schooldata->get("quarter", "school_id", "1");
-	$enroll_array = $db_enroll->where(array(), "class_id", "$class_id");
+$db_loc = "../../_store";
+
+$db_schooldata = new DBase("school_data",$db_loc);
+$db_class = new DBase("class",$db_loc);
+$db_student = new DBase("student",$db_loc);
+$db_enroll = new DBase("student_class",$db_loc);
+$db_subject = new DBase("subject",$db_loc);
+
+$class_id = $_GET['class_id'];
+
+if(empty($class_id)){
+	header("Location: $from");
+} else {
+	$check_classid = $db_class->get("class_id","class_id", "$class_id");
+	if(empty($check_classid)) header("Location: $from");
+}
+
+$subject_id = $db_class->get("subject_id", "class_id","$class_id");
+
+$subject_title = $db_subject->get("subject_title", "subject_id", "$subject_id");
+$grade = $db_subject->get("grade","subject_id","$subject_id");
+$section = $db_class->get("section","class_id","$class_id");
+
+$grade_encode = $db_schooldata->get("grade_encode", "school_id", "1");
+$current_quarter = $db_schooldata->get("quarter", "school_id", "1");
+$enroll_array = $db_enroll->where(array(), "class_id", "$class_id");
 ?>
 <!Doctype html>
 <html>

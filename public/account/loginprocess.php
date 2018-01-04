@@ -62,7 +62,6 @@ if(!$username_check){
 
 		}
 		
-		//Proposed communication change
 		$array = array(
 		"code"=>"200",
 		"message"=>"User successfully signed-in"
@@ -70,19 +69,13 @@ if(!$username_check){
 		echo json_encode($array);
 		
 	} else {
-
 		
-		//Proposed communication change
 		$array = array(
 			"code"=>"500",
 			"message"=>"Wrong Sign-In Details"
 		);
 		echo json_encode($array);
 		
-
-		// Returns an error if user has given a wrong sign-in detail
-		//echo "Wrong Sign-In Details";
-
 	}
 }
 ?>

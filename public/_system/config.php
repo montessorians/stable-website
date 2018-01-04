@@ -17,7 +17,6 @@ $hcm_version_patch = '4';
 $hcm_version_release = "Public";
 $hcm_version_date = "January 2018 (Week 1)";
 
-
 // Site Config
 $primary_color = "seagreen";
 $secondary_color = "green darken-2";
