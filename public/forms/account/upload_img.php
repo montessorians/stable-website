@@ -13,10 +13,6 @@ if(empty($_GET['from'])){
 	$from = $_GET['from'];
 }
 
-if(!$_SESSION['account_type'] == "admin"){
-	if(!$_SESSION['account_type'] == "developer") header("Location: $from");
-}
-
 include("../../_system/config.php");
 $activity_title = "Upload User Image";
 

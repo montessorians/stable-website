@@ -1,4 +1,5 @@
 <?php
+
 // Start Session
 session_start();
 
@@ -7,18 +8,17 @@ include("../../_system/secure.php");
 
 // Check 'from' data
 if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
+	if(empty($_SERVER['HTTP_REFERER'])){
+		$from = "../../";
+	} else {
+		$from = $_SERVER['HTTP_REFERER'];
+	}
+} else {
 		$from = $_GET['from'];
-	}
-	if($_SESSION['account_type'] == "admin"){} else {
-		if($_SESSION['account_type'] == "developer"){} else {
-				header("Location: $from");
-		}
-	}
+}
+
+
+if(!$_SESSION['account_type'] == "admin") header("Location: $from");
 	
 include("../../_system/config.php");
 

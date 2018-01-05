@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$perm = 5;
+
 include("../../_system/secure.php");
 
 if(empty($_GET['from'])){
@@ -12,12 +14,9 @@ if(empty($_GET['from'])){
 } else {
 	$from = $_GET['from'];
 }
-
-if(!$_SESSION['account_type'] == "admin"){
-	if(!$_SESSION['account_type'] == "developer") header("Location: $from");
-}
 	
 include("../../_system/config.php");
+
 $activity_title = "Connect a Parent to Student";
 
 $student_id = "";
