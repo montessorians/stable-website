@@ -104,10 +104,36 @@ if($edit === 0){
 }
 
 if($edit === 1){
+	$account_info = $db_account->where(array(),"user_id",$user_id);
+	foreach($account_info as $account){
+		$account_type = $account['account_type'];
+		$username = $account['username'];
+
+		switch($account_type){
+			case("student"):
+				$id = $account['student_id'];
+				break;
+			case("admin"):
+				$id = $account['admin_id'];
+				break;
+			case("parent"):
+				$id = $account['parent_id'];
+				break;
+			case("teacher"):
+				$id = $account['teacher_id'];
+				break;
+			case("developer"):
+				$id = $account['developer_id'];
+				break;
+			case("staff"):
+				$id = $account['staff_id'];
+				break;
+		}
+	}
 	$account_type = $db_account->get("account_type", "user_id", "$user_id");
 	$username = $db_account->get("username", "user_id", "$user_id");
 
-	$person_data = infoGetter($account_type,$student_id);
+	$person_data = infoGetter($account_type,$id);
 	foreach($person_data as $person){
 		$first_name = $person['first_name'];
 		$middle_name = $person['middle_name'];

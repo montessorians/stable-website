@@ -61,7 +61,6 @@ if(empty($r)){
 	</div>";
 
 } else {
-
 	// loop along data
 	foreach($r as $class){
 		
@@ -87,7 +86,7 @@ if(empty($r)){
 			$subject_code = $subject['subject_code'];
 		}
 
-		$teacher_info = $db_teacher->where(array(),"subject_id",$subject_id);
+		$teacher_info = $db_teacher->where(array(),"teacher_id",$teacher_id);
 		foreach($teacher_info as $teacher){
 			$first_name = $teacher['first_name'];
 			$last_name = $teacher['last_name'];

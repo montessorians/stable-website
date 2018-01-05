@@ -22,8 +22,8 @@ $activity_title = "Enroll in a Class";
 $student_id = "";
 $class_id = "";
 
-if(!empty($_REQUEST['student_id'])) $_REQUEST['student_id'];
-if(!empty($_REQUEST['class_id'])) $_REQUEST['class_id'];
+if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];
+if(!empty($_REQUEST['class_id'])) $class_id = $_REQUEST['class_id'];
 ?>
 <!Doctype html>
 <html>
@@ -38,7 +38,6 @@ if(!empty($_REQUEST['class_id'])) $_REQUEST['class_id'];
 	</nav>
 	<div class="container">
 		<br><br>
-		
 		<div class="input-field">
 			<input type="text" id="student_id" value="<?=$student_id?>">
 			<label for="student_id">Student ID</label>

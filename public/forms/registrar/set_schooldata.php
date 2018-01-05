@@ -29,7 +29,7 @@ foreach($schooldata as $school){
 	$exam_week = $school['exam_week'];
 	$grade_encode = $school['grade_encode'];
 	$enrollment = $school['enrollment'];
-	$print_grades = $school['print_grade'];
+	$print_grades = $school['print_grades'];
 }
 
 $sy1 = (date("Y")-1)."-".date("Y"); 

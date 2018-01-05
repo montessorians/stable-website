@@ -1,17 +1,18 @@
 <?php
-	session_start();
-	include("../../_system/secure.php");
-	if(empty($_GET['from'])){
-		if(empty($_SERVER['HTTP_REFERER'])){
-			$from = "../../";
-		} else {
-			$from = $_SERVER['HTTP_REFERER'];
-		}} else {
-		$from = $_GET['from'];
+session_start();
+include("../../_system/secure.php");
+if(empty($_GET['from'])){
+	if(empty($_SERVER['HTTP_REFERER'])){
+		$from = "../../";
+	} else {
+		$from = $_SERVER['HTTP_REFERER'];
 	}
+} else {
+	$from = $_GET['from'];
+}
 	
-	include("../../_system/config.php");
-	$activity_title = "Subjects Search";
+include("../../_system/config.php");
+$activity_title = "Subjects Search";
 ?>
 <!Doctype html>
 <html>

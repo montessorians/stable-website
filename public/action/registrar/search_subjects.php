@@ -23,10 +23,10 @@ $query = $_POST['query'];
 $searchBy = $_POST['searchBy'];
 
 // Check if empty query
-if(!$query){
+if(empty($query)){
 
-    $r = $db_subject->select(array());
-
+    $r = @$db_subject->select(array());
+    
 } else {
 
     $r = $db_subject->like(array(), "$searchBy", "/.*$query/");
