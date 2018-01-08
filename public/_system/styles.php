@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="<?=$theme_color?>">
     <link rel="manifest" href="/manifest.json">
+    <style>
+     img[src*="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"] {
+       display: none !important;
+      }
+    </style>
 
     <!--
       Critical User Safety Scripts
