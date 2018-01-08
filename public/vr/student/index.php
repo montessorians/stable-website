@@ -45,7 +45,7 @@ $attendance_array = $db_attendance->where(array(),  "student_id", "$student_id")
 
     <title>HCM Student VR</title>
 
-    <script src="/assets/aframe.min.js" type="text/javascript"></script>
+    <script src="/assets/js/aframe.min.js" type="text/javascript"></script>
 	<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 	<script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
 	<script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
@@ -56,7 +56,7 @@ $attendance_array = $db_attendance->where(array(),  "student_id", "$student_id")
 
     <a-scene>
 		<a-assets>
-			<img id="hcmlogo" src="/assets/logo.jpg">
+			<img id="hcmlogo" src="/assets/imgs/logo.jpg">
 		</a-assets>
 		<a-entity environment="lighting:point; preset:forest"></a-entity>
 		

@@ -78,7 +78,7 @@ if(!$_SESSION['logged_in']){
     .jumboImage{
         max-width: 100%;
         height:400px;
-        background-image: url("/assets/cover.jpg");
+        background-image: url("/assets/imgs/cover.jpg");
         background-repeat: no-repeat;
         background-position: left top;
         background-size: cover;
@@ -127,7 +127,7 @@ if(!$_SESSION['logged_in']){
             <ul class="side-nav" id="mobile-demo">
                 <li class="userView">
                     <div class="background">
-                        <img src="/assets/thumb1.png" width="100%">
+                        <img src="/assets/imgs/thumb1.png" width="100%">
                     </div>
                     <p><b>Welcome Montessorian!</b></p>
                 </li>
@@ -245,7 +245,7 @@ if(!$_SESSION['logged_in']){
         <div class="coursesoffered">
             <style>
                 .kinder {
-                    background-image: url("assets/thumb2.png");
+                    background-image: url("assets/imgs/thumb2.png");
                     max-width: 100%;
                     height: 180px;
                     background-repeat: no-repeat;
@@ -253,7 +253,7 @@ if(!$_SESSION['logged_in']){
                     background-size: cover;
                 }
                 .tutorial {
-                    background-image: url("assets/thumb1.png");
+                    background-image: url("assets/imgs/thumb1.png");
                     max-width: 100%;
                     height: 180px;
                     background-repeat: no-repeat;

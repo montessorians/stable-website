@@ -8,7 +8,7 @@
 	$grade = $db_student->get("grade", "student_id", "$student_id");
 	$grade_schoolyear = $db_student->get("school_year", "student_id", "$student_id");
 	$section = $db_student->get("section", "student_id", "$student_id");
-	if(empty($photo_url)) $photo_url = "assets/noimg.bmp";
+	if(empty($photo_url)) $photo_url = "assets/imgs/noimg.png";
 	if(empty($grade)){
 		$status = "Not Enrolled";
 	} else {

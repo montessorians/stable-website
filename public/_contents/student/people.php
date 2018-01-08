@@ -61,7 +61,7 @@ if(empty($current_enroll)){
         $username = $db_account->get("username", "user_id", "$user_id");  
         $photo_url = $db_account->get("photo_url", "user_id", "$user_id");
 
-        if(empty($photo_url)) $photo_url="/asset/noimg.bmp";
+        if(empty($photo_url)) $photo_url="/asset/imgs/noimg.png";
 
         echo "
         <div class='col s6'>
@@ -138,7 +138,7 @@ $noclass_card = "
                 $username = $db_account->get("username", "user_id", "$user_id");  
                 $photo_url = $db_account->get("photo_url", "user_id", "$user_id");                   
                 if(empty($photo_url)){
-                    $photo_url = "assets/noimg.bmp";
+                    $photo_url = "assets/imgs/noimg.png";
                 }
 
                      echo "
@@ -225,7 +225,7 @@ if(empty($admin_array)){
         $photo_url = $db_account->get("photo_url", "admin_id", "$admin_id");
 
                      if(empty($photo_url)){
-                         $photo_url = "assets/noimg.bmp";
+                         $photo_url = "assets/imgs/noimg.png";
                      }
                      echo "
                          <div class='col s6'>

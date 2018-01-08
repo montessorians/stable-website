@@ -45,7 +45,8 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	<title><?=$site_title?></title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+	<!--link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/-->
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/logo-144px.png"/>
 
 	<?php
 	// Include Style Files

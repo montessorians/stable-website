@@ -28,7 +28,7 @@ foreach($admin_array as $admin){
      $username = $db_account->get("username", "admin_id", "$admin_id");
      $photo_url = $db_account->get("photo_url", "admin_id", "$admin_id");
 
-     if(!$photo_url) $photo_url = "assets/noimg.bmp";
+     if(!$photo_url) $photo_url = "assets/imgs/noimg.png";
 
                      echo "
                          <div class='col s6'>

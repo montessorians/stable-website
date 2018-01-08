@@ -50,7 +50,7 @@ if($proceed==1){
         $user_id = $db_account->get("user_id", "student_id", "$student_id");
         $username = $db_account->get("username","student_id","$student_id");
 
-        if(empty($photo_url))$photo_url="assets/noimg.bmp";
+        if(empty($photo_url))$photo_url="assets/imgs/noimg.png";
 
         echo "
 		<style>
@@ -241,7 +241,7 @@ if(!empty($teacher_array)){
         $username = $db_account->get("username", "teacher_id", "$teacher_id");
         $photo_url = $db_account->get("photo_url", "teacher_id", "$teacher_id");
    
-        if(empty($photo_url)) $photo_url = "/assets/noimg.bmp";
+        if(empty($photo_url)) $photo_url = "/assets/imgs/noimg.png";
 
         echo "
 	<style>
@@ -322,7 +322,7 @@ if(!empty($admin_array)){
      $username = $db_account->get("username", "admin_id", "$admin_id");
      $photo_url = $db_account->get("photo_url", "admin_id", "$admin_id");
 
-     if(!$photo_url) $photo_url = "assets/noimg.bmp";
+     if(!$photo_url) $photo_url = "assets/imgs/noimg.png";
 
                      echo "
 		     	 <style>

@@ -9,12 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="<?=$theme_color?>">
     <link rel="manifest" href="/manifest.json">
+    <meta name="favicon" content="/assets/imgs/favicon.ico">
     <style>
      img[src*="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"] {
        display: none !important;
       }
     </style>
-
+    <!--
+      Service Workers
+    -->
+    <script type="text/javascript">
+      'use strict';
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('/serviceworker.js').then((reg)=>{
+          console.log('SW Registration was Successful');
+        }).catch((err)=>{
+          var error = err;
+          console.error(`SW Registration Error: ${error}`);
+        });
+      } else {
+        console.error('Service Worker is not available on this browser.');
+      }
+    </script>
     <!--
       Critical User Safety Scripts
       These are important in securing both the website and
@@ -35,7 +51,7 @@
     -->
     <link
       rel="stylesheet"
-      href="/assets/iconfont/material-icons.css">
+      href="/assets/fonts/iconfont/material-icons.css">
     <!--link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"-->
@@ -44,10 +60,10 @@
       href="/assets/materialize/css/materialize-0.98.1.min.css">
     <link
       rel="stylesheet"
-      href="/assets/custom-styles.css">
+      href="/assets/css/custom-styles.css">
     <link
       rel="stylesheet"
-      href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+      href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--
       Javascripts
       These are necessary to make the page interactive.
@@ -56,7 +72,7 @@
     -->
     <script
       type="text/javascript"
-      src="/assets/vue.min.js">
+      src="/assets/js/vue.min.js">
     </script>
     <script
       type="text/javascript"
@@ -74,7 +90,7 @@
     </script-->
     <script
       type="text/javascript"
-      src="/assets/scrollreveal.min.js">
+      src="/assets/js/scrollreveal.min.js">
     </script>
 
     <!--

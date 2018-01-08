@@ -128,7 +128,7 @@ $pdf->AddPage();
 $pdf->SetMargins(20,0,20);
 
 // Set Logo
-$pdf->Image('../../assets/logo.jpg',10,0,40);
+$pdf->Image('../../assets/imgs/logo.jpg',10,0,40);
 
 // Site Title
 $pdf->SetFont('Arial','B',18);

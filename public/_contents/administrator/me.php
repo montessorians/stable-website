@@ -5,7 +5,7 @@
 	$last_name = $db_admin->get("last_name", "admin_id", "$admin_id");
 	$suffix_name = $db_admin->get("suffix_name", "admin_id", "$admin_id");
 	$name = $first_name . " " . $last_name . " " . $suffix_name;
-	if(empty($photo_url)) $photo_url = "assets/noimg.bmp";	
+	if(empty($photo_url)) $photo_url = "assets/imgs/noimg.png";	
 ?>
 <style>
 	.collection-title{

@@ -81,7 +81,7 @@ if($showContinue==True){
                 <div class="progress green lighten-4"><div class="indeterminate seagreen"></div></div>
                 <div class="card-content">
                     <div class="lg"></div>
-                    <img width="70px" height="70px" src="/assets/logo.jpg" id="logo">
+                    <img width="70px" height="70px" src="/assets/imgs/logo.jpg" id="logo">
                     <h5 class="blue-grey-text text-darken-1">Welcome Montessorian!</h5>
                     <p><?=$msg?></p>
                     <br><br>
@@ -107,7 +107,7 @@ if($showContinue==True){
             <div class="card z-depth-5 hoverable" id="askPasswordCard">
                 <div class="progress green lighten-4"><div class="indeterminate seagreen"></div></div>
                 <div class="card-content">
-                    <img width="100px" src="../assets/noimg.bmp" id="accountIcon">
+                    <img width="100px" src="../assets/imgs/noimg.png" id="accountIcon">
                     <h5 class="blue-grey-text text-darken-1">Welcome <span id="firstName">User</span>!</h5>
                     <p id="userID">@username</p>
                     <br><br>

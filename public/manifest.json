@@ -2,7 +2,13 @@
     "short_name":"Holy Child Montessori",
     "name":"Holy Child Montessori",
     "icons":[{
-        "src":"/assets/logo.jpg"
+        "src":"/assets/imgs/logo-144px.png",
+        "size":"144x144",
+        "type":"image/png"
+    },{
+        "src":"/assets/imgs/logo.jpg",
+        "size":"256x256",
+        "type":"image/jpg"
     }],
     "start_url":"index.php",
     "background_color":"seagreen",
