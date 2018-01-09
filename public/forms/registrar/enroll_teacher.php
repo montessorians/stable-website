@@ -101,4 +101,3 @@ function enroll(){
 	
 }
 </script>
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->

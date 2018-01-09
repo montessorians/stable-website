@@ -80,4 +80,3 @@ $(document).ready().keypress(function(e){
 		});
 	}
 </script>
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->

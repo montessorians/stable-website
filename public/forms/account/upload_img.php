@@ -58,4 +58,3 @@ if(!empty($_REQUEST['user_id'])) $user_id = $_REQUEST['user_id'];
 	</div>
 </body>
 </html>
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->

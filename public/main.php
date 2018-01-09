@@ -45,7 +45,6 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	<title><?=$site_title?></title>
 
 	<!-- Favicon -->
-	<!--link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/-->
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/logo-144px.png"/>
 
 	<?php
@@ -56,8 +55,8 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	<!-- OpenGraph Tags -->
 	<meta property="og:title" content="Holy Child Montessori">
 	<meta property="og:description" content="Providing quality education since 1992">
-	<meta propert="og:image" content="https://hcmontessori.likesyou.org/assets/login.jpg">
-	<meta property="og:url" content="https://hcmontessori.likesyou.org">
+	<meta propert="og:image" content="https://hcmontessori.000webhostapp.com/assets/login.jpg">
+	<meta property="og:url" content="https://hcmontessori.000webhostapp.com">
 	<meta property="og:site_name" content="Holy Child Montessori">
 	<meta property="og:type" content="website">
 
@@ -117,5 +116,4 @@ may be e-mailed to us at hcmontessori@gmail.com.
 
 </html>
 
-<!-- Fonts -->
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
+

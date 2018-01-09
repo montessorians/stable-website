@@ -27,7 +27,7 @@ https://github.com/hcmedutech/website.
 This web application is being continuously being developed.
 For version details, please log-in using your account
 and in the Me tab, scroll to the bottom-most part or
-visit https://hcmontessor.likesyou.org/version.php.
+visit https://hcmontessori.000webhostapp.com/version.php.
 
 For bugs and other issues, please visit the GitHub repository
 and open a bug report. Vulnerability and other security issues
@@ -56,8 +56,8 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	<!-- OpenGraph Tags -->
 	<meta property="og:title" content="Holy Child Montessori">
 	<meta property="og:description" content="Providing quality education since 1992">
-	<meta propert="og:image" content="https://hcmontessori.likesyou.org/assets/login.jpg">
-	<meta property="og:url" content="https://hcmontessori.likesyou.org">
+	<meta propert="og:image" content="https://hcmontessori.000webhostapp.com/assets/login.jpg">
+	<meta property="og:url" content="https://hcmontessori.000webhostapp.com">
 	<meta property="og:site_name" content="Holy Child Montessori">
 	<meta property="og:type" content="website">
 
@@ -71,5 +71,5 @@ may be e-mailed to us at hcmontessori@gmail.com.
 
 </html>
 
-<!-- Fonts -->
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
+
+

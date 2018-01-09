@@ -89,4 +89,3 @@ $activity_title = "Subjects Search";
 		});
 	}
 </script>
-<!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
