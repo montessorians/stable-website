@@ -1,6 +1,6 @@
 # Holy Child Montessori Website
 The official website of Holy Child Montessori School of Excellence.
-https://hcmontessori.000webhostapp.com,
+https://hcmontessori.000webhostapp.com
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/hcmedutech/website?branch=master)](https://bettercodehub.com/)
 

@@ -77,7 +77,7 @@ self.addEventListener('fetch',(event)=>{
 
             });
         }).catch(()=>{
-            return catches.match('/assets/imgs/noimg.jpg');
+            return caches.match('/assets/imgs/noimg.jpg');
         })
     );
 });

@@ -17,11 +17,12 @@
     </style>
 
     <!--
-      Service Workers
+      Service Workers and Notifications, etc.
     -->
     <script type="text/javascript">
       'use strict';
-      
+
+      // Service Worker
       if('serviceWorker' in navigator){
         navigator.serviceWorker.register('/serviceworker.js').then((reg)=>{
           console.log('SW Registration was Successful');
@@ -32,13 +33,14 @@
       } else {
         console.error('Service Worker is not available on this browser.');
       }
-    </script>
 
-    <!--
-      WebApp Install
-    -->
-    <script type="text/javascript">
-      'use strict';
+      // Notifications
+      /*Notification.requestPermission().then((result)=>{
+        console.log(result);
+      });*/
+
+
+      // Web app install
       window.addEventListener('beforeinstallprompt',(e)=>{
         e.userChoice.then((choiceResult)=>{
           if(choiceResult.outcome == 'dismissed'){
