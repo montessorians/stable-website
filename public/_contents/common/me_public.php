@@ -1,11 +1,11 @@
 	<li class="collection-item avatar">
-		<a href="http://holychildmontessori.edu20.org" class="black-text">
+		<a href="https://holychildmontessori.edu20.org" class="black-text">
 			<i class="material-icons circle green">school</i>
 			<p class="collection-title grey-text text-darken-2">Online School <i class="material-icons tiny">launch</i></p>
 		</a>
 	</li>
 	<li class="collection-item avatar">
-		<a href="http://hcm-library.likesyou.org/opac/" class="black-text">
+		<a href="https://hcm-library.likesyou.org/opac/" class="black-text">
 			<i class="material-icons circle blue">library_books</i>
 			<p class="collection-title grey-text text-darken-2">School Library <i class="material-icons tiny">launch</i></p>
 		</a>
@@ -29,7 +29,7 @@
 		</a>
 	</li>
 	<li class="collection-item avatar">
-		<a href="http://hcm-help.likesyou.org/" class="black-text">
+		<a href="https://hcm-help.likesyou.org/" class="black-text">
 			<i class="material-icons circle grey">info</i>
 			<p class="collection-title grey-text text-darken-2">Help Center</p>
 		</a>

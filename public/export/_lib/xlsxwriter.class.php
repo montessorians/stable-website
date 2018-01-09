@@ -5,10 +5,10 @@
 
 class XLSXWriter
 {
-	//http://www.ecma-international.org/publications/standards/Ecma-376.htm
-	//http://officeopenxml.com/SSstyles.php
+	//https://www.ecma-international.org/publications/standards/Ecma-376.htm
+	//https://officeopenxml.com/SSstyles.php
 	//------------------------------------------------------------------
-	//http://office.microsoft.com/en-us/excel-help/excel-specifications-and-limits-HP010073849.aspx
+	//https://office.microsoft.com/en-us/excel-help/excel-specifications-and-limits-HP010073849.aspx
 	const EXCEL_2007_MAX_ROW=1048576;
 	const EXCEL_2007_MAX_COL=16384;
 	//------------------------------------------------------------------
@@ -132,7 +132,7 @@ class XLSXWriter
 		$tabselected = count($this->sheets) == 1 ? 'true' : 'false';//only first sheet is selected
 		$max_cell=XLSXWriter::xlsCell(self::EXCEL_2007_MAX_ROW, self::EXCEL_2007_MAX_COL);//XFE1048577
 		$sheet->file_writer->write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' . "\n");
-		$sheet->file_writer->write('<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">');
+		$sheet->file_writer->write('<worksheet xmlns="https://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="https://schemas.openxmlformats.org/officeDocument/2006/relationships">');
 		$sheet->file_writer->write(  '<sheetPr filterMode="false">');
 		$sheet->file_writer->write(    '<pageSetUpPr fitToPage="false"/>');
 		$sheet->file_writer->write(  '</sheetPr>');
@@ -437,7 +437,7 @@ class XLSXWriter
 		$temporary_filename = $this->tempFilename();
 		$file = new XLSXWriter_BuffererWriter($temporary_filename);
 		$file->write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'."\n");
-		$file->write('<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">');
+		$file->write('<styleSheet xmlns="https://schemas.openxmlformats.org/spreadsheetml/2006/main">');
 		$file->write('<numFmts count="'.count($this->number_formats).'">');
 		foreach($this->number_formats as $i=>$v) {
 			$file->write('<numFmt numFmtId="'.(164+$i).'" formatCode="'.self::xmlspecialchars($v).'" />');
@@ -562,7 +562,7 @@ class XLSXWriter
 	{
 		$app_xml="";
 		$app_xml.='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'."\n";
-		$app_xml.='<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"><TotalTime>0</TotalTime></Properties>';
+		$app_xml.='<Properties xmlns="https://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="https://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"><TotalTime>0</TotalTime></Properties>';
 		return $app_xml;
 	}
 
@@ -570,7 +570,7 @@ class XLSXWriter
 	{
 		$core_xml="";
 		$core_xml.='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'."\n";
-		$core_xml.='<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
+		$core_xml.='<cp:coreProperties xmlns:cp="https://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:dcmitype="https://purl.org/dc/dcmitype/" xmlns:dcterms="https://purl.org/dc/terms/" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">';
 		$core_xml.='<dcterms:created xsi:type="dcterms:W3CDTF">'.date("Y-m-d\TH:i:s.00\Z").'</dcterms:created>';//$date_time = '2014-10-25T15:54:37.00Z';
 		$core_xml.='<dc:title>'.self::xmlspecialchars($this->title).'</dc:title>';
 		$core_xml.='<dc:creator>'.self::xmlspecialchars($this->author).'</dc:creator>';
@@ -583,10 +583,10 @@ class XLSXWriter
 	{
 		$rels_xml="";
 		$rels_xml.='<?xml version="1.0" encoding="UTF-8"?>'."\n";
-		$rels_xml.='<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
-		$rels_xml.='<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>';
-		$rels_xml.='<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>';
-		$rels_xml.='<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>';
+		$rels_xml.='<Relationships xmlns="https://schemas.openxmlformats.org/package/2006/relationships">';
+		$rels_xml.='<Relationship Id="rId1" Type="https://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>';
+		$rels_xml.='<Relationship Id="rId2" Type="https://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>';
+		$rels_xml.='<Relationship Id="rId3" Type="https://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>';
 		$rels_xml.="\n";
 		$rels_xml.='</Relationships>';
 		return $rels_xml;
@@ -597,7 +597,7 @@ class XLSXWriter
 		$i=0;
 		$workbook_xml="";
 		$workbook_xml.='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'."\n";
-		$workbook_xml.='<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">';
+		$workbook_xml.='<workbook xmlns="https://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="https://schemas.openxmlformats.org/officeDocument/2006/relationships">';
 		$workbook_xml.='<fileVersion appName="Calc"/><workbookPr backupFile="false" showObjects="all" date1904="false"/><workbookProtection/>';
 		$workbook_xml.='<bookViews><workbookView activeTab="0" firstSheet="0" showHorizontalScroll="true" showSheetTabs="true" showVerticalScroll="true" tabRatio="212" windowHeight="8192" windowWidth="16384" xWindow="0" yWindow="0"/></bookViews>';
 		$workbook_xml.='<sheets>';
@@ -616,10 +616,10 @@ class XLSXWriter
 		$i=0;
 		$wkbkrels_xml="";
 		$wkbkrels_xml.='<?xml version="1.0" encoding="UTF-8"?>'."\n";
-		$wkbkrels_xml.='<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
-		$wkbkrels_xml.='<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>';
+		$wkbkrels_xml.='<Relationships xmlns="https://schemas.openxmlformats.org/package/2006/relationships">';
+		$wkbkrels_xml.='<Relationship Id="rId1" Type="https://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>';
 		foreach($this->sheets as $sheet_name=>$sheet) {
-			$wkbkrels_xml.='<Relationship Id="rId'.($i+2).'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/'.($sheet->xmlname).'"/>';
+			$wkbkrels_xml.='<Relationship Id="rId'.($i+2).'" Type="https://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/'.($sheet->xmlname).'"/>';
 			$i++;
 		}
 		$wkbkrels_xml.="\n";
@@ -631,7 +631,7 @@ class XLSXWriter
 	{
 		$content_types_xml="";
 		$content_types_xml.='<?xml version="1.0" encoding="UTF-8"?>'."\n";
-		$content_types_xml.='<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">';
+		$content_types_xml.='<Types xmlns="https://schemas.openxmlformats.org/package/2006/content-types">';
 		$content_types_xml.='<Override PartName="/_rels/.rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>';
 		$content_types_xml.='<Override PartName="/xl/_rels/workbook.xml.rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>';
 		foreach($this->sheets as $sheet_name=>$sheet) {
@@ -666,7 +666,7 @@ class XLSXWriter
 		file_put_contents("php://stderr", date("Y-m-d H:i:s:").rtrim(is_array($string) ? json_encode($string) : $string)."\n");
 	}
 	//------------------------------------------------------------------
-	public static function sanitize_filename($filename) //http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
+	public static function sanitize_filename($filename) //https://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
 	{
 		$nonprinting = array_map('chr', range(0,31));
 		$invalid_chars = array('<', '>', '?', '"', ':', '|', '\\', '/', '*', '&');

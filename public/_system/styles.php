@@ -15,11 +15,13 @@
        display: none !important;
       }
     </style>
+
     <!--
       Service Workers
     -->
     <script type="text/javascript">
       'use strict';
+      
       if('serviceWorker' in navigator){
         navigator.serviceWorker.register('/serviceworker.js').then((reg)=>{
           console.log('SW Registration was Successful');
@@ -31,6 +33,23 @@
         console.error('Service Worker is not available on this browser.');
       }
     </script>
+
+    <!--
+      WebApp Install
+    -->
+    <script type="text/javascript">
+      'use strict';
+      window.addEventListener('beforeinstallprompt',(e)=>{
+        e.userChoice.then((choiceResult)=>{
+          if(choiceResult.outcome == 'dismissed'){
+            console.error("User dismissed the home screen install");
+          } else {
+            console.log("User added site to home screen");
+          }
+        });
+      });
+    </script>
+
     <!--
       Critical User Safety Scripts
       These are important in securing both the website and

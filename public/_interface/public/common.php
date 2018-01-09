@@ -17,7 +17,7 @@ if(!$_SESSION['logged_in']){
         width: 120px !important;
         margin-left: 60px !important;
         position: absolute !important;
-        background-image: url("/assets/favicon.ico");
+        background-image: url("/assets/imgs/logo.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -28,7 +28,7 @@ if(!$_SESSION['logged_in']){
         width: 80px !important;
         margin-left: 60px !important;
         position: absolute !important;
-        background-image: url("/assets/favicon.ico");
+        background-image: url("/assets/imgs/logo.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -310,8 +310,8 @@ if(!$_SESSION['logged_in']){
         <div class="row">
 		<div class="col s4">
 			<h5 class="white-text">Get in Touch</h5>
-			<a class="white-text" href="http://fb.com/montessorians">Facebook</a><br>
-			<a class="white-text" href="http://twitter.com/hcmofgasak">Twitter</a><br>
+			<a class="white-text" href="https://fb.com/montessorians">Facebook</a><br>
+			<a class="white-text" href="https://twitter.com/hcmofgasak">Twitter</a><br>
 			<a class="white-text" href="mailto:hcmontessori@gmail.com">E-Mail</a>
 		</div>
 	<div class="col s4">

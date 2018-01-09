@@ -22,12 +22,12 @@ All Rights Reserved
 
 Created by Holy Child Montessori Educational Technologies.
 This system has been made open-source and is available at
-http://github.com/hcmedutech/website. 
+https://github.com/hcmedutech/website. 
 
 This web application is being continuously being developed.
 For version details, please log-in using your account
 and in the Me tab, scroll to the bottom-most part or
-visit http://hcmontessor.likesyou.org/version.php.
+visit https://hcmontessor.likesyou.org/version.php.
 
 For bugs and other issues, please visit the GitHub repository
 and open a bug report. Vulnerability and other security issues
@@ -56,8 +56,8 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	<!-- OpenGraph Tags -->
 	<meta property="og:title" content="Holy Child Montessori">
 	<meta property="og:description" content="Providing quality education since 1992">
-	<meta propert="og:image" content="http://hcmontessori.likesyou.org/assets/login.jpg">
-	<meta property="og:url" content="http://hcmontessori.likesyou.org">
+	<meta propert="og:image" content="https://hcmontessori.likesyou.org/assets/login.jpg">
+	<meta property="og:url" content="https://hcmontessori.likesyou.org">
 	<meta property="og:site_name" content="Holy Child Montessori">
 	<meta property="og:type" content="website">
 

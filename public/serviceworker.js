@@ -1,17 +1,54 @@
+/**
+ * Holy Child Montessori
+ * 2018
+ * 
+ * ServiceWorker.js
+ */
+
 'use strict';
 
 // Install Event
 self.addEventListener('install',(event)=>{
 
     // Declare Cache Version No. and assets
-    let cn = 'version1';
+    let cn = '1.11.2';
     let assetsList = [
-
+        "/assets/css/custom-styles.css",
+        "/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
+        "/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf",
+        "/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff",
+        "/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2",
+        "/assets/fonts/iconfont/material-icons.css",
+        "/assets/fonts/iconfont/MaterialIcons-Regular.ttf",
+        "/assets/fonts/iconfont/MaterialIcons-Regular.woff",
+        "/assets/fonts/iconfont/MaterialIcons-Regular.woff2",
+        "/assets/imgs/cover.jpg",
+        "/assets/imgs/favicon.ico",
+        "/assets/imgs/logo-144px.png",
+        "/assets/imgs/logo.jpg",
+        "/assets/imgs/noimg.png",
+        "/assets/imgs/thumb1.png",
+        "/assets/imgs/thumb2.png",
+        "/assets/js/aframe.min.js",
+        "/assets/js/scrollreveal.min.js",
+        "/assets/js/vue.js",
+        "/assets/js/vue.min.js",
+        "/assets/materialize/css/materialize-0.98.1.min.css",
+        "/assets/materialize/fonts/roboto/Roboto-Bold.woff",
+        "/assets/materialize/fonts/roboto/Roboto-Bold.woff2",
+        "/assets/materialize/fonts/roboto/Roboto-Light.woff",
+        "/assets/materialize/fonts/roboto/Roboto-Light.woff2",        
+        "/assets/materialize/fonts/roboto/Roboto-Medium.woff",
+        "/assets/materialize/fonts/roboto/Roboto-Medium.woff2",
+        "/assets/materialize/fonts/roboto/Roboto-Regular.woff",
+        "/assets/materialize/fonts/roboto/Roboto-Regular.woff2",
+        "/assets/materialize/fonts/roboto/Roboto-Thin.woff",
+        "/assets/materialize/fonts/roboto/Roboto-Thin.woff2"
     ];
 
     // Open the Cache
     event.waitUntil(caches.open(cn)
-        .then(function(cache){
+        .then((cache)=>{
             // Fetch All Assets
             return cache.addAll(assetsList);
         })
@@ -25,16 +62,22 @@ self.addEventListener('fetch',(event)=>{
         caches.match(event.request).then((resp)=>{
             return resp || fetch(event.request).then((response)=>{
 
-                let cn = "version1";
+                let cn = "1.11.2";
 
                 return caches.open(cn).then((cache)=>{
-                    cache.put(event.request, response.clone());
+
+                    // Prevent throwing error when doing a POST request
+                    if(!event.request.method == 'POST'){
+                        cache.put(event.request, response.clone());
+                    }
+
                     return response;
+
                 });
 
             });
         }).catch(()=>{
-            return catches.match('/assets/imgs/noimg.png');
+            return catches.match('/assets/imgs/noimg.jpg');
         })
     );
 });

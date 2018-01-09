@@ -10,7 +10,7 @@
 <script type="text/javascript">
 appsList = [
 	{
-		"title":"Peace One Day", "url":"http://peaceoneday.org",
+		"title":"Peace One Day", "url":"https://peaceoneday.org",
 		"color":"teal", "icon":"favorite",
 	},
 	{
