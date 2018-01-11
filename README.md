@@ -1,4 +1,4 @@
-# Holy Child Montessori Website
+# Holy Child Montessori
 The official website of Holy Child Montessori School of Excellence.
 https://hcmontessori.000webhostapp.com
 
@@ -14,3 +14,4 @@ https://hcmontessori.000webhostapp.com
 
 ## Milestones
 - Officially Reached 100 commits on GitHub
+- Added Service Workers
