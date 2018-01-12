@@ -523,7 +523,7 @@ foreach($attendance_array as $attendance){
     </div>
     <div class="modal-footer">
       <a class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
-	  <a class="modal-action waves-effect waves-teal btn-flat" href="print/grades" target="_blank">Print</a>
+	  <a class="modal-action waves-effect waves-teal btn-flat" href="print/grades" target="_blank" rel="noopener">Print</a>
     </div>
 </div>
 <div id="modal3" class="modal bottom-sheet">

@@ -150,10 +150,10 @@ if(empty($r)){
 					<a href='/forms/account/upload_img.php?user_id=$user_id' class='black-text'>
 						Set Picture
 					</a>
-					<a href='/print/grades/?student_id=$student_id' target='_blank' class='black-text'>
+					<a href='/print/grades/?student_id=$student_id' target='_blank' rel='noopener' class='black-text'>
 						Progress Report
 					</a>
-					<a href='/forms/registrar/encode_attendance.php?student_id=$student_id' target='_blank' class='black-text'>
+					<a href='/forms/registrar/encode_attendance.php?student_id=$student_id' target='_blank' rel='noopener' class='black-text'>
 						Encode Attendance
 					</a>
 					<a href='/forms/account/reset_password.php?user_id=$user_id' class='black-text'>

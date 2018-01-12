@@ -310,14 +310,14 @@ if(!$_SESSION['logged_in']){
         <div class="row">
 		<div class="col s4">
 			<h5 class="white-text">Get in Touch</h5>
-			<a class="white-text" href="https://fb.com/montessorians">Facebook</a><br>
-			<a class="white-text" href="https://twitter.com/hcmofgasak">Twitter</a><br>
-			<a class="white-text" href="mailto:hcmontessori@gmail.com">E-Mail</a>
+			<a class="white-text" href="https://fb.com/montessorians" target="_blank" rel="noopener">Facebook</a><br>
+			<a class="white-text" href="https://twitter.com/hcmofgasak" target="_blank" rel="noopener">Twitter</a><br>
+			<a class="white-text" href="mailto:hcmontessori@gmail.com" target="_blank" rel="noopener">E-Mail</a>
 		</div>
 	<div class="col s4">
 		<h5 class="white-text">Quick Links</h5>
 		<a href="account" class="white-text">Sign-In</a><br>
-		<a href="https://holychildmontessori.edu20.org" class="white-text">Online School</a><br>
+		<a href="https://holychildmontessori.edu20.org" class="white-text"  target="_blank" rel="noopener">Online School</a><br>
 	</div>
     <div class="col s4">
         <h5 class="white-text">About Us</h5>

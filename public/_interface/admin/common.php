@@ -76,7 +76,7 @@
   	<h5 class="blue-grey-text t">Class and Enrollment</h5>
   	<ul class="collection">
   		<li class="collection-item">
-  			<a href="query/registrar/classes.php" class="black-text" target="_blank">Search Classes & Encode Grades</a>
+  			<a href="query/registrar/classes.php" class="black-text" target="_blank" rel="noopener">Search Classes & Encode Grades</a>
   		</li>
   		<li class="collection-item">
   			<a href="forms/registrar/enroll_student.php" class="black-text">Enroll a Student</a>

@@ -1,7 +1,7 @@
 <div class="modal modal-fixed-footer blue-grey" id="myid">
   		<div class="modal-content">
   			<center>  				
-  				<a href="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=<?=$student_id?>" target="_blank">
+  				<a href="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=<?=$student_id?>" target="_blank" rel="noopener">
   					<img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=<?=$student_id?>" class='responsive-img round'>
   				</a>
   				<p class="white-text">

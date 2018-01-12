@@ -101,7 +101,7 @@ if(empty($_SERVER['HTTP_REFERER'])){
                                 <tr>
                                     <td>$school_year</td>
                                     <td>$grade</td>
-                                    <td><a href='class.php?class_id=$class_id' target='_blank' class='seagreen-text'>$subject_title</a></td>
+                                    <td><a href='class.php?class_id=$class_id' target='_blank' rel='noopener' class='seagreen-text'>$subject_title</a></td>
                                     <td>$first_quarter</td>
                                     <td>$second_quarter</td>
                                     <td>$third_quarter</td>

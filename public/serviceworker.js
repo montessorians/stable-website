@@ -11,7 +11,7 @@
 self.addEventListener('install',(event)=>{
 
     // Declare Cache Version No. and assets
-    let cn = '1.11.2';
+    let cn = '1.11.3';
     let assetsList = [
         "/assets/css/custom-styles.css",
         "/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
@@ -25,6 +25,9 @@ self.addEventListener('install',(event)=>{
         "/assets/imgs/cover.jpg",
         "/assets/imgs/favicon.ico",
         "/assets/imgs/logo-144px.png",
+        "/assets/imgs/logo-192px.png",
+        "/assets/imgs/logo-256px.png",
+        "/assets/imgs/logo-512px.png",
         "/assets/imgs/logo.jpg",
         "/assets/imgs/noimg.png",
         "/assets/imgs/thumb1.png",
@@ -62,12 +65,12 @@ self.addEventListener('fetch',(event)=>{
         caches.match(event.request).then((resp)=>{
             return resp || fetch(event.request).then((response)=>{
 
-                let cn = "1.11.2";
+                let cn = "1.11.3";
 
                 return caches.open(cn).then((cache)=>{
 
                     // Prevent throwing error when doing a POST request
-                    if(!event.request.method == 'POST'){
+                    if(event.request.method !== 'POST'){
                         cache.put(event.request, response.clone());
                     }
 
@@ -82,14 +85,14 @@ self.addEventListener('fetch',(event)=>{
     );
 });
 
-/*
+
 // Remove Old Caches
-self.addEventListener('activate',function(event){
-    var cacheWhiteList = ['v4'];
+self.addEventListener('activate', (event)=>{
+    var cacheWhiteList = ['1.11.13'];
 
     event.waitUntil(
-        caches.keys().then(function(keyList){
-            return Promise.all(keyList.map(function(key){
+        caches.keys().then((keyList)=>{
+            return Promise.all(keyList.map((key)=>{
                 if(cacheWhiteList.indexOf(key) === -1){
                     return caches.delete(key);
                 }
@@ -98,4 +101,3 @@ self.addEventListener('activate',function(event){
     );
     
 });
-*/

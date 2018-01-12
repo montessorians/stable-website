@@ -3,23 +3,29 @@
     "name":"Holy Child Montessori",
     "icons":[
         {
-            "src":"/assets/imgs/logo-144px.png",
+            "src":"assets/imgs/logo-144px.png",
             "size":"144x144",
             "type":"image/png"
         },
         {
-            "src":"/assets/imgs/logo-192px.png",
+            "src":"assets/imgs/logo-192px.png",
             "size":"192x192",
             "type":"image/png"
         },
         {
-            "src":"/assets/imgs/logo-256px.png",
+            "src":"assets/imgs/logo-256px.png",
             "size":"256x256",
+            "type":"image/png"
+        },
+        {
+            "src":"assets/imgs/logo-512px.png",
+            "size":"512x512",
             "type":"image/png"
         }
     ],
-    "start_url":"/index.php",
+    "start_url":"index.php",
     "background_color":"seagreen",
+    "theme_color":"seagreen",
     "display":"standalone",
     "orientation":"portrait"
 }

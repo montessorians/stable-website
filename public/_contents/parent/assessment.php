@@ -215,7 +215,7 @@ $empty_child = "
 	                	    </div>
     	                <div class='modal-footer'>
         	                <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
-            	            <a class='modal-action waves-effect waves-teal btn-flat' href='print/grades/?student_id=$student_id' target='_blank'>Print</a>
+            	            <a class='modal-action waves-effect waves-teal btn-flat' href='print/grades/?student_id=$student_id' target='_blank' rel='noopener'>Print</a>
                     	</div>
 	                </div>";
 
