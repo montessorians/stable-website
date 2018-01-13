@@ -13,6 +13,8 @@ self.addEventListener('install',(event)=>{
     // Declare Cache Version No. and assets
     let cn = '1.11.3';
     let assetsList = [
+        "/offline.php",
+        "/offline-chromeless.php",
         "/assets/css/custom-styles.css",
         "/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
         "/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf",
@@ -68,35 +70,31 @@ self.addEventListener('install',(event)=>{
 });
 
 // Fetch Event
-self.addEventListener('fetch',(event)=>{
+self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.match(event.request).then((resp)=>{
-            return resp || fetch(event.request).then((response)=>{
+      // Try the cache
+      caches.match(event.request).then(function(response) {
+        // Fall back to network
+        return response || fetch(event.request);
+      }).catch(function() {
+            let method = event.request.method;
+            let urlContainsContent = event.request.url.indexOf("_contents");
 
-                let cn = "1.11.3";
+            if(method !== 'POST'){
+                if(urlContainsContent > -1){
+                    return caches.match('/offline-chromeless.php');
+                } else {
+                    return caches.match('/offline.php');
+                }
 
-                return caches.open(cn).then((cache)=>{
-
-                    // Prevent throwing error when doing a POST request
-                    if(event.request.method !== 'POST'){
-                        cache.put(event.request, response.clone());
-                    }
-
-                    return response;
-
-                });
-
-            });
-        }).catch(()=>{
-            return caches.match('/assets/imgs/noimg.jpg');
-        })
+            }
+      })
     );
 });
 
-
-// Remove Old Caches
+  // Remove Old Caches
 self.addEventListener('activate', (event)=>{
-    var cacheWhiteList = ['1.11.13'];
+    var cacheWhiteList = ['1.11.3'];
 
     event.waitUntil(
         caches.keys().then((keyList)=>{

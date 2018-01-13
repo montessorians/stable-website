@@ -15,6 +15,19 @@
        display: none !important;
       }
     </style>
+    
+    <!--
+      Critical User Safety Scripts
+      These are important in securing both the website and
+      the user. These may not work along with the other scripts
+      needed to render the page if javascript is disabled.
+    -->
+    <script type="text/javascript">
+	    console.warn(
+        "%c\n\nHoly Child Montessori\n\n This is meant for developer's use only. If someone told you to access this tool, they might be able to gain access to your account and steal personal information.\n\nVisit https://fb.com/montessorians for information.\n\n\n",
+        "color: seagreen; padding-left:2%; font-size: x-large; text-align:center"
+        );
+    </script>
 
     <!--
       Service Workers and Notifications, etc.
@@ -50,19 +63,6 @@
           }
         });
       });
-    </script>
-
-    <!--
-      Critical User Safety Scripts
-      These are important in securing both the website and
-      the user. These may not work along with the other scripts
-      needed to render the page if javascript is disabled.
-    -->
-    <script type="text/javascript">
-	    console.error(
-        "%c\n\nHoly Child Montessori\n\n This is meant for developer's use only. If someone told you to access this tool, they might be able to gain access to your account and steal personal information.\n\nVisit https://fb.com/montessorians for information.\n\n\n",
-        "color: red; padding-left:2%; font-size: x-large; text-align:center"
-        );
     </script>
 
     <!--
