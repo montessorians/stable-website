@@ -1,7 +1,7 @@
 {
     "short_name":"Montessori",
     "name":"Holy Child Montessori",
-    "start_url":"index.php",
+    "start_url":"/webapp-home.php",
     "background_color":"seagreen",
     "theme_color":"seagreen",
     "display":"standalone",

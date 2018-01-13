@@ -60,6 +60,7 @@
             console.error("User dismissed the home screen install");
           } else {
             console.log("User added site to home screen");
+            Materialize.toast("Montessori has been successfully installed in your device!",4000);
           }
         });
       });

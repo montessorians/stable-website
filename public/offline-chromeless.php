@@ -19,6 +19,6 @@ include("_system/config.php");
                 Connect to the internet to use this app.
             </h5>
         </center>
-    </div>
+    </div><br><br><br>
 </body>
 </html>
