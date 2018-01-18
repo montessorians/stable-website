@@ -38,27 +38,13 @@ may be e-mailed to us at hcmontessori@gmail.com.
 <html lang="en">
 <head>
 
-	<!-- Encoding -->
-	<meta charset="UTF-8">
-
 	<!-- Site Title -->
 	<title><?=$site_title?></title>
-
-	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/logo-144px.png"/>
 
 	<?php
 	// Include Style Files
 	include("_system/styles.php");
 	?>
-
-	<!-- OpenGraph Tags -->
-	<meta property="og:title" content="Holy Child Montessori">
-	<meta property="og:description" content="Providing quality education since 1992">
-	<meta propert="og:image" content="https://hcmontessori.000webhostapp.com/assets/imgs/cover.jpg">
-	<meta property="og:url" content="https://hcmontessori.000webhostapp.com">
-	<meta property="og:site_name" content="Holy Child Montessori">
-	<meta property="og:type" content="website">
 
 </head>
 
@@ -115,5 +101,3 @@ may be e-mailed to us at hcmontessori@gmail.com.
 	</body>
 
 </html>
-
-

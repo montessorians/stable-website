@@ -10,12 +10,25 @@
     <meta name="theme-color" content="<?=$theme_color?>">
     <link rel="manifest" href="/manifest.json">
     <meta name="favicon" content="/assets/imgs/favicon.ico">
+
+    <!-- Favicon -->
+  	  <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/logo-144px.png"/>
+
+
     <style>
      img[src*="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"] {
        display: none !important;
       }
     </style>
-    
+
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Holy Child Montessori">
+    <meta property="og:description" content="Providing quality education since 1992">
+    <meta propert="og:image" content="https://hcmontessori.000webhostapp.com/assets/imgs/cover.jpg">
+    <meta property="og:url" content="https://hcmontessori.000webhostapp.com">
+    <meta property="og:site_name" content="Holy Child Montessori">
+    <meta property="og:type" content="website">
+
     <!--
       Critical User Safety Scripts
       These are important in securing both the website and
@@ -38,20 +51,14 @@
       // Service Worker
       if('serviceWorker' in navigator){
         navigator.serviceWorker.register('/serviceworker.js').then((reg)=>{
-          console.log('SW Registration was Successful');
+          console.log('SW Log: Registration was Successful');
         }).catch((err)=>{
           var error = err;
-          console.error(`SW Registration Error: ${error}`);
+          console.error(`SW Log: [Error] ${error}`);
         });
       } else {
-        console.error('Service Worker is not available on this browser.');
+        console.error('SW Log: [Error] Feature Not Available on this browser');
       }
-
-      // Notifications
-      /*Notification.requestPermission().then((result)=>{
-        console.log(result);
-      });*/
-
 
       // Web app install
       window.addEventListener('beforeinstallprompt',(e)=>{
@@ -60,7 +67,7 @@
             console.error("User dismissed the home screen install");
           } else {
             console.log("User added site to home screen");
-            Materialize.toast("Montessori has been successfully installed in your device!",4000);
+            Materialize.toast("Montessori app will now be installed in your device!",4000);
           }
         });
       });
@@ -74,10 +81,7 @@
     <link
       rel="stylesheet"
       href="/assets/fonts/iconfont/material-icons.css">
-    <!--link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"-->
-      <link
+    <link
       rel="stylesheet"
       href="/assets/materialize/css/materialize-0.98.1.min.css">
     <link
@@ -106,10 +110,6 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js">
     </script>
-    <!--script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js">
-    </script-->
     <script
       type="text/javascript"
       src="/assets/js/scrollreveal.min.js">
