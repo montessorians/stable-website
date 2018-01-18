@@ -13,9 +13,9 @@ with the other configurations of the site.
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '11';
-$hcm_version_patch = '3';
+$hcm_version_patch = '4';
 $hcm_version_release = "Public";
-$hcm_version_date = "January 2018 (Week 2)";
+$hcm_version_date = "January 2018 (Week 3)";
 
 // Site Config
 $primary_color = "seagreen";
