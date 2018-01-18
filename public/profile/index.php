@@ -297,6 +297,7 @@ foreach($data as $user){
     </style>
 </head>
 <body class="grey lighten-3">
+<div id="profile">
 <?php
     switch($account_type){
         case("student"):
@@ -322,5 +323,17 @@ foreach($data as $user){
             break;
     }
 ?>
+</div>
 </body>
 </html>
+<script type="text/javascript">
+Vue.component('profile-entry',{
+    props:['title','content'],
+    template: `
+        <li class="collection-item">{{title}}: {{content}}</li>
+    `
+});
+new Vue({
+    el: '#profile'
+});
+</script>

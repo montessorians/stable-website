@@ -41,7 +41,7 @@ $activity_title = "Subjects Search";
 						<option value="subject_title">Title</option>
 						<option value="subject_description">Description</option>
 						<option value="grade">Grade</option>
-						<option value="subject_code">Class Code</option>
+						<option value="subject_code">Subject Code</option>
 					</select>
 				</div>
 			</div>

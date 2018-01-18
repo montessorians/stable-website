@@ -32,15 +32,29 @@ if(empty($query)){
 	switch($searchBy){
 
 		case("subject_title"):
-			$query = $db_subject->get("subject_id","$searchBy","$query");
-			$searchBy = "subject_title";
-			$r = $db_class->like(array(), "$searchBy", "/.*$query/");
+			$query = $db_subject->where(array("subject_id"),"$searchBy","$query");
+			$searchBy = "subject_id";
+			$r = array();
+			foreach($query as $q){
+				$sid = $q['subject_id'];
+				$ar = $db_class->where(array(), "$searchBy", "$sid");
+				foreach($ar as $a){
+					array_push($r,$a);
+				}
+			}
 			break;
 
 		case("grade"):
-			$query = $db_subject->get("subject_id","$searchBy","$query");
-			$searchBy = "subject_title";
-			$r = $db_class->like(array(), "$searchBy", "/.*$query/");
+			$query = $db_subject->where(array("subject_id"),"$searchBy","$query");
+			$searchBy = "subject_id";
+			$r = array();
+			foreach($query as $q){
+				$sid = $q['subject_id'];
+				$ar = $db_class->where(array(), "$searchBy", "$sid");
+				foreach($ar as $a){
+					array_push($r,$a);
+				}
+			}
 			break;
 		
 		default:

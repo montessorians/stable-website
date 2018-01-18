@@ -1,3 +1,17 @@
+<?php
+$birth_date = "";
+$bdate = "$birth_month $birth_day, $birth_year";
+$bdatepublic = "$birth_month $birth_day";
+if($viewer_account_type =="admin"){
+    $birth_date = $bdate;
+} else {
+    if($viewer_user_id == $user_id){
+        $birth_date = $bdate;
+    } else {
+        $birth_date = $bdatepublic;
+    }
+}
+?>
 <nav class="nav-extended">
     <div class="nav-wrapper">
         <a class="title"><?=$activity_title?></a>
@@ -16,51 +30,46 @@
 <div class="col s12" id="info">
     <div class="container">
         <br><br>
-        <div class="card hoverable">
-            <div class="card-content">
-                <?php
-                    if(empty($photo_url)){
-                        echo "<center>No Profile Photo Yet</center>";
-                    } else {
-                        echo "<center><img src='/$photo_url' width='300px'></center>";
-                    }
-                ?>
-            </div>
-        </div>
+        <div class="container"><center>
+            <?php
+            if(empty($photo_url)){
+                echo "<img src='/assets/imgs/noimg.png' width='60%' class='z-depth-4 hoverable'>";
+            } else {
+                echo "<img src='/$photo_url' width='60%' class='z-depth-4 hoverable'>";
+            }
+            ?>
+        </center></div>
         <br><br>
         <div class="card hoverable">
             <div class="card-content">
                 <h5>General Information</h5><br>
                 <ul class="collection">
-                    <li class="collection-item">
-                        Account Type: <?=$account_type?>
-                    </li>
-                    <li class="collection-item">
-                        Username: <?=$username?>
-                    </li>
-                    <li class="collection-item">
-                        Gender: <?=$gender?>
-                    </li>
-                    <li class="collection-item">
-                        Birthday: 
-                        <?php
-                            $bdate = "$birth_month $birth_day, $birth_year";
-                            $bdatepublic = "$birth_month $birth_day";
-                            if($viewer_account_type =="admin"){
-                                echo $bdate;
-                            } else {
-                                if($viewer_user_id == $user_id){
-                                    echo $bdate;
-                                } else {
-                                    echo $bdatepublic;
-                                }
-                            }
-                        ?>
-                    </li>
+                    <profile-entry
+                        title="Account Type"
+                        content="<?=$account_type?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="Username"
+                        content="<?=$username?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="Gender"
+                        content="<?=$gender?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="Birth Date"
+                        content="<?=$birth_date?>">
+                    </profile-entry>
                     <?php
                         $priv = "
-                        <li class='collection-item'>Birthplace: $birth_place</li>
-                        <li class='collection-item'>Address: $address</li>
+                        <profile-entry
+                            title='Birthplace'
+                            content='$birth_place'>
+                        </profile-entry>
+                        <profile-entry
+                            title='Address'
+                            content='$address'>
+                        </profile-entry>
                         ";
                         if($viewer_account_type =="admin"){
                             echo $priv;
@@ -70,8 +79,14 @@
                             }
                         }                        
                     ?>
-                    <li class='collection-item'>City: <?=$city?></li>
-                    <li class='collection-item'>Country: <?=$country?></li>
+                    <profile-entry
+                        title="City"
+                        content="<?=$city?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="Country"
+                        content="<?=$country?>">
+                    </profile-entry>
                 </ul>
             </div>
         </div>
@@ -80,11 +95,20 @@
 
         <div class="card hoverable">
             <div class="card-content">
-                <h5>Contact Information</h5><br><br>
+                <h5>Contact Information</h5><br>
                 <ul class="collection">
-                    <li class="collection-item">Mobile Number: <?=$mobile_number?></li>
-                    <li class="collection-item">Telephone Number: <?=$telephone_number?></li>
-                    <li class="collection-item">E-mail: <?=$email?></li>
+                    <profile-entry
+                        title="Mobile Number"
+                        content="<?=$mobile_number?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="Telephone Number"
+                        content="<?=$telephone_number?>">
+                    </profile-entry>
+                    <profile-entry
+                        title="E-Mail"
+                        content="<?=$email?>">
+                    </profile-entry>
                 </ul>
             </div>
         </div>

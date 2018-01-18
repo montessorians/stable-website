@@ -63,7 +63,8 @@ if(!$r){
                 Description: $subject_description<br>
                 Grade: $grade<br>
                 Subject Code: $subject_code<br>
-                Units: $units
+                Units: $units<br>
+                Subject ID: $subject_id
                 </p>
             </div>
             <div class='card-action'>

@@ -79,7 +79,8 @@ if(empty($r)){
 	foreach($r as $key){
 		foreach($key as $student_id){
 
-			// Get info		
+			if(!empty($student_id)){
+							// Get info
 			$username = $db_account->get("username", "student_id", "$student_id");
 			$user_id = $db_account->get("user_id", "student_id", "$student_id");
 			$photo_url = $db_account->get("photo_url", "student_id", "$student_id");
@@ -160,8 +161,11 @@ if(empty($r)){
 						Reset Password
 					</a>
 				</div>";
+			}
 
-			} // end of admin
+
+
+			} // end of student
 								
 			echo "</div>";
 
