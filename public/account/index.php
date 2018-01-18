@@ -58,6 +58,14 @@ if($showContinue==True){
         </script>
         <style>
             .splashscreen{ background-color: gainsboro !important; }
+            .switch label input[type=checkbox]:checked+.lever {
+                background-color: rgb(139, 219, 174) !important;
+            }
+
+            .switch label input[type=checkbox]:checked+.lever:after {
+                background-color: seagreen !important;
+                left: 24px;
+            }
         </style>
     </head>
     <body class="grey lighten-4" id="body">
@@ -115,8 +123,21 @@ if($showContinue==True){
                         <input type="password" name="password" id="password" autocomplete="hcmhcmhcm">
                         <label for="password">Password</label>
                     </div>
+                    <div class="input-field">
+                        <div class="switch">
+                            <label>
+                                Hide
+                                <input type="checkbox" id="showPasswordToggle" onclick="togglePassword()">
+                                <span class="lever"></span>
+                                Show
+                            </label>
+                        </div>
+                    </div>
                     <br><br>
-                    <button class="btn btn-medium btn-block seagreen waves-effect waves-light hide-on-med-and-up loginButton">Sign-In</button>                    
+                    <div class="hide-on-med-and-up">
+                        <br><br>
+                        <button class="btn btn-medium btn-block seagreen waves-effect waves-light loginButton">Sign-In</button>
+                    </div>
                     <div class="row">
                         <div class="col s8"></div>
                         <div class="col s4">
@@ -250,6 +271,15 @@ $(".usernameButton").click(function(){
 $(".loginButton").click(function(){
     login();
 });
+
+function togglePassword(){
+    var pwinp = document.getElementById("password");
+    if(pwinp.type === 'password'){
+        pwinp.type = "text";
+    } else {
+        pwinp.type = "password";
+    }
+}
 
 // Hide Cards Function
 function hideCards(){

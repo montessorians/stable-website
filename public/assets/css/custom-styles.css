@@ -53,6 +53,14 @@
    .input-field .prefix.active {
      color: seagreen !important;
    }
+   .switch label input[type=checkbox]:checked+.lever {
+    background-color: rgb(139, 219, 174) !important;
+  }
+
+  .switch label input[type=checkbox]:checked+.lever:after {
+      background-color: seagreen !important;
+      left: 24px;
+  }
    .btn-block {
      width:100% !important;
    }
