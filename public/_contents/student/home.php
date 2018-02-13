@@ -7,7 +7,7 @@ if($exam_week === "yes"){
 	$exam_week = "
 		<div class='card hoverable yellow'>
 			<div class='card-content'>
-				<center>Good luck on your exam week!</center>
+				<center>Good luck on your exams!</center>
 			</div>
 		</div>
 	";
