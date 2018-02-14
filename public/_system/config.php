@@ -13,9 +13,9 @@ with the other configurations of the site.
 // Site Versioning Settings
 $hcm_version_major = '1';
 $hcm_version_minor = '11';
-$hcm_version_patch = '4';
+$hcm_version_patch = '5';
 $hcm_version_release = "Public";
-$hcm_version_date = "January 2018 (Week 3)";
+$hcm_version_date = "February 2018 (Week 2)";
 
 // Site Config
 $primary_color = "seagreen";
@@ -27,6 +27,14 @@ $accent_color_text = "white-text";
 $site_title = "Holy Child Montessori";
 
 $ua = $_SERVER['HTTP_USER_AGENT'];
+
+function is_localhost() {
+    $whitelist = array( '127.0.0.1', '::1' );
+    return in_array( $_SERVER['REMOTE_ADDR'], $whitelist);
+}
+
+if(is_locahost() == True) $hcm_version_release = "Development";
+
 
 if(!empty($hcm_version_patch)) $hcm_version_patch_d = ".$hcm_version_patch";
 if(!empty($hcm_version_minor)) $hcm_version_minor_d = ".$hcm_version_minor";
