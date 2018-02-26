@@ -12,7 +12,7 @@
     <meta name="favicon" content="/assets/imgs/favicon.ico">
 
     <!-- Favicon -->
-  	  <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/logo-144px.png"/>
+	  <link rel="shortcut icon" type="image/x-icon" href="/assets/imgs/logo-144px.png"/>
 
 
     <style>
