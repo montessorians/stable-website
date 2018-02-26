@@ -33,7 +33,7 @@ function is_localhost() {
     return in_array( $_SERVER['REMOTE_ADDR'], $whitelist);
 }
 
-if(is_locahost() == True) $hcm_version_release = "Development";
+if(is_localhost() == True) $hcm_version_release = "Development";
 
 
 if(!empty($hcm_version_patch)) $hcm_version_patch_d = ".$hcm_version_patch";
