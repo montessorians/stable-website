@@ -75,6 +75,7 @@ may be e-mailed to us at hcmontessori@gmail.com.
 		// Include the required interface for each user account type
 		switch($account_type){
 			case("student"):
+				$student_id = $_SESSION['student_id'];
 				include_once("_interface/student/common.php");
 				break;
 			case("admin"):

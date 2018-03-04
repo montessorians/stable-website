@@ -19,7 +19,7 @@ if(empty($_GET['from'])){
 include("../../_system/config.php");
 include("../../_system/database/db.php");
 
-$activity_title = "Allow E-Cash";
+$activity_title = "Allow Montessori Pay";
 
 $student_id = "";
 if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];
@@ -71,7 +71,7 @@ switch($allow_ecash){
 		</div>
 	
 		<div class="input-field">
-			<p class="grey-text">Allow E-Cash</p>
+			<p class="grey-text">Allow Montessori Pay</p>
 			<select class="browser-default" id="allow_ecash">
 				<option value="yes" <?=$a_y?>>Yes</option>
 				<option value="no" <?=$a_n?>>No</option>

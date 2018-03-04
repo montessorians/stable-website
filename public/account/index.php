@@ -53,9 +53,6 @@ if($showContinue==True){
     <head>
         <title><?=$activity_title." - ".$site_title?></title>
         <?php include("../_system/styles.php"); ?>
-        <script type="text/javascript">
-            const from = "<?=$from?>";
-        </script>
         <style>
             .splashscreen{ background-color: gainsboro !important; }
             .switch label input[type=checkbox]:checked+.lever {
@@ -454,8 +451,12 @@ function login(){
                         let msg = data['message'];
 
                         if(code == 200){
-
-                            window.location.replace('/');    
+                            var from = "<?=$from?>";
+                            if(!from){
+                                window.location.replace("/");
+                            } else {
+                                window.location.replace("/"+from);
+                            }
 
                         } else {
 

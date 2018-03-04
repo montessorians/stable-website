@@ -50,12 +50,12 @@ if(empty($user_id)){
 
 if(!empty($user_id)){
 
-	// Query for e-cash permission
+	// Query for Montessori Pay permission
 	$allow_ecash = $db_ecash->get("allow_ecash","user_id", "$user_id");
 
 	// Check if not yes
 	if($allow_ecash !== "yes"){
-		echo "Cannot Proceed. User is not allowed to use E-Cash";
+		echo "Cannot Proceed. User is not allowed to use Montessori Pay";
 	}
 
 	// if allowed
@@ -157,11 +157,11 @@ if(!empty($user_id)){
 		} // End of switch
 
 		// Notif
-		$notif_title = "A transaction happened on your E-Cash";
+		$notif_title = "A transaction happened on your Montessori Pay Account";
 		$notif_content = "$transaction_merchant's \"$transaction_title\" went through  with an amount of PHP $transaction_amount. If it is an unauthorized transaction please report to the administrators immediately.";
 		$notif_icon = "account_balance_wallet";
 		$notif_user_id = "$user_id";
-		$notif_sender_alternative = "E-Cash";
+		$notif_sender_alternative = "Montessori Pay";
 
 		// Send Notification
 		include("../_require/notif.php");

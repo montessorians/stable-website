@@ -17,7 +17,7 @@ if(empty($_GET['from'])){
 
 include("../../_system/config.php");
 
-$activity_title = "Transact with E-Cash";
+$activity_title = "Transact with Montessori Pay";
 
 $student_id = "";
 if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];
@@ -42,10 +42,10 @@ if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];
 			<input type="text" id="student_id" value="<?=$student_id?>">
 			<label for="student_id">Student ID</label>
 		</div>
-	
+
 		<div class="input-field">
-			<input type="text" id="transaction_title" value="Purchase">
-			<label for="transaction_title">Title</label>
+			<input type="text" id="transaction_amount">
+			<label for="transaction_amount">Amount</label>
 		</div>
 
 		<div class="input-field">
@@ -55,19 +55,19 @@ if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];
 				<option value="add">Add</option>
 			</select>
 		</div>
-
+		<br><br>
+		<br><br>
+		<div class="input-field">
+			<input type="text" id="transaction_title" value="Purchase">
+			<label for="transaction_title">Title</label>
+		</div>
 		<div class="input-field">
 			<input type="text" id="transaction_merchant" value="Accounting">
 			<label for="transaction_merchant">Merchant</label>
 		</div>
 
-		<div class="input-field">
-			<input type="text" id="transaction_amount">
-			<label for="transaction_amount">Amount</label>
-		</div>
 		<br><br>
 		<button id="transactButton" class="btn btn-large waves-effect waves-light <?=$accent_color?>">Transact</button>
-		<span id="response" class="red-text"></span>
 		<br><br><br>
 	</div>
 </body>
@@ -108,10 +108,10 @@ function transact(){
 				},
 				cache: false,
 				success: (result)=>{
-					$("#response").html(result);
+					Materialize.toast(result,5000);
 				}
 			}).fail(()=>{
-				$("#response").html("Error connecting to server");
+				Materialize.toast("Error connecting to server");
 			});
 			
 		}

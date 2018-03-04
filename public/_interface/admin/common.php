@@ -16,7 +16,7 @@
 		<ul class="tabs tabs-transparent">
 			<li class="tab"><a href="#home" id="homeButton">Home</a></li>
 			<li class="tab"><a href="#calendar">Calendar</a></li>
-			<li class="tab"><a href="#ecash">E-Cash</a></li>
+			<li class="tab"><a href="#ecash">Montessori Pay</a></li>
 			<li class="tab"><a href="#registrar">Registrar</a></li>
 			<li class="tab"><a href="#administration">Administration</a></li>
 			<li class="tab"><a href="#reports">Reports</a></li>
@@ -34,10 +34,10 @@
   <div id="ecash" class="col s12">
   	<ul class="collection">
 		<li class="collection-item">
-			<a href="forms/ecash/transact.php" class="black-text">Transact with E-Cash</a>
+			<a href="forms/ecash/transact.php" class="black-text">Transact with Montessori Pay</a>
 		</li>
 		<li class="collection-item">
-			<a href="query/ecash/balance.php" class="black-text">Inquire E-Cash Balance</a>
+			<a href="query/ecash/balance.php" class="black-text">Inquire Montessori Pay Balance</a>
 		</li>
 	</ul>
   </div>

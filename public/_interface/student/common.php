@@ -2,7 +2,7 @@
 $first_name = $db_student->get("first_name", "student_id","$student_id");
 $last_name = $db_student->get("last_name", "student_id","$student_id");
 $suffix_name = $db_student->get("suffix_name", "student_id","$student_id");
-$name = $first_name . " " . $last_name . " " . $suffix_name;
+$name = "$first_name $last_name $suffix_name";
 ?>
 <style>
 .title{
@@ -20,13 +20,12 @@ $name = $first_name . " " . $last_name . " " . $suffix_name;
       <a class="title" href="/"><?=$site_title?></a>
       <a href="#notifications" class="button-collapse show-on-large right modal-trigger" id="notifButton"><i id='notificon' class='material-icons'>notifications</i></a>
 	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger"><i class="material-icons">apps</i></a>
-      <a href="#myid" class="button-collapse hide-on-med-and-up right modal-trigger"><i class="material-icons">fingerprint</i></a>
     </div>
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Grades" href="#assessment"><i class="material-icons">assessment</i></a></li>
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="E-Cash" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
+			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Montessori Pay" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="People" href="#people"><i class="material-icons">group</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Me" href="#me"><i class="material-icons">account_circle</i></a></li>
 		</ul>

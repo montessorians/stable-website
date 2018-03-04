@@ -3,7 +3,7 @@
 Holy Child Montessori
 2017
 
-Checks if user has enabled e-cash
+Checks if user has enabled Montessor Pay
 Returns String yes or no
 */
 

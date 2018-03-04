@@ -47,10 +47,10 @@ $add_student_array = array(
 $db_student->add($add_student_array);
 
 /*
-Create E-Cash Account
+Create Montessori Pay Account
 */
 
-// E-Cash ID
+// Montessori Pay ID
 $ecash_id = uniqid();				
 
 $add_ecash_array = array(

@@ -15,7 +15,7 @@ if(empty($_GET['from'])){
 include("../../_system/config.php");
 include("../../_system/database/db.php");
 
-$activity_title = "E-Cash Balance Inquiry";
+$activity_title = "Montessori Pay Balance Inquiry";
 
 $student_id = "";
 if(!empty($_REQUEST['student_id'])) $student_id = $_REQUEST['student_id'];

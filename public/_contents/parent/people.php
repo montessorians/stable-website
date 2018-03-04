@@ -87,10 +87,10 @@ if($proceed==1){
 			        Username: @$username
             		    </li>
                             <li class='collection-item'>
-                                E-Cash Enabled: <span id='allowecash$student_id'></span>
+                                Montessori Pay Enabled: <span id='allowecash$student_id'></span> <a href='#' onclick='toggleAllowEcash$student_id();' class='seagreen-text'>(Allow/Disallow)</a>
                             </li>
                             <li class='collection-item'>
-                                E-Cash Balance: <span id='ecashbalance$student_id'></span> <a onclick='checkEcashBalance$student_id();' class='seagreen-text'>(Refresh)</a>
+                                Montessori Pay Balance: <span id='ecashbalance$student_id'></span> <a href='#' onclick='checkEcashBalance$student_id();' class='seagreen-text'>(Refresh)</a>
                             </li>
                             <li class='collection-item'>
                                 Address: $address
@@ -114,7 +114,6 @@ if($proceed==1){
                     </div>
                     <div class='modal-footer'>
                         <a class='modal-action modal-close waves-effect waves-red btn-flat'>Close</a>
-                        <a class='modal-action waves-effect waves-green btn-flat' onclick='toggleAllowEcash$student_id();' id='toggleAllowEcashButton$student_id()'>Allow/Disallow E-cash</a>
                     </div>
                 </div>
                 <script type='text/javascript'>
@@ -177,7 +176,7 @@ if($proceed==1){
                                 checkAllowEcash$student_id();  
                             }
                         }).fail(function(){
-                            Materialize.toast('Error Changing E-Cash Setting', 3000);
+                            Materialize.toast('Error Changing Montessori Pay Setting', 3000);
                             checkAllowEcash$student_id();
                         });
                     }

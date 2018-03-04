@@ -113,10 +113,10 @@ if(empty($r)){
 				echo "
 				<div class='card-action'>
 					<a href='/forms/ecash/transact.php?student_id=$student_id' class='black-text'>
-						Transact w/ E-Cash
+						Transact w/ Montessori Pay
 					</a>
 					<a href='/query/ecash/balance.php?student_id=$student_id' class='black-text'>
-						Inquire E-Cash Balance
+						Inquire Montessori Pay Balance
 					</a>
 					<a href='/profile/?student_id=$student_id' class='black-text'>
 						View Profile
@@ -143,7 +143,7 @@ if(empty($r)){
 						Set LRN
 					</a>
 					<a href='/forms/ecash/allow_ecash.php?student_id=$student_id' class='black-text'>
-						Set E-Cash
+						Set Montessori Pay
 					</a>
 					<a href='/forms/account/connect_parent.php?student_id=$student_id' class='black-text'>
 						Connect Parent

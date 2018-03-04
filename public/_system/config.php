@@ -12,8 +12,8 @@ with the other configurations of the site.
 
 // Site Versioning Settings
 $hcm_version_major = '1';
-$hcm_version_minor = '11';
-$hcm_version_patch = '5';
+$hcm_version_minor = '12';
+$hcm_version_patch = '0';
 $hcm_version_release = "Public";
 $hcm_version_date = "February 2018 (Week 2)";
 

@@ -3,7 +3,7 @@
 Holy Child Montessori
 2017
 
-Allow E-Cash
+Allow Montessori Pay
 */
 
 // Start Session
@@ -32,12 +32,12 @@ $db_ecash->to("allow_ecash", "$allow_ecash", "user_id", "$user_id");
 switch($allow_ecash){
 
 	case("yes"):
-		$notification_title = "Your E-Cash has been activated";
-		$notification_content = "You may now use your ID or your phone to purchase at the canteen and more as long as you have money in your e-cash account.";
+		$notification_title = "Your Montessori Pay has been activated";
+		$notification_content = "You may now use your ID or your phone to purchase at the canteen and more as long as you have money in your Montessori Pay account.";
 		break;
 
 	case("no"):
-		$notification_title = "Your E-Cash has been deactivated";
+		$notification_title = "Your Montessori Pay has been deactivated";
 		$notification_content = "You may not be able to purchase using your ID or phone. You may still purchase in the canteen if you have money.";
 		break;
 
@@ -48,12 +48,12 @@ $notif_title = "$notification_title";
 $notif_content = "$notification_content";
 $notif_icon = "account_balance_wallet";
 $notif_user_id = "$user_id";
-$notif_sender_alternative = "E-Cash";
+$notif_sender_alternative = "Montessori Pay";
 
 // Send Notification
 include("../_require/notif.php");
 
 	
-echo "Allow E-Cash has been changed successfully to $allow_ecash";
+echo "Allow Montessori Pay has been changed successfully to $allow_ecash";
 
 ?>

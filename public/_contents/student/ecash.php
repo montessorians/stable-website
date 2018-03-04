@@ -46,11 +46,14 @@ if(isset($ecash_id)){
 	if($allow_ecash == "yes"){
 		
 		echo "
-		<div class='card z-depth-4 hoverable green lighten-3'>
+		<div class='card z-depth-5 hoverable'>
 			<div class='card-content'>
 				<center>
-					<h4>₱ $current_balance</h4>
+					<h2 class='seagreen-text'><strong>₱ $current_balance</strong></h2>
 				</center>
+			</div>
+			<div class='card-action'>
+				<a class='seagreen-text' href='#myid'><i class='material-icons tiny'>payment</i> Pay</a>
 			</div>
 		</div>
 		<br>";
@@ -135,7 +138,7 @@ if(isset($ecash_id)){
 					<center>
 						<p class='grey-text'>
 									<i class='material-icons medium'>sentiment_very_dissatisfied</i><br>
-									You are not allowed to use E-Cash.<br>
+									You are not allowed to use Montessori Pay.<br>
 									Tell your parents to activate it.</p>
 					</center>
 				</div>
