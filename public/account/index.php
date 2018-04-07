@@ -449,8 +449,11 @@ function login(){
 
                         let code = data['code'];
                         let msg = data['message'];
+                        localStorage.setItem("hcm-student-id",data['student_id']);
+                        localStorage.setItem("hcm-logged-in", "true");
 
                         if(code == 200){
+
                             var from = "<?=$from?>";
                             if(!from){
                                 window.location.replace("/");
