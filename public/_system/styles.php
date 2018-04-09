@@ -27,7 +27,7 @@
     <!-- OpenGraph Tags -->
     <meta property="og:title" content="Holy Child Montessori">
     <meta property="og:description" content="Providing quality education since 1992">
-    <meta propert="og:image" content="https://hcmontessori.000webhostapp.com/assets/imgs/cover.jpg">
+    <meta property="og:image" content="https://hcmontessori.000webhostapp.com/assets/imgs/cover.jpg">
     <meta property="og:url" content="https://hcmontessori.000webhostapp.com">
     <meta property="og:site_name" content="Holy Child Montessori">
     <meta property="og:type" content="website">
