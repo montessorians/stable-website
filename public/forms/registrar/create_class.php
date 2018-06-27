@@ -199,8 +199,8 @@ function createClass(){
 	var e_t = $("#end_time").val();
 	var sc = $("#schedule").val();
 	var ms = $("#max_students").val();
-	if(!i){
-		$("#response").html("Title cannot be empty");
+	if(!si){
+		$("#response").html("Subject cannot be empty");
 	} else {
 		if(!s_y){
 			$("#response").html("School Year is Required");
