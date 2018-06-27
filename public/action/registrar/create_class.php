@@ -79,7 +79,7 @@ if(empty($school_year)){
 	// Add to DB
 	$db_class->add($array);
 
-	echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
+	echo "<span class='green-text text-darken-2'>Class added successfully. Class ID is $class_id</span>";
 	
 }
 	
