@@ -37,38 +37,29 @@ $max_students = $_POST['max_students'];
 // Query if Subject ID Exists
 if($db_subject->exists("subject_id","$subject_id")){
 
-	// Check if grade is entered
-	if(!$grade){
+	// Check if school year is entered
+	if(!$school_year){
 	
-		echo "Grade is Required";
-	
-	} else {
-	
-		// Check if school year is entered
-		if(!$school_year){
-	
-			echo "School Year is Required";
-	
-		} else {
+		echo "School Year is Required";
 
-			// Construct Array
-			$array = array(
-			"class_id" => "$class_id",
-			"class_title" => "$class_title",
-			"school_year" => "$school_year",
-			"section" => "$section",
-			"class_code" => "$class_code",
-			"class_room" => "$class_room",
-			"access_code" => "$access_code",
-			"teacher_id" => "$teacher_id",
-			"start_time" => "$start_time",
-			"end_time" => "$end_time",
-			"schedule" => "$schedule",
-			"max_students" => "$max_students"
-			);
-	
-		}
-	
+	} else {
+
+		// Construct Array
+		$array = array(
+		"class_id" => "$class_id",
+		"subject_id" => "$subject_id",
+		"school_year" => "$school_year",
+		"section" => "$section",
+		"class_code" => "$class_code",
+		"class_room" => "$class_room",
+		"access_code" => "$access_code",
+		"teacher_id" => "$teacher_id",
+		"start_time" => "$start_time",
+		"end_time" => "$end_time",
+		"schedule" => "$schedule",
+		"max_students" => "$max_students"
+		);
+
 	}
 
 } else {
@@ -78,36 +69,18 @@ if($db_subject->exists("subject_id","$subject_id")){
 }
 
 
-// Check if class title was sent
-if(empty($class_title)){
+// Check if school year is sent
+if(empty($school_year)){
 
-	echo "Class Title cannot be empty"; 
+	echo "School Year is required";
 
 } else {
+	
+	// Add to DB
+	$db_class->add($array);
 
-	// Check if grade is sent
-	if(empty($grade)){
-
-		echo "Grade is required";
-
-	} else {
-
-		// Check if school year is sent
-		if(empty($school_year)){
-
-			echo "School Year is required";
-
-		} else {
-			
-			// Add to DB
-			$db_class->add($array);
-
-			echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
-			
-		}
-
-	}
-
+	echo "<span class='green-text text-darken-2'>$class_title added successfully. Class ID is $class_id</span>";
+	
 }
 	
 ?>
