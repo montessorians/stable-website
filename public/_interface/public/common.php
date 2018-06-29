@@ -244,7 +244,7 @@ if(!$_SESSION['logged_in']){
 
         <div class="coursesoffered">
             <style>
-                .kinder {
+                .preschool {
                     background-image: url("assets/imgs/thumb2.png");
                     max-width: 100%;
                     height: 180px;
@@ -267,10 +267,10 @@ if(!$_SESSION['logged_in']){
                 <div class="col s6 reveal">
                     <div class="card hoverable z-depth-3">
                         <div class="card-img">
-                            <div class="kinder"></div>
+                            <div class="preschool"></div>
                         </div>
                         <div class="card-content">
-                            <center class="seagreen-text"><h5 class='truncate'><b>Kindergarten</b></h5></center>
+                            <center class="seagreen-text"><h5 class='truncate'><b>Preschool</b></h5></center>
                         </div>
                     </div>
                 </div>
@@ -322,7 +322,7 @@ if(!$_SESSION['logged_in']){
     <div class="col s4">
         <h5 class="white-text">About Us</h5>
         <p class="white-text">
-            We are an institution located at #3 Ilang-Ilang St., Merville, Tanza Navotas City. We are providing quality education since 1992.
+            We are an institution located at #3 Ilang-Ilang St., Merville, Tanza 2, Navotas City, Philippines. We are providing quality education since 1992.
         </p>
     </div>
     </div><!--row-->

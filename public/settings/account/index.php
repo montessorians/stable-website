@@ -46,20 +46,23 @@ if(empty($_GET['from'])){
   		</div>
   		<br>
 		  <p>Your username must not contain spaces. It would be automatically be removed in the system.</p>
-		  <p>Please make sure your Montessori account password is not the same with your Social Network and E-Mail Password. Also, don't sign-in and/or change your password if you are using Public Free Wifi. <a class="seagreen-text" href="https://hcm-help.likesyou.org/index.php?controller=post&action=view&id_post=5" target="_blank" rel="noopener">Click Here for Info</a></p>
+		  <p>Please make sure your Montessori account password is not the same with your Social Network and E-Mail Password. Also, don't sign-in and/or change your password if you are using Public Free Wifi.</p>
 		<br>
   		<button id="saveChanges" class="btn btn-large waves-effect waves-light <?=$accent_color?>">Save Changes</button>
   		<button id="sub2" class="btn btn-large btn-flat"><div class="preloader-wrapper small active">
-    <div class="spinner-layer spinner-green-only">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-  </div></button>
+			<div class="spinner-layer spinner-green-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+				</div>
+				<div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+				</div>
+			</div>
+  		</button>
   	</div>
   	<br><br><br><br>
 	</body>

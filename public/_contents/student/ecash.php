@@ -58,7 +58,7 @@ if(isset($ecash_id)){
 		</div>
 		<br>";
 		
-		if(empty($previous_transaction)){} else {
+		if(!empty($previous_transaction)){
 		echo "
 		<h4 class='seagreen-text'>Last Transaction</h4>
 		<div class='card'>
