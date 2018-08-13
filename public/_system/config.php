@@ -12,10 +12,10 @@ with the other configurations of the site.
 
 // Site Versioning Settings
 $hcm_version_major = '1';
-$hcm_version_minor = '13';
+$hcm_version_minor = '14';
 $hcm_version_patch = '0';
 $hcm_version_release = "Public";
-$hcm_version_date = "June 2018 (Week 4)";
+$hcm_version_date = "August 2018 (Week 3)";
 
 // Site Config
 $primary_color = "seagreen";

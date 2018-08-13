@@ -65,7 +65,7 @@ if(!$username_check){
 		$array = array(
 		"code"=>"200",
 		"message"=>"User successfully signed-in",
-		"student_id"=>$student_id
+		"student_id"=>$_SESSION['student_id']
 		);
 		echo json_encode($array);
 		

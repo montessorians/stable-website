@@ -447,6 +447,7 @@ function login(){
 
                     } else {
 
+                        alert(result);
                         let code = data['code'];
                         let msg = data['message'];
                         localStorage.setItem("hcm-student-id",data['student_id']);
