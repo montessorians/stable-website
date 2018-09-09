@@ -12,10 +12,10 @@ with the other configurations of the site.
 
 // Site Versioning Settings
 $hcm_version_major = '1';
-$hcm_version_minor = '14';
+$hcm_version_minor = '15';
 $hcm_version_patch = '0';
 $hcm_version_release = "Public";
-$hcm_version_date = "August 2018 (Week 3)";
+$hcm_version_date = "September 2018 (Week 2)";
 
 // Site Config
 $primary_color = "seagreen";
@@ -33,7 +33,16 @@ function is_localhost() {
     return in_array( $_SERVER['REMOTE_ADDR'], $whitelist);
 }
 
+function isApp(){
+    if($ua == "hcm-android-app"){
+        return True;
+    } else {
+        return False;
+    }
+}
+
 if(is_localhost() == True) $hcm_version_release = "Development";
+if(isApp() == True) $hcm_version_release = "(Android App)";
 
 
 if(!empty($hcm_version_patch)) $hcm_version_patch_d = ".$hcm_version_patch";
