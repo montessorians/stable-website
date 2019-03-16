@@ -80,6 +80,12 @@ if($showContinue==True){
         </div>
         <br><br><br>
         <div class="container"><div class="container">
+            
+            <br>
+            <a class="grey-text text-darken-3" href="/home.php">
+                <i class="material-icons tiny">arrow_back</i> Back to Homepage
+            </a>
+            <br><br>
 
             <!-- Ask for Username card -->
             <div class="card z-depth-5 hoverable" id="askUsernameCard">
@@ -446,7 +452,7 @@ function login(){
                         Materialize.toast("An Error Occured");
 
                     } else {
-			    
+
                         let code = data['code'];
                         let msg = data['message'];
                         localStorage.setItem("hcm-student-id",data['student_id']);
