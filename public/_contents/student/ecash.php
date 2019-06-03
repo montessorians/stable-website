@@ -76,7 +76,7 @@ if(isset($ecash_id)){
 		
 		if(!empty($transaction_array)){
 			
-			echo "<h4 class='seagreen-text'>Transaction History</h4><div class='row'>";
+			echo "<h5 class='seagreen-text'>Transaction History</h5><div class='row'>";
 			$transaction_array = array_reverse($transaction_array);			
 			foreach($transaction_array as $key){
 				foreach($key as $transaction_id){

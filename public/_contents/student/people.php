@@ -14,9 +14,14 @@ foreach($enroll_array as $enroll){
 }
 
 ?>
+<style>
+.card-img > img {
+  border-radius: 30px 30px 0 0;
+}
+</style>
 <div class="container">
 <br>
-<h4 class="seagreen-text">My Teachers</h4>
+<h5 class="seagreen-text">Your Teachers</h5>
 <?php
 $noclass_card = "
 <div class='card hoverable'><div class='card-content'><center>
@@ -107,7 +112,7 @@ echo "</div>";
 }//else
 ?>
 <br>
-<h4 class="seagreen-text">My Parents</h4>
+<h5 class="seagreen-text">Your Parents</h5>
 <?php
 $noclass_card = "
 <div class='card hoverable'><div class='card-content'><center>
@@ -198,7 +203,7 @@ $noclass_card = "
     }
 ?>
 <br>
-<h4 class="seagreen-text">Administrators</h4>
+<h5 class="seagreen-text">Administrators</h5>
 <?php
 $noclass_card = "
 <div class='card hoverable'><div class='card-content'><center>

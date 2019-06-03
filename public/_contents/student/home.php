@@ -2,6 +2,7 @@
 include("../_include/setup.php");
 $check_hold = $db_hold->count("student_id","$student_id");
 $hold_array = $db_hold->where(array(), "student_id", "$student_id");
+$first_name = $db_student->get("first_name", "student_id","$student_id");
 
 if($exam_week === "yes"){
 	$exam_week = "
@@ -17,11 +18,20 @@ if($exam_week === "yes"){
 ?>
 
 <div class="container">
+
+
+<a href="#notifications" class="button-collapse show-on-large right modal-trigger seagreen-text" id="notifButton"><i id='notificon' class='material-icons'>notifications</i></a>
+
+<h1 class="seagreen-text">
+  <b>Hello<br>
+  <?=$first_name; ?>!</b>
+</h1>
+
 <br>
 
-<h4 class="seagreen-text">
-	My Feed
-</h4>
+<h5 class="seagreen-text">
+	Your Feed
+</h5>
 <?php
 if(isset($hold_array)){
 	foreach($hold_array as $hold){

@@ -23,7 +23,7 @@ foreach($attendance_array as $attendance){
 ?>
 <div class="container">
 <br>
-<h4 class="seagreen-text">My Grades</h4>
+<h5 class="seagreen-text">Your Grades</h5>
 <div class="card hoverable">
 	<?php
 	if(empty($check_hold)){
@@ -217,7 +217,7 @@ foreach($attendance_array as $attendance){
 	?>
 </div>
 <br>
-<h4 class="seagreen-text">My Classes</h4>
+<h5 class="seagreen-text">Your Classes</h5>
 <div class="card hoverable">
 	<ul class="collection">
 		<?php
@@ -309,7 +309,7 @@ foreach($attendance_array as $attendance){
 		</ul>
 </div>
 	<br>
-	<h4 class="seagreen-text">My Attendance</h4>
+	<h5 class="seagreen-text">Your Attendance</h5>
 	<div class="card hoverable">
 		<?php
 			if(empty($current_attendance)){

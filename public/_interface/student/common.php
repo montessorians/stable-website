@@ -11,16 +11,39 @@ $name = "$first_name $last_name $suffix_name";
 .round{
 	border-radius: 30pt;
 }
+
+nav {
+  position:fixed;
+  bottom:0;
+  z-index: 9999;
+  border-radius: 30px 30px 0 0 !important;
+  opacity: 0.8;
+  box-shadow: 0px 30px 30px 30px #3bb16f;
+}
+
+.card {
+  border-radius: 25px 25px 25px 25px !important;
+}
+.card-action {
+  border-radius: 0 0 25px 25px !important;
+}
+
+.card > ul {
+  border:0;
+}
+.card > ul > li {
+  border-radius: 25px 25px 25px 25px !important;
+}
 </style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<body class="grey lighten-3">
+<body style="background-color:#EBFDF3">
 <div class="splashscreen"></div>
 <nav class="nav-extended <?=$primary_color?>">
-    <div class="nav-wrapper">
+    <!--div class="nav-wrapper">
       <a class="title" href="/"><?=$site_title?></a>
       <a href="#notifications" class="button-collapse show-on-large right modal-trigger" id="notifButton"><i id='notificon' class='material-icons'>notifications</i></a>
 	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger"><i class="material-icons">apps</i></a>
-    </div>
+    </div-->
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
