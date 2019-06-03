@@ -56,11 +56,11 @@ nav {
     </div-->
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
-          <li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Grades" href="#assessment"><i class="material-icons">assessment</i></a></li>
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Montessori Pay" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="People" href="#people"><i class="material-icons">group</i></a></li>
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Me" href="#me"><i class="material-icons">account_circle</i></a></li>
+          <li class="tab"><a href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
+			<li class="tab"><a href="#assessment"><i class="material-icons">assessment</i></a></li>
+			<li class="tab"><a href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
+			<li class="tab"><a href="#people"><i class="material-icons">group</i></a></li>
+			<li class="tab"><a href="#me"><i class="material-icons">account_circle</i></a></li>
         </ul>
 	</div>
 </nav>
