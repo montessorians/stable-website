@@ -11,6 +11,13 @@ $name = "$first_name $last_name $suffix_name";
 .round{
 	border-radius: 30pt;
 }
+.indicator {
+  position: fixed !important;
+}
+
+.tabs > .indicator {
+  height: 4px !important;
+}
 
 nav {
   position:fixed;
@@ -19,6 +26,7 @@ nav {
   border-radius: 30px 30px 0 0 !important;
   opacity: 0.8;
   box-shadow: 0px 30px 30px 30px #3bb16f;
+  height: 60px !important;
 }
 
 .card {
@@ -46,12 +54,12 @@ nav {
     </div-->
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
-			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
+          <li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Home" href="#home" id="homeButton"><i class="material-icons">home</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Grades" href="#assessment"><i class="material-icons">assessment</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Montessori Pay" href="#ecash" id="ecashButton"><i class="material-icons">account_balance_wallet</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="People" href="#people"><i class="material-icons">group</i></a></li>
 			<li class="tab"><a class="tooltipped" data-position="top" data-tooltip="Me" href="#me"><i class="material-icons">account_circle</i></a></li>
-		</ul>
+        </ul>
 	</div>
 </nav>
 <div class="col s12" id="home"></div>

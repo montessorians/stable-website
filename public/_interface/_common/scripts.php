@@ -1,4 +1,5 @@
 	/* Load Notification in Modal */
+
 	function notif(){
 		// Show Ajax Loader
 		$("#notificationContent").html(loadingCircle);
