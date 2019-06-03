@@ -63,9 +63,16 @@ if($showContinue==True){
                 background-color: seagreen !important;
                 left: 24px;
             }
+
+            .card {
+              border-radius: 20px 20px 20px 20px !important;
+            }
+            .btn {
+              border-radius: 20px 20px 20px 20px !important;
+            }
         </style>
     </head>
-    <body class="grey lighten-4" id="body">
+    <body id="body" style="background-color: #EBFDF3; font-family: 'Rubik', sans-serif !important;">
         <div class="splashscreen valign-wrapper">
             <div class="valign center-block">
                 <noscript>
@@ -490,3 +497,5 @@ function login(){
     }
 }
 </script>
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+

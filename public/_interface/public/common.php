@@ -15,27 +15,42 @@ if(!$_SESSION['logged_in']){
     .brand {
         height: 120px !important;
         width: 120px !important;
-        margin-left: 60px !important;
+        /*margin-left: 60px !important;*/
         position: absolute !important;
         background-image: url("/assets/imgs/logo.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        border-radius: 0 0 30px 0 !important;
     }
 
     .brand-mobile {
-        height: 80px !important;
-        width: 80px !important;
-        margin-left: 60px !important;
+        height: 90px !important;
+        width: 90px !important;
+        /*margin-left: 60px !important;*/
         position: absolute !important;
         background-image: url("/assets/imgs/logo.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        border-radius: 0 0 30px 0 !important;
     }
 
     .brand-box {
         background-color: seagreen !important;
+    }
+
+    .right-menu {
+      position:fixed;
+      background-color:seagreen !important;
+      height:60px;
+      width:60px;
+      right:0;
+      top:0;
+      padding-top:15px;
+      text-align:center;
+      border-radius: 0 0 0 20px !important;
+      z-index: 999999999999;
     }
 
     .left {
@@ -83,8 +98,18 @@ if(!$_SESSION['logged_in']){
         background-position: left top;
         background-size: cover;
     }
+
+    .squircle-logo {
+      position:absolute;
+      top:0;
+      left:0;
+      width:150px;
+      height: 150px;
+      background-image url("assets/imgs/logo.jpg");
+      border-radius: 0 0 30px 0 !important;
+    }
 </style>
-<body>
+<body style="background-color:#EBFDF3; font-family: 'Rubik', sans-serif !important;">
         <!-- SplashScreen Display -->
         <div class="splashscreen valign-wrapper" id="splashscreen">
             <h3 class="valign center-block white-text">
@@ -118,9 +143,13 @@ if(!$_SESSION['logged_in']){
                 </div>
             </div>
 
+            <div class="right-menu">
+              <a href="#!" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons white-text">menu</i></a>
+            </div>
         </a>
-        <nav class="<?=$primary_color?>">
-            <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large left"><i class="material-icons">menu</i></a>
+        <!--nav class="transparent">
+            <div class="squircle-logo"></div>
+            <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large right"><i class="material-icons">menu</i></a>
             <a href="<?=$li?>" class="right"><?=$si?></a>            
             <a href="<?=$li?>" class="right"><i class="material-icons">person</i></a>
 
@@ -146,7 +175,30 @@ if(!$_SESSION['logged_in']){
                 <li><a href="<?=$li?>"><?=$si?></a></li>
             </ul> 
 
-        </nav>
+        </nav-->
+
+        
+            <ul class="side-nav" id="mobile-demo">
+                <li class="userView">
+                    <div class="background">
+                        <img src="/assets/imgs/thumb1.png" width="100%">
+                    </div>
+                    <p><b class="white-text">Welcome Montessorian!</b></p>
+                </li>
+                <li><a href="<?=$li?>"><?=$si?></a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/pages/aboutus">About Us</a></li>
+                <li><a href="/pages/admissions">Admissions</a></li>
+                <li><a href="/pages/alumni">Alumni</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/pages/schoolofexcellence">School of Excellence</a></li>
+                <li><a href="/pages/continuingeducation">School of Continuing Education</a></li>
+                <li><a href="/pages/onlineschool">Online School</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/pages/library">School Library</a></li>
+                <li><a href="/pages/research">Research and Publication</a></li>
+                <li><a href="/pages/community">Community Engagement</a></li>
+            </ul> 
         
         <!-- Jumbotron for larger window and desktop -->
         <div class="jumbotron hide-on-small-only">
@@ -251,6 +303,7 @@ if(!$_SESSION['logged_in']){
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
+                    border-radius: 30px 30px 0 0;
                 }
                 .tutorial {
                     background-image: url("assets/imgs/thumb1.png");
@@ -259,6 +312,10 @@ if(!$_SESSION['logged_in']){
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
+                    border-radius: 30px 30px 0 0;
+                }
+                .card {
+                  border-radius: 30px 30px 30px 30px !important;
                 }
             </style>
             <h4 class="white-text"><b>Courses Offered</b></h4><br>
@@ -344,7 +401,7 @@ $(document).ready(function(){
     $(".hcm-logo").hide();
     window.sr = ScrollReveal();
     sr.reveal('.reveal', {reset: false});
-    $(".button-collapse").sideNav({closeOnClick: true});
+    $(".button-collapse").sideNav({closeOnClick: true, draggable: true,});
     $(".hcm-logo").slideDown(10000);
     $('.tooltipped').tooltip({delay: 50});
 
@@ -417,3 +474,4 @@ new Vue({
     el: '#app'
 })
 </script>
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
