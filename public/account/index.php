@@ -259,7 +259,7 @@ function init(){
     $('.tooltipped').tooltip({delay: 50});
     $('.modal').modal();
 
-    $("meta[name='theme-color']").attr("content", "gainsboro");
+    $("meta[name='theme-color']").attr("content", "#defceb");
     $("#username").attr("disabled","disabled");
     $("#password").attr("disabled","disabled");
     hideCards();
@@ -497,5 +497,3 @@ function login(){
     }
 }
 </script>
-<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-
