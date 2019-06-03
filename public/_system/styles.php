@@ -20,7 +20,8 @@
        display: none !important;
       }
       body {
-	overscroll-behavior:none;
+	    overscroll-behavior:none;
+        font-family: 'Rubik', sans-serif !important;
       }
     </style>
 
@@ -130,3 +131,6 @@
       ga('create', 'UA-79559064-1', 'auto');
       ga('send', 'pageview');
     </script>
+
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+

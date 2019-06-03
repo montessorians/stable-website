@@ -63,7 +63,7 @@ if(!$_SESSION['logged_in']){
     }
 
     .jumbotron {
-        background-color:silver !important;
+        background-color: #EBFDF3 !important;
         height: auto !important;
     }
 
@@ -97,6 +97,8 @@ if(!$_SESSION['logged_in']){
         background-repeat: no-repeat;
         background-position: left top;
         background-size: cover;
+        border-radius: 0 0 30px 40px;
+        box-shadow: 10px 10px 30px silver;
     }
 
     .squircle-logo {
@@ -474,4 +476,4 @@ new Vue({
     el: '#app'
 })
 </script>
-<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+
