@@ -3,9 +3,14 @@ include("../_include/setup.php");
 $children_array = $db_parentchild->where(array(), "parent_id", "$parent_id");
 $admin_array = $db_admin->select(array());
 ?>
+<style>
+.card-img > img {
+  border-radius: 30px 30px 0 0;
+}
+</style>
 <div class="container">
     <br>
-    <h4 class="seagreen-text">My Children</h4>
+    <h5 class="seagreen-text">Your Children</h5>
 <?php
 $proceed = 0;
 if(!$children_array){
@@ -60,7 +65,8 @@ if($proceed==1){
 	                    	 height: 180px;
         	            	 background-repeat: no-repeat;
                 		 background-position: center;
-                   	 	 background-size: cover;
+                         background-size: cover;
+                border-radius: 30px 30px 0 0;
 			}
 		</style>
                 <div class='col s4'>
@@ -189,7 +195,7 @@ if($proceed==1){
 ?>
 
     <br>
-    <h4 class="seagreen-text">Teachers</h4>
+    <h5 class="seagreen-text">Teachers</h5>
 <?php
 $noclass_card = " <div class='card hoverable'><div class='card-content'><center>
 <p class='grey-text'><i class='material-icons medium'>sentiment_very_dissatisfied</i><br>No Teacher Information Yet</p>
@@ -250,7 +256,8 @@ if(!empty($teacher_array)){
 	                height: 180px;
         	        background-repeat: no-repeat;
                 	background-position: center;
-                   	background-size: cover;
+                    background-size: cover;
+                    border-radius: 30px 30px 0 0;
 		}
 	</style>
         <div class='col s4'>
@@ -298,7 +305,7 @@ if(!empty($teacher_array)){
 }
 ?>
     <br>
-    <h4 class="seagreen-text">Administrators</h4>
+    <h5 class="seagreen-text">Administrators</h5>
 <?php
 $noclass_card = "
 <div class='card hoverable'><div class='card-content'><center>
@@ -331,7 +338,8 @@ if(!empty($admin_array)){
 					height: 180px;
 					background-repeat: no-repeat;
 					background-position: center;
-					background-size: cover;
+                    background-size: cover;
+                    border-radius: 30px 30px 0 0;
 				}
 			 </style>
                          <div class='col s4'>

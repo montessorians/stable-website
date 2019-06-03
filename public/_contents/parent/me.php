@@ -8,6 +8,12 @@
 	if(empty($photo_url)) $photo_url = "assets/imgs/noimg.png";
 ?>
 <style>
+    ul.collection {
+      background-color:#EBFDF3 !important;
+    }
+    li.collection-item {
+      background-color:#EBFDF3 !important;
+    }
 	.collection-title{
 		font-size:12pt;
 		padding-top:20px;

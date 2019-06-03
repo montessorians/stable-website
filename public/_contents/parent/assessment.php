@@ -16,7 +16,7 @@ $empty_child = "
 
 <div class="container">
     <br>
-    <h4 class="seagreen-text">My Children's Grades <a href="#modal1"><i class="grey-text material-icons">info</i></a></h4>
+    <h5 class="seagreen-text">Your Children's Grades <a href="#modal1"><i class="grey-text material-icons">info</i></a></h5>
     <?php
     if(empty($children_array)){
 
@@ -237,7 +237,7 @@ $empty_child = "
 ?>
 
 <br>
-<h4 class="seagreen-text">My Children's Attendance <a href="#modal3"><i class="grey-text material-icons">info</i></a></h4>
+<h5 class="seagreen-text">Your Children's Attendance <a href="#modal3"><i class="grey-text material-icons">info</i></a></h5>
 <?php
 
 $proceed = 0;

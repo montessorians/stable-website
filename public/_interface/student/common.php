@@ -24,7 +24,7 @@ nav {
   bottom:0;
   z-index: 9999;
   border-radius: 30px 30px 0 0 !important;
-  opacity: 0.8;
+  opacity: 0.9;
   box-shadow: 0px 30px 30px 30px #3bb16f;
   height: 60px !important;
 }
@@ -38,9 +38,11 @@ nav {
 
 .card > ul {
   border:0;
+  background-color: white !important;
 }
 .card > ul > li {
   border-radius: 25px 25px 25px 25px !important;
+  background-color:white !important;
 }
 </style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
