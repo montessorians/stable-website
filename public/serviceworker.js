@@ -7,8 +7,8 @@
 
 'use strict';
 
-var cn = '1.14.0';
-var cacheWhiteList = ['1.14.0'];
+var cn = '1.15.0';
+var cacheWhiteList = ['1.15.0'];
 var assetsList = [
     "/offline.php",
     "/offline-chromeless.php",
