@@ -1,17 +1,67 @@
 <style>
 	.t{
 		padding-left: 20px;
-	}
+    }
+
+
+.round{
+	border-radius: 30pt;
+}
+/*
+.indicator {
+  position: fixed !important;
+}*/
+
+.tabs > .indicator {
+  height: 4px !important;
+}
+
+.btn {
+  border-radius:30px;
+}
+nav {
+  position:fixed;
+  bottom:0;
+  z-index: 9999;
+  border-radius: 30px 30px 0 0 !important;
+  opacity: 0.9;
+  box-shadow: 0px 30px 30px 30px #3bb16f;
+  height: 60px !important;
+padding:10px;
+}
+
+.card {
+  border-radius: 25px 25px 25px 25px !important;
+}
+.card-action {
+  border-radius: 0 0 25px 25px !important;
+}
+
+.card > ul {
+  border:0;
+  background-color: white !important;
+}
+.card > ul > li {
+  border-radius: 25px 25px 25px 25px !important;
+  background-color:white !important;
+}
+
+.collection {
+  background-color:#EBFDF3 !important;
+}
+.collection > .collection-item {
+  background-color:#EBFDF3 !important;
+}
 </style>
-<body class="grey lighten-3">
+<body style="background-color:#EBFDF3">
 <div class="splashscreen"></div>
-<nav class="nav-extended blue-grey darken-2">
-    <div class="nav-wrapper">
+<nav class="nav-extended seagreen">
+    <!--div class="nav-wrapper">
       <a class="title" href="/">Admin Console</a>
       <a class="button-collapse show-on-large"><i class="material-icons">person</i></a>
       <a href="#notifications" href="account" class="button-collapse show-on-large right modal-trigger" id="notifButton"><i id="notificon" class="material-icons">notifications</i></a>
 	  <a href="#apps" class="button-collapse show-on-large hide-on-small-only right modal-trigger"><i class="material-icons">apps</i></a>
-    </div>
+    </div-->
     <div class="nav-content">
 		<ul class="tabs tabs-transparent">
 			<li class="tab"><a href="#home" id="homeButton">Home</a></li>
@@ -25,12 +75,7 @@
 	</div>
 </nav>
   
-  <div id="home">
-  	<div class="container">
-  		<br>
-  		<h5 class="blue-grey-text text-darken-2">My Feed</h5>
-  	</div>
-  </div>
+  <div id="home"></div>
   <div id="ecash" class="col s12">
   	<ul class="collection">
 		<li class="collection-item">

@@ -3,8 +3,8 @@ $page_title = "Alumni";
 include("../_head.php");
 ?>
 <br>
-<h4 class="grey-text"><?=$page_title?></h4>
-<br>
+<!--h4 class="grey-text"><?=$page_title?></h4>
+<br-->
 <p>
     Welcome Back Montessorian! We believe that a person's learning is holistic.
     Holy Child Montessori offers continuous support throughout your learning and

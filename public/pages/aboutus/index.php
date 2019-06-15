@@ -3,8 +3,8 @@ $page_title = "About Us";
 include("../_head.php");
 ?>
 <br>
-<h4 class="grey-text"><?=$page_title?></h4>
-<br>
+<!--h4 class="grey-text"><?=$page_title?></h4>
+<br-->
 <p>
 Holy Child Montessori is located at #3 Ilang-Ilang St.,
 Merville Subd., Tanza, Navotas City. Providing quality

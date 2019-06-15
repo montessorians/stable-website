@@ -3,8 +3,8 @@ $page_title = "Admissions";
 include("../_head.php");
 ?>
 <br>
-<h4 class="grey-text"><?=$page_title?></h4>
-<br>
+<!--h4 class="grey-text"><?=$page_title?></h4>
+<br-->
 <p>
 Welcome Montessorian! There are just so many reasons to join our growing community.
 Our admission office would gladly assist you in starting your journey in our
